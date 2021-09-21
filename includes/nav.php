@@ -15,18 +15,9 @@
                                 <div class="main-menu  d-none d-xl-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="<?php linkto('index'); ?>">Home</a></li>
-                                            <li><a href="<?php linkto('#program'); ?>" class="scroll">Program</a></li>
-                                            <li><a href="<?php linkto('#speakers_area'); ?>" class="scroll">Speakers</a></li>
-                                            <li><a href="<?php linkto('exhibitors'); ?>">Exhibitors</a></li>
-                                            <li><a href="<?php linkto('partner'); ?>">Partner with us</a></li>
-                                            <li><a href="learn">Destination Information</a></li>
-                                            <li><a href="<?php linkto('contact'); ?>">Contact Us</a></li>
-                                            <?php if(isset($_SESSION['username'])) {?>
-                                            <li><a href="<?php linkto('logout'); ?>">Logout</a></li>
-                                            <?php } else { ?>
-                                            <li><a href="<?php linkto('login'); ?>">Login</a></li>
-                                            <?php } ?>
+                                            <li><a href="https://apacongress.africa/">Home</a></li>
+                                            <li><a href="#">Contact Us</a></li>
+                                            
                                         </ul>
                                     </nav>
                                 </div>
