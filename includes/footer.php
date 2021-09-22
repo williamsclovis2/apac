@@ -46,7 +46,7 @@
   </div>
 </footer>
 <a id="backtotop" href="#top"><i class="fa fa-level-up"></i></a>
-<!-- </div> -->
+<!-- </div> --> 
 
 <!-- link that opens popup -->
 <!-- JS here -->
