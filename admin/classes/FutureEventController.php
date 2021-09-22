@@ -160,6 +160,15 @@ class FutureEventController
           return  $FutureEventTable->data();
         return  0;
     }
-    
+	
+    public static function getPacipationCategoryByID($ID){
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT * FROM `future_participation_type` WHERE id = $ID ");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->first();
+        return  0;
+    }
+		
+
  
 }

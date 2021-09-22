@@ -1,4 +1,18 @@
-<?php require_once 'admin/core/init.php';?>
+<?php 
+require_once 'admin/core/init.php';
+
+/** Get the Participation Type ID  and Event Type */
+if(!Input::checkInput('form', 'get', 1) OR !Input::checkInput('event_type', 'get', 1))
+  Redirect::to('home');
+
+$_EVENT_TYPE_ = Input::get('event_type', 'get');
+$_EVENT_PARTICIPATION_TYPE_ID_ = Input::get('form', 'get');
+$_EVENT_PARTICIPATION_TYPE_ID_ = Hash::decryptToken($_EVENT_PARTICIPATION_TYPE_ID_);
+
+$_EVENT_PARTICIPATION_TYPE_DATA_ = FutureEventController::getPacipationCategoryByID($_EVENT_PARTICIPATION_TYPE_ID_);
+$_EVENT_PARTICIPATION_TYPE_FORM_ID_ = $_EVENT_PARTICIPATION_TYPE_DATA_->form_order;
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,20 +22,26 @@
     <?php include'includes/head.php';?>
 </head>
 <body>
-    <?php include'includes/nav.php';?>
+    <?php include'includes/nav.php'; ?>
     <?php 
-        switch (Input::get('form')) {
-            case 'delegate':
-                include 'forms/delegate.php';
+        switch ($_EVENT_PARTICIPATION_TYPE_FORM_ID_ ) {
+            case '1':
+                include 'forms/form1.php';
                 break;
-            case 'media':
-                include 'forms/media.php';
+            case '2':
+                include 'forms/form2.php';
+                break;
+            case '3':
+                include 'forms/form3.php';
+                break;
+            case '4':
+                include 'forms/form4.php';
                 break;
             case 'notification':
                 Redirect::to('notification');
                 break;
             default:
-               include 'forms/delegate.php';
+               include 'forms/form1.php';
                 break;
         }
     ?>
