@@ -155,7 +155,7 @@ class FutureEventController
 
     public static function getActivePacipationCategoryByEventID($eventID){
         $FutureEventTable = new FutureEvent();
-        $FutureEventTable->selectQuery("SELECT name, payment_state, virtual_price, inperson_price, sub_type_state FROM future_participation_type WHERE event_id = {$eventID} AND status = 'ACTIVE' ");
+        $FutureEventTable->selectQuery("SELECT id,name, payment_state, virtual_price, inperson_price, sub_type_state, currency FROM future_participation_type WHERE event_id = {$eventID} AND status = 'ACTIVE' ");
         if($FutureEventTable->count())
           return  $FutureEventTable->data();
         return  0;

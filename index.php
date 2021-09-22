@@ -37,57 +37,30 @@
                     </div>
                     
                     <div class="row">
+<?php
+$_DATA_PARTICIPATION_CATEGORY_  = FutureEventController::getActivePacipationCategoryByEventID(7);
+if($_DATA_PARTICIPATION_CATEGORY_ ):
+  foreach($_DATA_PARTICIPATION_CATEGORY_ As $_event_participation_category_ ):
+    $currency_ = $_event_participation_category_->currency == 'USD'?'$':'RWF';
+?>
                       <div class="col-lg-3">
                         <div class="box wow fadeInLeft" data-wow-duration="1.2s" data-wow-delay=".5s">
-                          <h3>Silver Package</h3>
-                          <h4><sup>$</sup>100<span>Lorem ipsum</span></h4>
+                          <h3> <?= $_event_participation_category_->name?> </h3>
+                          <h4><sup> <?= $currency_?> </sup> <?= $_event_participation_category_->inperson_price?> <span>Lorem ipsum</span></h4>
                           <ul>
                             <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
                             <li><i class="bx bx-check"></i> Nec feugiat nisl </li>
                             <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis </span></li>
                           </ul>
-                          <a href="register/vip" class="buy-btn">Register</a>
+                          <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->id)?>" class="buy-btn">Register</a>
                         </div>
                       </div>
-                      <div class="col-lg-3 mt-4 mt-lg-0">
-                        <div class="box wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-                          <h3>Gold Package</h3>
-                          <h4><sup>$</sup>200<span>Lorem ipsum</span></h4>
-                          <ul>
-                            <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
-                            <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                            <li><i class="bx bx-check"></i> Nulla at volutpat diam </li>
-                            
-                          </ul>
-                          <a href="register/vip" class="buy-btn">Register</a>
-                        </div>
-                      </div>
-                      <div class="col-lg-3 mt-4 mt-lg-0">
-                        <div class="box wow fadeInRight" data-wow-duration="1.2s" data-wow-delay=".5s">
-                          <h3>Platinum Package</h3>
-                          <h4><sup>$</sup>300<span>Lorem ipsum</span></h4>
-                          <ul>
-                            <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
-                            <li><i class="bx bx-check"></i> Nec feugiat nisl </li>
-                            <li><i class="bx bx-check"></i> Nulla at volutpat diam </li>
-                        
-                          </ul>
-                          <a href="register/vip" class="buy-btn">Register</a>
-                        </div>
-                      </div>
-                      <div class="col-lg-3 mt-4 mt-lg-0">
-                        <div class="box wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-                          <h3>Gold Package</h3>
-                          <h4><sup>$</sup>200<span>Lorem ipsum</span></h4>
-                          <ul>
-                            <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
-                            <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                            <li><i class="bx bx-check"></i> Nulla at volutpat diam </li>
-                            
-                          </ul>
-                          <a href="register/vip" class="buy-btn">Register</a>
-                        </div>
-                      </div>
+<?php
+  endforeach;
+endif;
+?>
+                     
+                   
                     </div>
                 </div>
             </div>
@@ -101,57 +74,30 @@
                         <h3 class="red-title">Virtual attendance registration </h3> 
                     </div>
                     <div class="row">
+<?php
+$_DATA_PARTICIPATION_CATEGORY_  = FutureEventController::getActivePacipationCategoryByEventID(7);
+if($_DATA_PARTICIPATION_CATEGORY_ ):
+  foreach($_DATA_PARTICIPATION_CATEGORY_ As $_event_participation_category_ ):
+    $currency_ = $_event_participation_category_->currency == 'USD'?'$':'RWF';
+?>
                       <div class="col-lg-3">
                         <div class="box wow fadeInLeft red-card" data-wow-duration="1.2s" data-wow-delay=".5s">
-                          <h3>Silver Package</h3>
-                          <h4><sup>$</sup>100<span>Lorem ipsum</span></h4>
+                          <h3><?= $_event_participation_category_->name?></h3>
+                          <h4><sup><?= $currency_?> </sup><?= $_event_participation_category_->virtual_price?><span>Lorem ipsum</span></h4>
                           <ul>
                             <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
                             <li><i class="bx bx-check"></i> Nec feugiat nisl </li>
                             <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis </span></li>
                           </ul>
-                          <a href="register/vip" class="buy-btn">Register</a>
+                          <a href="registration/event/virtual/<?=Hash::encryptToken($_event_participation_category_->id)?>" class="buy-btn">Register</a>
                         </div>
                       </div>
-                      <div class="col-lg-3 mt-4 mt-lg-0">
-                        <div class="box wow fadeInUp red-card" data-wow-duration="1s" data-wow-delay=".3s">
-                          <h3>Gold Package</h3>
-                          <h4><sup>$</sup>200<span>Lorem ipsum</span></h4>
-                          <ul>
-                            <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
-                            <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                            <li><i class="bx bx-check"></i> Nulla at volutpat diam </li>
-                            
-                          </ul>
-                          <a href="register/vip" class="buy-btn">Register</a>
-                        </div>
-                      </div>
-                      <div class="col-lg-3 mt-4 mt-lg-0">
-                        <div class="box wow fadeInRight red-card" data-wow-duration="1.2s" data-wow-delay=".5s">
-                          <h3>Platinum Package</h3>
-                          <h4><sup>$</sup>300<span>Lorem ipsum</span></h4>
-                          <ul>
-                            <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
-                            <li><i class="bx bx-check"></i> Nec feugiat nisl </li>
-                            <li><i class="bx bx-check"></i> Nulla at volutpat diam </li>
+<?php
+  endforeach;
+endif;
+?>
                         
-                          </ul>
-                          <a href="register/vip" class="buy-btn">Register</a>
-                        </div>
-                      </div>
-                      <div class="col-lg-3 mt-4 mt-lg-0">
-                        <div class="box wow fadeInUp red-card" data-wow-duration="1s" data-wow-delay=".3s">
-                          <h3>Gold Package</h3>
-                          <h4><sup>$</sup>200<span>Lorem ipsum</span></h4>
-                          <ul>
-                            <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
-                            <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                            <li><i class="bx bx-check"></i> Nulla at volutpat diam </li>
-                            
-                          </ul>
-                          <a href="register/vip" class="buy-btn">Register</a>
-                        </div>
-                      </div>
+                      
                     </div>
                 </div>
             </div>
