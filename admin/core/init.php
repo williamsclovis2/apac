@@ -34,7 +34,7 @@ $GLOBALS['config'] = array(
 require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/functions/functions.php';
 
 spl_autoload_register(function($class) {
-  require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/classes/' . $class . '.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/classes/' . $class . '.php';
 });
 
 if(Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('sessions/session_name'))) {
