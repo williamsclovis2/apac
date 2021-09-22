@@ -7,6 +7,7 @@ if(!Input::checkInput('form', 'get', 1) OR !Input::checkInput('event_type', 'get
 
 $_EVENT_TYPE_ = Input::get('event_type', 'get');
 $_EVENT_PARTICIPATION_TYPE_ID_ = Input::get('form', 'get');
+$_EVENT_PARTICIPATION_TYPE_ID_ = Hash::decryptToken($_EVENT_PARTICIPATION_TYPE_ID_);
 
 $_EVENT_PARTICIPATION_TYPE_DATA_ = FutureEventController::getPacipationCategoryByID($_EVENT_PARTICIPATION_TYPE_ID_);
 $_EVENT_PARTICIPATION_TYPE_FORM_ID_ = $_EVENT_PARTICIPATION_TYPE_DATA_->form_order;
@@ -21,7 +22,7 @@ $_EVENT_PARTICIPATION_TYPE_FORM_ID_ = $_EVENT_PARTICIPATION_TYPE_DATA_->form_ord
     <?php include'includes/head.php';?>
 </head>
 <body>
-    <?php include'includes/nav.php';?>
+    <?php include'includes/nav.php'; ?>
     <?php 
         switch ($_EVENT_PARTICIPATION_TYPE_FORM_ID_ ) {
             case '1':

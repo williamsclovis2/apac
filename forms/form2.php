@@ -5,7 +5,7 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-12">
                         <div class="slider_text slider_text_register">
-                            <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;">Media Registration Form</h3>
+                            <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;">Media Registration Form 02</h3>
                             <span class="separator-line wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s"></span>
                         </div>
                     </div>
