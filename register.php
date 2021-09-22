@@ -11,6 +11,7 @@ $_EVENT_PARTICIPATION_TYPE_ID_ = Input::get('form', 'get');
 $_EVENT_PARTICIPATION_TYPE_DATA_ = FutureEventController::getPacipationCategoryByID($_EVENT_PARTICIPATION_TYPE_ID_);
 $_EVENT_PARTICIPATION_TYPE_FORM_ID_ = $_EVENT_PARTICIPATION_TYPE_DATA_->form_order;
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>

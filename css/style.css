@@ -2223,7 +2223,7 @@ h3 {
 
 .site-footer {
   padding: 2em 0;
-  background: #1c1c1c;
+  background: #1e3e27;
 }
 @media (min-width: 768px) {
   .site-footer {
@@ -2253,9 +2253,9 @@ h3 {
   color: #fff;
 }
 .site-footer .footer-date {text-align: center;}
-.site-footer .footer-date h3 {color: #737373;}
-.site-footer .footer-date p, .site-footer .footer-date p a {color: #737373; margin-bottom: 0; font-size: 14px;}
-.site-footer .footer-date p, .site-footer .footer-date p a {color: #737373; margin-bottom: 0; font-size: 14px;}
+.site-footer .footer-date h3 {color: #f3f3f3;}
+.site-footer .footer-date p, .site-footer .footer-date p a {color: #f3f3f3; margin-bottom: 0; font-size: 14px;}
+.site-footer .footer-date p, .site-footer .footer-date p a {color: #f3f3f3; margin-bottom: 0; font-size: 14px;}
 .site-footer .footer-date p a:hover {color: #fff;}
 .site-footer .footer-date .border-top {margin: 15px 0;}
 
@@ -3506,7 +3506,7 @@ h1,h2,h3,h4,h5,h6 {line-height: 1.2em;}
 
 
 #backtotop{
-  background: #144a23;
+  background: #37af47;
   height: 50px;
   width: 50px;
   right: 31px;
@@ -3522,7 +3522,7 @@ h1,h2,h3,h4,h5,h6 {line-height: 1.2em;}
   visibility:hidden;
 }
 #backtotop i{display:block; width:100%; height:100%; line-height:inherit;}
-#backtotop.visible{visibility:visible; opacity:.5;}
+#backtotop.visible{visibility:visible; opacity:.9;}
 #backtotop:hover{opacity:1;}
 @media (max-width: 575px) {
   #backtotop {right: 16px;}
