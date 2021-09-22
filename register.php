@@ -3,9 +3,18 @@ require_once 'admin/core/init.php';
 
 /** Get the Participation Type ID  and Event Type */
 if(!Input::checkInput('form', 'get', 1) OR !Input::checkInput('event_type', 'get', 1))
-  Redirect::to('home');
+  Redirect::to('');
 
-$_EVENT_TYPE_ = Input::get('event_type', 'get');
+$_EVENT_TYPE_     = strtoupper( Input::get('event_type', 'get') );
+
+/** Get the Participation Type ID  and Event Type */
+if($_EVENT_TYPE_  != 'INPERSON' AND $_EVENT_TYPE_  != 'VIRTUAL'  )
+  Redirect::to('');
+
+$_EVENT_TYPE_NAME_ = ucfirst($_EVENT_TYPE_);
+if($_EVENT_TYPE_ == 'INPERSON')
+    $_EVENT_TYPE_NAME_ = 'In-person';
+
 $_EVENT_PARTICIPATION_TYPE_ID_ = Input::get('form', 'get');
 $_EVENT_PARTICIPATION_TYPE_ID_ = Hash::decryptToken($_EVENT_PARTICIPATION_TYPE_ID_);
 
@@ -38,6 +47,12 @@ $_EVENT_PARTICIPATION_TYPE_NAME_ =  $_EVENT_PARTICIPATION_TYPE_DATA_->name;
                 break;
             case '4':
                 include 'forms/form4.php';
+                break;
+            case '5':
+                include 'forms/form5.php';
+                break;
+            case '6':
+                include 'forms/form6.php';
                 break;
             case 'notification':
                 Redirect::to('notification');
