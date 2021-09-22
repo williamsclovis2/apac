@@ -10,6 +10,7 @@ RewriteRule ^(css|js|fonts|images|plugins)($|/) - [L]
 
 # Set The form page
 RewriteRule ^register/([0-9a-zA-Z]+)$	register.php?form=$1 [L]
+RewriteRule ^registration/event/([a-z]+)/([0-9]+)$	register.php?form=$2&event_type=$1 [L]
 RewriteRule ^register/$ register.php?form=$1 [L]
 
 # Set the website content pages
