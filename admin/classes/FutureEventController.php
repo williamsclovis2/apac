@@ -158,15 +158,55 @@ class FutureEventController
         $FutureEventTable->selectQuery("SELECT id,name, payment_state, virtual_price, inperson_price, sub_type_state, currency FROM future_participation_type WHERE event_id = {$eventID} AND status = 'ACTIVE' AND visibility_state = 1  ");
         if($FutureEventTable->count())
           return  $FutureEventTable->data();
-        return  0;
+        return  false;
     }
-	
-    public static function getPacipationCategoryByID($ID){
+
+    public static function getPacipationCategoryByID($ID){ 
         $FutureEventTable = new FutureEvent();
         $FutureEventTable->selectQuery("SELECT * FROM `future_participation_type` WHERE id = {$ID} ");
         if($FutureEventTable->count())
           return  $FutureEventTable->first();
-        return  0;
+        return  false;
+    }
+		
+    public static function getActivePacipationSubCategoryByPartcipationTypeID($participation_type_Id, $eventType = 'INPERSON'){
+		$FutureEventTable 		 = new FutureEvent();
+		$FutureEventTable->selectQuery("SELECT * FROM future_participation_sub_type WHERE participation_type_id = {$participation_type_Id} AND category = '{$eventType}' AND status = 'ACTIVE'  ");
+		if($FutureEventTable->count())
+			return  $FutureEventTable->data();
+        return  false;
+    }
+			
+    public static function getVisiblePacipationSubCategory($eventID, $eventType = 'INPERSON'){
+		if(($_participation_type_data_ = self::getActivePacipationCategoryByEventID($eventID))): 
+			$_array_data_ = array();
+			foreach($_participation_type_data_ As $_participation_type_):
+
+				if(($_participation_sub_type_data_  = self::getActivePacipationSubCategoryByPartcipationTypeID($_participation_type_->id, $eventType))):
+					foreach($_participation_sub_type_data_ As $sub_type_):
+						$_array_data_[] = array(
+							'participation_type_name' => $_participation_type_->name,
+							'participation_type_payment_state' =>  $_participation_type_->payment_state,
+							'participation_sub_type_id' => $sub_type_->id,
+							'participation_sub_type_name' => $sub_type_->name, 
+							'participation_sub_type_price' => $sub_type_->price,
+							'participation_sub_type_currency' => $sub_type_->currency, 
+						);
+					endforeach;
+
+				endif;
+			endforeach;
+			return $_array_data_;
+		endif;
+        return  false;
+    }
+
+    public static function getPacipationSubCategoryByID($ID){
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT future_participation_type.*, future_participation_sub_type.name As sub_type_name  FROM `future_participation_type`  INNER JOIN future_participation_sub_type ON future_participation_type.id = future_participation_sub_type.participation_type_id WHERE future_participation_sub_type.id = {$ID} ");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->first();
+        return  false;
     }
 		
 
