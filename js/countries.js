@@ -354,6 +354,11 @@ $(document).ready(function () {
         templateResult: formatCountry,
         data: options
     });
+    $('#non_african_country2').select2({
+        placeholder: '[--Select Country--]',
+        templateResult: formatCountry,
+        data: options
+    });
 
     $('#organization_country').select2({
         placeholder: '[--Select Country--]',
