@@ -17,13 +17,16 @@ if($_EVENT_TYPE_ == 'INPERSON')
 if($_EVENT_TYPE_ == 'VIRTUAL')
     $_EVENT_TYPE_NAME_ = 'Virtual';
 
-$_EVENT_PARTICIPATION_TYPE_ID_ = Input::get('form', 'get');
-$_EVENT_PARTICIPATION_TYPE_ID_ = Hash::decryptToken($_EVENT_PARTICIPATION_TYPE_ID_);
 
-$_EVENT_PARTICIPATION_TYPE_DATA_ = FutureEventController::getPacipationSubCategoryByID($_EVENT_PARTICIPATION_TYPE_ID_);
+$_EVENT_PARTICIPATION_SUB_TYPE_ID_ENCRYPTED_ = Input::get('form', 'get');
+$_EVENT_PARTICIPATION_SUB_TYPE_ID_ = Hash::decryptToken($_EVENT_PARTICIPATION_SUB_TYPE_ID_ENCRYPTED_);
+
+$_EVENT_PARTICIPATION_TYPE_DATA_ = FutureEventController::getPacipationSubCategoryByID($_EVENT_PARTICIPATION_SUB_TYPE_ID_);
 $_EVENT_PARTICIPATION_TYPE_FORM_ID_ = $_EVENT_PARTICIPATION_TYPE_DATA_->form_order;
 
-$_EVENT_PARTICIPATION_TYPE_NAME_ =  $_EVENT_PARTICIPATION_TYPE_DATA_->name;
+$_EVENT_PARTICIPATION_TYPE_NAME_ = $_EVENT_PARTICIPATION_TYPE_DATA_->name;
+$_EVENT_SUB_TYPE_NAME_           = $_EVENT_PARTICIPATION_TYPE_DATA_->sub_type_name;
+
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +35,7 @@ $_EVENT_PARTICIPATION_TYPE_NAME_ =  $_EVENT_PARTICIPATION_TYPE_DATA_->name;
     <link rel="stylesheet" href="<?php linkto('css/select2.min.css'); ?>">
     <link rel="stylesheet" href="<?php linkto('css/flag-icon.min.css'); ?>">
     <link rel="stylesheet" href="<?php linkto('build/css/intlTelInput.css'); ?>">
+    <link rel="stylesheet" class="host" link="<?=Config::get('server/name')?>"></link>
     <?php include'includes/head.php';?>
 </head>
 <body>
@@ -65,11 +69,11 @@ $_EVENT_PARTICIPATION_TYPE_NAME_ =  $_EVENT_PARTICIPATION_TYPE_DATA_->name;
         }
     ?>
 
-    <?php include'forms/register-account.php';?>
+    <?php include 'forms/register-account.php';?>
 
     <?php //include'views/partners.php';?>
 
-    <?php include'includes/footer.php';?>
+    <?php include 'includes/footer.php';?>
 
     <script src="<?php linkto('forms/register-form.js'); ?>"></script>
 

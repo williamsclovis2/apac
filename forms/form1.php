@@ -7,7 +7,7 @@
                     <div class="slider_text slider_text_register">
                         <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?=$_EVENT_PARTICIPATION_TYPE_NAME_ ?> Registration Form </h3>
                         <span class="separator-line wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s"></span>
-                        <h5 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?= ucfirst($_EVENT_TYPE_NAME_) ?> Event </h5>
+                        <h5 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?= ucfirst($_EVENT_SUB_TYPE_NAME_) ?>/ <?= ucfirst($_EVENT_TYPE_NAME_) ?> Event </h5>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                                 <label for="firstname" class="col-sm-3">First name <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
                                     <input class="form-control" name="firstname" id="firstname" type="text" placeholder="First name" data-rule="required" data-msg="Please enter first name"/>
-                                    <div class="validate"></div>
+                                    <div class="validate" id="firstname_error"></div>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                                 <label for="lastname" class="col-sm-3">Second name <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
                                     <input class="form-control" name="lastname" id="lastname" type="text" placeholder="Last name" data-rule="required" data-msg="Please enter last name"/>
-                                    <div class="validate"></div> 
+                                    <div class="validate" id="lastname_error"></div> 
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                 <label for="email" class="col-sm-3">Email <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
                                   <input class="form-control" name="email" id="email" type="text" placeholder="Email" data-rule="email" data-msg="Please enter a valid email"/>
-                                    <div class="validate"></div>
+                                    <div class="validate" id="email_error"></div>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                                 <label for="email" class="col-sm-3">Confirm email <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
                                   <input class="form-control" name="confirm_email" id="confirm_email" type="text" placeholder="Confirm email" data-rule="email" data-msg="email doesn't match field"/>
-                                    <div class="validate"></div>
+                                    <div class="validate" id="confirm_email_error"></div>
                                 </div>
                             </div>
                         </div>
@@ -317,10 +317,11 @@
                     </div>
 
                     <div class="form-group mt-2" style="overflow: auto;">
-                        <input type="hidden" name="request" value="register">
-                        <input type="hidden" name="eventId" value="<?=$activeEventId?>">
-                        <input type="hidden" name="del_type" value="Delegate">
-                        <button type="submit" id="registerButton" class="btn btn-primary px-5 py-2 text-white pull-right">Submit</button>
+                        <input type="hidden" name="request"  value="registration">
+                        <input type="hidden" name="eventId"  value="<?=Hash::encryptToken($activeEventId)?>">
+                        <input type="hidden" name="del_type" value="">
+                        <input type="hidden" name="eventParticipation" value="<?=$_EVENT_PARTICIPATION_SUB_TYPE_ID_ENCRYPTED_?>">
+                        <button type="button" id="registerButton" class="btn btn-primary px-5 py-2 text-white pull-right registerFormSubmit">Submit</button>
                     </div>
                 </form>
             </div>

@@ -362,7 +362,7 @@ $(document).ready(function () {
     $('#non_african_country2').select2({
         placeholder: '[--Select Country--]',
         templateResult: formatCountry,
-        data: options
+        data: options_non_african_country
     });
 
     $('#organisation_country').select2({
