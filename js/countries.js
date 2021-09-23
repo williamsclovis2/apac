@@ -341,7 +341,12 @@ $(document).ready(function () {
     $('#african_country').select2({
         placeholder: '[--Select Country--]',
         templateResult: formatCountry,
-        data: options
+        data: options_african_country
+    });
+    $('#dafrican_country').select2({
+        placeholder: '[--Select Country--]',
+        templateResult: formatCountry,
+        data: options_african_country
     });
     $('#african_country2').select2({
         placeholder: '[--Select Country--]',
@@ -352,7 +357,7 @@ $(document).ready(function () {
     $('#non_african_country').select2({
         placeholder: '[--Select Country--]',
         templateResult: formatCountry,
-        data: options
+        data: options_non_african_country
     });
     $('#non_african_country2').select2({
         placeholder: '[--Select Country--]',
@@ -360,7 +365,7 @@ $(document).ready(function () {
         data: options
     });
 
-    $('#organization_country').select2({
+    $('#organisation_country').select2({
         placeholder: '[--Select Country--]',
         templateResult: formatCountry,
         data: options

@@ -37,28 +37,31 @@
                     </div>
                     
                     <div class="row">
-                    <?php
-                    $_DATA_PARTICIPATION_CATEGORY_  = FutureEventController::getActivePacipationCategoryByEventID(7);
-                    if($_DATA_PARTICIPATION_CATEGORY_ ):
-                    foreach($_DATA_PARTICIPATION_CATEGORY_ As $_event_participation_category_ ):
-                        $currency_ = $_event_participation_category_->currency == 'USD'?'$':'RWF';
-                    ?>
+<?php
+$_DATA_PARTICIPATION_CATEGORY_  = FutureEventController::getVisiblePacipationSubCategory(7, 'INPERSON');
+if($_DATA_PARTICIPATION_CATEGORY_ ):
+    foreach($_DATA_PARTICIPATION_CATEGORY_ As $_event_participation_category_ ):
+        $_event_participation_category_ = (Object) $_event_participation_category_ ;
+        $currency_                      = $_event_participation_category_->participation_sub_type_currency == 'USD'?'$':'RWF';
+    ?>
                       <div class="col-lg-3">
                         <div class="box wow fadeInLeft" data-wow-duration="1.2s" data-wow-delay=".5s">
-                          <h3> <?= $_event_participation_category_->name?> </h3>
-                          <h4><sup> <?= $currency_?> </sup> <?= $_event_participation_category_->inperson_price?> <span>Lorem ipsum</span></h4>
+                          <h3> <?= $_event_participation_category_->participation_type_name?> </h3>
+                          <h4>
+                            <sup> <?= $currency_?> </sup> <?= $_event_participation_category_->participation_sub_type_price?>
+                           <span><?= $_event_participation_category_->participation_sub_type_name?> </span></h4>
                           <ul>
                             <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
                             <li><i class="bx bx-check"></i> Nec feugiat nisl </li>
                             <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis </span></li>
                           </ul>
-                          <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->id)?>" class="buy-btn">Register</a>
+                          <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn">Register</a>
                         </div>
                       </div>
-                    <?php
-                    endforeach;
-                    endif;
-                    ?>
+<?php
+    endforeach;
+endif;
+    ?>
                      
                     </div>
                 </div>
@@ -73,28 +76,32 @@
                         <h3 class="red-title">Virtual attendance registration </h3> 
                     </div>
                     <div class="row">
-                    <?php
-                    $_DATA_PARTICIPATION_CATEGORY_  = FutureEventController::getActivePacipationCategoryByEventID(7);
-                    if($_DATA_PARTICIPATION_CATEGORY_ ):
-                    foreach($_DATA_PARTICIPATION_CATEGORY_ As $_event_participation_category_ ):
-                        $currency_ = $_event_participation_category_->currency == 'USD'?'$':'RWF';
-                    ?>
+
+<?php
+$_DATA_PARTICIPATION_CATEGORY_  = FutureEventController::getVisiblePacipationSubCategory(7, 'VIRTUAL');
+if($_DATA_PARTICIPATION_CATEGORY_ ):
+    foreach($_DATA_PARTICIPATION_CATEGORY_ As $_event_participation_category_ ):
+        $_event_participation_category_ = (Object) $_event_participation_category_ ;
+        $currency_                      = $_event_participation_category_->participation_sub_type_currency == 'USD'?'$':'RWF';
+    ?>
                       <div class="col-lg-3">
                         <div class="box wow fadeInLeft red-card" data-wow-duration="1.2s" data-wow-delay=".5s">
-                          <h3><?= $_event_participation_category_->name?></h3>
-                          <h4><sup><?= $currency_?> </sup><?= $_event_participation_category_->virtual_price?><span>Lorem ipsum</span></h4>
+                          <h3><?= $_event_participation_category_->participation_type_name?></h3>
+                          <h4>
+                            <sup><?= $currency_?> </sup><?= $_event_participation_category_->participation_sub_type_price?>
+                            <span><?= $_event_participation_category_->participation_sub_type_name?></span></h4>
                           <ul>
                             <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
                             <li><i class="bx bx-check"></i> Nec feugiat nisl </li>
                             <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis </span></li>
                           </ul>
-                          <a href="registration/event/virtual/<?=Hash::encryptToken($_event_participation_category_->id)?>" class="buy-btn">Register</a>
+                          <a href="registration/event/virtual/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn">Register</a>
                         </div>
                       </div>
-                    <?php
-                    endforeach;
-                    endif;
-                    ?>     
+<?php
+    endforeach;
+endif;
+    ?>     
                     </div>
                 </div>
             </div>
