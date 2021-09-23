@@ -14,7 +14,7 @@
     </div>
 </div>
     
-<div class="service_area about_event" style="background: #000;" id="register_area">
+<div class="service_area about_event"  id="register_area">
     <div class="container">
         <div class="row">
             <div class="col-lg-2"></div>
