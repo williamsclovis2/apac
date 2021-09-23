@@ -39,6 +39,10 @@ function Danger($message) {
 		</div>" ;
 }
 
+function firstUC($character){
+	return ucfirst($character);
+}
+
 function time_elapsed_string($datetime, $full = false) {
     $now = new DateTime;
     $ago = new DateTime($datetime);

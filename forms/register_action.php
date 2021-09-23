@@ -3,6 +3,61 @@
 
   $valid['success'] = array('success' => false, 'messages' => array());
 
+  // $_POST = array(
+  //   'eventId'             		=> '33323039393636333339',
+  //   'participation_type_id'     => 0,
+  //   'eventParticipation' => '383232323232323231',
+
+  //   'firstname'            => 'firstname',
+  //   'lastname'             => 'lastname',
+  //   'email'                => 'email',
+  //   'password'             => "",
+  //   'salt'             	   => "",
+
+  //   'telephone'            => "",
+  //   'telephone_2'          => "",
+
+  //   'gender'               => "",
+  //   'birthday'             => "",
+  //   'organisation_name'    => "",
+  //   'organisation_type'    => "",
+  //   'industry'             => "",
+  //   'job_title'            => "",
+  //   'job_category'         => "",
+  //   'organisation_address' => "",
+  //   'line_one'             => "",
+  //   'line_two'             => "",
+  //   'organisation_country' => "",
+  //   'organisation_city'    => "",
+
+  //   'postal_code'          => "",
+  //   'website'              => "",
+
+  //   'residence_country'    => "",
+  //   'residence_city'       => "",
+  //   'citizenship'          => "",
+  //   'id_type'              => "",
+  //   'id_number'            => "",
+
+  //   'media_card_number'    => "",
+  //   'media_card_authority' => "",
+  //   'media_equipment'      => "",
+  //   'special_request'      => "",
+  //   'delegate_type'        => "",
+
+  //   'reg_date'             => date('Y-m-d H:i:s'),
+  //   'status'               => "PENDING",
+    
+  //   'educacation_institute_name'      => "",
+  //   'educacation_institute_category'  => "",
+  //   'educacation_institute_industry'  => "",
+  //   'educacation_institute_website'   => "",
+  //   'educacation_institute_country'   => "",
+  //   'educacation_institute_city'      => "",
+
+  //   'request' => 'registration',
+  // );
+
   // Get captcha session
   if(Input::get('request') && Input::get('request') == 'captchaSession') {
     $valid['success']  = true;
@@ -251,6 +306,37 @@
     }
     echo json_encode($valid);
   }
+
+
+  /** Event Participant Registration */
+  if(Input::checkInput('request', 'post', 1)):
+    $_REQUEST_ = Input::get('request', 'post');
+    switch($_REQUEST_):
+      
+      case 'registration':
+        $_form_ = FutureEventController::registerEventParticipant();
+        if($_form_->ERRORS == false):
+            $_PARTICIPATION_PAYMENT_TYPE_ = 'PAYABLE';
+
+            if($_PARTICIPATION_PAYMENT_TYPE_ == 'PAYABLE'):
+              $response['status'] = 100;
+              $response['message']= 'REDIRECT_TO_PASSWORD_SETTINGS';
+
+            else:
+              $response['status'] = 200;
+              $response['message']= 'REDIRECT_TO_PASSWORD_SETTINGS';
+            endif;
+
+        else:
+          $response['status'] = 400;
+          $response['message']= $_form_->ERRORS_STRING;
+
+        endif;
+      break;
+
+    endswitch;
+    echo json_encode($response);
+  endif;
 
 ?>
 
