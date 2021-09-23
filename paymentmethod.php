@@ -30,7 +30,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section_title mb-4 ">
-                        <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <p class="wow fadeInUp note" data-wow-duration="1s" data-wow-delay=".1s">Note:</p>
+                    <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
