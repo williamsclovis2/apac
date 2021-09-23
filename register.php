@@ -86,6 +86,15 @@ $_EVENT_PARTICIPATION_TYPE_NAME_ =  $_EVENT_PARTICIPATION_TYPE_DATA_->name;
         });
     </script>
     <script>
+        var input = document.querySelector("#telephone_2");
+        window.intlTelInput(input, {
+            autoPlaceholder: "off",
+            initialCountry: "rw",
+            separateDialCode: true,
+            utilsScript: "../build/js/utils.js",
+        });
+    </script>
+    <script>
         var input = document.querySelector("#delegate-phone");
         window.intlTelInput(input, {
             autoPlaceholder: "off",
