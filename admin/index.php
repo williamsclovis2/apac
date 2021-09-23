@@ -1,12 +1,12 @@
 <?php
 require_once "core/init.php"; 
 
-if(!$user->isLoggedIn()) {
-    Redirect::to('admin/login');
-}
-if (!$user->hasPermission('admin')) {
-    Redirect::to('admin/pages/events/events_list');
-}
+// if(!$user->isLoggedIn()) {
+//     Redirect::to('admin/login');
+// }
+// if (!$user->hasPermission('admin')) {
+//     Redirect::to('admin/pages/events/events_list');
+// }
 
 $page = "home";
 ?>

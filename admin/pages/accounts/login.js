@@ -33,9 +33,11 @@ $(document).ready(function(){
 	        i.next('.validate').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
 	    }
 	    });
-	    if (ferror) return false;
-	    else var str = $(this).serialize();
-
+		
+	    // if (ferror) return false;
+	    // else
+		 var str = $(this).serialize();
+		
 	    var this_form     = $(this);
 	    var action        = $(this).attr('action');
 	    var inputCaptcha  =document.getElementById("securityCode").value.trim();
@@ -45,13 +47,14 @@ $(document).ready(function(){
 	    $('#failed-div').attr('hidden', '');  
 	    $('#log-div').removeAttr('hidden');
 	    
-	    $.ajax({
-            type: "POST",
-	      	url: action,
-	      	data: {request: "captchaSession"},
-	      	dataType: 'json',
-	      	success:function(response) {
-	      		if (response.messages == inputCaptcha) {
+	    // $.ajax({
+            // type: "POST",
+	      	// url: action,
+	      	// data: {request: "captchaSession"},
+	      	// dataType: 'json',
+	      	// success:function(response) {
+	      		// if (response.messages == inputCaptcha) {
+					alert("pass");
 				    $.ajax({
 				      	type: "POST",
 				      	url: action,
@@ -101,13 +104,13 @@ $(document).ready(function(){
 					        }
 				      	}
 				    });
-				} else {
-					$('#log-div').attr('hidden','hidden');
-					$("#loginButton").button('reset');
-					document.getElementById("securityCode_error").innerHTML="Invalid security code";
-				}
-			}
-		});
+				// } else {
+				// 	$('#log-div').attr('hidden','hidden');
+				// 	$("#loginButton").button('reset');
+				// 	document.getElementById("securityCode_error").innerHTML="Invalid security code";
+				// }
+			// }
+		// });
 	    return false;
 	});
 

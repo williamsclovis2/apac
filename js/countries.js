@@ -370,6 +370,17 @@ $(document).ready(function () {
         templateResult: formatCountry,
         data: options
     });
+    $('#organisation_country2').select2({
+        placeholder: '[--Select Country--]',
+        templateResult: formatCountry,
+        data: options
+    });
+    $('#student_country').select2({
+        placeholder: '[--Select Country--]',
+        templateResult: formatCountry,
+        data: options
+    });
+
 
     $('#residence_country').select2({
         placeholder: '[--Select Country--]',
