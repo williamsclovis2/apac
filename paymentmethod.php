@@ -34,21 +34,27 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="payment-meth">
-                                <div class="row">
-                                    <div class="col-md-3"><a href="#"><img class="img img-responsive" src="img/cards/visa.png"></a></div>
-                                    <div class="col-md-3"><a href="#"><img class="img img-responsive" src="img/cards/mastercard.png"></a></div>
-                                    <div class="col-md-3"><a href="#"><img class="img img-responsive" src="img/cards/americaexp.jpg"></a></div>
-                                    <div class="col-md-3"><a href="#"><img class="img img-responsive" src="img/cards/paypal.png"></a></div>
-                                    <div class="col-md-3"><a href="#"><img class="img img-responsive" src="img/cards/mpesa_logo.png"></a></div>
-                                    <div class="col-md-3"><a href="#"><img class="img img-responsive" src="img/cards/airtelmoney.jpg"></a></div>
-                                    <div class="col-md-3"><a href="#"><img class="img img-responsive" src="img/cards/tigo-pesa.png"></a></div>
-                                    <div class="col-md-3"><a href="#"><img class="img img-responsive" src="img/cards/momo.jpg"></a></div>
+                            <div class="payment-meth wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                                <a class="btn btn-primary  DPO_link" href="#" style="width:100%;">Click to pay with one of  services listed  bellow </a>
+                                <div class="row img-card">
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="img/cards/tigo-pesa.png"></a></div>
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="img/cards/tigo-pesa.png"></a></div>
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="img/cards/tigo-pesa.png"></a></div>
+
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="img/cards/tigo-pesa.png"></a></div>
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="img/cards/tigo-pesa.png"></a></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="img/cards/tigo-pesa.png"></a></div>
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="img/cards/tigo-pesa.png"></a></div>
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="img/cards/tigo-pesa.png"></a></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            
+                            <div class="payment-meth wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                                <a class="btn btn-primary  DPO_link " href="#"><i class="fa fa-bank"></i> Pay using bank transfer</a>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>

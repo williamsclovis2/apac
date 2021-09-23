@@ -3493,6 +3493,27 @@ h1,h2,h3,h4,h5,h6 {line-height: 1.2em;}
   background: #37af47;
   color: #fff;
 }
+.payment-meth .col-md-2{
+  padding: 5px;
+}
+.payment-meth .img-card{
+  margin-top: 10px;
+  padding-left: 10px;
+ 
+}
+.payment-meth .DPO_link{
+  font-size: 21.5px;
+  color: #fff;
+  font-weight: 700;
+  padding-bottom: 10px;
+
+  background-color:#39b54a !important;
+  border: 1px solid #39b54a;
+}
+.payment-meth .DPO_link i{
+  padding-right: 10px;
+}
+
 @media (max-width: 992px) {
   .pricing .box {
     max-width: 60%;
