@@ -27,7 +27,7 @@
                     <li><a href="<?php linkto('admin/'); ?>">Home</a></li>
                     <li><a href="<?php linkto('admin/pages/events/events_list'); ?>">Events</a></li>
                     <li><a>Website content</a></li>
-                    <li class="active"><strong>About section</strong></li>
+                    <li class="active"><strong>About section </strong></li>
                 </ol>
             </div>
             <div class="col-lg-2"></div>
@@ -52,7 +52,7 @@
                 <div class="col-lg-1"></div>
             </div>
         </div>
-
+    
         <script type="text/javascript">
             var eventId = '<?php echo $eventId; ?>';
             var linkto  = '<?php linkto("admin/pages/content/content_action.php"); ?>';

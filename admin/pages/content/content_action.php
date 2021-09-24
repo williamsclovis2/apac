@@ -181,6 +181,42 @@
     //     echo json_encode($valid);
     // }
 
+    // load registration link form
+
+    if(Input::get('request') && Input::get('request') == 'fetchRegistrationLink') {
+        $eventId = Input::get('eventId');
+        $controller->get('future_homepage_partners', '*', NULL, "`event_id` = '$eventId'", 'p_order ASC');
+        $i = 0;
+        ?>
+        <div class="col-lg-3" style="margin-bottom: 30px;">
+            <div class="event-card event-card-add">
+                <div class="event-card-text event-card-speaker">
+                   <a href="" data-toggle="modal" data-target="#generateLink" id="addClient" style="margin-top: 50px;"><i class="fa fa-external-link"></i> Generate private link</a>
+                </div>
+            </div>
+        </div>
+       
+        <script>
+            $(function() {
+             $('[data-toggle="popover"]').popover({
+                html: true,
+                content: function() {
+                    return $('#popover-content').html();
+                }
+            });
+            $(document).on('click', function(e) {
+                $('[data-toggle="popover"]').each(function() {
+                    if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                        $(this).popover('hide');
+                    }
+                });
+            });
+        });      
+        </script>
+    <?php
+    }
+
+
 
     //Load about section
     if(Input::get('request') && Input::get('request') == 'fetchAbout') {
