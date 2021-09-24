@@ -6,112 +6,109 @@ $(document).ready(function () {
 			ferror = false,
 			emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
 
-		// f.children('input').each(function () { // run all inputs
-		// 	var i = $(this); // current input
-		// 	var rule = i.attr('data-rule');
-		// 	if (rule !== undefined) {
-		// 		var ierror = false; // error flag for current input
-		// 		var pos = rule.indexOf(':', 0);
-		// 		if (pos >= 0) {
-		// 			var exp = rule.substr(pos + 1, rule.length);
-		// 			rule = rule.substr(0, pos);
-		// 		} else {
-		// 			rule = rule.substr(pos + 1, rule.length);
-		// 		}
-		// 		switch (rule) {
-		// 			case 'required':
-		// 				if (i.val() === '') {
-		// 					ferror = ierror = true;
-		// 				}
-		// 				break;
-		// 			case 'email':
-		// 				if (!emailExp.test(i.val())) {
-		// 					ferror = ierror = true;
-		// 				}
-		// 				break;
-		// 		}
-		// 		i.next('.validate').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
-		// 	}
-		// });
-		// if (ferror) return false;
-		// else 
-		var str = $(this).serialize();
+		f.children('input').each(function () { // run all inputs
+			var i = $(this); // current input
+			var rule = i.attr('data-rule');
+			if (rule !== undefined) {
+				var ierror = false; // error flag for current input
+				var pos = rule.indexOf(':', 0);
+				if (pos >= 0) {
+					var exp = rule.substr(pos + 1, rule.length);
+					rule = rule.substr(0, pos);
+				} else {
+					rule = rule.substr(pos + 1, rule.length);
+				}
+				switch (rule) {
+					case 'required':
+						if (i.val() === '') {
+							ferror = ierror = true;
+						}
+						break;
+					case 'email':
+						if (!emailExp.test(i.val())) {
+							ferror = ierror = true;
+						}
+						break;
+				}
+				i.next('.validate').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
+			}
+		});
+		if (ferror) return false;
+		else var str = $(this).serialize();
 
-		alert("Data :: - " + str);
+		var this_form = $(this);
+		var action = $(this).attr('action');
+		var inputCaptcha = document.getElementById("securityCode").value.trim();
 
-		// var this_form = $(this);
-		// var action = $(this).attr('action');
-		// var inputCaptcha = document.getElementById("securityCode").value.trim();
+		$("#loginButton").button('loading');
+		$('#success-div').attr('hidden', '');
+		$('#failed-div').attr('hidden', '');
+		$('#log-div').removeAttr('hidden');
 
-		// $("#loginButton").button('loading');
-		// $('#success-div').attr('hidden', '');
-		// $('#failed-div').attr('hidden', '');
-		// $('#log-div').removeAttr('hidden');
+		$.ajax({
+			type: "POST",
+			url: action,
+			data: { request: "captchaSession" },
+			dataType: 'json',
+			success: function (response) {
+				if (response.messages == inputCaptcha) {
+					$.ajax({
+						type: "POST",
+						url: action,
+						data: str,
+						dataType: 'json',
+						success: function (response) {
+							if (response.success == true) {
+								$("#loginButton").button('reset');
+								$("#loginForm")[0].reset();
+								window.setTimeout(function () {
+									$('#log-div').attr('hidden', 'hidden');
+								}, 500);
+								window.setTimeout(function () {
+									$('#success-div').removeAttr('hidden');
+									$('#success-div').html('<span class="fo-login">' +
+										'<i class="fa fa-check-circle"></i> ' + response.messages +
+										'</span>');
+								}, 500);
+								window.setTimeout(function () {
+									window.location.replace("index");
+								}, 1100);
+							} else {
+								$("#loginButton").button('reset');
+								// $("#loginForm")[0].reset();
+								window.setTimeout(function () {
+									$('#log-div').attr('hidden', 'hidden');
+								}, 1000);
 
-		// $.ajax({
-		//     type: "POST",
-		//   	url: action,
-		//   	data: {request: "captchaSession"},
-		//   	dataType: 'json',
-		//   	success:function(response) {
-		//   		if (response.messages == inputCaptcha) {
-		// $.ajax({
-		// 	type: "POST",
-		// 	url: action,
-		// 	data: str,
-		// 	dataType: 'json',
-		// 	success: function (response) {
-		// 		if (response.success == true) {
-		// 			$("#loginButton").button('reset');
-		// 			$("#loginForm")[0].reset();
-		// 			window.setTimeout(function () {
-		// 				$('#log-div').attr('hidden', 'hidden');
-		// 			}, 500);
-		// 			window.setTimeout(function () {
-		// 				$('#success-div').removeAttr('hidden');
-		// 				$('#success-div').html('<span class="fo-login">' +
-		// 					'<i class="fa fa-check-circle"></i> ' + response.messages +
-		// 					'</span>');
-		// 			}, 500);
-		// 			window.setTimeout(function () {
-		// 				window.location.replace("index");
-		// 			}, 1100);
-		// 		} else {
-		// 			$("#loginButton").button('reset');
-		// 			// $("#loginForm")[0].reset();
-		// 			window.setTimeout(function () {
-		// 				$('#log-div').attr('hidden', 'hidden');
-		// 			}, 1000);
-
-		// 			count--;
-		// 			if (count > 0) {
-		// 				window.setTimeout(function () {
-		// 					$('#failed-div').removeAttr('hidden');
-		// 					$('#failed-div').html('<span class="fo-login">' +
-		// 						'<i class="fa fa-times-circle"></i> <strong>' + response.messages + '</strong>' +
-		// 						'<br> Only ' + count + ' attempts remaining' +
-		// 						'</span>');
-		// 				}, 1100);
-		// 			}
-		// 			else {
-		// 				window.setTimeout(function () {
-		// 					$('#failed-div').removeAttr('hidden');
-		// 					$('#failed-div').html('<span class="fo-login">' +
-		// 						'<i class="fa fa-times-circle"></i> <a href="confirmemail" style="color: white;">Click here to reset your username or password</a></span>');
-		// 				}, 1100);
-		// 				$("#loginButton").button('loading');
-		// 			}
-		// 		}
-		// 	}
-		// });
-		// 		} else {
-		// 			$('#log-div').attr('hidden','hidden');
-		// 			$("#loginButton").button('reset');
-		// 			document.getElementById("securityCode_error").innerHTML="Invalid security code";
-		// 		}
-		// 	}
-		// });
-		// return false;
+								count--;
+								if (count > 0) {
+									window.setTimeout(function () {
+										$('#failed-div').removeAttr('hidden');
+										$('#failed-div').html('<span class="fo-login">' +
+											'<i class="fa fa-times-circle"></i> <strong>' + response.messages + '</strong>' +
+											'<br> Only ' + count + ' attempts remaining' +
+											'</span>');
+									}, 1100);
+								}
+								else {
+									window.setTimeout(function () {
+										$('#failed-div').removeAttr('hidden');
+										$('#failed-div').html('<span class="fo-login">' +
+											'<i class="fa fa-times-circle"></i> <a href="confirmemail" style="color: white;">Click here to reset your username or password</a></span>');
+									}, 1100);
+									$("#loginButton").button('loading');
+								}
+							}
+						}
+					});
+				} else {
+					$('#log-div').attr('hidden', 'hidden');
+					$("#loginButton").button('reset');
+					document.getElementById("securityCode_error").innerHTML = "Invalid security code";
+				}
+			}
+		});
+		return false;
 	});
 
 

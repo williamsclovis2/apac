@@ -2,6 +2,8 @@
 
 session_start();
 
+$_SESSION['user'] = 16;
+
 $GLOBALS['config'] = array(
     'mysql' => array(
         'host' => '127.0.0.1',
