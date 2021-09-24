@@ -58,6 +58,16 @@
   //   'request' => 'registration',
   // );
 
+
+  $_POST = array(
+    'password'  => "123123",
+    'confirm_password'   => "123123",
+    'eventId'   => "33323039393636333339",
+    'authtoken'      => "417a544d4b6d56584a757447496d77544e30544154735370382b687a532f43544359366965695243624251",
+
+    'request' => 'account-password-creation',
+  );
+
   // Get captcha session
   if(Input::get('request') && Input::get('request') == 'captchaSession') {
     $valid['success']  = true;
@@ -313,24 +323,45 @@
     $_REQUEST_ = Input::get('request', 'post');
     switch($_REQUEST_):
       
+      /** Submission Of The Participant Registration */
       case 'registration':
         $_form_ = FutureEventController::registerEventParticipant();
         if($_form_->ERRORS == false):
-            $_PARTICIPATION_PAYMENT_TYPE_ = 'PAYABLE';
+
+            $response['status']    = 100;
+            $response['message']   = 'REDIRECT_TO_PASSWORD_SETTINGS';
+            $response['authToken'] = $_form_->AUTHTOKEN;
+
+        else:
+          $response['status'] = 400;
+          $response['message']= $_form_->ERRORS_STRING;
+        endif;
+      break;
+
+      /** After Registration - Create Account Password  - Form Submission */
+      case 'account-password-creation':
+        $_form_ = FutureEventController::createEventParticipantPassword();
+        if($_form_->ERRORS == false):
+            $_PARTICIPATION_PAYMENT_TYPE_ = $_form_->PARTICIPATIONPAYMENTTYPE;
 
             if($_PARTICIPATION_PAYMENT_TYPE_ == 'PAYABLE'):
-              $response['status'] = 100;
-              $response['message']= 'REDIRECT_TO_PASSWORD_SETTINGS';
+              $response['status']    = 100;
+              $response['message']   = 'REDIRECT_TO_PAYMENT_CHANNEL';
+              $response['authToken'] = $_form_->AUTHTOKEN;
+            
+            elseif($_PARTICIPATION_PAYMENT_TYPE_ == 'FREE'):
+              $response['status']    = 101;
+              $response['message']   = 'REDIRECT_TO_NOTIFICATION';
+              $response['authToken'] = $_form_->AUTHTOKEN;
 
             else:
               $response['status'] = 200;
-              $response['message']= 'REDIRECT_TO_PASSWORD_SETTINGS';
+              $response['message']= 'REDIRECT_TO_NOTIFICATION';
             endif;
 
         else:
           $response['status'] = 400;
           $response['message']= $_form_->ERRORS_STRING;
-
         endif;
       break;
 
@@ -338,6 +369,7 @@
     echo json_encode($response);
   endif;
 
+  
 ?>
 
 

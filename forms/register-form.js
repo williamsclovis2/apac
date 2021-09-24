@@ -485,14 +485,16 @@ $('.registerFormSubmit').on('click', function () {
 			var response = JSON.parse(dataResponse);
 
 
-			// alert("DATA - " + response.message);
+			// alert("DATA - " + response.status);
 
-			if (response.status == 200) {
+			if (response.status == 100) {
 				$("#register_area").css("display", "none");
 				$("#account_area").css("display", "block");
-				$("#register_area").addClass("hidden", "hidden");
-				$("#account_area").show();
-				$('#register-messages').val(response.message);
+				// $("#register_area").addClass("hidden", "hidden");
+				// $("#account_area").show();
+				// $('#register-messages').val(response.message);
+				$("#accountForm #accountButton").attr("authtoken", response.authToken);
+				$("#accountForm #authtoken").val(response.authToken);
 
 			}
 			else if (response.status == 201) {
@@ -521,6 +523,118 @@ $('.registerFormSubmit').on('click', function () {
 	// }
 	// 		}
 	// 	});
+	// return false;
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$('.registerACPFormSubmit').on('click', function () {
+	var f = $(this).find('.field-validate'),
+		ferror = false,
+		emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+
+	$('#password_error').text("");
+	$('#confirm_password_error').text("");
+
+	f.children('input').each(function () { // run all inputs
+		var i = $(this); // current input
+		var rule = i.attr('data-rule');
+		if (rule !== undefined) {
+			var ierror = false; // error flag for current input
+			var pos = rule.indexOf(':', 0);
+			if (pos >= 0) {
+				var exp = rule.substr(pos + 1, rule.length);
+				rule = rule.substr(0, pos);
+			} else {
+				rule = rule.substr(pos + 1, rule.length);
+			}
+			switch (rule) {
+				case 'minlen':
+					if (i.val().length < parseInt(exp)) {
+						ferror = ierror = true;
+					}
+					break;
+				case 'matches':
+					if (i.val() !== $("#password").val()) {
+						ferror = ierror = true;
+					}
+					break;
+			}
+			i.next('.validate').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
+		}
+	});
+
+	if ($('#password').val().length === 0) {
+		ferror = ierror = true;
+		$('#password_error').text("Please enter password");
+	}
+	if ($('#password').val().length < 6) {
+		ferror = ierror = true;
+		$('#password_error').text("Please enter password");
+	}
+	if ($('#confirm_password').val().length === 0) {
+		ferror = ierror = true;
+		$('#confirm_password_error').text("Please confirm password");
+	}
+	if ($('#password').val() != $('#confirm_password').val()) {
+		ferror = ierror = true;
+		$('#confirm_password_error').text("password don't match!");
+	}
+
+	var str = "";
+	if (ferror) return false;
+	str = $('#accountForm').serialize();
+
+	var this_form = $('#accountForm');
+	var action = $('.host').attr('link') + "registration";
+	// var inputCaptcha = document.getElementById("securityCode").value.trim();
+
+
+	$("#loginButton").prop('disabled', true);
+
+	$.ajax({
+		type: "POST",
+		url: action,
+		data: str,
+		dataType: 'json',
+		success: function (dataResponse) {
+			var response = JSON.parse(dataResponse);
+
+			if (response.status == 100) {
+				$("#account_area").css("display", "none");
+				$("#payment_area").css("display", "block");
+				window.location.href = $('.host').attr('link') + "notification";
+			}
+			else if (response.status == 101) {
+				window.location.href = $('.host').attr('link') + "notification";
+			}
+			else if (response.status == 200) {
+				window.location.href = $('.host').attr('link') + "notification";
+			}
+			else {
+				$("#loginButton").prop('disabled', false);
+				$('#login-messages').html('<div class="error-message">' + response.messages + '</div>');
+				this_form.find('.error-message').slideDown().html(response.messages);
+				$(".error-message").delay(500).show(10, function () {
+
+				});
+			}
+		}
+	});
 	// return false;
 
 });
