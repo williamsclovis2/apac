@@ -148,6 +148,10 @@ class FutureEventController
             
 				try{
 					$FutureEventParticipantTable->insertParticipant($_fields);
+					/** Get Last Participant ID  */
+					$_PID_ 		 = self::getLastPacipatantID();
+					/** Generate Auth Token */
+					$_AUTH_TOKEN = Hash::encryptAuthToken($_PID_);
 
 					/** Send Email To Participant */
 
@@ -172,6 +176,119 @@ class FutureEventController
 				'ERRORS'	    => false,
 				'SUCCESS'	    => true,
 				'ERRORS_SCRIPT' => "",
+				'AUTHTOKEN'     => $_AUTH_TOKEN,
+				'ERRORS_STRING' => ""
+			];
+		}
+	}
+
+	public static function createEventParticipantPassword(){
+		$diagnoArray[0] = 'NO_ERRORS';
+		$validate = new \Validate();
+		$prfx = ' ';
+		foreach($_POST as $index=>$val){
+			$ar = explode($prfx,$index);
+			if(count($ar)){
+				$_EDIT[end($ar)] = $val;
+			}
+		}
+		$_EDIT = $_POST;
+		
+		$validation = $validate->check($_EDIT, array(
+			
+		));
+		
+		
+		if($validate->passed()){
+			$FutureEventParticipantTable = new \FutureEvent();
+			
+			$str = new \Str();
+
+
+			/** Contact Information */
+			$password 			= $str->data_in($_EDIT['password']);
+			$confirm_password 	= $str->data_in($_EDIT['confirm_password']);
+
+			$eventId 	= $str->data_in($_EDIT['eventId']);
+			$authtoken 	= $str->data_in($_EDIT['authtoken']);
+
+			$_PID_ = Hash::decryptAuthToken($authtoken);
+
+			/** Check If Valid $_PID_ And Exists In Participant Table */
+			if(!is_integer($_PID_)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "Invalid Data",
+					'ERRORS_STRING' => "Invalid Data"
+				];
+			endif;
+
+			if(!($_participant_ = self::getParticipantDataByID($_PID_))):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "Invalid Data",
+					'ERRORS_STRING' => "Invalid Data"
+				];
+			endif;
+
+			/** Check If Password Match */
+			if(strlen($password) < 6 || strlen($confirm_password) < 6):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "Password must have at least 6 characters",
+					'ERRORS_STRING' => "Password must have at least 6 characters"
+				];
+			endif;
+
+			if($password != $confirm_password):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "password don't match",
+					'ERRORS_STRING' => "password don't match"
+				];
+			endif;
+
+
+			if($diagnoArray[0] == 'NO_ERRORS'){
+				
+				$_fields = array(
+					'password'             => "",
+					'salt'             	   => "",
+				);
+
+				try{
+					$FutureEventParticipantTable->updateParticipant($_fields, $_PID_);
+					/** Get Last Participant ID  */
+					$_PID_ 		 = self::getLastPacipatantID();
+					/** Generate Auth Token */
+					$_AUTH_TOKEN 				  = $authtoken;
+					$_PARTICIPATION_PAYMENT_TYPE_ = $_participant_->payment_state;
+
+					/** Send Email To Participant */
+
+					
+				}catch(Exeption $e){
+					$diagnoArray[0] = "ERRORS_FOUND";
+					$diagnoArray[]  = $e->getMessage();
+				}
+			}
+		}else{
+			$diagnoArray[0] = 'ERRORS_FOUND';
+			$error_msg 	    = ul_array($validation->errors());
+		}
+		if($diagnoArray[0] == 'ERRORS_FOUND'){
+			return (object)[
+				'ERRORS'		=> true,
+				'ERRORS_SCRIPT' => $validate->getErrorLocation(),
+				'ERRORS_STRING' => ""
+			];
+		}else{
+			return (object)[
+				'ERRORS'	    => false,
+				'SUCCESS'	    => true,
+				'ERRORS_SCRIPT' => "",
+				'AUTHTOKEN'     => $_AUTH_TOKEN,
+				'PARTICIPATIONPAYMENTTYPE'=> $_PARTICIPATION_PAYMENT_TYPE_,
 				'ERRORS_STRING' => ""
 			];
 		}
@@ -232,7 +349,21 @@ class FutureEventController
           return  $FutureEventTable->first();
         return  false;
     }
-		
 
+	public static function getLastPacipatantID(){
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT id FROM `future_participants` ORDER BY id DESC LIMIT 1 ");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->first()->id;
+        return  false;
+    }
+
+	public static function getParticipantDataByID($ID){
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT future_participants.id, future_participation_type.name as participation_type_name, future_participation_sub_type.payment_state FROM `future_participants` INNER JOIN future_participation_type ON future_participants.participation_type_id = future_participation_type.id INNER JOIN future_participation_sub_type ON future_participants.participation_sub_type_id = future_participation_sub_type.id WHERE future_participants.id = {$ID} ORDER BY future_participants.id DESC LIMIT 1");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->first();
+        return  false;
+    }
  
 }

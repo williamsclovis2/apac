@@ -61,6 +61,19 @@ class Hash {
       public function decryptAES($cipher_text){
         return $this->cryptAES('base64_decode', $cipher_text);
       }
+
+        public static function encryptAuthToken($ctx){
+            $Hash   = new \Hash();
+            $result = $Hash->encryptAES(Hash::encryptToken($ctx));
+            return bin2hex($result);
+        }
+
+        public static function decryptAuthToken($ctx){
+            $Hash   = new \Hash();
+            $result = $ctx;
+            $result = Hash::decryptToken($Hash->decryptAES(hex2bin($ctx)));
+            return $result;
+        }
     
         public static function encryptToken($ctx){
             $result=(397957353*$ctx)+424264868;
