@@ -15,7 +15,7 @@
             </li>
             <?php if ($user->hasPermission('admin')) {?>
             <li class="<?php echo ($page == "home" ? "active" : "")?>">
-                <a href="<?php linkto('admin/'); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
+                <a href="<?php linkto('admin/'); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard </span></a>
             </li>
             <li class="<?php echo ($page == "events" ? "active" : "")?>">
                 <a href="#"><i class="fa fa-list"></i> <span class="nav-label">Events</span><span class="fa arrow"></span></a>
@@ -44,6 +44,7 @@
             <li class="<?php echo ($page == "content" ? "active" : "")?>">
                 <a href="#"><i class="fa fa-list"></i> <span class="nav-label">Website Content</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
+                    <li class="<?php echo ($link == "link" ? "active" : "")?>"><a href="<?php linkto("admin/pages/content/link/$encodedEventId"); ?>"><i class="fa fa-circle-o"></i>Registration Link</a></li>
                     <li class="<?php echo ($link == "banner" ? "active" : "")?>"><a href="<?php linkto("admin/pages/content/banner/$encodedEventId"); ?>"><i class="fa fa-circle-o"></i> Event Banner</a></li>
                     <li class="<?php echo ($link == "countdown" ? "active" : "")?>"><a href="<?php linkto("admin/pages/content/countdown/$encodedEventId"); ?>"><i class="fa fa-circle-o"></i> Countdown</a></li>
                     <li class="<?php echo ($link == "about" ? "active" : "")?>"><a href="<?php linkto("admin/pages/content/about/$encodedEventId"); ?>"><i class="fa fa-circle-o"></i> About Section</a></li>

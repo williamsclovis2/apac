@@ -111,7 +111,21 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="gender" class="col-sm-3">Language <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <select id="gender" name="gender" class="form-control" data-rule="required" data-msg="Please select gender">
+                                        <option value="">[--Select--]</option>
+                                        <option value="English">English</option>
+                                        <option value="French">French</option>
+                                        <option value="Portuguese">Portuguese</option>
+                                        <option value="Arabic">Arabic</option>
+                                    </select>
+                                    <div class="validate"></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group col-sm-12">
                             <div class="row">
                                 <label for="gender" class="col-sm-3">Gender <span>*</span></label>
@@ -290,7 +304,7 @@
                         </div>
                         <div class="form-group col-sm-12">
                             <div>
-                                <label class="checkbox-mc">Click here to confirm that you have read & understood our <a href="<?php linkto('privacy'); ?>">terms & conditions & privacy policy.</a> 
+                                <label class="checkbox-mc"> By clicking this button I choose to opt out of sharing my name, title and affiliation with APAC sponsors.  
                                     <input type="checkbox" name="privacy"  id="privacy"> 
                                     <span class="geekmark" ></span> 
                                 </label> 
