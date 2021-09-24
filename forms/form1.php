@@ -15,7 +15,7 @@
     </div>
 </div>
     
-<div class="service_area about_event" style="background: #000;" id="register_area">
+<div class="service_area about_event"  id="register_area">
     <div class="container">
         <div class="row">
             <div class="col-lg-2"></div>
@@ -281,7 +281,7 @@
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3">Country of residence <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <select id="african_country2" name="residence_country" class="form-control" data-rule="required" data-msg="Please select country"/>
+                                    <select id="organisation_country" name="residence_country" class="form-control" data-rule="required" data-msg="Please select country"/>
                                         <option></option>
                                     </select>
                                     <div class="validate" id="residence_country_error"></div>

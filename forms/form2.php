@@ -1,4 +1,15 @@
+
 <div class="slider_area">
+<<<<<<< HEAD
+    <div class="single_slider single_slider_reg d-flex align-items-center slider_bg_1">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-12">
+                    <div class="slider_text slider_text_register">
+                        <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?=$_EVENT_PARTICIPATION_TYPE_NAME_ ?> Registration Form </h3>
+                        <span class="separator-line wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s"></span>
+                        <h5 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?= ucfirst($_EVENT_TYPE_NAME_) ?> Event </h5>
+=======
         <div class="single_slider single_slider_reg d-flex align-items-center slider_bg_1">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
@@ -8,13 +19,15 @@
                             <span class="separator-line wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s"></span>
                         <h5 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?= ucfirst($_EVENT_SUB_TYPE_NAME_) ?>/ <?= ucfirst($_EVENT_TYPE_NAME_) ?> Event </h5>
                         </div>
+>>>>>>> 75ab05ce8fe3c632e9dda8585518d96a444c9251
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="service_area about_event" style="background: #000;" id="register_area">
+    
+<div class="service_area about_event"  id="register_area">
     <div class="container">
         <div class="row">
             <div class="col-lg-2"></div>
@@ -137,7 +150,6 @@
                         </div>
                     </div>
 
-                    
                     <h4>ORGANIZATION </h4>
                     <hr class="separator-line"> 
                     <div class="row">
@@ -281,7 +293,7 @@
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3">Country of residence <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <select id="non_african_country2" name="residence_country" class="form-control" data-rule="required" data-msg="Please select country"/>
+                                    <select id="organisation_country" name="residence_country" class="form-control" data-rule="required" data-msg="Please select country"/>
                                         <option></option>
                                     </select>
                                     <div class="validate" id="residence_country_error"></div>

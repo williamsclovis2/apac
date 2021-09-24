@@ -15,7 +15,7 @@
     </div>
 </div>
     
-<div class="service_area about_event" style="background: #000;" id="register_area">
+<div class="service_area about_event"  id="register_area">
     <div class="container">
         <div class="row">
             <div class="col-lg-2"></div>
@@ -38,7 +38,7 @@
 
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="lastname" class="col-sm-3">Last name <span>*</span></label>
+                                <label for="lastname" class="col-sm-3">Second name <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
                                     <input class="form-control" name="lastname" id="lastname" type="text" placeholder="Last name" data-rule="required" data-msg="Please enter last name"/>
                                     <div class="validate"></div> 
@@ -55,13 +55,59 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="email" class="col-sm-3">Confirm email <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                  <input class="form-control" name="confirm_email" id="confirm_email" type="text" placeholder="Confirm email" data-rule="email" data-msg="email doesn't match field"/>
+                                    <div class="validate"></div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="telephone" class="col-sm-3">Telephone <span>*</span></label>
+                                <label for="telephone" class="col-sm-3">Telephone number 1 <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
                                     <input type="text" name="telephone" id="telephone" class="form-control" data-rule="required" data-msg="Please enter telephone"/>
                                     <div class="validate" id="telephone_error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="telephone" class="col-sm-3">Telephone number 2</label>
+                                <div class="col-sm-9 field-validate">
+                                    <input type="text" name="telephone_2" id="telephone_2" class="form-control"/>
+                                    <div class="validate" id="telephone_error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="organisation-name" class="col-sm-3">Job title <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <input class="form-control" name="job_title" id="job_title" type="text" placeholder="Job title" data-rule="required" data-msg="Please enter job title"/>
+                                    <div class="validate"></div> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="job_category" class="col-sm-3">Job category <span>*</span></label>
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-sm-6 field-validate">
+                                            <select class="form-control" name="job_category" onchange="Other(this,'#job_category1');" data-rule="required" data-msg="Please select job category"/>
+                                                <?php $user->jobTitle($form->ERRORS,Input::get('job-category'),$categ);?>
+                                            </select>
+                                            <div class="validate"></div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" name="job_category1" id="job_category1" type="text" placeholder="For other - please specify" 
+                                            <?php if(escape(Input::get('job_category')) != 'Other'){?> disabled="disabled" <?php }?>>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -92,183 +138,56 @@
                         </div>
                     </div>
 
-                    <h4>ORGANIZATION </h4>
+                    <h4> EDUCATION INSTITUTE</h4>
                     <hr class="separator-line"> 
                     <div class="row">
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="organisation-name" class="col-sm-3">Organization name <span>*</span></label>
+                                <label for="firstname" class="col-sm-3">Name of school   <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="organisation_name" id="organisation_name" type="text" placeholder="Organization name" data-rule="required" data-msg="Please enter organisation name"/>
-                                    <div class="validate"></div> 
+                                    <input class="form-control" name="school_name" id="school_name" type="text" placeholder="Name of School" data-rule="required" data-msg="Please enter the  name of your school"/>
+                                    <div class="validate"></div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="organisation-name" class="col-sm-3">Organization type <span>*</span></label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-sm-6 field-validate">
-                                            <select class="form-control" onchange="Other(this,'#organisation_type1');" id="organisation_type" name="organisation_type" data-rule="required" data-msg="Please enter organisation type"/>
-                                                <option value="" selected="">[--Select--]</option>
-                                                <option value="Academia">Academia</option>
-                                                <option value="Civil Society">Civil Society </option>
-                                                <option value="International Organization">International Organization</option>
-                                                <option value="Non-Governmental Organization">Non-Governmental Organization</option>
-                                                <option value="Non-Profit Organization">Non-Profit Organization</option>
-                                                <option value="Private/Corporation">Private/Corporation</option>
-                                                <option value="Regional Organization">Regional Organization </option>
-                                                <option value="Other">Other </option>
-                                            </select>
-                                            <div class="validate"></div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input class="form-control" name="organisation_type1" id="organisation_type1" type="text" placeholder="For other - please specify" 
-                                            <?php if(escape(Input::get('organisation_type')) != 'Other'){?> disabled="disabled" <?php }?>>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group col-sm-12">
-                            <div class="row">
-                                <label for="industry" class="col-sm-3">Industry <span>*</span></label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-sm-6 field-validate">
-                                            <select class="form-control" name="industry" id="industry" onchange="Other(this,'#industry1');" data-rule="required" data-msg="Please enter industry"/>
-                                                <option value="" selected="">[--Select--]</option>     
-                                                <option value="Academics/ Education">Academics/ Education</option>
-                                                <option value="Advertising/Public Relations">Advertising/Public Relations</option>
-                                                <option value="Agricultural Services &amp; Products">Agricultural Services &amp; Products</option>
-                                                <option value="Attorneys and law">Attorneys and law</option>
-                                                <option value="Clergy &amp; Religious Organizations" >Clergy &amp; Religious Organizations </option>
-                                                <option value="Clothing and Textiles">Clothing and Textiles</option>
-                                                <option value="Defence and security">Defence and security</option>
-                                                <option value="Energy and Natural Resources and Environment">Energy and Natural Resources and Environment</option>
-                                                <option value="Entertainment Industry">Entertainment Industry</option>
-                                                <option value="Financial and Commercial Services">Financial and Commercial Services</option>
-                                                <option value="Hospitality and Tourism">Hospitality and Tourism</option>
-                                                <option value="Healthcare services">Healthcare services</option>
-                                                <option value="ICT">ICT</option>
-                                                <option value="Infrastructure">Infrastructure</option>
-                                                <option value="Logistics and Transportation">Logistics and Transportation</option>
-                                                <option value="Manufacturing">Manufacturing</option>
-                                                <option value="Mining">Mining</option>
-                                                <option value="Media">Media </option>
-                                                <option value="Non-profits, Foundations &amp; Philanthropists">Non-profits, Foundations &amp; Philanthropists</option>
-                                                <option value="Printing &amp; Publishing">Printing &amp; Publishing</option>
-                                                <option value="Private Equity &amp; Investment Firms">Private Equity &amp; Investment Firms</option>
-                                                <option value="Real Estate">Real Estate</option>
-                                                <option value="Religious Organizations/Clergy">Religious Organizations/Clergy</option>
-                                                <option value="Sports, Professional">Sports, Professional</option>
-                                                <option value="Telecommunications">Telecommunications </option>
-                                                <option value="Other">Other </option>
-                                            </select>
-                                            <div class="validate"></div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input class="form-control" name="industry1" id="industry1" type="text" placeholder="For other - please specify" 
-                                            <?php if(escape(Input::get('industry')) != 'Other'){?> disabled="disabled" <?php }?>>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group col-sm-12">
-                            <div class="row">
-                                <label for="organisation-name" class="col-sm-3">Job title <span>*</span></label>
+                                <label for="gender" class="col-sm-3">Category <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="job_title" id="job_title" type="text" placeholder="Job title" data-rule="required" data-msg="Please enter job title"/>
-                                    <div class="validate"></div> 
+                                    <select id="school_category" name="school_category" class="form-control" data-rule="required" data-msg="Please select category">
+                                        <option value="">[--Select--]</option>
+                                        <option value="High school student ">High school student </option>
+                                        <option value="Undergraduate">Undergraduate</option>
+                                        <option value="Graduate / Postgraduate">Graduate / Postgraduate</option>
+                                    </select>
+                                    <div class="validate"></div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="job_category" class="col-sm-3">Job category <span>*</span></label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-sm-6 field-validate">
-                                            <select class="form-control" name="job_category" onchange="Other(this,'#job_category1');" data-rule="required" data-msg="Please select job category"/>
-                                                <?php $user->jobTitle($form->ERRORS,Input::get('job-category'),$categ);?>
-                                            </select>
-                                            <div class="validate"></div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input class="form-control" name="job_category1" id="job_category1" type="text" placeholder="For other - please specify" 
-                                            <?php if(escape(Input::get('job_category')) != 'Other'){?> disabled="disabled" <?php }?>>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group col-sm-12">
-                            <div class="row">
-                                <label for="organisation_address" class="col-sm-3">Physical address <span>*</span></label>
+                                <label for="website" class="col-sm-3">Institutions website</label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="organisation_address" id="organisation_address" type="text" placeholder="Organization physical address" placeholder="Job title" data-rule="required" data-msg="Please enter physical address"/>
-                                    <div class="validate"></div> 
+                                    <input class="form-control" name="Institutions_website " id="Institutions_website" type="text" placeholder="Website">
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group col-sm-12">
-                            <div class="row">
-                                <label for="organisation-name" class="col-sm-3"></label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-sm-6 field-validate">
-                                            <input class="form-control" name="line_one" id="line_one" type="text" placeholder="Line one" data-rule="required" />
-                                        </div>
-                                        <div class="col-sm-6 field-validate">
-                                            <input class="form-control" name="line_two" id="line_two" type="text" placeholder="Line two"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="form-group col-sm-12">
                             <div class="row">
                                 <label for="" class="col-sm-3"></label>
                                 <div class="col-sm-9 field-validate">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <select id="organisation_country" name="organisation_country" class="form-control" data-rule="required" data-msg="Please select country"/>
+                                            <select id="organisation_country" name="student_country" class="form-control" data-rule="required" data-msg="Please select country"/>
                                                 <option></option>
                                             </select>
-                                            <div class="validate" id="organisation_country_error"></div>
+                                            <div class="validate" id="student_country_error"></div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input class="form-control" name="organisation_city" id="organisation_city" type="text" placeholder="City" data-rule="required" data-msg="Please enter city"/>
+                                            <input class="form-control" name="student_city" id="student_city" type="text" placeholder="City" data-rule="required" data-msg="Please enter city"/>
                                             <div class="validate"></div> 
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group col-sm-12">
-                            <div class="row">
-                                <label for="website" class="col-sm-3">Postal Code/ZIP</label>
-                                <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="postal_code" id="postal_code" type="text" placeholder="Postal Code/ZIP">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group col-sm-12">
-                            <div class="row">
-                                <label for="website" class="col-sm-3">Website</label>
-                                <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="website" id="website" type="text" placeholder="Website">
                                 </div>
                             </div>
                         </div>
@@ -277,38 +196,6 @@
                     <h4>IDENTIFICATION</h4>
                     <hr class="separator-line"> 
                     <div class="row">
-                        <div class="form-group col-sm-12">
-                            <div class="row">
-                                <label for="organisation-name" class="col-sm-3">Country of residence <span>*</span></label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-sm-6 field-validate">
-                                            <select id="residence_country" name="residence_country" class="form-control" data-rule="required" data-msg="Please select country"/>
-                                                <option></option>
-                                            </select>
-                                            <div class="validate" id="residence_country_error"></div>
-                                        </div>
-                                        <div class="col-sm-6 field-validate">
-                                            <input class="form-control" name="residence_city" id="residence_city" type="text" placeholder="City of residence" data-rule="required" data-msg="Please enter city"/>
-                                            <div class="validate"></div> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group col-sm-12">
-                            <div class="row">
-                                <label for="organisation-name" class="col-sm-3">Citizenship <span>*</span></label>
-                                <div class="col-sm-9 field-validate">
-                                    <select id="citizenship" name="citizenship" class="form-control" data-rule="required" data-msg="Please select country"/>
-                                        <option></option>
-                                    </select>
-                                    <div class="validate" id="citizenship_error"></div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="form-group col-sm-12">
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3">Type of ID document <span>*</span></label>
@@ -330,7 +217,17 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="organisation-name" class="col-sm-3">Country of residence <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <select id="student_country" name="residence_country" class="form-control" data-rule="required" data-msg="Please select country"/>
+                                        <option></option>
+                                    </select>
+                                    <div class="validate" id="residence_country_error"></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group col-sm-12">
                             <div>
                                 <label class="checkbox-mc">Click here to confirm that you have read & understood our <a href="<?php linkto('privacy'); ?>">terms & conditions & privacy policy.</a> 
