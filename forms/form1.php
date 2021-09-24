@@ -115,7 +115,7 @@
                             <div class="row">
                                 <label for="gender" class="col-sm-3">Language <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <select id="gender" name="gender" class="form-control" data-rule="required" data-msg="Please select gender">
+                                    <select id="language" name="language" class="form-control" data-rule="required" data-msg="Please select Language">
                                         <option value="">[--Select--]</option>
                                         <option value="English">English</option>
                                         <option value="French">French</option>
@@ -134,7 +134,7 @@
                                         <option value="">[--Select--]</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
-                                        <option value="Other">I'd rather not say</option>
+                                        <option value="Other">Prefer not to disclose</option>
                                     </select>
                                     <div class="validate"></div>
                                 </div>
@@ -266,6 +266,38 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <h4>WHAT ARE YOUR OBJECTIVES FOR ATTENDING THIS CONGRESS?</h4>
+                    <hr class="separator-line"> 
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="organisation-name" class="col-sm-3">first objective <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <textarea name="firt_objective" id="firt_objective" class="form-control" placeholder="Type your objective" data-rule="maxlen:1020" data-msg="Please only 500 characters" style="height: 70px;"></textarea>
+                                    <div class="validate"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="organisation-name" class="col-sm-3">Second objective <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <textarea name="second_objective" id="second_objective" class="form-control" placeholder="Type your objective" data-rule="maxlen:1020" data-msg="Please only 500 characters" style="height: 70px;"></textarea>
+                                    <div class="validate"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="organisation-name" class="col-sm-3">Third objective <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <textarea name="third_objective" id="third_objective" class="form-control" placeholder="Type your objective" data-rule="maxlen:1020" data-msg="Please only 500 characters" style="height: 70px;"></textarea>
+                                    <div class="validate"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <h4>IDENTIFICATION</h4>
                     <hr class="separator-line"> 
@@ -291,14 +323,31 @@
                                 </div>
                             </div>
                         </div>
+                      
                         <div class="form-group col-sm-12">
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3">Country of residence <span>*</span></label>
-                                <div class="col-sm-9 field-validate">
-                                    <select id="organisation_country" name="residence_country" class="form-control" data-rule="required" data-msg="Please select country"/>
-                                        <option></option>
-                                    </select>
-                                    <div class="validate" id="residence_country_error"></div>
+                                <div class="col-sm-9 ">
+                                    <div class="row">
+                                        <div class="col-sm-6 field-validate">
+                                            <select id="organisation_country" name="residence_country" class="form-control" data-rule="required" data-msg="Please select country"/>
+                                                <option></option>
+                                            </select>
+                                            <div class="validate" id="residence_country_error"></div>
+                                        </div>
+                                        <div class="col-sm-6 field-validate">
+                                            <select class="form-control" name="id_type" id="id_type" data-rule="required" data-msg="Please select "/> 
+                                                <option value="" selected="">[--Where did you hear about APAC?--]</option>
+                                                <option value="Radio"> Radio</option>
+                                                <option value="TV "> TV</option>
+                                                <option value="Online / Social media">Online / Social media </option>
+                                                <option value="Word of mouth"> Word of mouth </option>
+                                                <option value="Email "> Email </option>
+                                                <option value="Embassy / Consulate "> Embassy / Consulate </option>
+                                            </select>
+                                            <div class="validate"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
