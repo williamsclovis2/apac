@@ -53,7 +53,7 @@ $_EVENT_SUB_TYPE_NAME_           = $_EVENT_PARTICIPATION_TYPE_DATA_->sub_type_na
     <?php 
         switch ($_EVENT_PARTICIPATION_TYPE_FORM_ID_ ) {
             case '1':
-                include 'forms/form1.php';
+                include 'forms/form6.php';
                 break;
             case '2':
                 include 'forms/form2.php';
