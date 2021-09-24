@@ -50,7 +50,7 @@
 
 <!-- link that opens popup -->
 <!-- JS here -->
-<script src="<?php linkto('fileinput/js/fileinput.min.js'); ?>"></script>
+
 <script src="<?php linkto('js/vendor/modernizr-3.5.0.min.js'); ?>"></script>
 <script src="<?php linkto('js/vendor/jquery-1.12.4.min.js'); ?>"></script>
 <script src="<?php linkto('js/popper.min.js'); ?>"></script>

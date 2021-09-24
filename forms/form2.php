@@ -353,6 +353,20 @@
                             </div>
                         </div>
                         <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="organisation-name" class="col-sm-3">Upload document <span>*</span>
+                                <p style="color: red; font-size:13px;"> <b>Format : jpg or png file</b> </p>
+                                </label>
+                                <div class="col-sm-9 field-validate">
+                                <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
+                                    <div class="kv-avatar center-block">                            
+                                        <input type="file" name="image" class="form-control" id="image" placeholder="Partner picture"  class="file-loading" style="width:auto;" data-rule="required" data-msg="Please select partner picture"/>
+                                        <div class="validate"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
                             <div>
                                 <label class="checkbox-mc"> By clicking this button I choose to opt out of sharing my name, title and affiliation with APAC sponsors.  
                                     <input type="checkbox" name="privacy"  id="privacy"> 

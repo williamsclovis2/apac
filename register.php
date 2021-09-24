@@ -36,8 +36,18 @@ $_EVENT_SUB_TYPE_NAME_           = $_EVENT_PARTICIPATION_TYPE_DATA_->sub_type_na
     <link rel="stylesheet" href="<?php linkto('css/flag-icon.min.css'); ?>">
     <link rel="stylesheet" href="<?php linkto('build/css/intlTelInput.css'); ?>">
     <link rel="stylesheet" class="host" link="<?=Config::get('server/name')?>"></link>
+    
     <?php include'includes/head.php';?>
+    <link href="<?php linkto('fileinput/css/fileinput.min.css'); ?>" rel="stylesheet">
 </head>
+<style>
+    .file-default-preview img{
+        width:40% !important;
+    }
+    .file-thumbnail-footer{
+        display: none !important;
+    }
+</style>
 <body>
     <?php include'includes/nav.php'; ?>
     <?php 
@@ -72,9 +82,27 @@ $_EVENT_SUB_TYPE_NAME_           = $_EVENT_PARTICIPATION_TYPE_DATA_->sub_type_na
     <?php include 'forms/register-account.php';?>
 
     <?php //include'views/partners.php';?>
-
+    
     <?php include 'includes/footer.php';?>
-
+    <script src="<?php linkto('fileinput/js/fileinput.min.js'); ?>"></script>
+    <script>
+        $("#image").fileinput({
+        overwriteInitial: true,
+	    maxFileSize: 2500,
+	    showClose: false,
+	    showCaption: false,
+	    browseLabel: '',
+	    removeLabel: '',
+	    browseIcon: '<i class="fa fa-folder-open"></i> Upload from computer',
+	    removeIcon: '<i class="fa fa-remove"></i> Delete image',
+	    removeTitle: 'Cancel or reset changes',
+	    elErrorContainer: '#kv-avatar-errors-1',
+	    msgErrorClass: 'alert alert-block alert-danger',
+	    defaultPreviewContent: '<img src="<?=Config::get('server/name')?>img/photo_default.png" alt="Event banner" style="width:100%;">',
+	    layoutTemplates: {main2: '{preview} {remove} {browse}'},								    
+  		allowedFileExtensions: ["jpg", "png", "gif", "JPG", "PNG", "GIF"]
+	});
+    </script>
     <script src="<?php linkto('forms/register-form.js'); ?>"></script>
 
     <script src="<?php linkto('js/select2.min.js'); ?>"></script>
@@ -125,5 +153,7 @@ $_EVENT_SUB_TYPE_NAME_           = $_EVENT_PARTICIPATION_TYPE_DATA_->sub_type_na
             utilsScript: "../build/js/utils.js",
         });
     </script>
+    
+    
 </body>
 </html>
