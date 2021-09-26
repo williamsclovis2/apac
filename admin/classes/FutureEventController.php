@@ -294,6 +294,114 @@ class FutureEventController
 		}
 	}
 
+	public static function createEventParticipantPrivateLink(){
+		$diagnoArray[0] = 'NO_ERRORS';
+		$validate = new \Validate();
+		$prfx = 'private';
+		foreach($_POST as $index=>$val){
+			$ar = explode($prfx,$index);
+			if(count($ar)){
+				$_EDIT[end($ar)] = $val;
+			}
+		}
+		$_EDIT = $_POST;
+		
+		$validation = $validate->check($_EDIT, array(
+			
+		));
+		
+		
+		if($validate->passed()){
+			$FutureEventParticipantTable = new \FutureEvent();
+			
+			$str = new \Str();
+
+			/** Contact Information */
+			$firstname 						= $str->data_in($_EDIT['firstname']);
+			$lastname  						= $str->data_in($_EDIT['lastname']);
+			$email 				            = $str->data_in($_EDIT['email']);
+			$_participation_sub_type_token  = $str->data_in($_EDIT['category']);
+			$_event_token 					= $str->data_in($_EDIT['event']);
+
+			$participation_sub_type_id      = Hash::decryptAuthToken($_participation_sub_type_token);
+			$event_id					    = Hash::decryptAuthToken($_event_token);
+
+
+			/** Generated Link */
+			$generated_link = '';
+			$access_token = '';
+			$access_generated_time = time();
+			$access_expiry_time    = time();
+
+			/** Check If Valid $_PID_ And Exists In Participant Table */
+			if(!is_integer($participation_sub_type_id) || !is_integer($event_id)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "Invalid Data",
+					'ERRORS_STRING' => "Invalid Data"
+				];
+			endif;
+
+			if($diagnoArray[0] == 'NO_ERRORS'){
+				
+				$_fields = array(
+					'event_id'             		=> $event_id,
+					'participation_type_id'     => $participation_type_id,
+					'participation_sub_type_id' => $participation_sub_type_id,
+					'firstname'             	=> $firstname,
+					'lastname'             		=> $lastname,
+					'email'             	    => $email,
+
+					'generated_link'            => $generated_link,
+					'access_token'              => $access_token,
+					'access_generated_time'     => $access_generated_time,
+					'access_expiry_time'        => $access_expiry_time,
+					'link_used_time'            => 0,
+					'link_used_status'         	=> 0,
+					
+					'reusable_state'            => 0,
+					'status'            		=> 'ACTIVE',
+					'creation_date'             => time()
+				);
+
+				try{
+					$FutureEventParticipantTable->updateParticipant($_fields, $_PID_);
+					/** Get Last Participant ID  */
+					$_PID_ 		 = self::getLastPacipatantID();
+					/** Generate Auth Token */
+					$_AUTH_TOKEN 				  = $authtoken;
+					$_PARTICIPATION_PAYMENT_TYPE_ = $_participant_->payment_state;
+
+					/** Send Email To Participant */
+
+					
+				}catch(Exeption $e){
+					$diagnoArray[0] = "ERRORS_FOUND";
+					$diagnoArray[]  = $e->getMessage();
+				}
+			}
+		}else{
+			$diagnoArray[0] = 'ERRORS_FOUND';
+			$error_msg 	    = ul_array($validation->errors());
+		}
+		if($diagnoArray[0] == 'ERRORS_FOUND'){
+			return (object)[
+				'ERRORS'		=> true,
+				'ERRORS_SCRIPT' => $validate->getErrorLocation(),
+				'ERRORS_STRING' => ""
+			];
+		}else{
+			return (object)[
+				'ERRORS'	    => false,
+				'SUCCESS'	    => true,
+				'ERRORS_SCRIPT' => "",
+				'AUTHTOKEN'     => $_AUTH_TOKEN,
+				'PARTICIPATIONPAYMENTTYPE'=> $_PARTICIPATION_PAYMENT_TYPE_,
+				'ERRORS_STRING' => ""
+			];
+		}
+	}
+
     public static function getActivePacipationCategoryByEventID($eventID){
         $FutureEventTable = new FutureEvent();
         $FutureEventTable->selectQuery("SELECT id,name, payment_state, virtual_price, inperson_price, sub_type_state, currency FROM future_participation_type WHERE event_id = {$eventID} AND status = 'ACTIVE' AND visibility_state = 1  ");

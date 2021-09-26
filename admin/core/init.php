@@ -4,6 +4,28 @@ session_start();
 
 $_SESSION['user'] = 16;
 
+function def(){
+    define("DN", Config::get('server/name'));
+    define("_","/");
+    define("P",".php");
+    define("PL",".php");
+    define("CNS",".php");
+    define("CT","Controller");
+    define("CTRL",'./app'._.'controller'.PL);
+    define("ROUTES",'./views'._.'routes'.PL);
+    define("DNSIGNIN",DN._.'login');
+    define("view_session_off_","views/app_session_off/");
+    define("view_session_off","views/app_session_off");
+    define("_PATH_","/");
+    define("_VIEWS_","views/");
+    define("_PATH_VIEWS_","./views/");
+    define('Controller_NS','app\Http\Controllers\\');  // NS => Namespace
+    define('Url_NS','app\Http\Url\\');
+    define("DNADMIN",DN._.Config::get('server/name')._.'admin');
+    define("DN_IMG_CARDS", DN._.'img/cards');
+}
+
+
 $GLOBALS['config'] = array(
     'mysql' => array(
         'host' => '127.0.0.1',
@@ -38,6 +60,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/functions/functions.php';
 spl_autoload_register(function($class) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/classes/' . $class . '.php';
 });
+
+
+/** Initialize Define */
+def();
 
 if(Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('sessions/session_name'))) {
     $hash = Cookie::get(Config::get('remember/cookie_name'));

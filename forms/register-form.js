@@ -610,14 +610,13 @@ $('.registerACPFormSubmit').on('click', function () {
 		type: "POST",
 		url: action,
 		data: str,
-		dataType: 'json',
+		cache: false,
 		success: function (dataResponse) {
+
 			var response = JSON.parse(dataResponse);
 
 			if (response.status == 100) {
-				$("#account_area").css("display", "none");
-				$("#payment_area").css("display", "block");
-				window.location.href = $('.host').attr('link') + "notification";
+				window.location.href = $('.host').attr('link') + "payment/" + response.authToken;
 			}
 			else if (response.status == 101) {
 				window.location.href = $('.host').attr('link') + "notification";

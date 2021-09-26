@@ -14,6 +14,9 @@ RewriteRule ^registration/event/([a-z]+)/([0-9]+)$	register.php?form=$2&event_ty
 RewriteRule ^register/$ register.php?form=$1 [L]
 RewriteRule ^registration$ forms/register_action.php [L]
 
+# Set Payment page
+RewriteRule ^payment/([0-9a-zA-Z]+)$	paymentmethod.php?authtoken_=$1 [L] 
+
 # Set the website content pages
 RewriteRule ^admin/pages/content/link/([^/]+)$ admin/pages/content/link.php?eventId=$1 [L]
 RewriteRule ^admin/pages/content/banner/([^/]+)$ admin/pages/content/banner.php?eventId=$1 [L]
