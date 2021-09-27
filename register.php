@@ -81,6 +81,7 @@ $_EVENT_SUB_TYPE_NAME_           = $_EVENT_PARTICIPATION_TYPE_DATA_->sub_type_na
 
     <?php include 'forms/register-account.php';?>
 
+
     <?php //include'views/partners.php';?>
     
     <?php include 'includes/footer.php';?>
