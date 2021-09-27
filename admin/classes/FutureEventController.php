@@ -365,12 +365,12 @@ class FutureEventController
 				);
 
 				try{
-					$FutureEventParticipantTable->updateParticipant($_fields, $_PID_);
+					$FutureEventParticipantTable->insertPrivateLink($_fields);
 					/** Get Last Participant ID  */
-					$_PID_ 		 = self::getLastPacipatantID();
+					// $_PID_ 		 = self::getLastPacipatantID();
 					/** Generate Auth Token */
-					$_AUTH_TOKEN 				  = $authtoken;
-					$_PARTICIPATION_PAYMENT_TYPE_ = $_participant_->payment_state;
+					// $_AUTH_TOKEN 				  = $authtoken;
+					// $_PARTICIPATION_PAYMENT_TYPE_ = $_participant_->payment_state;
 
 					/** Send Email To Participant */
 
@@ -395,8 +395,8 @@ class FutureEventController
 				'ERRORS'	    => false,
 				'SUCCESS'	    => true,
 				'ERRORS_SCRIPT' => "",
-				'AUTHTOKEN'     => $_AUTH_TOKEN,
-				'PARTICIPATIONPAYMENTTYPE'=> $_PARTICIPATION_PAYMENT_TYPE_,
+				// 'AUTHTOKEN'     => $_AUTH_TOKEN,
+				// 'PARTICIPATIONPAYMENTTYPE'=> $_PARTICIPATION_PAYMENT_TYPE_,
 				'ERRORS_STRING' => ""
 			];
 		}
@@ -434,12 +434,36 @@ class FutureEventController
 				if(($_participation_sub_type_data_  = self::getActivePacipationSubCategoryByPartcipationTypeID($_participation_type_->id, $eventType))):
 					foreach($_participation_sub_type_data_ As $sub_type_):
 						$_array_data_[] = array(
-							'participation_type_name' => $_participation_type_->name,
-							'participation_type_payment_state' =>  $_participation_type_->payment_state,
-							'participation_sub_type_id' => $sub_type_->id,
-							'participation_sub_type_name' => $sub_type_->name, 
-							'participation_sub_type_price' => $sub_type_->price,
-							'participation_sub_type_currency' => $sub_type_->currency, 
+							'participation_type_name' 			=> $_participation_type_->name,
+							'participation_type_payment_state'  =>  $_participation_type_->payment_state,
+							'participation_sub_type_id' 		=> $sub_type_->id,
+							'participation_sub_type_name' 		=> $sub_type_->name, 
+							'participation_sub_type_price' 		=> $sub_type_->price,
+							'participation_sub_type_currency' 	=> $sub_type_->currency, 
+						);
+					endforeach;
+
+				endif;
+			endforeach;
+			return $_array_data_;
+		endif;
+        return  false;
+    }
+
+	public static function getPrivatePacipationSubCategory($eventID, $eventType = 'INPERSON'){
+		if(($_participation_type_data_ = self::getActivePacipationCategoryByEventID($eventID))): 
+			$_array_data_ = array();
+			foreach($_participation_type_data_ As $_participation_type_):
+
+				if(($_participation_sub_type_data_  = self::getActivePacipationSubCategoryByPartcipationTypeID($_participation_type_->id, $eventType))):
+					foreach($_participation_sub_type_data_ As $sub_type_):
+						$_array_data_[] = array(
+							'participation_type_name' 			=> $_participation_type_->name,
+							'participation_type_payment_state'  =>  $_participation_type_->payment_state,
+							'participation_sub_type_id' 		=> $sub_type_->id,
+							'participation_sub_type_name' 		=> $sub_type_->name, 
+							'participation_sub_type_price' 		=> $sub_type_->price,
+							'participation_sub_type_currency' 	=> $sub_type_->currency, 
 						);
 					endforeach;
 

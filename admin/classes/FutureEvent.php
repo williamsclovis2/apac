@@ -46,6 +46,16 @@ class FutureEvent
 			throw new Exception('There was a problem updating');
 	}
 
+	public function insertPrivateLink($fields = array()){
+		if(!$this->_db->insert('future_private_links', $fields))
+			throw new Exception("There was a problem inserting.");
+	}
+
+	public function updatePrivateLink($fields = array(), $id = null){
+		if(!$this->_db->update('future_private_links',$id,$fields))
+			throw new Exception('There was a problem updating');
+	}
+
 	public function find($user = null,$limit = null){
 		if($user){
 			$hit = false;

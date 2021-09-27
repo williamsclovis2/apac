@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
-                <form action="<?php linkto("forms/register_action.php"); ?>" class="form-contact" id="registerForm" method="post">
+                <form  class="form-contact" id="registerForm" method="post">
                     <div id="register-messages"></div>
                     <label>All <span>*</span> fields are mandatory </label>
                     <h4>CONTACT INFORMATION</h4>
