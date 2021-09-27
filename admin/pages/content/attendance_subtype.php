@@ -198,16 +198,16 @@
                 </div>
 
                 <!-- Activate Modal  -->
-                <div class="modal inmodal fade" id="activate" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal inmodal fade" id="activate_subtype" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title">Activate  participation type</h4>
+                                <h4 class="modal-title">Activate  participation subtype</h4>
                             </div>
                             <form action="<?php linkto("admin/pages/content/content_action.php"); ?>" method="post" class="formCustom modal-form" id="addLink">
                                 <div class="modal-body text-center">
-                                    <h3>Do you really want to activate this participation type </h3>
+                                    <h3>Do you really want to activate this participation subtype </h3>
                                 </div>
                                 <div class="modal-footer">
                                     <input type="hidden" name="request" value="sendLink"/> 
@@ -225,11 +225,11 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title">Desactivate  participation type</h4>
+                                <h4 class="modal-title">Desactivate  participation subtype</h4>
                             </div>
                             <form action="<?php linkto("admin/pages/content/content_action.php"); ?>" method="post" class="formCustom modal-form" id="addLink">
                                 <div class="modal-body text-center">
-                                    <h3>Do you really want to desactivate this participation type </h3>
+                                    <h3>Do you really want to desactivate this participation subgtype </h3>
                                 </div>
                                 <div class="modal-footer">
                                     <input type="hidden" name="request" value="sendLink"/> 
@@ -283,9 +283,9 @@
                                         <div class="ibox-tools">
                                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #3c8dbc;">More</a>
                                             <ul class="dropdown-menu dropdown-user popover-menu-list">
-                                            <li><a class="menu edit_client" data-toggle="modal" data-target="#delete_subtype" id="delete"><i class="fa fa-trash icon"></i> Delete</a></li>
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#delete_subtype" id="delete"><i class="fa fa-trash icon"></i> Delete</a></li>
                                                 <li><a class="menu edit_client" data-toggle="modal" data-target="#edit_subtype" id="editsubtype"><i class="fa fa-pencil icon"></i> Edit</a></li>
-                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#activate" id="activate"><i class="fa fa-check-circle icon"></i> Activate</a></li>
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#activate_subtype" id="delete"><i class="fa fa-check-circle icon"></i> activate</a></li>
                                                 <li><a class="menu edit_client" data-toggle="modal" data-target="#desactivate" id="activate"><i class="fa fa-times-circle icon"></i> Desactivate</a></li>
                                                    
                                             </ul>
