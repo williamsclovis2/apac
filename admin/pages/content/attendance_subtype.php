@@ -229,7 +229,7 @@
                             </div>
                             <form action="<?php linkto("admin/pages/content/content_action.php"); ?>" method="post" class="formCustom modal-form" id="addLink">
                                 <div class="modal-body text-center">
-                                    <h3>Do you really want to desactivate this participation subtype </h3>
+                                    <h3>Do you really want to desactivate this participation subgtype </h3>
                                 </div>
                                 <div class="modal-footer">
                                     <input type="hidden" name="request" value="sendLink"/> 
