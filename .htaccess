@@ -19,6 +19,8 @@ RewriteRule ^payment/([0-9a-zA-Z]+)$	paymentmethod.php?authtoken_=$1 [L]
 
 # Set the website content pages
 RewriteRule ^admin/pages/content/link/([^/]+)$ admin/pages/content/link.php?eventId=$1 [L]
+RewriteRule ^admin/pages/content/attedence/type/([^/]+)$ admin/pages/content/attendence_type.php?eventId=$1 [L]
+RewriteRule ^admin/pages/content/attedence/subtype/([^/]+)$ admin/pages/content/attendance_subtype.php?eventId=$1 [L]
 RewriteRule ^admin/pages/content/banner/([^/]+)$ admin/pages/content/banner.php?eventId=$1 [L]
 RewriteRule ^admin/pages/content/about/([^/]+)$ admin/pages/content/about.php?eventId=$1 [L]
 RewriteRule ^admin/pages/content/countdown/([^/]+)$ admin/pages/content/countdown.php?eventId=$1 [L]

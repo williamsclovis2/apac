@@ -1,35 +1,3 @@
-<<<<<<< HEAD
-$(document).ready(function () {
-	showGeneratedLinksContent();
-
-	/** Add link */
-	$('#addLinkForm').submit(function () {
-		var f = $(this).find('.form-group'),
-			ferror = false,
-			emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
-
-		f.children('input').each(function () { // run all inputs
-			var i = $(this); // current input
-			var rule = i.attr('data-rule');
-			if (rule !== undefined) {
-				var ierror = false; // error flag for current input
-				var pos = rule.indexOf(':', 0);
-				if (pos >= 0) {
-					var exp = rule.substr(pos + 1, rule.length);
-					rule = rule.substr(0, pos);
-				} else {
-					rule = rule.substr(pos + 1, rule.length);
-				}
-				switch (rule) {
-					case 'required':
-						if (i.val() === '') {
-							ferror = ierror = true;
-						}
-						break;
-				}
-				i.next('.validate').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
-			}
-=======
 $(document).ready(function(){
 	showPartnersList();
 
@@ -50,8 +18,8 @@ $(document).ready(function(){
   		allowedFileExtensions: ["jpg", "png", "gif", "JPG", "PNG", "GIF"]
 	});   
 
-	//Add registration link
-	$('#addLink').submit(function() {
+	//Add partner
+	$('#addPartnerForm').submit(function() {
 	    var f = $(this).find('.form-group'),
 	     	ferror = false,
 	      	emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
@@ -198,174 +166,65 @@ $(document).ready(function(){
 		      	}
 		    });
 		    return false;
->>>>>>> 12cc9f10a460e17e264b82a625441964aa1fb081
 		});
-		f.children('textarea').each(function () { // run all inputs
-			var i = $(this); // current input
-			var rule = i.attr('data-rule');
-			if (rule !== undefined) {
-				var ierror = false; // error flag for current input
-				var pos = rule.indexOf(':', 0);
-				if (pos >= 0) {
-					var exp = rule.substr(pos + 1, rule.length);
-					rule = rule.substr(0, pos);
-				} else {
-					rule = rule.substr(pos + 1, rule.length);
-				}
-				switch (rule) {
-					case 'required':
-						if (i.val() === '') {
-							ferror = ierror = true;
+
+		//Edit partner logo
+		$('#editPartnerImageForm').unbind('submit').bind('submit', function() {
+			var speakerImage = $("#editPartnerImage").val();
+			if(speakerImage == "") {
+				$("#partnerImage").after('<p class="text-danger">Partner picture is required</p>');
+				$('#partnerImage').closest('.form-group').addClass('has-error');
+			}	else {
+				$("#partnerImage").find('.text-danger').remove();
+				$("#partnerImage").closest('.form-group').addClass('has-success');	  	
+			}
+
+			if(speakerImage) {
+				var this_form = $(this);
+				var action = $(this).attr('action');
+				var formData = new FormData(this);
+				$.ajax({
+					type: 'POST',
+					url: action,
+					data: formData,
+					dataType: 'json',
+					cache: false,
+					contentType: false,
+					processData: false,
+					success:function(response) {
+						if(response.success == true) {
+							$("#editPartnerImageForm")[0].reset();
+							showPartnersList();
+							$('#edit-partnerImage-messages').html('<div class="sent-message">'+ response.messages + '</div>');
+				          	this_form.find('.sent-message').slideDown().html(response.messages);
+		          			$(".sent-message").delay(500).show(10, function() {
+								$(this).delay(3000).hide(10, function() {
+									$(this).remove();
+									$(".fileinput-remove-button").click();
+									$('#editPartnerModal').modal('hide');
+								});
+							});
+						} else {
+							$('#edit-partnerImage-messages').html('<div class="error-message">'+ response.messages + '</div>');
+				          	this_form.find('.error-message').slideDown().html(response.messages);
+		          			$(".error-message").delay(500).show(10, function() {});
 						}
-						break;
-				}
-				i.next('.validate').html((ierror ? (i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
+					}
+				});
 			}
+			return false;
 		});
 
-		if (ferror) return false;
-		else var str = $(this).serialize();
-
-
-
-		var this_form = $(this);
-		var action = $(this).attr('action');
-
-		$("#addLinkButton").button('loading');
-
-
-		$.ajax({
-			type: "POST",
-			url: action,
-			data: str,
-			cache: false,
-			success: function (dataResponse) {
-
-				var response = JSON.parse(dataResponse);
-				if (response.success == true) {
-					$("#addLinkButton").button('reset');
-					$("#addLinkForm")[0].reset();
-					showGeneratedLinksContent();
-					$('#add-link-messages').html('<div class="sent-message">' + response.messages + '</div>');
-					this_form.find('.sent-message').slideDown().html(response.messages);
-					$(".sent-message").delay(500).show(20, function () {
-						$(this).delay(12000).hide(10, function () { });
-						$('#generateLinkModal .close').click();
-					});
-				} else {
-					$("#addLinkButton").button('reset');
-					$('#add-link-messages').html('<div class="error-message">' + response.messages + '</div>');
-					this_form.find('.error-message').slideDown().html(response.messages);
-					$(".error-message").delay(500).show(10, function () { });
-				}
-			}
-		});
-		return false;
 	});
-
-
-	/** Edit link */
-	$('#editLinkForm').submit(function () {
-		var f = $(this).find('.form-group'),
-			ferror = false,
-			emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
-
-		f.children('input').each(function () { // run all inputs
-			var i = $(this); // current input
-			var rule = i.attr('data-rule');
-			if (rule !== undefined) {
-				var ierror = false; // error flag for current input
-				var pos = rule.indexOf(':', 0);
-				if (pos >= 0) {
-					var exp = rule.substr(pos + 1, rule.length);
-					rule = rule.substr(0, pos);
-				} else {
-					rule = rule.substr(pos + 1, rule.length);
-				}
-				switch (rule) {
-					case 'required':
-						if (i.val() === '') {
-							ferror = ierror = true;
-						}
-						break;
-				}
-				i.next('.validate').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
-			}
-		});
-		f.children('textarea').each(function () { // run all inputs
-			var i = $(this); // current input
-			var rule = i.attr('data-rule');
-			if (rule !== undefined) {
-				var ierror = false; // error flag for current input
-				var pos = rule.indexOf(':', 0);
-				if (pos >= 0) {
-					var exp = rule.substr(pos + 1, rule.length);
-					rule = rule.substr(0, pos);
-				} else {
-					rule = rule.substr(pos + 1, rule.length);
-				}
-				switch (rule) {
-					case 'required':
-						if (i.val() === '') {
-							ferror = ierror = true;
-						}
-						break;
-				}
-				i.next('.validate').html((ierror ? (i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
-			}
-		});
-
-		if (ferror) return false;
-		else var str = $(this).serialize();
-
-
-
-		var this_form = $(this);
-		var action = $(this).attr('action');
-
-		$("#editLinkButton").button('loading');
-
-
-		$.ajax({
-			type: "POST",
-			url: action,
-			data: str,
-			cache: false,
-			success: function (dataResponse) {
-
-				var response = JSON.parse(dataResponse);
-				if (response.success == true) {
-					$("#editLinkButton").button('reset');
-					$("#editLinkForm")[0].reset();
-					showGeneratedLinksContent();
-					$('#edit-link-messages').html('<div class="sent-message">' + response.messages + '</div>');
-					this_form.find('.sent-message').slideDown().html(response.messages);
-					$(".sent-message").delay(500).show(20, function () {
-						$(this).delay(12000).hide(10, function () { });
-						$('#generateLinkModal .close').click();
-					});
-				} else {
-					$("#editLinkButton").button('reset');
-					$('#edit-link-messages').html('<div class="error-message">' + response.messages + '</div>');
-					this_form.find('.error-message').slideDown().html(response.messages);
-					$(".error-message").delay(500).show(10, function () { });
-				}
-			}
-		});
-		return false;
-	});
-
 });
 
-
-
-function showGeneratedLinksContent() {
+function showPartnersList() {
 	$.ajax({
 		type: 'POST',
 		url: linkto,
-		data: { eventId: eventId, request: "fetchGeneratedLinks" },
-		success: function (data) {
-			$('#list-generated-links').html(data);
+		data: {eventId: eventId, request: "fetchRegistrationLink"},
+		success:function(data){
+			$('#partners-list').html(data);
 		}
 	});
 }
