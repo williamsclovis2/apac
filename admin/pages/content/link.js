@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $(document).ready(function () {
 	showGeneratedLinksContent();
 
@@ -29,176 +28,6 @@ $(document).ready(function () {
 				}
 				i.next('.validate').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
 			}
-=======
-$(document).ready(function(){
-	showPartnersList();
-
-	$("#image").fileinput({
-        overwriteInitial: true,
-	    maxFileSize: 2500,
-	    showClose: false,
-	    showCaption: false,
-	    browseLabel: '',
-	    removeLabel: '',
-	    browseIcon: '<i class="glyphicon glyphicon-folder-open"></i> Upload from computer',
-	    removeIcon: '<i class="glyphicon glyphicon-remove"></i> Delete image',
-	    removeTitle: 'Cancel or reset changes',
-	    elErrorContainer: '#kv-avatar-errors-1',
-	    msgErrorClass: 'alert alert-block alert-danger',
-	    defaultPreviewContent: '<img src="../../../../img/photo_default.png" alt="Event banner" style="width:100%;">',
-	    layoutTemplates: {main2: '{preview} {remove} {browse}'},								    
-  		allowedFileExtensions: ["jpg", "png", "gif", "JPG", "PNG", "GIF"]
-	});   
-
-	//Add registration link
-	$('#addLink').submit(function() {
-	    var f = $(this).find('.form-group'),
-	     	ferror = false,
-	      	emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
-
-	    f.children('input').each(function() { // run all inputs
-	      	var i = $(this); // current input
-	      	var rule = i.attr('data-rule');
-	      	if (rule !== undefined) {
-	        	var ierror = false; // error flag for current input
-	        	var pos = rule.indexOf(':', 0);
-	        	if (pos >= 0) {
-	          	var exp = rule.substr(pos + 1, rule.length);
-	          	rule = rule.substr(0, pos);
-	        } else {
-	          	rule = rule.substr(pos + 1, rule.length);
-	        }
-	        switch (rule) {
-	          	case 'required':
-		            if (i.val() === '') {
-		              ferror = ierror = true;
-		            }
-		            break;
-	        }
-	        i.next('.validate').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
-	    	}
-	    });
-	    if (ferror) return false;
-	    else var str = $(this).serialize();
-
-	    var this_form = $(this);
-	    var action = $(this).attr('action');
-	    var formData = new FormData(this);
-
-	    $("#addPartnerButton").button('loading');
-	    
-	    $.ajax({
-	      	type: "POST",
-	      	url: action,
-	      	data: formData,
-	      	dataType: 'json',
-	      	cache: false,
-			contentType: false,
-			processData: false,
-	      	success:function(response) {
-				if(response.success == true) {
-					$("#addPartnerButton").button('reset');
-					$("#addPartnerForm")[0].reset();
-					showPartnersList();
-					$('#add-partner-messages').html('<div class="sent-message">'+ response.messages + '</div>');
-		          	this_form.find('.sent-message').slideDown().html(response.messages);
-          			$(".sent-message").delay(500).show(10, function() {
-						$(this).delay(3000).hide(10, function() {
-							$(this).remove();
-							$('#addPartnerModal').modal('hide');
-						});
-					});
-		        } else {
-		        	$("#addPartnerButton").button('reset');
-					$('#add-partner-messages').html('<div class="error-message">'+ response.messages + '</div>');
-		          	this_form.find('.error-message').slideDown().html(response.messages);
-          			$(".error-message").delay(500).show(10, function() {
-						
-					});
-		        }
-	      	}
-	    });
-	    return false;
-	});	
-
-	// Edit event
-	$(document).on('click', '.edit_partner', function(){
-		var partnerId = $(this).data('id');
-		var name      = $('#eName'+partnerId).text();
-		var order     = $('#eOrder'+partnerId).text();
-		$('#editPartnerModal').modal('show');
-		$('#ename').val(name);
-		$('#eorder').val(order);
-		$('#editPartnerButton').val(partnerId);
-		$("#editPartnerImage").fileinput({allowedFileExtensions: ["jpg", "png", "gif", "JPG", "PNG", "GIF"]});
-
-		$(".editPartnerFooter").append('<input type="hidden" name="partnerId" id="partnerId" value="'+partnerId+'" />');				
-		$(".editPartnerImageFooter").append('<input type="hidden" name="partnerId" id="partnerId" value="'+partnerId+'" />');
-
-		//Edit event details
-		$('#editPartnerForm').submit(function() {
-		    var f = $(this).find('.form-group'),
-		     	ferror = false,
-		      	emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
-
-		    f.children('input').each(function() { // run all inputs
-		      	var i = $(this); // current input
-		      	var rule = i.attr('data-rule');
-		      	if (rule !== undefined) {
-		        	var ierror = false; // error flag for current input
-		        	var pos = rule.indexOf(':', 0);
-		        	if (pos >= 0) {
-		          	var exp = rule.substr(pos + 1, rule.length);
-		          	rule = rule.substr(0, pos);
-		        } else {
-		          	rule = rule.substr(pos + 1, rule.length);
-		        }
-		        switch (rule) {
-		          	case 'required':
-			            if (i.val() === '') {
-			              ferror = ierror = true;
-			            }
-			            break;
-		        }
-		        i.next('.validate').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
-		    	}
-		    });
-		    if (ferror) return false;
-		    else var str = $(this).serialize();
-
-		    var this_form = $(this);
-		    var action = $(this).attr('action');
-
-		    $("#editPartnerButton").button('loading');
-		    
-		    $.ajax({
-		      	type: "POST",
-		      	url: action,
-		      	data: str,
-		      	dataType: 'json',
-		      	success:function(response) {
-					if(response.success == true) {
-						$("#editPartnerButton").button('reset');
-						$("#editPartnerForm")[0].reset();
-						showPartnersList();
-						$('#edit-partner-messages').html('<div class="sent-message">'+ response.messages + '</div>');
-			          	this_form.find('.sent-message').slideDown().html(response.messages);
-	          			$(".sent-message").delay(500).show(10, function() {
-							$(this).delay(3000).hide(10, function() {
-								$(this).remove();
-								$('#editPartnerModal').modal('hide');
-							});
-						});
-			        } else {
-			        	$("#editPartnerButton").button('reset');
-						$('#edit-partner-messages').html('<div class="error-message">'+ response.messages + '</div>');
-			          	this_form.find('.error-message').slideDown().html(response.messages);
-	          			$(".error-message").delay(500).show(10, function() {});
-			        }
-		      	}
-		    });
-		    return false;
->>>>>>> 12cc9f10a460e17e264b82a625441964aa1fb081
 		});
 		f.children('textarea').each(function () { // run all inputs
 			var i = $(this); // current input
@@ -233,7 +62,6 @@ $(document).ready(function(){
 
 		$("#addLinkButton").button('loading');
 
-
 		$.ajax({
 			type: "POST",
 			url: action,
@@ -250,8 +78,12 @@ $(document).ready(function(){
 					this_form.find('.sent-message').slideDown().html(response.messages);
 					$(".sent-message").delay(500).show(20, function () {
 						$(this).delay(12000).hide(10, function () { });
-						$('#generateLinkModal .close').click();
+						// $('#generateLinkModal .close').click();
 					});
+
+					setTimeout(function () {
+						$('#generateLinkModal .close').delay(1200).click();
+					}, 5000);
 				} else {
 					$("#addLinkButton").button('reset');
 					$('#add-link-messages').html('<div class="error-message">' + response.messages + '</div>');
@@ -265,10 +97,14 @@ $(document).ready(function(){
 
 
 	/** Edit link */
-	$('#editLinkForm').submit(function () {
-		var f = $(this).find('.form-group'),
+	$('.editLinkButtonDynamic').on('click', function () {
+		var Key = $(this).attr('data-key');
+		var FormKey = "#editLinkModal" + Key;
+
+		var f = $(this).find(FormKey + ' .form-group'),
 			ferror = false,
 			emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+
 
 		f.children('input').each(function () { // run all inputs
 			var i = $(this); // current input
@@ -292,7 +128,61 @@ $(document).ready(function(){
 				i.next('.validate').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
 			}
 		});
-		f.children('textarea').each(function () { // run all inputs
+
+		var this_form = $(FormKey + " #editLinkForm")
+
+		if (ferror) return false;
+		else var str = $(this_form).serialize();
+
+		var action = $(this_form).attr('action');
+
+		$(FormKey + " #editLinkButton").button('loading');
+
+		$.ajax({
+			type: "POST",
+			url: action,
+			data: str,
+			cache: false,
+			success: function (dataResponse) {
+				var response = JSON.parse(dataResponse);
+
+				if (response.success == true) {
+					$(FormKey + " #editLinkButton").button('reset');
+					$(FormKey + " #editLinkForm")[0].reset();
+					showGeneratedLinksContent();
+					$(FormKey + ' #edit-link-messages').html('<div class="sent-message">' + response.messages + '</div>');
+					this_form.find(FormKey + ' .sent-message').slideDown().html(response.messages);
+					$(FormKey + " .sent-message").delay(700).show(20, function () {
+						$(this).delay(7000).hide(50, function () { });
+					});
+
+					setTimeout(function () {
+						$(FormKey + ' .close').delay(1200).click();
+					}, 5000);
+
+				} else {
+					$(FormKey + " #editLinkButton").button('reset');
+					$(FormKey + ' #edit-link-messages').html('<div class="error-message">' + response.messages + '</div>');
+					this_form.find(FormKey + ' .error-message').slideDown().html(response.messages);
+					$(FormKey + " .error-message").delay(500).show(10, function () { });
+				}
+			}
+		});
+		return false;
+	});
+
+	/** activate link */
+	$('.activateLinkButtonDynamic').on('click', function () {
+		var Key = $(this).attr('data-key');
+		var FormKey = "#activateLinkModal" + Key;
+
+		alert("HEOOLOOO");
+		var f = $(this).find(FormKey + ' .form-group'),
+			ferror = false,
+			emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+
+
+		f.children('input').each(function () { // run all inputs
 			var i = $(this); // current input
 			var rule = i.attr('data-rule');
 			if (rule !== undefined) {
@@ -311,20 +201,18 @@ $(document).ready(function(){
 						}
 						break;
 				}
-				i.next('.validate').html((ierror ? (i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
+				i.next('.validate').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
 			}
 		});
 
+		var this_form = $(FormKey + " #activateLinkForm")
+
 		if (ferror) return false;
-		else var str = $(this).serialize();
+		else var str = $(this_form).serialize();
 
+		var action = $(this_form).attr('action');
 
-
-		var this_form = $(this);
-		var action = $(this).attr('action');
-
-		$("#editLinkButton").button('loading');
-
+		$(FormKey + " #activateLinkButton").button('loading');
 
 		$.ajax({
 			type: "POST",
@@ -332,23 +220,102 @@ $(document).ready(function(){
 			data: str,
 			cache: false,
 			success: function (dataResponse) {
-
 				var response = JSON.parse(dataResponse);
+
 				if (response.success == true) {
-					$("#editLinkButton").button('reset');
-					$("#editLinkForm")[0].reset();
+					$(FormKey + " #activateLinkButton").button('reset');
+					$(FormKey + " #activateLinkForm")[0].reset();
 					showGeneratedLinksContent();
-					$('#edit-link-messages').html('<div class="sent-message">' + response.messages + '</div>');
-					this_form.find('.sent-message').slideDown().html(response.messages);
-					$(".sent-message").delay(500).show(20, function () {
-						$(this).delay(12000).hide(10, function () { });
-						$('#generateLinkModal .close').click();
+					$(FormKey + ' #activate-link-messages').html('<div class="sent-message">' + response.messages + '</div>');
+					this_form.find(FormKey + ' .sent-message').slideDown().html(response.messages);
+					$(FormKey + " .sent-message").delay(700).show(20, function () {
+						$(this).delay(7000).hide(50, function () { });
 					});
+
+					setTimeout(function () {
+						$(FormKey + ' .close').delay(1200).click();
+					}, 5000);
+
 				} else {
-					$("#editLinkButton").button('reset');
-					$('#edit-link-messages').html('<div class="error-message">' + response.messages + '</div>');
-					this_form.find('.error-message').slideDown().html(response.messages);
-					$(".error-message").delay(500).show(10, function () { });
+					$(FormKey + " #activateLinkButton").button('reset');
+					$(FormKey + ' #activate-link-messages').html('<div class="error-message">' + response.messages + '</div>');
+					this_form.find(FormKey + ' .error-message').slideDown().html(response.messages);
+					$(FormKey + " .error-message").delay(500).show(10, function () { });
+				}
+			}
+		});
+		return false;
+	});
+
+	/** activate link */
+	$('.deactivateLinkButtonDynamic').on('click', function () {
+		var Key = $(this).attr('data-key');
+		var FormKey = "#deactivateLinkModal" + Key;
+
+		var f = $(this).find(FormKey + ' .form-group'),
+			ferror = false,
+			emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+
+
+		f.children('input').each(function () { // run all inputs
+			var i = $(this); // current input
+			var rule = i.attr('data-rule');
+			if (rule !== undefined) {
+				var ierror = false; // error flag for current input
+				var pos = rule.indexOf(':', 0);
+				if (pos >= 0) {
+					var exp = rule.substr(pos + 1, rule.length);
+					rule = rule.substr(0, pos);
+				} else {
+					rule = rule.substr(pos + 1, rule.length);
+				}
+				switch (rule) {
+					case 'required':
+						if (i.val() === '') {
+							ferror = ierror = true;
+						}
+						break;
+				}
+				i.next('.validate').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
+			}
+		});
+
+		var this_form = $(FormKey + " #deactivateLinkForm")
+
+		if (ferror) return false;
+		else var str = $(this_form).serialize();
+
+		var action = $(this_form).attr('action');
+
+		$(FormKey + " #deactivateLinkButton").button('loading');
+
+		$.ajax({
+			type: "POST",
+			url: action,
+			data: str,
+			cache: false,
+			success: function (dataResponse) {
+				var response = JSON.parse(dataResponse);
+
+				if (response.success == true) {
+					$(FormKey + " #deactivateLinkButton").button('reset');
+					$(FormKey + " #deactivateLinkForm")[0].reset();
+					showGeneratedLinksContent();
+					$(FormKey + ' #deactivate-link-messages').html('<div class="sent-message">' + response.messages + '</div>');
+					this_form.find(FormKey + ' .sent-message').slideDown().html(response.messages);
+					$(FormKey + " .sent-message").delay(700).show(20, function () {
+						$(this).delay(7000).hide(50, function () { });
+					});
+
+					setTimeout(function () {
+						$(FormKey + ' .close').delay(1200).click();
+					}, 5000);
+
+				} else {
+					$(FormKey + " #deactivateLinkButton").button('reset');
+					$(FormKey + ' #deactivate-link-messages').html('<div class="error-message">' + response.messages + '</div>');
+					this_form.find(FormKey + ' .error-message').slideDown().html(response.messages);
+					$(FormKey + " .error-message").delay(500).show(10, function () { });
 				}
 			}
 		});
@@ -356,6 +323,7 @@ $(document).ready(function(){
 	});
 
 });
+
 
 
 

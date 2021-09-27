@@ -997,20 +997,6 @@
         echo json_encode($valid);
     }
 
-        // Edit program session
-        if(Input::get('request') && Input::get('request') == 'sendPrivateLink') {
-            $_form_ = FutureEventController::createEventParticipantPrivateLink();
-            if($_form_->ERRORS == false):
-                $valid['success']  = true;
-                $valid['messages'] = "Successfully generated and sent to {$_form_->EMAIL}";    
-            else:
-                $valid['success']  = false;
-                $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
-            endif;
-            echo json_encode($valid);
-        }
-
-
     // Load partnership table
     if(Input::get('fetchParticitants')) {
         $controller->get('future_contact', '*', NULL, "`category` = 'Partner'", 'id DESC LIMIT 15');
@@ -1077,16 +1063,68 @@
     }
 
 
-      /** Load List Of Generated Links */
-      if(Input::get('request') && Input::get('request') == 'fetchGeneratedLinks') {
-        $eventId    = Input::get('eventId');
+            /**  Generate and send link for registration */
+        if(Input::get('request') && Input::get('request') == 'sendPrivateLink') {
+                $_form_ = FutureEventController::createEventParticipantPrivateLink();
+                if($_form_->ERRORS == false):
+                    $valid['success']  = true;
+                    $valid['messages'] = "Successfully generated and sent to {$_form_->EMAIL}";    
+                else:
+                    $valid['success']  = false;
+                    $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+                endif;
+                echo json_encode($valid);
+        }
 
-        $_LIST_DATA_ = FutureEventController::getGeneratedPrivateLinks($eventId);
+        /** Edit Generated Link and send email */ 
+        if(Input::get('request') && Input::get('request') == 'editAndSendPrivateLink') {
+                $_form_ = FutureEventController::updateEventParticipantPrivateLink();
+                if($_form_->ERRORS == false):
+                    $valid['success']  = true;
+                    $valid['messages'] = "Successfully updated and link sent to1 {$_form_->EMAIL}";    
+                else:
+                    $valid['success']  = false;
+                    $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+                endif;
+                echo json_encode($valid);
+        }
+        
+        /** Edit Generated Link and send email */ 
+        if(Input::get('request') && Input::get('request') == 'activatePrivateLink') {
+            $_form_ = FutureEventController::changeStatusParticipantPrivateLink('ACTIVE');
+            if($_form_->ERRORS == false):
+                $valid['success']  = true;
+                $valid['messages'] = "Successfully activated";    
+            else:
+                $valid['success']  = false;
+                $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+            endif;
+            echo json_encode($valid);
+        }
 
-        if (!$_LIST_DATA_) {
-            Danger("No link recorded");
-        } else {
-        ?>
+           
+        /** Edit Generated Link and send email */ 
+        if(Input::get('request') && Input::get('request') == 'deactivatePrivateLink') {
+            $_form_ = FutureEventController::changeStatusParticipantPrivateLink('DEACTIVE');
+            if($_form_->ERRORS == false):
+                $valid['success']  = true;
+                $valid['messages'] = "Successfully deactivated";    
+            else:
+                $valid['success']  = false;
+                $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+            endif;
+            echo json_encode($valid);
+        }
+
+        /** Load List Of Generated Links */
+        if(Input::get('request') && Input::get('request') == 'fetchGeneratedLinks') {
+            $eventId     = Input::get('eventId');
+            $_LIST_DATA_ = FutureEventController::getGeneratedPrivateLinks($eventId);
+
+            if (!$_LIST_DATA_) {
+                Danger("No link recorded");
+            } else {
+    ?>
         
                         <table class="table dataTables-example">
                             <thead>
@@ -1138,14 +1176,15 @@ if($_LIST_DATA_): $count_ = 0;
                                         <div class="ibox-tools">
                                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #3c8dbc;">More</a>
                                             <ul class="dropdown-menu dropdown-user popover-menu-list">
-                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#editlink" id="editLink"><i class="fa fa-pencil icon"></i> Edit</a></li>
-                                                <li><a class="menu block_user" data-id="#" data-request="Deny"><i class="fa fa-times-circle icon"></i> Pending</a></li>
-                                                <li><a class="menu block_user" data-id="#" data-request="Deny"><i class="fa fa-times-circle icon"></i> Deny</a></li>
-                                                <li><a class="menu block_user" data-id="#" data-request="Confirm"><i class="fa fa-check-circle"></i> Confirm</a></li>    
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#editLinkModal<?=Hash::encryptToken($_link_->id)?>" ><i class="fa fa-pencil icon"></i> Edit</a></li>
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#activateLinkModal<?=Hash::encryptToken($_link_->id)?>" ><i class="fa fa-check icon"></i> Activate</a></li>
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#deactivateLinkModal<?=Hash::encryptToken($_link_->id)?>" ><i class="fa fa-remove icon"></i> Deactivate</a></li>
                                             </ul>
                                         </div>
                                     </td>
                                 </tr>
+
+                      
 <?php
     endforeach;
 endif;
