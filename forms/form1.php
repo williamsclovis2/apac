@@ -358,7 +358,7 @@
                                 <div class="col-sm-9 field-validate">
                                 <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
                                     <div class="kv-avatar center-block">                            
-                                        <input type="file" name="image" class="form-control" id="image" placeholder="Partner picture"  class="file-loading" style="width:auto;" data-rule="required" data-msg="Please select partner picture"/>
+                                        <input type="file" name="id_document_picture" class="form-control" id="image" placeholder="Id Document picture"  class="file-loading" style="width:auto;" data-rule="required" data-msg="Please select Id Document picture"/>
                                         <div class="validate"></div>
                                     </div>
                                 </div>

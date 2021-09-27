@@ -34,4 +34,6 @@ $_DATA_ = FutureEventController::getVisiblePacipationSubCategory(7, 'INPERSON');
 // $dec = Hash::decryptAuthToken($enc);
 // echo $dec;
 
-echo var_dump(FutureEventController::getParticipantDataByID(53));
+echo '<pre>';
+ print_r(FutureEventController::getPacipationSubCategoryByID(16));
+echo '</pre>';

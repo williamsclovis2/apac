@@ -23,6 +23,7 @@ function def(){
     define('Url_NS','app\Http\Url\\');
     define("DNADMIN",DN._.Config::get('server/name')._.'admin');
     define("DN_IMG_CARDS", DN._.'img/cards');
+    define("DN_IMG_ID_DOC", DN._.'img/id_document/');
 }
 
 
@@ -52,7 +53,8 @@ $GLOBALS['config'] = array(
     'server' => array(
         'name' => 'http://127.0.0.1/apac/'
         // 'name' => 'http://torusguru.com/thefuture/'
-    )
+    ),
+    
 );
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/functions/functions.php';

@@ -406,7 +406,7 @@
             </div>
         </div>
         <div class="col-sm-12">
-            <input type="hidden" name="request" value="addQuote"/> 
+            <input type="hidden" name="request" value="addQuote"/>  
             <input type="hidden" name="contentId" value="<?php echo $content_id; ?>"/>
             <input type="hidden" name="eventId" value="<?php echo $eventId; ?>"/> 
             <button type="submit" id="addQuoteButton" class="btn btn-primary pull-right" data-loading-text="Loading..." autocomplete="off"><i class="fa fa-check-circle"></i> Submit</button>
@@ -997,6 +997,19 @@
         echo json_encode($valid);
     }
 
+        // Edit program session
+        if(Input::get('request') && Input::get('request') == 'sendPrivateLink') {
+            $_form_ = FutureEventController::createEventParticipantPrivateLink();
+            if($_form_->ERRORS == false):
+                $valid['success']  = true;
+                $valid['messages'] = "Successfully generated and sent to {$_form_->EMAIL}";    
+            else:
+                $valid['success']  = false;
+                $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+            endif;
+            echo json_encode($valid);
+        }
+
 
     // Load partnership table
     if(Input::get('fetchParticitants')) {
@@ -1062,6 +1075,97 @@
         </script>
         <?php
     }
+
+
+      /** Load List Of Generated Links */
+      if(Input::get('request') && Input::get('request') == 'fetchGeneratedLinks') {
+        $eventId    = Input::get('eventId');
+
+        $_LIST_DATA_ = FutureEventController::getGeneratedPrivateLinks($eventId);
+
+        if (!$_LIST_DATA_) {
+            Danger("No link recorded");
+        } else {
+        ?>
+        
+                        <table class="table dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>#ID</th>
+                                    <th>First name</th>
+                                    <th>Last name</th>
+                                    <th>Email</th>
+                                    <th>Generated time</th>
+                                    <th>Registration time</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+<?php
+// $_LIST_DATA_ = FutureEventController::getGeneratedPrivateLinks($eventId);
+if($_LIST_DATA_): $count_ = 0;
+    foreach($_LIST_DATA_  As $_link_): $count_++;
+
+        $_status_ = $_link_->status;
+        $_status_label_ = 'label-warning';
+
+        if($_status_ == 'COMPLETED')
+            $_status_label_ = 'label-info';
+        if($_status_ == 'ACTIVE')
+            $_status_label_ = 'label-success';
+        if($_status_ == 'DEACTIVE')
+            $_status_label_ = 'label-danger';
+        if($_status_ == 'EXPIRED')
+            $_status_label_ = 'label-default';
+
+        
+?>
+                                <tr class="gradeX" style="background: #f8f8f8; border-bottom: 2px solid #fff;">
+                                    <td>
+                                        <span style="color: #3c8dbc; border-left: 2px solid #3c8dbc; padding: 3px; font-size: 12px;">
+                                            <?="FSUM-". $count_;?>
+                                        </span>
+                                    </td>
+                                    <td><?=$_link_->firstname?></td>
+                                    <td><?=$_link_->lastname?></td>
+                                    <td><?=$_link_->email?></td>
+                                    <td><?=date('d-M-Y', $_link_->access_generated_time)?></td>
+                                    <td><?=date('d-M-Y', $_link_->access_generated_time)?></td>
+                                    <td><span class="label <?= $_status_label_ ?>" style="display: block;"><?=$_status_ ?></span></td>
+                                    <td>
+                                        <div class="ibox-tools">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #3c8dbc;">More</a>
+                                            <ul class="dropdown-menu dropdown-user popover-menu-list">
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#editlink" id="editLink"><i class="fa fa-pencil icon"></i> Edit</a></li>
+                                                <li><a class="menu block_user" data-id="#" data-request="Deny"><i class="fa fa-times-circle icon"></i> Pending</a></li>
+                                                <li><a class="menu block_user" data-id="#" data-request="Deny"><i class="fa fa-times-circle icon"></i> Deny</a></li>
+                                                <li><a class="menu block_user" data-id="#" data-request="Confirm"><i class="fa fa-check-circle"></i> Confirm</a></li>    
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+<?php
+    endforeach;
+endif;
+?>
+                            </tbody>
+                        </table> 
+                        <script>
+            $(document).ready(function() {
+                $('.dataTables-example').dataTable({
+                    responsive: true,
+                    "dom": 'T<"clear">lfrtip',
+                    "tableTools": {
+                        "sSwfPath": "js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                    }
+                });
+            });
+        </script>
+    <?php
+    }
+}
 ?>
 
 
