@@ -33,22 +33,22 @@
             <div class="col-lg-2">
                 <!-- <button class="btn btn-xs btn-primary pull-right" data-toggle="modal" data-target="#addPartnerModal" id="addClient" style="margin-top: 50px;"><i class="fa fa fa-external-link"></i> Generate pivite link</button> -->
                 <!-- Generate Link modal -->
-                <div class="modal inmodal fade" id="generateLink" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal inmodal fade" id="generateLinkModal" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                 <h4 class="modal-title">Send private link</h4>
                             </div>
-                            <form action="<?php linkto("admin/pages/content/content_action.php"); ?>" method="post" class="formCustom modal-form" id="addLink">
+                            <form  action="<?php linkto("admin/pages/content/content_action.php"); ?>" method="post" class="formCustom modal-form" id="addLinkForm">
                                 <div class="modal-body">
-                                    <div id="add-partner-messages"></div>
+                                    <div id="add-link-messages"></div>
                                     <p>All <small class="red-color">*</small> fields are mandatory</p>
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group col-md-6">
                                                 <label>First name<small class="red-color">*</small></label>
-                                                <input type="text" name="firtname" id="firtname" placeholder="First name" class="form-control" data-rule="required" data-msg="Please enter first name"/>
+                                                <input type="text" name="firstname" id="firstname" placeholder="First name" class="form-control" data-rule="required" data-msg="Please enter first name"/>
                                                 <div class="validate"></div>
                                             </div>
                                             <div class="form-group col-md-6">
@@ -56,16 +56,25 @@
                                                 <input type="text" name="lastname" id="lastname" placeholder="Last name" class="form-control" data-rule="required" data-msg="Please enter last name"/>
                                                 <div class="validate"></div>
                                             </div>
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-12">
                                                 <label>Email<small class="red-color">*</small></label>
                                                 <input type="text" name="email" id="email" placeholder="Email address" class="form-control" data-rule="required" data-msg="Please enter email address"/>
                                                 <div class="validate"></div>
                                             </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Select paricipant type<small class="red-color">*</small></label>
-                                                <select class="form-control" name="paticipant_type" id="paticipant_type" data-rule="required" data-msg="Please select  Category"> 
+                                            <div class="form-group col-md-12">
+                                                <label>Select Participation Type<small class="red-color">*</small></label>
+                                                <select class="form-control" name="paticipation_sub_type" id="paticipant_type" data-rule="required" data-msg="Please select  Category"> 
                                                     <option value="" selected="">[--Select--]</option>
-                                                    
+<?php
+$_SUB_CATEGORIES_DATA_ = FutureEventController::getPrivatePacipationSubCategory($eventId);
+if($_SUB_CATEGORIES_DATA_):
+    foreach($_SUB_CATEGORIES_DATA_ As $_sub_type_ ):
+?>
+                                                    <option value="<?=Hash::encryptAuthToken($_sub_type_->sub_type_id)?>" ><?=$_sub_type_->name?> - <?=Functions::getEventCategory($_sub_type_->sub_type_category) ?></option>
+<?php
+    endforeach;
+endif;
+?>      
                                                 </select>
                                                 <div class="validate"></div>
                                             </div>
@@ -73,10 +82,10 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <input type="hidden" name="request" value="sendLink"/> 
-                                    <input type="hidden" name="eventId" value="<?php echo $eventId; ?>"/>
+                                    <input type="hidden" name="request" value="sendPrivateLink"/> 
+                                    <input type="hidden" name="eventId" value="<?=Hash::encryptAuthToken($eventId) ?>"/>
                                     <button type="button" class="btn btn-white" data-dismiss="modal"><i class="fa fa-times-circle"></i> Close</button>
-                                    <button type="submit" id="addPartnerButton" class="btn btn-primary" data-loading-text="Loading..." autocomplete="off"><i class="fa fa fa-external-link"></i> Send link</button>
+                                    <button type="submit" id="addLinkButton" class="btn btn-primary" data-loading-text="Loading..." autocomplete="off"><i class="fa fa fa-external-link"></i> Send link</button>
                                 </div>
                             </form>
                         </div>
@@ -90,7 +99,7 @@
                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                 <h4 class="modal-title">Edit  private link</h4>
                             </div>
-                            <form action="<?php linkto("admin/pages/content/content_action.php"); ?>" method="post" class="formCustom modal-form" id="addLink">
+                            <form action="<?php linkto("admin/pages/content/content_action.php"); ?>" method="post" class="formCustom modal-form" id="editLinkform">
                                 <div class="modal-body">
                                     <div id="add-partner-messages"></div>
                                     <p>All <small class="red-color">*</small> fields are mandatory</p>
@@ -112,10 +121,19 @@
                                                 <div class="validate"></div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label>Select paricipant type<small class="red-color">*</small></label>
+                                                <label>Select Participation Type<small class="red-color">*</small></label>
                                                 <select class="form-control" name="paticipant_type" id="paticipant_type" data-rule="required" data-msg="Please select  Category"> 
-                                                    <option value="" selected="">[--Select--]</option>
-                                                    
+                                                    <option value="" selected="">[--Select-- # <?=$eventId?> ]</option>
+<?php
+$_SUB_CATEGORIES_DATA_ = FutureEventController::getPrivatePacipationSubCategory($eventId);
+if($_SUB_CATEGORIES_DATA_):
+    foreach($_SUB_CATEGORIES_DATA_ As $_sub_type_ ):
+?>
+                                                    <option value="<?=$_sub_type_->id?>" ><?=$_sub_type_->name?></option>
+<?php
+    endforeach;
+endif;
+?>      
                                                 </select>
                                                 <div class="validate"></div>
                                             </div>
@@ -138,49 +156,12 @@
             <div class="row-flex" id="partners-list"></div>
             <div class="col-md-12">
                 <div class="ibox float-e-margins">
-                    <div class="ibox-title" style="height: auto;"></div>
-                    <div class="ibox-content" id="">
-                        <table class="table dataTables-example">
-                            <thead>
-                                <tr>
-                                    <th>#ID</th>
-                                    <th>First name</th>
-                                    <th>Last name</th>
-                                    <th>Email</th>
-                                    <th>Generated time</th>
-                                    <th>Registration time</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="gradeX" style="background: #f8f8f8; border-bottom: 2px solid #fff;">
-                                    <td>
-                                        <span style="color: #3c8dbc; border-left: 2px solid #3c8dbc; padding: 3px; font-size: 12px;">
-                                            <?php echo "FSUM-". $i;?>
-                                        </span>
-                                    </td>
-                                    <td>Kambale</td>
-                                    <td>Clovis</td>
-                                    <td>clovismul@gmail.com</td>
-                                    <td>22-09-2021</td>
-                                    <td>25-10-2021</span></td>
-                                    <td><span class="label label-warning" style="display: block;">Pending</span></td>
-                                    <td>
-                                        <div class="ibox-tools">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #3c8dbc;">More</a>
-                                            <ul class="dropdown-menu dropdown-user popover-menu-list">
-                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#editlink" id="editLink"><i class="fa fa-pencil icon"></i> Edit</a></li>
-                                                <li><a class="menu block_user" data-id="#" data-request="Deny"><i class="fa fa-times-circle icon"></i> Pending</a></li>
-                                                <li><a class="menu block_user" data-id="#" data-request="Deny"><i class="fa fa-times-circle icon"></i> Deny</a></li>
-                                                <li><a class="menu block_user" data-id="#" data-request="Confirm"><i class="fa fa-check-circle"></i> Confirm</a></li>    
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table> 
+                <div class="ibox-title">
+                            <button class="btn btn-xs btn-primary pull-right" data-toggle="modal" data-target="#generateLinkModal" ><i class="fa fa-plus-circle"></i> Add Registration Link</button>
+                            <h5>Registration Link</h5>
+                        </div>
+                    <div class="ibox-content" id="list-generated-links">
+                
                     </div>
                 </div>
             </div>

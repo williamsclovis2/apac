@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
-                <form action="<?php linkto("forms/register_action.php"); ?>" class="form-contact" id="registerForm" method="post">
+                <form class="form-contact" id="registerForm" method="post">
                     <div id="register-messages"></div>
                     <label>All <span>*</span> fields are mandatory </label>
                     <h4>CONTACT INFORMATION</h4>
@@ -356,7 +356,7 @@
                                 <div class="col-sm-9 field-validate">
                                 <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
                                     <div class="kv-avatar center-block">                            
-                                        <input type="file" name="image" class="form-control" id="image" placeholder="Partner picture"  class="file-loading" style="width:auto;" data-rule="required" data-msg="Please select partner picture"/>
+                                        <input type="file" name="id_document_picture" class="form-control" id="image" placeholder="Id Document picture"  class="file-loading" style="width:auto;" data-rule="required" data-msg="Please select id document picture"/>
                                         <div class="validate"></div>
                                     </div>
                                 </div>
@@ -393,10 +393,11 @@
                     </div>
 
                     <div class="form-group mt-2" style="overflow: auto;">
-                        <input type="hidden" name="request" value="register">
-                        <input type="hidden" name="eventId" value="<?=$activeEventId?>">
-                        <input type="hidden" name="del_type" value="Delegate">
-                        <button type="submit" id="registerButton" class="btn btn-primary px-5 py-2 text-white pull-right">Submit</button>
+                        <input type="hidden" name="request"  value="registration">
+                        <input type="hidden" name="eventId"  value="<?=Hash::encryptToken($activeEventId)?>">
+                        <input type="hidden" name="del_type" value="">
+                        <input type="hidden" name="eventParticipation" value="<?=$_EVENT_PARTICIPATION_SUB_TYPE_ID_ENCRYPTED_?>">
+                        <button type="button" id="registerButton" class="btn btn-primary px-5 py-2 text-white pull-right registerFormSubmit">Submit</button>
                     </div>
                 </form>
             </div>
