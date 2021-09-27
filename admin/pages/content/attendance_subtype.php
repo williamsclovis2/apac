@@ -5,7 +5,7 @@
     }
 
     $page = "content";
-    $link = "attedence_type";
+    $link = "attendance_subtype";
     $eventId = base64_decode(Input::get('eventId'));
 ?>
 
@@ -27,19 +27,19 @@
                     <li><a href="<?php linkto('admin/'); ?>">Home</a></li>
                     <li><a href="<?php linkto('admin/pages/events/events_list'); ?>">Events</a></li>
                     <li><a>Website content</a></li>
-                    <li class="active"><strong>participation type</strong></li>
+                    <li class="active"><strong>participation subtype</strong></li>
                 </ol>
             </div>
             <div class="col-lg-2">
                 <!-- <button class="btn btn-xs btn-primary pull-right" data-toggle="modal" data-target="#addPartnerModal" id="addClient" style="margin-top: 50px;"><i class="fa fa fa-external-link"></i> Generate pivite link</button> -->
-                <!-- Generate Link modal -->
+                <!-- type  modal -->
                 
-                <div class="modal inmodal fade" id="attedence_type" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal inmodal fade" id="attedence_subtype" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title">Add participation type</h4>
+                                <h4 class="modal-title">Add participation subtype</h4>
                             </div>
                             <form action="<?php linkto("admin/pages/content/content_action.php"); ?>" method="post" class="formCustom modal-form" id="addLink">
                                 <div class="modal-body">
@@ -47,27 +47,46 @@
                                     <p>All <small class="red-color">*</small> fields are mandatory</p>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <div class="form-group col-md-12">
-                                                <label>Name<small class="red-color">*</small></label>
-                                                <input type="text" name="name" id="name" placeholder="Attendence name" class="form-control" data-rule="required" data-msg="Please enter  name"/>
-                                                <div class="validate"></div>
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label>Payment  state<small class="red-color">*</small></label>
-                                                <select class="form-control" name="payment_state" id="payment_state" data-rule="required" data-msg="Please select  payment state"> 
+                                            <div class="form-group col-md-6">
+                                                <label>Participation type<small class="red-color">*</small></label>
+                                                <select class="form-control" name="participation_type" id="participation_type" data-rule="required" data-msg="Please select  participation type"> 
                                                     <option value="" selected="">[--Select--]</option>
-                                                    <option value="payable">Payable</option>
-                                                    <option value="free">Free</option>
+                                                    <div class="validate"></div>
                                                 </select>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Participation subtype  name<small class="red-color">*</small></label>
+                                                <input type="text" name="subtype_name" id="subtype_name" placeholder="subtype name" class="form-control" data-rule="required" data-msg="Please enter subtype name"/>
                                                 <div class="validate"></div>
                                             </div>
                                             
-                                            <div class="form-group col-md-12">
-                                                <label>Visibility<small class="red-color">*</small></label>
-                                                <select class="form-control" name="visibility" id="visibility" data-rule="required" data-msg="Please select  visibility"> 
+                                            <div class="form-group col-md-6">
+                                                <label>Category<small class="red-color">*</small></label>
+                                                <select class="form-control" name="category" id="category" data-rule="required" data-msg="Please select  category"> 
                                                     <option value="" selected="">[--Select--]</option>
-                                                    <option value="Public">Public</option>
-                                                    <option value="Privite">Privite</option>
+                                                    <option value="IN_PERSON">In-person</option>
+                                                    <option value="VIRTUAL">Virtual</option>
+                                                </select>
+                                                <div class="validate"></div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Payment  state<small class="red-color">*</small></label>
+                                                <select class="form-control" name="payment_state" id="payment_state" data-rule="required" data-msg="Please select  payment state"> 
+                                                    <option value="" selected="">[--Select--]</option>
+                                                </select>
+                                                <div class="validate"></div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Price<small class="red-color">*</small></label>
+                                                <input type="text" name="price" id="price" placeholder="Price" class="form-control" data-rule="required" data-msg="Please enter  price"/>
+                                                <div class="validate"></div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Currency<small class="red-color">*</small></label>
+                                                <select class="form-control" name="carrency" id="carrency" data-rule="required" data-msg="Please select  carrency"> 
+                                                    <option value="" selected="">[--Select--]</option>
+                                                    <option value="USD">USD</option>
+                                                    <option value="RWF">RWF</option>
                                                 </select>
                                                 <div class="validate"></div>
                                             </div>
@@ -84,13 +103,13 @@
                         </div>
                     </div>
                 </div>
-                <!-- Edit Link Modal  -->
-                <div class="modal inmodal fade" id="edit_type" tabindex="-1" role="dialog" aria-hidden="true">
+                <!-- Edit subtype Modal  -->
+                <div class="modal inmodal fade" id="edit_subtype" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title">Edit  participation type</h4>
+                                <h4 class="modal-title">Edit subtype</h4>
                             </div>
                             <form action="<?php linkto("admin/pages/content/content_action.php"); ?>" method="post" class="formCustom modal-form" id="addLink">
                                 <div class="modal-body">
@@ -98,27 +117,46 @@
                                     <p>All <small class="red-color">*</small> fields are mandatory</p>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <div class="form-group col-md-12">
-                                                <label>Name<small class="red-color">*</small></label>
-                                                <input type="text" name="name" id="name" placeholder="Attendence name" class="form-control" data-rule="required" data-msg="Please enter  name"/>
-                                                <div class="validate"></div>
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label>Payment  state<small class="red-color">*</small></label>
-                                                <select class="form-control" name="payment_state" id="payment_state" data-rule="required" data-msg="Please select  payment state"> 
+                                            <div class="form-group col-md-6">
+                                                <label>Participation type<small class="red-color">*</small></label>
+                                                <select class="form-control" name="participation_type" id="participation_type" data-rule="required" data-msg="Please select  participation type"> 
                                                     <option value="" selected="">[--Select--]</option>
-                                                    <option value="payable">Payable</option>
-                                                    <option value="free">Free</option>
+                                                    <div class="validate"></div>
                                                 </select>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Participation subtype  name<small class="red-color">*</small></label>
+                                                <input type="text" name="subtype_name" id="subtype_name" placeholder="subtype name" class="form-control" data-rule="required" data-msg="Please enter subtype name"/>
                                                 <div class="validate"></div>
                                             </div>
                                             
-                                            <div class="form-group col-md-12">
-                                                <label>Visibility<small class="red-color">*</small></label>
-                                                <select class="form-control" name="visibility" id="visibility" data-rule="required" data-msg="Please select  visibility"> 
+                                            <div class="form-group col-md-6">
+                                                <label>Category<small class="red-color">*</small></label>
+                                                <select class="form-control" name="category" id="category" data-rule="required" data-msg="Please select  category"> 
                                                     <option value="" selected="">[--Select--]</option>
-                                                    <option value="Public">Public</option>
-                                                    <option value="Privite">Privite</option>
+                                                    <option value="IN_PERSON">In-person</option>
+                                                    <option value="VIRTUAL">Virtual</option>
+                                                </select>
+                                                <div class="validate"></div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Payment  state<small class="red-color">*</small></label>
+                                                <select class="form-control" name="payment_state" id="payment_state" data-rule="required" data-msg="Please select  payment state"> 
+                                                    <option value="" selected="">[--Select--]</option>
+                                                </select>
+                                                <div class="validate"></div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Price<small class="red-color">*</small></label>
+                                                <input type="text" name="price" id="price" placeholder="Price" class="form-control" data-rule="required" data-msg="Please enter  price"/>
+                                                <div class="validate"></div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Currency<small class="red-color">*</small></label>
+                                                <select class="form-control" name="carrency" id="carrency" data-rule="required" data-msg="Please select  carrency"> 
+                                                    <option value="" selected="">[--Select--]</option>
+                                                    <option value="USD">USD</option>
+                                                    <option value="RWF">RWF</option>
                                                 </select>
                                                 <div class="validate"></div>
                                             </div>
@@ -129,7 +167,7 @@
                                     <input type="hidden" name="request" value="sendLink"/> 
                                     <input type="hidden" name="eventId" value="<?php echo $eventId; ?>"/>
                                     <button type="button" class="btn btn-white" data-dismiss="modal"><i class="fa fa-times-circle"></i> Close</button>
-                                    <button type="submit" id="addPartnerButton" class="btn btn-primary" data-loading-text="Loading..." autocomplete="off"><i class="fa fa fa-external-link"></i> Send link</button>
+                                    <button type="submit" id="addPartnerButton" class="btn btn-primary" data-loading-text="Loading..." autocomplete="off"><i class="fa fa fa-external-link"></i> Register</button>
                                 </div>
                             </form>
                         </div>
@@ -137,7 +175,7 @@
                 </div>
 
                 <!-- Delete Modal  -->
-                <div class="modal inmodal fade" id="delete" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal inmodal fade" id="delete_subtype" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -146,7 +184,7 @@
                             </div>
                             <form action="<?php linkto("admin/pages/content/content_action.php"); ?>" method="post" class="formCustom modal-form" id="addLink">
                                 <div class="modal-body text-center">
-                                    <h3>Do you really want to delete this participation type </h3>
+                                    <h3>Do you really want to delete this participation subtype </h3>
                                 </div>
                                 <div class="modal-footer">
                                     <input type="hidden" name="request" value="sendLink"/> 
@@ -207,10 +245,10 @@
         </div>
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row-flex" id="partners-list"></div>
-            <div class="col-lg-3" style="margin-bottom: 30px;">
+            <div class="col-lg-4" style="margin-bottom: 10px;">
                 <div class="event-card event-card-add">
                     <div class="event-card-text event-card-speaker">
-                    <a href="" data-toggle="modal" data-target="#attedence_type" id="addClient" style="margin-top: 50px;"><i class="fa fa-external-link"></i> Add participation type</a>
+                    <a href="" data-toggle="modal" data-target="#attedence_subtype" id="addClient" style="margin-top: 50px;"><i class="fa fa-external-link"></i> Add participation subtype</a>
                     </div>
                 </div>
             </div>
@@ -245,8 +283,8 @@
                                         <div class="ibox-tools">
                                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #3c8dbc;">More</a>
                                             <ul class="dropdown-menu dropdown-user popover-menu-list">
-                                            <li><a class="menu edit_client" data-toggle="modal" data-target="#delete" id="delete"><i class="fa fa-trash icon"></i> Delete</a></li>
-                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#edit_type" id="editLink"><i class="fa fa-pencil icon"></i> Edit</a></li>
+                                            <li><a class="menu edit_client" data-toggle="modal" data-target="#delete_subtype" id="delete"><i class="fa fa-trash icon"></i> Delete</a></li>
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#edit_subtype" id="editsubtype"><i class="fa fa-pencil icon"></i> Edit</a></li>
                                                 <li><a class="menu edit_client" data-toggle="modal" data-target="#activate" id="activate"><i class="fa fa-check-circle icon"></i> Activate</a></li>
                                                 <li><a class="menu edit_client" data-toggle="modal" data-target="#desactivate" id="activate"><i class="fa fa-times-circle icon"></i> Desactivate</a></li>
                                                    
