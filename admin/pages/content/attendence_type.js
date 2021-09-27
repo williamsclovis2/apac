@@ -18,8 +18,8 @@ $(document).ready(function(){
   		allowedFileExtensions: ["jpg", "png", "gif", "JPG", "PNG", "GIF"]
 	});   
 
-	//Add registration link
-	$('#addLink').submit(function() {
+	//Add partner
+	$('#addPartnerForm').submit(function() {
 	    var f = $(this).find('.form-group'),
 	     	ferror = false,
 	      	emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;

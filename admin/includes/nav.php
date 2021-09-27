@@ -45,6 +45,18 @@
                 <a href="#"><i class="fa fa-list"></i> <span class="nav-label">Website Content</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li class="<?php echo ($link == "link" ? "active" : "")?>"><a href="<?php linkto("admin/pages/content/link/$encodedEventId"); ?>"><i class="fa fa-circle-o"></i>Registration Link</a></li>
+                    <li class="<?php echo ($link == "program" ? "active" : "")?>">
+                        <a href="#"><i class="fa fa-circle-o"></i> Attendance type <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li class="<?php echo ($sublink == $day ? "active" : "")?>">
+                                <a href="<?php linkto("admin/pages/content/attedence/type/$encodedEventId"); ?>"><i class="fa fa-circle"></i> view type </a>
+                            </li>
+                            <li class="<?php echo ($sublink == $day ? "active" : "")?>">
+                                <a href="<?php linkto("");?>"><i class="fa fa-circle"></i> view subtype </a>
+                            </li>
+                            
+                        </ul>
+                    </li>
                     <li class="<?php echo ($link == "banner" ? "active" : "")?>"><a href="<?php linkto("admin/pages/content/banner/$encodedEventId"); ?>"><i class="fa fa-circle-o"></i> Event Banner</a></li>
                     <li class="<?php echo ($link == "countdown" ? "active" : "")?>"><a href="<?php linkto("admin/pages/content/countdown/$encodedEventId"); ?>"><i class="fa fa-circle-o"></i> Countdown</a></li>
                     <li class="<?php echo ($link == "about" ? "active" : "")?>"><a href="<?php linkto("admin/pages/content/about/$encodedEventId"); ?>"><i class="fa fa-circle-o"></i> About Section</a></li>
