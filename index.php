@@ -58,10 +58,10 @@ if($_DATA_PARTICIPATION_CATEGORY_ ):
                           <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn">Register</a>
                         </div>
                       </div>
-                    <?php
-                        endforeach;
-                    endif;
-                        ?>
+<?php
+    endforeach;
+endif;
+ ?>
                      
                     </div>
                 </div>

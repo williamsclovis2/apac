@@ -10,15 +10,16 @@
 
 
     // $_POST = array(
-    //     'name'           => "AAAA",
+    //     'name'           => "AAAA Test",
     //     'payment_state'  => "FREE",
     //     'price'          => "200",
     //     'currency'       => "RWF",
+    //     'Id' => '3131393635303238313035',
 
     //     'category'              => "INPERSON",
-    //     'participation_type'    => "5a656a5852574a374c2f6656694f6a79314548587975376a72392f3273774f77724a663032395462763963",
+    //     'participation_type'    => "376d31354b4470754451376f416f717146457663713958336e3778574c4a2b374564765a777652364c6a6f",
 
-    //     'request' => 'registerParticipationSubType',
+    //     'request' => 'editParticipationSubType',
     // );
 
     //Load event banner
@@ -1449,6 +1450,7 @@ endif;
                                     <th>Sub Type name</th>
                                     <th>Category</th>
                                     <th>Payment</th>
+                                    <th>Price</th>
                                     <th>Visibility</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -1460,6 +1462,8 @@ endif;
 $_LIST_DATA_ = FutureEventController::getPacipationSubType($eventId);
 if($_LIST_DATA_): $count_ = 0;
     foreach($_LIST_DATA_  As $_data_): $count_++;
+
+        $_price_currency_ = ($_data_->price == 0 || $_data_->payment_state == 'FREE')?'-': number_format($_data_->price).' <small class="pull-rightt  text-dark text-bold" >'.$_data_->currency.'<small>';    
 
         $_status_ = $_data_->status;
         $_status_label_ = 'label-warning';
@@ -1483,16 +1487,16 @@ if($_LIST_DATA_): $count_ = 0;
                                     <td><?=$_data_->name?></td>
                                     <td><?=$_data_->category?></td>
                                     <td><?=$_data_->payment_state?></td>
+                                    <td><?=$_price_currency_?></td>
                                     <td><span class="label <?= $_data_->type_visibility == 0? 'label-primary':'label-default'?>" style="display: block;"><?=$_data_->type_visibility == 0?'Private':'Public'?></span></td>
                                     <td><span class="label <?= $_status_label_ ?>" style="display: block;"><?=$_status_ ?></span></td>
                                     <td>
                                         <div class="ibox-tools">
                                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #3c8dbc;">More</a>
                                             <ul class="dropdown-menu dropdown-user popover-menu-list">
-                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#delete_subtype" id="delete"><i class="fa fa-trash icon"></i> Delete</a></li>
-                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#edit_subtype" id="editsubtype"><i class="fa fa-pencil icon"></i> Edit</a></li>
-                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#activate_subtype" id="delete"><i class="fa fa-check-circle icon"></i> activate</a></li>
-                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#desactivate" id="activate"><i class="fa fa-times-circle icon"></i> Desactivate</a></li>
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#editModal<?=Hash::encryptToken($_data_->id)?>" ><i class="fa fa-pencil icon"></i> Edit</a></li>
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#activateModal<?=Hash::encryptToken($_data_->id)?>" ><i class="fa fa-check icon"></i> Activate</a></li>
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#deactivateModal<?=Hash::encryptToken($_data_->id)?>" ><i class="fa fa-remove icon"></i> Deactivate</a></li>
                                             </ul>
                                         </div>
                                     </td>

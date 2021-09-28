@@ -27,6 +27,24 @@ $_EVENT_PARTICIPATION_TYPE_FORM_ID_ = $_EVENT_PARTICIPATION_TYPE_DATA_->form_ord
 $_EVENT_PARTICIPATION_TYPE_NAME_ = $_EVENT_PARTICIPATION_TYPE_DATA_->name;
 $_EVENT_SUB_TYPE_NAME_           = $_EVENT_PARTICIPATION_TYPE_DATA_->sub_type_name;
 
+
+
+$_HIDDEN_STATE['SECTION'] = array(
+    'IDENTIFICATION' => '',
+    'MEDIA_TOOLS'    => '',
+);
+
+$_DCOLOR_ = '#37af47';
+/** Condition When True - Hidden */
+if($_EVENT_TYPE_ == 'VIRTUAL'):
+    $_HIDDEN_STATE['SECTION']['IDENTIFICATION'] = 'hidden';
+    $_HIDDEN_STATE['SECTION']['MEDIA_TOOLS']    = 'hidden';
+
+    $_DCOLOR_ = '#a42f1d';
+endif;
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +65,16 @@ $_EVENT_SUB_TYPE_NAME_           = $_EVENT_PARTICIPATION_TYPE_DATA_->sub_type_na
     .file-thumbnail-footer{
         display: none !important;
     }
+    .hidden{
+        display: none;
+    }
+
+    .slider_area .single_slider .slider_text_register h5, .slider_area .single_slider .slider_text_register_btn h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: <?=$_DCOLOR_?>;
+    font-weight: 600;
+}
 </style>
 <body>
     <?php include'includes/nav.php'; ?>

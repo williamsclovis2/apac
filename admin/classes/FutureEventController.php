@@ -1020,8 +1020,12 @@ class FutureEventController
 			$category  				= $str->data_in($_EDIT['category']);
 			$participation_type_id  = Hash::decryptAuthToken($str->data_in($_EDIT['participation_type']));
 
+			/** Price is 0 For Free Event */
+			if($payment_state == 'FREE')
+				$price = 0;
+
 			/** Check If Email Event Exitst  */
-			if(self::checkIfEventParticipationSubTypeExists($participation_type_id, $category, $name, $Id)):
+			if(self::checkIfEventParticipationSubTypeExists($participation_type_id, $category, $name, $_ID_)):
 				return (object)[
 					'ERRORS'		=> true,
 					'ERRORS_SCRIPT' => "This Sub Type was already registered",
