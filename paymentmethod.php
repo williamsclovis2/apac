@@ -38,16 +38,16 @@
                             <div class="payment-meth wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
                                 <a class="btn btn-primary  DPO_link" href="#" style="width:100%;">Click to pay with one of  services listed  bellow </a>
                                 <div class="row img-card">
-                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/tigo-pesa.png"></a></div>
-                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/tigo-pesa.png"></a></div>
-                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/tigo-pesa.png"></a></div>
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/visa.png"></a></div>
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/MC.png"></a></div>
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/AE.png"></a></div>
 
-                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/tigo-pesa.png"></a></div>
-                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/tigo-pesa.png"></a></div>
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/PP.png"></a></div>
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/MP.png"></a></div>
                                     <div class="col-md-2"></div>
-                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/tigo-pesa.png"></a></div>
-                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/tigo-pesa.png"></a></div>
-                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/tigo-pesa.png"></a></div>
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/AT.png"></a></div>
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/Tigo.jpg"></a></div>
+                                    <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/MM.png"></a></div>
                                 </div>
                             </div>
                         </div>

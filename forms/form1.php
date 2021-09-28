@@ -88,7 +88,7 @@
                                 <label for="organisation-name" class="col-sm-3">Job title <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
                                     <input class="form-control" name="job_title" id="job_title" type="text" placeholder="Job title" data-rule="required" data-msg="Please enter job title"/>
-                                    <div class="validate"></div> 
+                                    <div class="validate" id="jobtitle_error"></div> 
                                 </div>
                             </div>
                         </div>
@@ -98,10 +98,10 @@
                                 <div class="col-sm-9">
                                     <div class="row">
                                         <div class="col-sm-6 field-validate">
-                                            <select class="form-control" name="job_category" onchange="Other(this,'#job_category1');" data-rule="required" data-msg="Please select job category"/>
+                                            <select class="form-control" name="job_category" id="job_category" onchange="Other(this,'#job_category1');" data-rule="required" data-msg="Please select job category"/>
                                                 <?php $user->jobTitle($form->ERRORS,Input::get('job-category'),$categ);?>
                                             </select>
-                                            <div class="validate"></div>
+                                            <div class="validate" id="jobcategory_error"></div>
                                         </div>
                                         <div class="col-sm-6">
                                             <input class="form-control" name="job_category1" id="job_category1" type="text" placeholder="For other - please specify" 
@@ -122,7 +122,7 @@
                                         <option value="Portuguese">Portuguese</option>
                                         <option value="Arabic">Arabic</option>
                                     </select>
-                                    <div class="validate"></div>
+                                    <div class="validate" id="language_error"></div>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                                         <option value="Female">Female</option>
                                         <option value="Other">Prefer not to disclose</option>
                                     </select>
-                                    <div class="validate"></div>
+                                    <div class="validate" id="gender_error"></div>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +160,7 @@
                                 <label for="organisation-name" class="col-sm-3">Organization name <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
                                     <input class="form-control" name="organisation_name" id="organisation_name" type="text" placeholder="Organization name" data-rule="required" data-msg="Please enter organisation name"/>
-                                    <div class="validate"></div> 
+                                    <div class="validate" id="organisationname_error"></div> 
                                 </div>
                             </div>
                         </div>
@@ -182,7 +182,7 @@
                                                 <option value="Regional Organization">Regional Organization </option>
                                                 <option value="Other">Other </option>
                                             </select>
-                                            <div class="validate"></div>
+                                            <div class="validate" id="organisationtype_error"></div>
                                         </div>
                                         <div class="col-sm-6">
                                             <input class="form-control" name="organisation_type1" id="organisation_type1" type="text" placeholder="For other - please specify" 
@@ -228,7 +228,7 @@
                                                 <option value="Telecommunications">Telecommunications </option>
                                                 <option value="Other">Other </option>
                                             </select>
-                                            <div class="validate"></div>
+                                            <div class="validate" id="industry_error"></div>
                                         </div>
                                         <div class="col-sm-6">
                                             <input class="form-control" name="industry1" id="industry1" type="text" placeholder="For other - please specify" 
@@ -259,7 +259,7 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <input class="form-control" name="organisation_city" id="organisation_city" type="text" placeholder="City" data-rule="required" data-msg="Please enter city"/>
-                                            <div class="validate"></div> 
+                                            <div class="validate" id="city_error"></div> 
                                         </div>
                                     </div>
                                 </div>
@@ -274,8 +274,8 @@
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3">first objective <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <textarea name="firt_objective" id="firt_objective" class="form-control" placeholder="Type your objective" data-rule="maxlen:1020" data-msg="Please only 500 characters" style="height: 70px;"></textarea>
-                                    <div class="validate"></div>
+                                    <textarea name="firt_objective" id="firt_objective" class="form-control" placeholder="Type your objective" data-rule="required" data-msg="Please only 500 characters" style="height: 70px;"></textarea>
+                                    <div class="validate" id="firt_objective_error"></div>
                                 </div>
                             </div>
                         </div>
@@ -283,8 +283,8 @@
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3">Second objective <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <textarea name="second_objective" id="second_objective" class="form-control" placeholder="Type your objective" data-rule="maxlen:1020" data-msg="Please only 500 characters" style="height: 70px;"></textarea>
-                                    <div class="validate"></div>
+                                    <textarea name="second_objective" id="second_objective" class="form-control" placeholder="Type your objective" data-rule="required" data-msg="Please only 500 characters" style="height: 70px;"></textarea>
+                                    <div class="validate" id="second_objective_error"></div>
                                 </div>
                             </div>
                         </div>
@@ -293,7 +293,7 @@
                                 <label for="organisation-name" class="col-sm-3">Third objective <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
                                     <textarea name="third_objective" id="third_objective" class="form-control" placeholder="Type your objective" data-rule="maxlen:1020" data-msg="Please only 500 characters" style="height: 70px;"></textarea>
-                                    <div class="validate"></div>
+                                    <div class="validate" id="third_objective_error"></div>
                                 </div>
                             </div>
                         </div>
@@ -313,11 +313,11 @@
                                                 <option value="Passport">Passport</option>
                                                 <option value="ID">ID card</option>
                                             </select>
-                                            <div class="validate"></div>
+                                            <div class="validate" id="id_type_error"></div>
                                         </div>
                                         <div class="col-sm-6 field-validate">
                                             <input class="form-control" id="id_number" name="id_number"  placeholder="Document number" data-rule="required" data-msg="Please enter document number"/>
-                                            <div class="validate"></div>
+                                            <div class="validate" id="id_number_error"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -335,7 +335,7 @@
                                             <div class="validate" id="residence_country_error"></div>
                                         </div>
                                         <div class="col-sm-6 field-validate">
-                                            <select class="form-control" name="id_type" id="id_type" data-rule="required" data-msg="Please select "/> 
+                                            <select class="form-control" name="info_source" id="info_source" data-rule="required" data-msg="Please select "/> 
                                                 <option value="" selected="">[--Where did you hear about APAC?--]</option>
                                                 <option value="Radio"> Radio</option>
                                                 <option value="TV "> TV</option>
@@ -344,7 +344,7 @@
                                                 <option value="Email "> Email </option>
                                                 <option value="Embassy / Consulate "> Embassy / Consulate </option>
                                             </select>
-                                            <div class="validate"></div>
+                                            <div class="validate" id="info_source_error"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -359,7 +359,7 @@
                                 <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
                                     <div class="kv-avatar center-block">                            
                                         <input type="file" name="id_document_picture" class="form-control" id="image" placeholder="Id Document picture"  class="file-loading" style="width:auto;" data-rule="required" data-msg="Please select Id Document picture"/>
-                                        <div class="validate"></div>
+                                        <div class="validate" id="image_error"></div>
                                     </div>
                                 </div>
                             </div>

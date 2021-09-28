@@ -70,6 +70,9 @@ $_EVENT_SUB_TYPE_NAME_           = $_EVENT_PARTICIPATION_TYPE_DATA_->sub_type_na
             case '6':
                 include 'forms/form6.php';
                 break;
+            case '7':
+                include 'forms/form7.php';
+                break;
             case 'notification':
                 Redirect::to('notification');
                 break;

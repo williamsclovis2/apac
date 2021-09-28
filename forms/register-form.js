@@ -439,6 +439,73 @@ $('.registerFormSubmit').on('click', function () {
 		ferror = ierror = true;
 		$('#telephone_error').text("Please enter telephone");
 	}
+	if ($('#job_title').val().length === 0) {
+		ferror = ierror = true;
+		$('#jobtitle_error').text("Please enter job title");
+	}
+	if ($('#job_category').val().length === 0) {
+		ferror = ierror = true;
+		$('#jobcategory_error').text("Please select job category");
+	}
+	if ($('#language').val().length === 0) {
+		ferror = ierror = true;
+		$('#language_error').text("Please select  language");
+	}
+	if ($('#gender').val().length === 0) {
+		ferror = ierror = true;
+		$('#gender_error').text("Please select  your gender");
+	}
+	if ($('#organisation_name').val().length === 0) {
+		ferror = ierror = true;
+		$('#organisationname_error').text("Please enter  the organization name");
+	}
+	if ($('#organisation_type').val().length === 0) {
+		ferror = ierror = true;
+		$('#organisationtype_error').text("Please select  the organization type");
+	}
+	if ($('#industry').val().length === 0) {
+		ferror = ierror = true;
+		$('#industry_error').text("Please select industry");
+	}
+	if ($('#organisation_city').val().length === 0) {
+		ferror = ierror = true;
+		$('#city_error').text("Please enter city");
+	}
+	if ($('#firt_objective').val().length === 0) {
+		ferror = ierror = true;
+		$('#firt_objective_error').text("Please type your first objective");
+	}
+	if ($('#second_objective').val().length === 0) {
+		ferror = ierror = true;
+		$('#second_objective_error').text("Please type your second objective");
+	}
+	if ($('#third_objective').val().length === 0) {
+		ferror = ierror = true;
+		$('#third_objective_error').text("Please type your third objective");
+	}
+	if ($('#id_type').val().length === 0) {
+		ferror = ierror = true;
+		$('#id_type_error').text("Please select  type of ID ");
+	}
+	if ($('#id_number').val().length === 0) {
+		ferror = ierror = true;
+		$('#id_number_error').text("Please enter  ID number ");
+	}
+	
+	if ($('#info_source').val().length === 0) {
+		ferror = ierror = true;
+		$('#info_source_error').text("Please select  source ");
+	}
+	if ($('#organisation_country').val().length === 0) {
+		ferror = ierror = true;
+		$('#residence_country_error').text("Please select country");
+	}
+	if ($('#image').val().length === 0) {
+		ferror = ierror = true;
+		$('#image_error').text("Please upload your ID or passport  picture");
+	}
+
+
 
 	if ($('#organisation_country').val().length === 0) {
 		ferror = ierror = true;
@@ -448,6 +515,12 @@ $('.registerFormSubmit').on('click', function () {
 		ferror = ierror = true;
 		$('#residence_country_error').text("Please select country");
 	}
+	
+	if ($('#citizenship').val().length === 0) {
+		ferror = ierror = true;
+		$('#citizenship_error').text("Please select country");
+	}
+
 	if ($('#citizenship').val().length === 0) {
 		ferror = ierror = true;
 		$('#citizenship_error').text("Please select country");
