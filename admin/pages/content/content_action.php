@@ -8,6 +8,19 @@
 
     $eventId = Input::get('eventId');
 
+
+    // $_POST = array(
+    //     'name'           => "AAAA",
+    //     'payment_state'  => "FREE",
+    //     'price'          => "200",
+    //     'currency'       => "RWF",
+
+    //     'category'              => "INPERSON",
+    //     'participation_type'    => "5a656a5852574a374c2f6656694f6a79314548587975376a72392f3273774f77724a663032395462763963",
+
+    //     'request' => 'registerParticipationSubType',
+    // );
+
     //Load event banner
     if(Input::get('request') && Input::get('request') == 'fetchBanner') {
         $getContent  = DB::getInstance()->get('future_event', array('id', '=', $eventId));
@@ -1203,7 +1216,307 @@ endif;
             });
         </script>
     <?php
+            }
+        }
+
+
+
+
+
+
+
+
+
+    
+        /**  Create Event Participation Type */
+        if(Input::get('request') && Input::get('request') == 'registerParticipationType') {
+                $_form_ = FutureEventController::createEventParticipationType();
+                if($_form_->ERRORS == false):
+                    $valid['success']  = true;
+                    $valid['messages'] = "Successfully registered";    
+                else:
+                    $valid['success']  = false;
+                    $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+                endif;
+                echo json_encode($valid);
+        }
+
+        /** Edit Event Participation Type */ 
+        if(Input::get('request') && Input::get('request') == 'editParticipationType') {
+                $_form_ = FutureEventController::updateEventParticipationType();
+                if($_form_->ERRORS == false):
+                    $valid['success']  = true;
+                    $valid['messages'] = "Successfully updated";    
+                else:
+                    $valid['success']  = false;
+                    $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+                endif;
+                echo json_encode($valid);
+        }
+        
+        /** Change Status Active Event Participation Type */ 
+        if(Input::get('request') && Input::get('request') == 'activateParticipationType') {
+            $_form_ = FutureEventController::changeStatusParticipationType('ACTIVE');
+            if($_form_->ERRORS == false):
+                $valid['success']  = true;
+                $valid['messages'] = "Successfully activated";    
+            else:
+                $valid['success']  = false;
+                $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+            endif;
+            echo json_encode($valid);
+        }
+
+           
+        /** Change Status Deactive Event Participation Type */ 
+        if(Input::get('request') && Input::get('request') == 'deactivateParticipationType') {
+            $_form_ = FutureEventController::changeStatusParticipationType('DEACTIVE');
+            if($_form_->ERRORS == false):
+                $valid['success']  = true;
+                $valid['messages'] = "Successfully deactivated";    
+            else:
+                $valid['success']  = false;
+                $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+            endif;
+            echo json_encode($valid);
+        }
+
+        /** Load List Of Event Participation Types */
+        if(Input::get('request') && Input::get('request') == 'fetchParticipationTypes') {
+            $eventId     = Input::get('eventId');
+            $_LIST_DATA_ = FutureEventController::getPacipationTypeyByEventID($eventId);
+
+            if (!$_LIST_DATA_) {
+                Danger("No link recorded");
+            } else {
+    ?>
+        
+        <table class="table dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>#ID</th>
+                                    <th>Type name</th>
+                                    <th>Payment status</th>
+                                    <th>Visibility</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+<?php
+$_LIST_DATA_ = FutureEventController::getPacipationTypeyByEventID($eventId);
+if($_LIST_DATA_): $count_ = 0;
+    foreach($_LIST_DATA_  As $_participation_): $count_++;
+        
+        $_status_ = $_participation_->status;
+        $_status_label_ = 'label-warning';
+
+        if($_status_ == 'COMPLETED')
+            $_status_label_ = 'label-info';
+        if($_status_ == 'ACTIVE')
+            $_status_label_ = 'label-success';
+        if($_status_ == 'DEACTIVE')
+            $_status_label_ = 'label-danger';
+        if($_status_ == 'EXPIRED')
+            $_status_label_ = 'label-default';
+?>
+                                <tr class="gradeX" style="background: #f8f8f8; border-bottom: 2px solid #fff;">
+                                    <td>
+                                        <span style="color: #3c8dbc; border-left: 2px solid #3c8dbc; padding: 3px; font-size: 12px;">
+                                            <?php echo "FSUM-". $count_;?>
+                                        </span>
+                                    </td>
+                                    <td><?=$_participation_->name?></td>
+                                    <td><?=$_participation_->payment_state?></td>
+                                    <td><span class="label <?= $_participation_->visibility_state == 0? 'label-primary':'label-default'?>" style="display: block;"><?=$_participation_->visibility_state == 0?'Private':'Public'?></span></td>
+                                    <td><span class="label <?= $_status_label_ ?>" style="display: block;"><?=$_status_ ?></span></td>
+                                    <td>
+                                        <div class="ibox-tools">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #3c8dbc;">More</a>
+                                            <ul class="dropdown-menu dropdown-user popover-menu-list">
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#editModal<?=Hash::encryptToken($_participation_->id)?>" ><i class="fa fa-pencil icon"></i> Edit</a></li>
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#activateModal<?=Hash::encryptToken($_participation_->id)?>" ><i class="fa fa-check icon"></i> Activate</a></li>
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#deactivateModal<?=Hash::encryptToken($_participation_->id)?>" ><i class="fa fa-remove icon"></i> Deactivate</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+<?php
+    endforeach;
+endif;
+?>
+                            </tbody>
+                        </table> 
+                        <script>
+            $(document).ready(function() {
+                $('.dataTables-example').dataTable({
+                    responsive: true,
+                    "dom": 'T<"clear">lfrtip',
+                    "tableTools": {
+                        "sSwfPath": "js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                    }
+                });
+            });
+        </script>
+    <?php
+               
+            }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        /**  Create Event Participation Sub Type */
+        if(Input::get('request') && Input::get('request') == 'registerParticipationSubType') {
+            $_form_ = FutureEventController::createEventParticipationSubType();
+            if($_form_->ERRORS == false):
+                $valid['success']  = true;
+                $valid['messages'] = "Successfully registered";    
+            else:
+                $valid['success']  = false;
+                $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+            endif;
+            echo json_encode($valid);
     }
+
+    /** Edit Event Participation Type */ 
+    if(Input::get('request') && Input::get('request') == 'editParticipationSubType') {
+            $_form_ = FutureEventController::updateEventParticipationSubType();
+            if($_form_->ERRORS == false):
+                $valid['success']  = true;
+                $valid['messages'] = "Successfully updated";    
+            else:
+                $valid['success']  = false;
+                $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+            endif;
+            echo json_encode($valid);
+    }
+    
+    /** Change Status Active Event Participation Type */ 
+    if(Input::get('request') && Input::get('request') == 'activateParticipationSubType') {
+        $_form_ = FutureEventController::changeStatusParticipationSubType('ACTIVE');
+        if($_form_->ERRORS == false):
+            $valid['success']  = true;
+            $valid['messages'] = "Successfully activated";    
+        else:
+            $valid['success']  = false;
+            $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+        endif;
+        echo json_encode($valid);
+    }
+
+       
+    /** Change Status Deactive Event Participation Type */ 
+    if(Input::get('request') && Input::get('request') == 'deactivateParticipationSubType') {
+        $_form_ = FutureEventController::changeStatusParticipationSubType('DEACTIVE');
+        if($_form_->ERRORS == false):
+            $valid['success']  = true;
+            $valid['messages'] = "Successfully deactivated";    
+        else:
+            $valid['success']  = false;
+            $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+        endif;
+        echo json_encode($valid);
+    }
+
+    /** Load List Of Event Participation Types */
+    if(Input::get('request') && Input::get('request') == 'fetchParticipationSubTypes') {
+        $eventId     = Input::get('eventId');
+        $_LIST_DATA_ = FutureEventController::getPacipationSubType($eventId);
+
+        if (!$_LIST_DATA_) {
+            Danger("No link recorded");
+        } else {
+?>
+                        <table class="table dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>#ID</th>
+                                    <th>Type name</th>
+                                    <th>Sub Type name</th>
+                                    <th>Category</th>
+                                    <th>Payment</th>
+                                    <th>Visibility</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+        
+<?php
+$_LIST_DATA_ = FutureEventController::getPacipationSubType($eventId);
+if($_LIST_DATA_): $count_ = 0;
+    foreach($_LIST_DATA_  As $_data_): $count_++;
+
+        $_status_ = $_data_->status;
+        $_status_label_ = 'label-warning';
+
+        if($_status_ == 'COMPLETED')
+            $_status_label_ = 'label-info';
+        if($_status_ == 'ACTIVE')
+            $_status_label_ = 'label-success';
+        if($_status_ == 'DEACTIVE')
+            $_status_label_ = 'label-danger';
+        if($_status_ == 'EXPIRED')
+            $_status_label_ = 'label-default';
+?> 
+                                <tr style="background: #f8f8f8; border-bottom: 2px solid #fff;">
+                                    <td>
+                                        <span style="color: #3c8dbc; border-left: 2px solid #3c8dbc; padding: 3px; font-size: 12px;">
+                                            <?=$count_;?>
+                                        </span>
+                                    </td>
+                                    <td><?=$_data_->type_name?></td>
+                                    <td><?=$_data_->name?></td>
+                                    <td><?=$_data_->category?></td>
+                                    <td><?=$_data_->payment_state?></td>
+                                    <td><span class="label <?= $_data_->type_visibility == 0? 'label-primary':'label-default'?>" style="display: block;"><?=$_data_->type_visibility == 0?'Private':'Public'?></span></td>
+                                    <td><span class="label <?= $_status_label_ ?>" style="display: block;"><?=$_status_ ?></span></td>
+                                    <td>
+                                        <div class="ibox-tools">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #3c8dbc;">More</a>
+                                            <ul class="dropdown-menu dropdown-user popover-menu-list">
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#delete_subtype" id="delete"><i class="fa fa-trash icon"></i> Delete</a></li>
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#edit_subtype" id="editsubtype"><i class="fa fa-pencil icon"></i> Edit</a></li>
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#activate_subtype" id="delete"><i class="fa fa-check-circle icon"></i> activate</a></li>
+                                                <li><a class="menu edit_client" data-toggle="modal" data-target="#desactivate" id="activate"><i class="fa fa-times-circle icon"></i> Desactivate</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+<?php
+    endforeach;
+endif;
+?>
+                            </tbody>
+                        </table> 
+                    <script>
+        $(document).ready(function() {
+            $('.dataTables-example').dataTable({
+                responsive: true,
+                "dom": 'T<"clear">lfrtip',
+                "tableTools": {
+                    "sSwfPath": "js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                }
+            });
+        });
+    </script>
+<?php
+           
+        }
 }
 ?>
 

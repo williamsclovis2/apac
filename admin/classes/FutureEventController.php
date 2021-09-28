@@ -670,7 +670,7 @@ class FutureEventController
 			$payment_state  	= $str->data_in($_EDIT['payment_state']);
 			$visibility_state 	= $str->data_in($_EDIT['visibility_state']);
 			$form_order  		= $str->data_in($_EDIT['form_order']);
-			$event_id			= Hash::decryptAuthToken($str->data_in($_EDIT['event_id']));
+			$event_id			= Hash::decryptAuthToken($str->data_in($_EDIT['eventId']));
 
 	
 			/** Check If Valid $_PID_ And Exists In Participant Table */
@@ -769,10 +769,10 @@ class FutureEventController
 			$payment_state  	= $str->data_in($_EDIT['payment_state']);
 			$visibility_state 	= $str->data_in($_EDIT['visibility_state']);
 			$form_order  		= $str->data_in($_EDIT['form_order']);
-			$event_id			= Hash::decryptAuthToken($str->data_in($_EDIT['event_id']));
+			$event_id			= Hash::decryptAuthToken($str->data_in($_EDIT['eventId']));
 
 			/** Check If Email Event Exitst  */
-			if(self::checkIfEventParticipationTypeExists($event_id, $name, $Id)):
+			if(self::checkIfEventParticipationTypeExists($event_id, $name, $_ID_)):
 				return (object)[
 					'ERRORS'		=> true,
 					'ERRORS_SCRIPT' => "This Type was already registered",
@@ -893,17 +893,6 @@ class FutureEventController
 	}
 
 
-
-
-
-
-
-
-
-
-
-	
-
 	public static function createEventParticipationSubType(){
 		$diagnoArray[0] = 'NO_ERRORS';
 		$validate = new \Validate();
@@ -969,7 +958,7 @@ class FutureEventController
 				);
 
 				try{
-					$FutureEventParticipantTable->insertParticipationSubType($_fields);
+					$FutureEventTable->insertParticipationSubType($_fields);
 
 					/** Send Email To Participant */
 
@@ -1153,23 +1142,26 @@ class FutureEventController
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public static function getActivePacipationCategoryByEventID($eventID){
+    public static function getPacipationTypeyByEventID($eventID){
         $FutureEventTable = new FutureEvent();
-        $FutureEventTable->selectQuery("SELECT id,name, payment_state, virtual_price, inperson_price, sub_type_state, currency FROM future_participation_type WHERE event_id = {$eventID} AND status = 'ACTIVE' AND visibility_state = 1  ");
+        $FutureEventTable->selectQuery("SELECT * FROM future_participation_type WHERE event_id = {$eventID} ORDER BY name ASC ");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->data();
+        return  false;
+    }
+
+    public static function getPacipationSubType($eventID, $TypeID = null){
+		$SQL_Condition_	  = ($TypeID == null)?'':" AND future_participation_sub_type.participation_type_id = {$TypeID}";
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT future_participation_type.id as type_ID, future_participation_type.name as type_name, future_participation_type.visibility_state as type_visibility,  future_participation_sub_type.* FROM future_participation_sub_type INNER JOIN future_participation_type ON future_participation_type.id = future_participation_sub_type.participation_type_id WHERE event_id = {$eventID} $SQL_Condition_ ORDER BY future_participation_sub_type.id ASC ");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->data();
+        return  false;
+    }
+	
+	public static function getActivePacipationCategoryByEventID($eventID){
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT * FROM future_participation_type WHERE event_id = {$eventID} AND status = 'ACTIVE' AND visibility_state = 1  ");
         if($FutureEventTable->count())
           return  $FutureEventTable->data();
         return  false;

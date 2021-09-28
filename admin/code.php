@@ -35,5 +35,5 @@ $_DATA_ = FutureEventController::getVisiblePacipationSubCategory(7, 'INPERSON');
 // echo $dec;
 
 echo '<pre>';
- print_r(FutureEventController::getPacipationSubCategoryByID(16));
+ var_dump(FutureEventController::getVisiblePacipationSubCategory(7, 'INPERSON'));
 echo '</pre>';

@@ -36,16 +36,6 @@ class FutureEvent
 			throw new Exception('There was a problem updating');
 	}
 
-    public function insertParticipationType($fields = array()){
-		if(!$this->_db->insert('future_participation_type', $fields))
-			throw new Exception("There was a problem inserting.");
-	}
-
-	public function updateParticipationType($fields = array(), $id = null){
-		if(!$this->_db->update('future_participation_type',$id,$fields))
-			throw new Exception('There was a problem updating');
-	}
-
 	public function insertPrivateLink($fields = array()){
 		if(!$this->_db->insert('future_private_links', $fields))
 			throw new Exception("There was a problem inserting.");

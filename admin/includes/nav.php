@@ -49,10 +49,10 @@
                         <a href="#"><i class="fa fa-circle-o"></i> Participation  <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li class="<?php echo ($link == "attedence_type" ? "active" : "")?>">
-                                <a href="<?php linkto("admin/pages/content/attedence/type/$encodedEventId"); ?>"><i class="fa fa-circle"></i> Participation  type </a>
+                                <a href="<?php linkto("admin/pages/content/attedence/type/$encodedEventId"); ?>"><i class="fa fa-circle"></i> List Type </a>
                             </li>
                             <li class="<?php echo ($link == "attedence_subtype" ? "active" : "")?>">
-                                <a href="<?php linkto("admin/pages/content/attedence/subtype/$encodedEventId"); ?>"><i class="fa fa-circle"></i> Subtype </a>
+                                <a href="<?php linkto("admin/pages/content/attedence/subtype/$encodedEventId"); ?>"><i class="fa fa-circle"></i> List Sub Type </a>
                             </li>
                             
                         </ul>

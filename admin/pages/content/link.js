@@ -148,7 +148,7 @@ $(document).ready(function () {
 
 				if (response.success == true) {
 					$(FormKey + " #editLinkButton").button('reset');
-					$(FormKey + " #editLinkForm")[0].reset();
+					// $(FormKey + " #editLinkForm")[0].reset();
 					showGeneratedLinksContent();
 					$(FormKey + ' #edit-link-messages').html('<div class="sent-message">' + response.messages + '</div>');
 					this_form.find(FormKey + ' .sent-message').slideDown().html(response.messages);
@@ -176,7 +176,6 @@ $(document).ready(function () {
 		var Key = $(this).attr('data-key');
 		var FormKey = "#activateLinkModal" + Key;
 
-		alert("HEOOLOOO");
 		var f = $(this).find(FormKey + ' .form-group'),
 			ferror = false,
 			emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;

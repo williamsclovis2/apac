@@ -59,14 +59,6 @@
   // );
 
 
-  // $_POST = array(
-  //   'password'  => "123123",
-  //   'confirm_password'   => "123123",
-  //   'eventId'   => "33323039393636333339",
-  //   'authtoken'      => "417a544d4b6d56584a757447496d77544e30544154735370382b687a532f43544359366965695243624251",
-
-  //   'request' => 'account-password-creation',
-  // );
 
   // Get captcha session
   if(Input::get('request') && Input::get('request') == 'captchaSession') {

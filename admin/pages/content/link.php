@@ -98,7 +98,7 @@ endif;
             <div class="row-flex" id="partners-list"></div>
             <div class="col-md-12">
                 <div class="ibox float-e-margins">
-                <div class="ibox-title">
+                        <div class="ibox-title">
                             <button class="btn btn-xs btn-primary pull-right" data-toggle="modal" data-target="#generateLinkModal" ><i class="fa fa-plus-circle"></i> Add Registration Link</button>
                             <h5>Registration Link</h5>
                         </div>
@@ -109,7 +109,7 @@ endif;
             </div>
         </div>
 
-        <?php
+<?php
 $_LIST_DATA_ = FutureEventController::getGeneratedPrivateLinks($eventId);
 if($_LIST_DATA_): $count_ = 0;
     foreach($_LIST_DATA_  As $_link_): $count_++;

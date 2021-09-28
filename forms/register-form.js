@@ -337,7 +337,7 @@ function validateEmail(email) {
 
 
 $('.registerFormSubmit').on('click', function () {
-	// location.href = "#" + "registerForm";
+	location.href = "#" + "registerForm";
 
 	var f = $(this).find('.field-validate'),
 		ferror = false,
@@ -415,46 +415,49 @@ $('.registerFormSubmit').on('click', function () {
 		}
 	});
 
-	// if ($('#firstname').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#firstname_error').text("Please enter first name");
-	// }
-	// if ($('#lastname').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#lastname_error').text("Please enter last name");
-	// }
-	// if ($('#email').val().length === 0 || !validateEmail($('#email').val())) {
-	// 	ferror = ierror = true;
-	// 	$('#email_error').text("Please enter valid email");
-	// }
-	// if ($('#confirm_email').val().length === 0 || !validateEmail($('#confirm_email').val())) {
-	// 	ferror = ierror = true;
-	// 	$('#confirm_email_error').text("Please enter confirm email");
-	// }
-	// if ($('#confirm_email').val() != $('#email').val()) {
-	// 	ferror = ierror = true;
-	// 	$('#confirm_email_error').text("Please enter correct confirm email");
-	// }
-	// if ($('#telephone').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#telephone_error').text("Please enter telephone");
-	// }
+	if ($('#firstname').val().length === 0) {
+		ferror = ierror = true;
+		$('#firstname_error').text("Please enter first name");
+	}
+	if ($('#lastname').val().length === 0) {
+		ferror = ierror = true;
+		$('#lastname_error').text("Please enter last name");
+	}
+	if ($('#email').val().length === 0 || !validateEmail($('#email').val())) {
+		ferror = ierror = true;
+		$('#email_error').text("Please enter valid email");
+	}
+	if ($('#confirm_email').val().length === 0 || !validateEmail($('#confirm_email').val())) {
+		ferror = ierror = true;
+		$('#confirm_email_error').text("Please enter confirm email");
+	}
+	if ($('#confirm_email').val() != $('#email').val()) {
+		ferror = ierror = true;
+		$('#confirm_email_error').text("Please enter correct confirm email");
+	}
+	if ($('#telephone').val().length === 0) {
+		ferror = ierror = true;
+		$('#telephone_error').text("Please enter telephone");
+	}
 
-	// if ($('#organisation_country').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#organisation_country_error').text("Please select country");
-	// }
-	// if ($('#residence_country').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#residence_country_error').text("Please select country");
-	// }
-	// if ($('#citizenship').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#citizenship_error').text("Please select country");
-	// }
+	if ($('#organisation_country').val().length === 0) {
+		ferror = ierror = true;
+		$('#organisation_country_error').text("Please select country");
+	}
+	if ($('#residence_country').val().length === 0) {
+		ferror = ierror = true;
+		$('#residence_country_error').text("Please select country");
+	}
+	if ($('#citizenship').val().length === 0) {
+		ferror = ierror = true;
+		$('#citizenship_error').text("Please select country");
+	}
 
 	var str = "";
-	// if (ferror) return false;
+	if (ferror) {
+		location.href = "#" + "registerForm";
+		return false;
+	}
 	str = $('#registerForm').serialize();
 
 	var this_form = $('#registerForm');
