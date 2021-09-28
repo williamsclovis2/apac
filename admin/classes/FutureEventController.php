@@ -567,7 +567,6 @@ class FutureEventController
 		}
 	}
 
-	
 	public static function changeStatusParticipantPrivateLink($status = 'ACTIVE'){
 		$diagnoArray[0] = 'NO_ERRORS';
 		$validate = new \Validate();
@@ -642,6 +641,531 @@ class FutureEventController
 			];
 		}
 	}
+
+
+	public static function createEventParticipationType(){
+		$diagnoArray[0] = 'NO_ERRORS';
+		$validate = new \Validate();
+		$prfx = 'participation-';
+		foreach($_POST as $index=>$val){
+			$ar = explode($prfx,$index);
+			if(count($ar)){
+				$_EDIT[end($ar)] = $val;
+			}
+		}
+		// $_EDIT = $_POST;
+		
+		$validation = $validate->check($_EDIT, array(
+			
+		));
+		
+		
+		if($validate->passed()){
+			$FutureEventParticipantTable = new \FutureEvent();
+			
+			$str = new \Str();
+
+			/** Contact Information */
+			$name 				= $str->data_in($_EDIT['name']);
+			$payment_state  	= $str->data_in($_EDIT['payment_state']);
+			$visibility_state 	= $str->data_in($_EDIT['visibility_state']);
+			$form_order  		= $str->data_in($_EDIT['form_order']);
+			$event_id			= Hash::decryptAuthToken($str->data_in($_EDIT['event_id']));
+
+	
+			/** Check If Valid $_PID_ And Exists In Participant Table */
+			if(!is_integer($event_id)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "Invalid Data",
+					'ERRORS_STRING' => "Invalid Data"
+				];
+			endif;
+
+			/** Check If Email Event Exitst  */
+			if(self::checkIfEventParticipationTypeExists($event_id, $name)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "This Type was already registered",
+					'ERRORS_STRING' => "This Type was already registered"
+				];
+			endif;
+
+
+			if($diagnoArray[0] == 'NO_ERRORS'){
+				$created_by = Session::get(Config::get('sessions/session_name'));
+				
+				$_fields = array(
+					'name'              => $name,
+					'payment_state'     => $payment_state,
+					'event_level' 		=> 'SPECIFIC',
+					'event_id'          => $event_id,
+					'sub_type_state'    => 0,
+					'visibility_state'  => $visibility_state,
+
+					'form_order'        => $form_order,
+					'status'            => 'ACTIVE',
+					'created_by'     	=> $created_by,
+					'creation_date'     => time()
+				);
+
+				try{
+					$FutureEventParticipantTable->insertParticipationType($_fields);
+
+					/** Send Email To Participant */
+
+					
+				}catch(Exeption $e){
+					$diagnoArray[0] = "ERRORS_FOUND";
+					$diagnoArray[]  = $e->getMessage();
+				}
+			}
+		}else{
+			$diagnoArray[0] = 'ERRORS_FOUND';
+			$error_msg 	    = ul_array($validation->errors());
+		}
+		if($diagnoArray[0] == 'ERRORS_FOUND'){
+			return (object)[
+				'ERRORS'		=> true,
+				'ERRORS_SCRIPT' => $validate->getErrorLocation(),
+				'ERRORS_STRING' => ""
+			];
+		}else{
+			return (object)[
+				'ERRORS'	    => false,
+				'SUCCESS'	    => true,
+				'ERRORS_SCRIPT' => "",
+				'ERRORS_STRING' => ""
+			];
+		}
+	}
+
+	public static function updateEventParticipationType(){
+		$diagnoArray[0] = 'NO_ERRORS';
+		$validate = new \Validate();
+		$prfx = 'participation-';
+		foreach($_POST as $index=>$val){
+			$ar = explode($prfx,$index);
+			if(count($ar)){
+				$_EDIT[end($ar)] = $val;
+			}
+		}
+		// $_EDIT = $_POST;
+		
+		$validation = $validate->check($_EDIT, array(
+			
+		));
+		
+		if($validate->passed()){
+			$FutureEventParticipantTable = new \FutureEvent();
+			
+			$str = new \Str();
+
+			/** Get Id */
+			$_ID_ = Hash::decryptToken($str->data_in($_EDIT['Id']));
+
+			/** Particiaption Type Information */
+			$name 				= $str->data_in($_EDIT['name']);
+			$payment_state  	= $str->data_in($_EDIT['payment_state']);
+			$visibility_state 	= $str->data_in($_EDIT['visibility_state']);
+			$form_order  		= $str->data_in($_EDIT['form_order']);
+			$event_id			= Hash::decryptAuthToken($str->data_in($_EDIT['event_id']));
+
+			/** Check If Email Event Exitst  */
+			if(self::checkIfEventParticipationTypeExists($event_id, $name, $Id)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "This Type was already registered",
+					'ERRORS_STRING' => "This Type was already registered"
+				];
+			endif;
+
+
+			if($diagnoArray[0] == 'NO_ERRORS'){
+				$created_by = Session::get(Config::get('sessions/session_name'));
+				
+				$_fields = array(
+					'name'              => $name,
+					'payment_state'     => $payment_state,
+					'event_id'          => $event_id,
+					'visibility_state'  => $visibility_state,
+					'form_order'        => $form_order,
+				);
+
+				try{
+					$FutureEventParticipantTable->updateParticipationType($_fields, $_ID_);
+
+					/** Send Email To Participant */
+					
+				}catch(Exeption $e){
+					$diagnoArray[0] = "ERRORS_FOUND";
+					$diagnoArray[]  = $e->getMessage();
+				}
+			}
+		}else{
+			$diagnoArray[0] = 'ERRORS_FOUND';
+			$error_msg 	    = ul_array($validation->errors());
+		}
+		if($diagnoArray[0] == 'ERRORS_FOUND'){
+			return (object)[
+				'ERRORS'		=> true,
+				'ERRORS_SCRIPT' => $validate->getErrorLocation(),
+				'ERRORS_STRING' => ""
+			];
+		}else{
+			return (object)[
+				'ERRORS'	    => false,
+				'SUCCESS'	    => true,
+				'ERRORS_SCRIPT' => "",
+				'ERRORS_STRING' => ""
+			];
+		}
+	}
+
+	public static function changeStatusParticipationType($status = 'ACTIVE'){
+		$diagnoArray[0] = 'NO_ERRORS';
+		$validate = new \Validate();
+		$prfx = 'participation-';
+		foreach($_POST as $index=>$val){
+			$ar = explode($prfx,$index);
+			if(count($ar)){
+				$_EDIT[end($ar)] = $val;
+			}
+		}
+		// $_EDIT = $_POST;
+		
+		$validation = $validate->check($_EDIT, array(
+			
+		));
+		
+		
+		if($validate->passed()){
+			$FutureEventParticipantTable = new \FutureEvent();
+			
+			$str = new \Str();
+
+			/** Get Id */
+			$_ID_ = Hash::decryptToken($str->data_in($_EDIT['Id']));
+
+			/** Check If Valid $_PID_ And Exists In Participant Table */
+			if(!is_integer($_ID_)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "Invalid Data",
+					'ERRORS_STRING' => "Invalid Data"
+				];
+			endif;
+
+			if($diagnoArray[0] == 'NO_ERRORS'){
+				
+				$_fields = array(
+					'status'    => $status,
+				);
+
+				try{
+					$FutureEventParticipantTable->updateParticipationType($_fields, $_ID_);
+
+					/** Send Email To Participant */
+					
+				}catch(Exeption $e){
+					$diagnoArray[0] = "ERRORS_FOUND";
+					$diagnoArray[]  = $e->getMessage();
+				}
+			}
+		}else{
+			$diagnoArray[0] = 'ERRORS_FOUND';
+			$error_msg 	    = ul_array($validation->errors());
+		}
+		if($diagnoArray[0] == 'ERRORS_FOUND'){
+			return (object)[
+				'ERRORS'		=> true,
+				'ERRORS_SCRIPT' => $validate->getErrorLocation(),
+				'ERRORS_STRING' => ""
+			];
+		}else{
+			return (object)[
+				'ERRORS'	    => false,
+				'SUCCESS'	    => true,
+				'ERRORS_SCRIPT' => "",
+				'ERRORS_STRING' => ""
+			];
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	public static function createEventParticipationSubType(){
+		$diagnoArray[0] = 'NO_ERRORS';
+		$validate = new \Validate();
+		$prfx = 'participation-';
+		foreach($_POST as $index=>$val){
+			$ar = explode($prfx,$index);
+			if(count($ar)){
+				$_EDIT[end($ar)] = $val;
+			}
+		}
+		// $_EDIT = $_POST;
+		
+		$validation = $validate->check($_EDIT, array(
+			
+		));
+		
+		
+		if($validate->passed()){
+			$FutureEventTable = new \FutureEvent();
+			
+			$str = new \Str();
+
+			/** Information */
+			$name 					= $str->data_in($_EDIT['name']);
+			$payment_state  		= $str->data_in($_EDIT['payment_state']);
+			$price 			    	= $str->data_in($_EDIT['price']);
+			$currency 				= $str->data_in($_EDIT['currency']);
+			$category  				= $str->data_in($_EDIT['category']);
+			$participation_type_id  = Hash::decryptAuthToken($str->data_in($_EDIT['participation_type']));
+
+	
+			/** Check If Valid $_PID_ And Exists In Participant Table */
+			if(!is_integer($participation_type_id)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "Invalid Data",
+					'ERRORS_STRING' => "Invalid Data"
+				];
+			endif;
+
+			/** Check If Email Event Exitst  */
+			if(self::checkIfEventParticipationSubTypeExists($participation_type_id, $name)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "This Sub Type was already registered",
+					'ERRORS_STRING' => "This Sub Type was already registered"
+				];
+			endif;
+
+
+			if($diagnoArray[0] == 'NO_ERRORS'){
+				$created_by = Session::get(Config::get('sessions/session_name'));
+				
+				$_fields = array(
+					'participation_type_id' => $participation_type_id,
+					'payment_state'     	=> $payment_state,
+					'name'             		=> $name,
+					'price' 				=> $price,
+					'category'    			=> $category,
+					'currency' 			 	=> $currency,
+					'status'            	=> 'ACTIVE',
+					'creation_date'    	 	=> time()
+				);
+
+				try{
+					$FutureEventParticipantTable->insertParticipationSubType($_fields);
+
+					/** Send Email To Participant */
+
+					
+				}catch(Exeption $e){
+					$diagnoArray[0] = "ERRORS_FOUND";
+					$diagnoArray[]  = $e->getMessage();
+				}
+			}
+		}else{
+			$diagnoArray[0] = 'ERRORS_FOUND';
+			$error_msg 	    = ul_array($validation->errors());
+		}
+		if($diagnoArray[0] == 'ERRORS_FOUND'){
+			return (object)[
+				'ERRORS'		=> true,
+				'ERRORS_SCRIPT' => $validate->getErrorLocation(),
+				'ERRORS_STRING' => ""
+			];
+		}else{
+			return (object)[
+				'ERRORS'	    => false,
+				'SUCCESS'	    => true,
+				'ERRORS_SCRIPT' => "",
+				'ERRORS_STRING' => ""
+			];
+		}
+	}
+
+	public static function updateEventParticipationSubType(){
+		$diagnoArray[0] = 'NO_ERRORS';
+		$validate = new \Validate();
+		$prfx = 'participation-';
+		foreach($_POST as $index=>$val){
+			$ar = explode($prfx,$index);
+			if(count($ar)){
+				$_EDIT[end($ar)] = $val;
+			}
+		}
+		// $_EDIT = $_POST;
+		
+		$validation = $validate->check($_EDIT, array(
+			
+		));
+		
+		if($validate->passed()){
+			$FutureEventParticipantTable = new \FutureEvent();
+			
+			$str = new \Str();
+
+			/** Get Id */
+			$_ID_ = Hash::decryptToken($str->data_in($_EDIT['Id']));
+
+			/** Particiaption Type Information */
+			$name 					= $str->data_in($_EDIT['name']);
+			$payment_state  		= $str->data_in($_EDIT['payment_state']);
+			$price 			    	= $str->data_in($_EDIT['price']);
+			$currency 				= $str->data_in($_EDIT['currency']);
+			$category  				= $str->data_in($_EDIT['category']);
+			$participation_type_id  = Hash::decryptAuthToken($str->data_in($_EDIT['participation_type']));
+
+			/** Check If Email Event Exitst  */
+			if(self::checkIfEventParticipationSubTypeExists($participation_type_id, $name, $Id)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "This Sub Type was already registered",
+					'ERRORS_STRING' => "This Sub Type was already registered"
+				];
+			endif;
+
+
+			if($diagnoArray[0] == 'NO_ERRORS'){
+				$created_by = Session::get(Config::get('sessions/session_name'));
+				
+				$_fields = array(
+					'participation_type_id' => $participation_type_id,
+					'payment_state'     	=> $payment_state,
+					'name'             		=> $name,
+					'price' 				=> $price,
+					'category'    			=> $category,
+					'currency' 			 	=> $currency,
+				);
+
+				try{
+					$FutureEventParticipantTable->updateParticipationSubType($_fields, $_ID_);
+
+					/** Send Email To Participant */
+					
+				}catch(Exeption $e){
+					$diagnoArray[0] = "ERRORS_FOUND";
+					$diagnoArray[]  = $e->getMessage();
+				}
+			}
+		}else{
+			$diagnoArray[0] = 'ERRORS_FOUND';
+			$error_msg 	    = ul_array($validation->errors());
+		}
+		if($diagnoArray[0] == 'ERRORS_FOUND'){
+			return (object)[
+				'ERRORS'		=> true,
+				'ERRORS_SCRIPT' => $validate->getErrorLocation(),
+				'ERRORS_STRING' => ""
+			];
+		}else{
+			return (object)[
+				'ERRORS'	    => false,
+				'SUCCESS'	    => true,
+				'ERRORS_SCRIPT' => "",
+				'ERRORS_STRING' => ""
+			];
+		}
+	}
+
+	public static function changeStatusParticipationSubType($status = 'ACTIVE'){
+		$diagnoArray[0] = 'NO_ERRORS';
+		$validate = new \Validate();
+		$prfx = 'participation-';
+		foreach($_POST as $index=>$val){
+			$ar = explode($prfx,$index);
+			if(count($ar)){
+				$_EDIT[end($ar)] = $val;
+			}
+		}
+		// $_EDIT = $_POST;
+		
+		$validation = $validate->check($_EDIT, array(
+			
+		));
+		
+		if($validate->passed()){
+			$FutureEventParticipantTable = new \FutureEvent();
+			
+			$str = new \Str();
+
+			/** Get Id */
+			$_ID_ = Hash::decryptToken($str->data_in($_EDIT['Id']));
+
+			/** Check If Valid $_PID_ And Exists In Participant Table */
+			if(!is_integer($_ID_)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "Invalid Data",
+					'ERRORS_STRING' => "Invalid Data"
+				];
+			endif;
+
+			if($diagnoArray[0] == 'NO_ERRORS'){
+				
+				$_fields = array(
+					'status'    => $status,
+				);
+
+				try{
+					$FutureEventParticipantTable->updateParticipationSubType($_fields, $_ID_);
+
+					/** Send Email To Participant */
+					
+				}catch(Exeption $e){
+					$diagnoArray[0] = "ERRORS_FOUND";
+					$diagnoArray[]  = $e->getMessage();
+				}
+			}
+		}else{
+			$diagnoArray[0] = 'ERRORS_FOUND';
+			$error_msg 	    = ul_array($validation->errors());
+		}
+		if($diagnoArray[0] == 'ERRORS_FOUND'){
+			return (object)[
+				'ERRORS'		=> true,
+				'ERRORS_SCRIPT' => $validate->getErrorLocation(),
+				'ERRORS_STRING' => ""
+			];
+		}else{
+			return (object)[
+				'ERRORS'	    => false,
+				'SUCCESS'	    => true,
+				'ERRORS_SCRIPT' => "",
+				'ERRORS_STRING' => ""
+			];
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static function getActivePacipationCategoryByEventID($eventID){
         $FutureEventTable = new FutureEvent();
@@ -759,4 +1283,21 @@ class FutureEventController
         return  false;
 	}
  
+	public static function checkIfEventParticipationTypeExists($event_id, $name, $ID = null){
+		$SQL_Condition_   = ($ID == null)?'':" AND id != {$ID} ";
+		$FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT id from future_participation_type WHERE event_id =? AND name =?  $SQL_Condition_ ORDER BY id DESC LIMIT 1 ", array($event_id, $name));
+        if($FutureEventTable->count())
+          return  true;
+        return  false;
+	}
+
+	public static function checkIfEventParticipationSubTypeExists($participation_type_id, $name, $ID = null){
+		$SQL_Condition_   = ($ID == null)?'':" AND id != {$ID} ";
+		$FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT id from future_participation_sub_type WHERE participation_type_id =? AND name =?  $SQL_Condition_ ORDER BY id DESC LIMIT 1 ", array($participation_type_id, $name));
+        if($FutureEventTable->count())
+          return  true;
+        return  false;
+	}
 }
