@@ -429,11 +429,11 @@ $('.registerFormSubmit').on('click', function () {
 	}
 	if ($('#confirm_email').val().length === 0 || !validateEmail($('#confirm_email').val())) {
 		ferror = ierror = true;
-		$('#confirm_email_error').text("Please enter confirm email");
+		$('#confirm_email_error').text("Please  confirm email");
 	}
 	if ($('#confirm_email').val() != $('#email').val()) {
 		ferror = ierror = true;
-		$('#confirm_email_error').text("Please enter correct confirm email");
+		$('#confirm_email_error').text("Email does not match");
 	}
 	if ($('#telephone').val().length === 0) {
 		ferror = ierror = true;
@@ -504,8 +504,26 @@ $('.registerFormSubmit').on('click', function () {
 		ferror = ierror = true;
 		$('#image_error').text("Please upload your ID or passport  picture");
 	}
-
-
+	if ($('#student_country').val().length === 0) {
+		ferror = ierror = true;
+		$('#residence_country_error').text("Please select country");
+	}
+	if ($('#school_name').val().length === 0) {
+		ferror = ierror = true;
+		$('#school_name_error').text("Please enter school  name");
+	}
+	if ($('#school_category').val().length === 0) {
+		ferror = ierror = true;
+		$('#school_category_error').text("Please select school category");
+	}
+	if ($('#organisation_country').val().length === 0) {
+		ferror = ierror = true;
+		$('#student_country_error').text("Please select country");
+	}
+	if ($('#student_city').val().length === 0) {
+		ferror = ierror = true;
+		$('#student_city_error').text("Please enter city");
+	}
 
 	if ($('#organisation_country').val().length === 0) {
 		ferror = ierror = true;

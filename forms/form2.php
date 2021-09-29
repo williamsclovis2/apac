@@ -100,7 +100,7 @@
                                 <div class="col-sm-9">
                                     <div class="row">
                                         <div class="col-sm-6 field-validate">
-                                            <select class="form-control" name="job_category" onchange="Other(this,'#job_category1');" data-rule="required" data-msg="Please select job category"/>
+                                            <select class="form-control" name="job_category" id="job_category" onchange="Other(this,'#job_category1');" data-rule="required" data-msg="Please select job category"/>
                                                 <?php $user->jobTitle($form->ERRORS,Input::get('job-category'),$categ);?>
                                             </select>
                                             <div class="validate" id="jobcategory_error"></div>
@@ -338,7 +338,7 @@
                                             <div class="validate" id="residence_country_error"></div>
                                         </div>
                                         <div class="col-sm-6 field-validate">
-                                            <select class="form-control" name="id_type" id="id_type" data-rule="required" data-msg="Please select "/> 
+                                            <select class="form-control" name="info_source" id="info_source" data-rule="required" data-msg="Please select "/> 
                                                 <option value="" selected="">[--Where did you hear about APAC?--]</option>
                                                 <option value="Radio"> Radio</option>
                                                 <option value="TV "> TV</option>
