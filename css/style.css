@@ -1189,7 +1189,7 @@ h3 {
   border-radius: 2px;
   margin-bottom: 4px;
 }
-.slider_area .single_slider .slider_text span.live {background-color: #e11d19; padding: 0px 10px;}
+.slider_area .single_slider .slider_text span.live {background-color: #a42f1d; color:#fff; padding: 4px 12px; font-size: 14px;}
 .slider_area .single_slider .slider_text_register span.separator-line {width: 150px;}
 .slider_area .single_slider .slider_text_register_btn span.separator-line {width: 150px; margin-bottom: 15px;}
 .slider_area .single_slider .slider_text p {

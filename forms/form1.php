@@ -7,7 +7,7 @@
                     <div class="slider_text slider_text_register">
                         <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?=$_EVENT_PARTICIPATION_TYPE_NAME_ ?> Registration Form </h3>
                         <span class="separator-line wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s"></span>
-                        <h5 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?= ucfirst($_EVENT_SUB_TYPE_NAME_) ?>/ <?= ucfirst($_EVENT_TYPE_NAME_) ?> Event </h5>
+                        <h5 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?= ucfirst($_EVENT_SUB_TYPE_NAME_) ?>/ <?= ucfirst($_EVENT_TYPE_NAME_) ?> Event / <sup>$</sup> 300</h5>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                             <div class="row">
                                 <label for="email" class="col-sm-3">Email <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                  <input class="form-control" name="email" id="email" type="text" placeholder="Email" data-rule="email" data-msg="Please enter a valid email"/>
+                                  <input class="form-control" name="email" id="email" type="text" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
                                     <div class="validate" id="email_error"></div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                             <div class="row">
                                 <label for="email" class="col-sm-3">Confirm email <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                  <input class="form-control" name="confirm_email" id="confirm_email" type="text" placeholder="Confirm email" data-rule="email" data-msg="email doesn't match field"/>
+                                  <input class="form-control" name="confirm_email" id="confirm_email" type="text" placeholder="Confirm email" data-rule="email" data-msg="email doesn't match field" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
                                     <div class="validate" id="confirm_email_error"></div>
                                 </div>
                             </div>

@@ -38,20 +38,19 @@
 
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="lastname" class="col-sm-3">Second name <span>*</span></label>
+                                <label for="email" class="col-sm-3">Email <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="lastname" id="lastname" type="text" placeholder="Last name" data-rule="required" data-msg="Please enter last name"/>
-                                    <div class="validate" id="lastname_error"></div> 
+                                  <input class="form-control" name="email" id="email" type="text" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
+                                    <div class="validate" id="email_error"></div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="email" class="col-sm-3">Email <span>*</span></label>
+                                <label for="email" class="col-sm-3">Confirm email <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                  <input class="form-control" name="email" id="email" type="text" placeholder="Email" data-rule="email" data-msg="Please enter a valid email"/>
-                                    <div class="validate" id="email_error"></div>
+                                  <input class="form-control" name="confirm_email" id="confirm_email" type="text" placeholder="Confirm email" data-rule="email" data-msg="email doesn't match field" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
+                                    <div class="validate" id="confirm_email_error"></div>
                                 </div>
                             </div>
                         </div>
