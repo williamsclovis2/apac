@@ -44,6 +44,14 @@
                 <!-- <div class="col-lg-2"></div> -->
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
+                        <div class="type_subtype">
+                            <a href="#" class="btn btn-primary" style="display: inline-block;">In-person</a>
+                            <a href="#" class="btn btn-primary" style="display: inline-block;">Virtual</a>
+                            <a href="#" class="btn btn-primary" style="display: inline-block;">Early Bird / In-person </a>
+                            <a href="#" class="btn btn-primary" style="display: inline-block;">Early Bird / Virtual</a>
+                            <a href="#" class="btn btn-primary" style="display: inline-block;">Standard / In-person</a>
+                            <a href="#" class="btn btn-primary" style="display: inline-block;">Standard / Virtual</a>
+                        </div>
                         <div class="ibox-title" style="height: auto;">
                           
                         </div>

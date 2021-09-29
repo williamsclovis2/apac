@@ -5663,3 +5663,12 @@ body.skin-3 {
   border-color: #fed733;
   color: #0a2623;
 }
+
+/* CL */
+.type_subtype .btn{
+  padding: 3px 12px;
+  margin-right: 5px;
+}
+.type_subtype{
+  margin-bottom: 5px;
+}
