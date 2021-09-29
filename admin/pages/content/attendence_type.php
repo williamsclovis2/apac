@@ -120,7 +120,7 @@ if($_LIST_DATA_): $count_ = 0;
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title">Edit Participation Type</h4>
+                                <h4 class="modal-title">Edit Participation Subtype</h4>
                             </div>
                             <form action="<?php linkto("admin/pages/content/content_action.php"); ?>" method="post" class="formCustom modal-form" id="editForm">
                                 <div class="modal-body">
@@ -130,7 +130,7 @@ if($_LIST_DATA_): $count_ = 0;
                                         <div class="col-sm-12">
                                             <div class="form-group col-md-12">
                                                 <label>Name<small class="red-color">*</small></label>
-                                                <input type="text" name="name" value="<?=$_data_->name?>" id="name" placeholder="Attendence name" class="form-control" data-rule="required" data-msg="Please enter name"/>
+                                                <input type="text" name="name" value="<?=$_data_->name?>" id="name" placeholder="Participation Name" class="form-control" data-rule="required" data-msg="Please enter name"/>
                                                 <div class="validate"></div>
                                             </div>
                                             <div class="form-group col-md-12">
@@ -194,7 +194,7 @@ if($_LIST_DATA_): $count_ = 0;
                                     <input type="hidden" name="eventId" value="<?=Hash::encryptAuthToken($eventId) ?>"/>
                                     <input type="hidden" name="Id" value="<?=Hash::encryptToken($_data_->id) ?>"/>
                                     <button type="button" class="btn btn-white" data-dismiss="modal"><i class="fa fa-times-circle"></i> Close</button>
-                                    <button type="button" id="activateButton" class="btn btn-primary activateButtonDynamic" data-loading-text="Loading..." data-key = "<?=Hash::encryptToken($_data_->id)?>" autocomplete="off"><i class="fa fa fa-external-link"></i> Activate Link</button>
+                                    <button type="button" id="activateButton" class="btn btn-primary activateButtonDynamic" data-loading-text="Loading..." data-key = "<?=Hash::encryptToken($_data_->id)?>" autocomplete="off"><i class="fa fa fa-external-link"></i> Activate</button>
                                 </div>
                             </form>
                         </div>
@@ -222,7 +222,7 @@ if($_LIST_DATA_): $count_ = 0;
                                     <input type="hidden" name="eventId" value="<?=Hash::encryptAuthToken($eventId) ?>"/>
                                     <input type="hidden" name="Id" value="<?=Hash::encryptToken($_data_->id) ?>"/>
                                     <button type="button" class="btn btn-white" data-dismiss="modal"><i class="fa fa-times-circle"></i> Close</button>
-                                    <button type="button" id="deactivateButton" class="btn btn-primary deactivateButtonDynamic" data-loading-text="Loading..." data-key = "<?=Hash::encryptToken($_data_->id)?>" autocomplete="off"><i class="fa fa fa-external-link"></i> Deactivate Link</button>
+                                    <button type="button" id="deactivateButton" class="btn btn-primary deactivateButtonDynamic" data-loading-text="Loading..." data-key = "<?=Hash::encryptToken($_data_->id)?>" autocomplete="off"><i class="fa fa fa-external-link"></i> Deactivate</button>
                                 </div>
                             </form>
                         </div>

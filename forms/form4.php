@@ -227,6 +227,8 @@
                             </div>
                         </div>
                     </div>
+
+                <span class="<?=$_HIDDEN_STATE['SECTION']['MEDIA_TOOLS']?>">
                     <h4>TOOLS</h4>
                     <hr class="separator-line"> 
                     <div class="row">
@@ -280,6 +282,9 @@
                             </div>
                         </div>
                     </div>
+                </span>
+
+                <span class="<?=$_HIDDEN_STATE['SECTION']['IDENTIFICATION']?>">
                     <h4>IDENTIFICATION</h4>
                     <hr class="separator-line"> 
                     <div class="row">
@@ -354,6 +359,7 @@
                             </div>
                         </div>
                     </div>
+                </span>
                     
                     <hr class="separator-line">
                     <div class="row" style="margin-bottom: 2%;">

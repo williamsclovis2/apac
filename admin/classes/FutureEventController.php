@@ -934,7 +934,7 @@ class FutureEventController
 			endif;
 
 			/** Check If Email Event Exitst  */
-			if(self::checkIfEventParticipationSubTypeExists($participation_type_id, $name)):
+			if(self::checkIfEventParticipationSubTypeExists($participation_type_id, $category, $name)):
 				return (object)[
 					'ERRORS'		=> true,
 					'ERRORS_SCRIPT' => "This Sub Type was already registered",
@@ -1020,8 +1020,12 @@ class FutureEventController
 			$category  				= $str->data_in($_EDIT['category']);
 			$participation_type_id  = Hash::decryptAuthToken($str->data_in($_EDIT['participation_type']));
 
+			/** Price is 0 For Free Event */
+			if($payment_state == 'FREE')
+				$price = 0;
+
 			/** Check If Email Event Exitst  */
-			if(self::checkIfEventParticipationSubTypeExists($participation_type_id, $name, $Id)):
+			if(self::checkIfEventParticipationSubTypeExists($participation_type_id, $category, $name, $_ID_)):
 				return (object)[
 					'ERRORS'		=> true,
 					'ERRORS_SCRIPT' => "This Sub Type was already registered",
@@ -1284,10 +1288,10 @@ class FutureEventController
         return  false;
 	}
 
-	public static function checkIfEventParticipationSubTypeExists($participation_type_id, $name, $ID = null){
+	public static function checkIfEventParticipationSubTypeExists($participation_type_id, $category, $name, $ID = null){
 		$SQL_Condition_   = ($ID == null)?'':" AND id != {$ID} ";
 		$FutureEventTable = new FutureEvent();
-        $FutureEventTable->selectQuery("SELECT id from future_participation_sub_type WHERE participation_type_id =? AND name =?  $SQL_Condition_ ORDER BY id DESC LIMIT 1 ", array($participation_type_id, $name));
+        $FutureEventTable->selectQuery("SELECT id from future_participation_sub_type WHERE participation_type_id =? AND name =? AND category =?  $SQL_Condition_ ORDER BY id DESC LIMIT 1 ", array($participation_type_id, $name, $category));
         if($FutureEventTable->count())
           return  true;
         return  false;
