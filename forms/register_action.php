@@ -5,8 +5,10 @@
 
   // $_POST = array(
   //   'eventId'             		=> '33323039393636333339',
-  //   'participation_type_id'     => 0,
-  //   'eventParticipation' => '383232323232323231',
+  //   'eventParticipation'     => "31363138313336393237",
+  //   // 'eventInvitation' => '58717853393147496f69304c634f2f454a6f5a4b4c367a5135335a4a4c7548667654704c55642f49373049',
+  //   // 'participation_type_id'     => 0,
+  //   // 'eventParticipation' => '383232323232323231',
 
   //   'firstname'            => 'firstname',
   //   'lastname'             => 'lastname',
@@ -350,6 +352,22 @@
               $response['status'] = 200;
               $response['message']= 'REDIRECT_TO_NOTIFICATION';
             endif;
+
+        else:
+          $response['status'] = 400;
+          $response['message']= $_form_->ERRORS_STRING;
+        endif;
+      break;
+
+        
+      /** Submission Of The Participant Registration - Using Private Invitation Link - */
+      case 'invitationRegister':
+        $_form_ = FutureEventController::registerEventParticipant('PRIVATE');
+        if($_form_->ERRORS == false):
+
+            $response['status']    = 100;
+            $response['message']   = 'REDIRECT_TO_PASSWORD_SETTINGS';
+            $response['authToken'] = $_form_->AUTHTOKEN;
 
         else:
           $response['status'] = 400;

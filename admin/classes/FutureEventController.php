@@ -2,7 +2,7 @@
 class FutureEventController  
 {
 	
-	public static function registerEventParticipant(){
+	public static function registerEventParticipant($_REGISTRATION_STATE_ = 'PUBLIC'){
 		$diagnoArray[0] = 'NO_ERRORS';
 		$validate = new \Validate();
 		$prfx = ' ';
@@ -24,14 +24,21 @@ class FutureEventController
 			
 			$str = new \Str();
 
+			/** PRIVATE REGISTRATION */
+			$_REGISTRATION_PRIVATE_ACCESS_TOKEN_ = NULL;
+			$_private_link_ID 					 = NULL;
+			if($_REGISTRATION_STATE_ == 'PRIVATE'):
+				$_REGISTRATION_PRIVATE_ACCESS_TOKEN_ = $str->data_in($_EDIT['eventInvitation']);
+				$_private_link_ID 					 = Hash::decryptAuthToken($_REGISTRATION_PRIVATE_ACCESS_TOKEN_);
+			endif;
 
 			/** Contact Information */
-			$firstname 	= $str->sanAsName($_EDIT['firstname']);
-			$lastname 	= $str->sanAsName($_EDIT['lastname']);
-			$email	    = $str->data_in($_EDIT['email']);
+			$firstname         = $str->sanAsName($_EDIT['firstname']);
+			$lastname 		   = $str->sanAsName($_EDIT['lastname']);
+			$email	           = $str->data_in($_EDIT['email']);
 			
-			$telephone   = $str->data_in($_EDIT['telephone']);
-			$telephone_2 = $str->data_in($_EDIT['telephone_2']);
+			$telephone         = $str->data_in($_EDIT['telephone']);
+			$telephone_2	   = $str->data_in($_EDIT['telephone_2']);
 
 			$gender 		   = $str->data_in($_EDIT['gender']);
 			$birthday 		   = $str->data_in($_EDIT['birthday']);
@@ -40,8 +47,8 @@ class FutureEventController
 			$job_category 	   = $str->data_in($_EDIT['job_category']);
 
 			/**eventParticipation */
-			$eventParticipationEncrypted = $str->data_in($_EDIT['eventParticipation']);
-			$eventParticipationSubTypeID = Hash::decryptToken($eventParticipationEncrypted);
+			$eventParticipationEncrypted   = $str->data_in($_EDIT['eventParticipation']);
+			$eventParticipationSubTypeID   = Hash::decryptToken($eventParticipationEncrypted);
 
 			/** Get Participation Type And Sub Type Event Details */
 			$_participation_sub_type_data_ = self::getPacipationSubCategoryByID($eventParticipationSubTypeID);
@@ -50,6 +57,13 @@ class FutureEventController
 			/** Event */
 			$eventID = $str->data_in(Hash::decryptToken($_EDIT['eventId']));
 
+			/** Attending Objective Information */
+			$firt_objective 		 = !Input::checkInput('firt_objective', 'post', 1)?'':$str->data_in($_EDIT['firt_objective']);
+			$second_objective 		 = !Input::checkInput('second_objective', 'post', 1)?'':$str->data_in($_EDIT['second_objective']);
+			$third_objective 	     = !Input::checkInput('third_objective', 'post', 1)?'':$str->data_in($_EDIT['third_objective']);
+
+			/** Source Information */
+			$info_source 		 	 = !Input::checkInput('info_source', 'post', 1)?'':$str->data_in($_EDIT['info_source']);
 
 			/** Organization Information */
 			$organisation_name 		 = !Input::checkInput('organisation_name', 'post', 1)?'':$str->data_in($_EDIT['organisation_name']);
@@ -67,11 +81,11 @@ class FutureEventController
 
 
 			/** Identification - When In Person Event */
-			$residence_country = !Input::checkInput('residence_country', 'post', 1)?'':$str->data_in($_EDIT['residence_country']);
-			$residence_city    = !Input::checkInput('residence_city', 'post', 1)?'':$str->data_in($_EDIT['residence_city']);
-			$citizenship 	   = !Input::checkInput('citizenship', 'post', 1)?'':$str->data_in($_EDIT['citizenship']);
-			$id_type           = !Input::checkInput('id_type', 'post', 1)?'':$str->data_in($_EDIT['id_type']);
-			$id_number 		   = !Input::checkInput('id_number', 'post', 1)?'':$str->data_in($_EDIT['id_number']);
+			$residence_country 		 = !Input::checkInput('residence_country', 'post', 1)?'':$str->data_in($_EDIT['residence_country']);
+			$residence_city    		 = !Input::checkInput('residence_city', 'post', 1)?'':$str->data_in($_EDIT['residence_city']);
+			$citizenship 	  		 = !Input::checkInput('citizenship', 'post', 1)?'':$str->data_in($_EDIT['citizenship']);
+			$id_type          		 = !Input::checkInput('id_type', 'post', 1)?'':$str->data_in($_EDIT['id_type']);
+			$id_number 		  		 = !Input::checkInput('id_number', 'post', 1)?'':$str->data_in($_EDIT['id_number']);
 
 			
 			/** Media Information */
@@ -83,12 +97,12 @@ class FutureEventController
 
 
 			/** Media Information */
-			$educacation_institute_name 	  	= !Input::checkInput('educacation_institute_name', 'post', 1)?'':$str->data_in($_EDIT['educacation_institute_name']);
-			$educacation_institute_category 	= !Input::checkInput('educacation_institute_category', 'post', 1)?'':$str->data_in($_EDIT['educacation_institute_category']);
-			$educacation_institute_industry     = !Input::checkInput('educacation_institute_industry', 'post', 1)?'':$str->data_in($_EDIT['educacation_institute_industry']);
-			$educacation_institute_website 		= !Input::checkInput('educacation_institute_website', 'post', 1)?'':$str->data_in($_EDIT['educacation_institute_website']);
-			$educacation_institute_country      = !Input::checkInput('educacation_institute_country', 'post', 1)?'':$str->data_in($_EDIT['educacation_institute_country']);
-			$educacation_institute_city         = !Input::checkInput('educacation_institute_city', 'post', 1)?'':$str->data_in($_EDIT['educacation_institute_city']);
+			$educacation_institute_name 	  	= !Input::checkInput('institute_name', 'post', 1)?'':$str->data_in($_EDIT['institute_name']);
+			$educacation_institute_category 	= !Input::checkInput('institute_category', 'post', 1)?'':$str->data_in($_EDIT['institute_category']);
+			$educacation_institute_industry     = !Input::checkInput('institute_industry', 'post', 1)?'':$str->data_in($_EDIT['institute_industry']);
+			$educacation_institute_website 		= !Input::checkInput('institute_website', 'post', 1)?'':$str->data_in($_EDIT['institute_website']);
+			$educacation_institute_country      = !Input::checkInput('institute_country', 'post', 1)?'':$str->data_in($_EDIT['institute_country']);
+			$educacation_institute_city         = !Input::checkInput('institute_city', 'post', 1)?'':$str->data_in($_EDIT['institute_city']);
 
 			/** Upload The ID Document Picture */
 			$id_document_picture = '';
@@ -101,6 +115,7 @@ class FutureEventController
 					'event_id'             		=> $eventID,
 					'participation_type_id'     => $eventParticipationTypeID,
 					'participation_sub_type_id' => $eventParticipationSubTypeID,
+					'private_link_id'			=> $_private_link_ID,
 
 					'firstname'            => $firstname,
 					'lastname'             => $lastname,
@@ -149,6 +164,11 @@ class FutureEventController
 					'educacation_institute_website'   => $educacation_institute_website,
 					'educacation_institute_country'   => $educacation_institute_country,
 					'educacation_institute_city'      => $educacation_institute_city,
+
+					'attending_objective_1'   => $firt_objective,
+					'attending_objective_2'   => $second_objective,
+					'attending_objective_3'   => $third_objective,
+					'info_source'   		  => $info_source,
 				);
 
             
@@ -1296,4 +1316,12 @@ class FutureEventController
           return  true;
         return  false;
 	}
+
+	public static function getEventPrivateInvitationLinkDataByID($ID){
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT  future_private_links.event_id As event_ID, future_private_links.participation_type_id as participation_type_ID, future_private_links.participation_sub_type_id as participation_sub_type_ID, future_private_links.firstname as participant_firstname, future_private_links.lastname as participant_lastname, future_private_links.email as participant_email, future_private_links.status, future_private_links.link_used_status, future_participation_type.name as participation_type_name, future_participation_sub_type.name as participation_sub_type_name, future_participation_sub_type.category as event_type_name FROM `future_private_links` INNER JOIN future_participation_type ON future_private_links.participation_type_id = future_participation_type.id INNER JOIN future_participation_sub_type ON future_private_links.participation_sub_type_id = future_participation_sub_type.id WHERE future_private_links.id = {$ID} ORDER BY future_private_links.id DESC LIMIT 1");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->first();
+        return  false;
+    }
 }

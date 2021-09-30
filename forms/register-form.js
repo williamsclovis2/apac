@@ -321,6 +321,7 @@ function Other(field, field1) {
 			$(field1).prop('disabled', true);
 		}
 	}
+	$('#' + name + '_error').text("");
 }
 
 
@@ -340,7 +341,7 @@ $('.registerFormSubmit').on('click', function () {
 	location.href = "#" + "registerForm";
 	$('.field-validate .validate').text('');
 
-	var f = $(this).find('.field-validate'),
+	var f = $("#registerForm").find('.field-validate'),
 		ferror = false,
 		emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
 
@@ -420,7 +421,6 @@ $('.registerFormSubmit').on('click', function () {
 	var eventParticiaptionCode_ = $('#_EvPCode_').val();
 
 	resgistrationFormValidation(eventCode_, eventParticiaptionCode_);
-
 
 	var str = "";
 	if (ferror) {
@@ -676,7 +676,7 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 
 
 	/** Validation For - All - Except Students And Youth Section -  */
-	if (eventParticiaptionCode != 'STYR004') {
+	if (eventParticiaptionCode != 'STYR003') {
 		if ($('#organisation_name').val().length === 0) {
 			ferror = ierror = true;
 			$('#organisationname_error').text("Please enter  the organization name");
@@ -685,17 +685,26 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 			ferror = ierror = true;
 			$('#organisationtype_error').text("Please select  the organization type");
 		}
-		if ($('#industry').val().length === 0) {
-			ferror = ierror = true;
-			$('#industry_error').text("Please select industry");
-		}
-		if ($('#organisation_country').val().length === 0) {
-			ferror = ierror = true;
-			$('#organisation_country_error').text("Please select country");
-		}
+
 		if ($('#organisation_city').val().length === 0) {
 			ferror = ierror = true;
 			$('#city_error').text("Please enter city");
+		}
+	}
+
+	/** Validation For African Based - Organization Section -  */
+	if (eventParticiaptionCode == 'AFBR004') {
+		if ($('#african_country').val().length === 0) {
+			ferror = ierror = true;
+			$('#organisation_country_error').text("Please select country");
+		}
+	}
+
+	/** Validation For Non African Based - Organization Section -  */
+	if (eventParticiaptionCode == 'AFBR004') {
+		if ($('#non_african_country').val().length === 0) {
+			ferror = ierror = true;
+			$('#organisation_country_error').text("Please select country");
 		}
 	}
 
@@ -714,14 +723,14 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 			ferror = ierror = true;
 			$('#residence_country_error').text("Please select country");
 		}
-		if ($('#citizenship').val().length === 0) {
-			ferror = ierror = true;
-			$('#citizenship_error').text("Please select country");
-		}
-		if ($('#citizenship').val().length === 0) {
-			ferror = ierror = true;
-			$('#citizenship_error').text("Please select country");
-		}
+		// if ($('#citizenship').val().length === 0) {
+		// 	ferror = ierror = true;
+		// 	$('#citizenship_error').text("Please select country");
+		// }
+		// if ($('#citizenship').val().length === 0) {
+		// 	ferror = ierror = true;
+		// 	$('#citizenship_error').text("Please select country");
+		// }
 		if ($('#image').val().length === 0) {
 			ferror = ierror = true;
 			$('#image_error').text("Please upload your ID or passport  picture");
@@ -743,31 +752,8 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 
 
 	/** Validation For Student And Youth  */
-	if (eventParticiaptionCode == 'STYR004') {
-		if ($('#student_country').val().length === 0) {
-			ferror = ierror = true;
-			$('#residence_country_error').text("Please select country");
-		}
-		if ($('#school_name').val().length === 0) {
-			ferror = ierror = true;
-			$('#school_name_error').text("Please enter school  name");
-		}
-		if ($('#school_category').val().length === 0) {
-			ferror = ierror = true;
-			$('#school_category_error').text("Please select school category");
-		}
-		if ($('#organisation_country').val().length === 0) {
-			ferror = ierror = true;
-			$('#student_country_error').text("Please select country");
-		}
-		if ($('#student_city').val().length === 0) {
-			ferror = ierror = true;
-			$('#student_city_error').text("Please enter city");
-		}
-		if (!checkAgeAtDateOfEvent($('#birthday').val(), 10, 35)) {
-			ferror = ierror = true;
-			$('#birthday_error').text("Only people with age between 10 and 35 can register to this event");
-		}
+	if (eventParticiaptionCode == 'STYR003') {
+
 	}
 
 
@@ -794,8 +780,7 @@ function validate(input) {
 		if (!validateEmail(input_value) || input_value.length <= 5)
 			error_validate_msg = 'Please fill this field with valid email';
 
-	if (input_id == 'birthday')
-		alert("Value :: " + input_value);
+	// if (input_id == 'birthday')
 	// if (!checkAgeAtDateOfEvent(input_value, 10, 35))
 	// 	error_validate_msg = 'Only people with age between 10 and 35 can register to this event';
 
