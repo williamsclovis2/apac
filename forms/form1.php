@@ -30,7 +30,7 @@
                             <div class="row">
                                 <label for="firstname" class="col-sm-3">First name <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="firstname" id="firstname" type="text" placeholder="First name" data-rule="required" data-msg="Please enter first name"/>
+                                    <input class="form-control" name="firstname" oninput="validate(this)" id="firstname" type="text" placeholder="First name" data-rule="required" data-msg="Please enter first name"/>
                                     <div class="validate" id="firstname_error"></div>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                             <div class="row">
                                 <label for="lastname" class="col-sm-3">Second name <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="lastname" id="lastname" type="text" placeholder="Last name" data-rule="required" data-msg="Please enter last name"/>
+                                    <input class="form-control" name="lastname" oninput="validate(this)"  id="lastname" type="text" placeholder="Last name" data-rule="required" data-msg="Please enter last name"/>
                                     <div class="validate" id="lastname_error"></div> 
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                             <div class="row">
                                 <label for="email" class="col-sm-3">Email <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                  <input class="form-control" name="email" id="email" type="text" placeholder="Email" data-rule="email" data-msg="Please enter a valid email"/>
+                                  <input class="form-control" name="email" oninput="validate(this)"  id="email" type="text" placeholder="Email" data-rule="email" data-msg="Please enter a valid email"/>
                                     <div class="validate" id="email_error"></div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                             <div class="row">
                                 <label for="email" class="col-sm-3">Confirm email <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                  <input class="form-control" name="confirm_email" id="confirm_email" type="text" placeholder="Confirm email" data-rule="email" data-msg="email doesn't match field"/>
+                                  <input class="form-control" name="confirm_email" oninput="validate(this)"  id="confirm_email" type="text" placeholder="Confirm email" data-rule="email" data-msg="email doesn't match field"/>
                                     <div class="validate" id="confirm_email_error"></div>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                             <div class="row">
                                 <label for="telephone" class="col-sm-3">Telephone number 1 <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input type="text" name="telephone" id="telephone" class="form-control" data-rule="required" data-msg="Please enter telephone"/>
+                                    <input type="text" name="telephone" id="telephone" oninput="validate(this)"  class="form-control" data-rule="required" data-msg="Please enter telephone"/>
                                     <div class="validate" id="telephone_error"></div>
                                 </div>
                             </div>
@@ -78,8 +78,8 @@
                             <div class="row">
                                 <label for="telephone" class="col-sm-3">Telephone number 2</label>
                                 <div class="col-sm-9 field-validate">
-                                    <input type="text" name="telephone_2" id="telephone_2" class="form-control"/>
-                                    <div class="validate" id="telephone_error"></div>
+                                    <input type="text" name="telephone_2" oninput="validate(this)"  id="telephone_2" class="form-control"/>
+                                    <div class="validate" id="telephone_2_error"></div>
                                 </div>
                             </div>
                         </div>
@@ -87,8 +87,8 @@
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3">Job title <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="job_title" id="job_title" type="text" placeholder="Job title" data-rule="required" data-msg="Please enter job title"/>
-                                    <div class="validate" id="jobtitle_error"></div> 
+                                    <input class="form-control" name="job_title" oninput="validate(this)"  id="job_title" type="text" placeholder="Job title" data-rule="required" data-msg="Please enter job title"/>
+                                    <div class="validate" id="job_title_error"></div> 
                                 </div>
                             </div>
                         </div>
@@ -106,6 +106,7 @@
                                         <div class="col-sm-6">
                                             <input class="form-control" name="job_category1" id="job_category1" type="text" placeholder="For other - please specify" 
                                             <?php if(escape(Input::get('job_category')) != 'Other'){?> disabled="disabled" <?php }?>>
+                                            <div class="validate" id="job_category1_error"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -130,7 +131,7 @@
                             <div class="row">
                                 <label for="gender" class="col-sm-3">Gender <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <select id="gender" name="gender" class="form-control" data-rule="required" data-msg="Please select gender">
+                                    <select id="gender" name="gender" onchange="validate(this)"  class="form-control" data-rule="required" data-msg="Please select gender">
                                         <option value="">[--Select--]</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
@@ -145,8 +146,8 @@
                             <div class="row">
                                 <label for="birthday" class="col-sm-3">Date of birth</label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="birthday" id="birthday" type="date" data-rule="required" data-msg="Please enter date of birth"/>
-                                    <div class="validate"></div> 
+                                    <input class="form-control" name="birthday"  oninput="validate(this)"  id="birthday" type="date" data-rule="required" data-msg="Please enter date of birth"/>
+                                    <div class="validate" id="birthday_error"></div>
                                 </div>
                             </div>
                         </div>
@@ -187,6 +188,7 @@
                                         <div class="col-sm-6">
                                             <input class="form-control" name="organisation_type1" id="organisation_type1" type="text" placeholder="For other - please specify" 
                                             <?php if(escape(Input::get('organisation_type')) != 'Other'){?> disabled="disabled" <?php }?>>
+                                            <div class="validate" id="organisationname_error"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -329,7 +331,7 @@
                                 <div class="col-sm-9 ">
                                     <div class="row">
                                         <div class="col-sm-6 field-validate">
-                                            <select id="organisation_country" name="residence_country" class="form-control" data-rule="required" data-msg="Please select country"/>
+                                            <select id="residence_country" name="residence_country" class="form-control" data-rule="required" data-msg="Please select country"/>
                                                 <option></option>
                                             </select>
                                             <div class="validate" id="residence_country_error"></div>
@@ -398,6 +400,8 @@
                     <div class="form-group mt-2" style="overflow: auto;">
                         <input type="hidden" name="request"  value="registration">
                         <input type="hidden" name="eventId"  value="<?=Hash::encryptToken($activeEventId)?>">
+                        <input type="hidden" name="_EvCode_" id="_EvCode_"  value="<?=$_EvCode_?>">
+                        <input type="hidden" name="_EvPCode_"  id="_EvPCode_" value="<?=$_EvPCode_?>">
                         <input type="hidden" name="del_type" value="">
                         <input type="hidden" name="eventParticipation" value="<?=$_EVENT_PARTICIPATION_SUB_TYPE_ID_ENCRYPTED_?>">
                         <button type="button" id="registerButton" class="btn btn-primary px-5 py-2 text-white pull-right registerFormSubmit">Submit</button>

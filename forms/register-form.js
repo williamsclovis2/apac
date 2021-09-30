@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	// Delegate registration
 	$('#registerButton').prop('disabled', true);
-	$('#registerForm').submit(function () {
+	$('#registerForm1').submit(function () {
 		var f = $(this).find('.field-validate'),
 			ferror = false,
 			emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
@@ -338,6 +338,7 @@ function validateEmail(email) {
 
 $('.registerFormSubmit').on('click', function () {
 	location.href = "#" + "registerForm";
+	$('.field-validate .validate').text('');
 
 	var f = $(this).find('.field-validate'),
 		ferror = false,
@@ -415,134 +416,11 @@ $('.registerFormSubmit').on('click', function () {
 		}
 	});
 
-	if ($('#firstname').val().length === 0) {
-		ferror = ierror = true;
-		$('#firstname_error').text("Please enter first name");
-	}
-	if ($('#lastname').val().length === 0) {
-		ferror = ierror = true;
-		$('#lastname_error').text("Please enter last name");
-	}
-	if ($('#email').val().length === 0 || !validateEmail($('#email').val())) {
-		ferror = ierror = true;
-		$('#email_error').text("Please enter valid email");
-	}
-	if ($('#confirm_email').val().length === 0 || !validateEmail($('#confirm_email').val())) {
-		ferror = ierror = true;
-		$('#confirm_email_error').text("Please  confirm email");
-	}
-	if ($('#confirm_email').val() != $('#email').val()) {
-		ferror = ierror = true;
-		$('#confirm_email_error').text("Email does not match");
-	}
-	if ($('#telephone').val().length === 0) {
-		ferror = ierror = true;
-		$('#telephone_error').text("Please enter telephone");
-	}
-	if ($('#job_title').val().length === 0) {
-		ferror = ierror = true;
-		$('#jobtitle_error').text("Please enter job title");
-	}
-	if ($('#job_category').val().length === 0) {
-		ferror = ierror = true;
-		$('#jobcategory_error').text("Please select job category");
-	}
-	if ($('#language').val().length === 0) {
-		ferror = ierror = true;
-		$('#language_error').text("Please select  language");
-	}
-	if ($('#gender').val().length === 0) {
-		ferror = ierror = true;
-		$('#gender_error').text("Please select  your gender");
-	}
-	if ($('#organisation_name').val().length === 0) {
-		ferror = ierror = true;
-		$('#organisationname_error').text("Please enter  the organization name");
-	}
-	if ($('#organisation_type').val().length === 0) {
-		ferror = ierror = true;
-		$('#organisationtype_error').text("Please select  the organization type");
-	}
-	if ($('#industry').val().length === 0) {
-		ferror = ierror = true;
-		$('#industry_error').text("Please select industry");
-	}
-	if ($('#organisation_city').val().length === 0) {
-		ferror = ierror = true;
-		$('#city_error').text("Please enter city");
-	}
-	if ($('#firt_objective').val().length === 0) {
-		ferror = ierror = true;
-		$('#firt_objective_error').text("Please type your first objective");
-	}
-	if ($('#second_objective').val().length === 0) {
-		ferror = ierror = true;
-		$('#second_objective_error').text("Please type your second objective");
-	}
-	if ($('#third_objective').val().length === 0) {
-		ferror = ierror = true;
-		$('#third_objective_error').text("Please type your third objective");
-	}
-	if ($('#id_type').val().length === 0) {
-		ferror = ierror = true;
-		$('#id_type_error').text("Please select  type of ID ");
-	}
-	if ($('#id_number').val().length === 0) {
-		ferror = ierror = true;
-		$('#id_number_error').text("Please enter  ID number ");
-	}
-	
-	if ($('#info_source').val().length === 0) {
-		ferror = ierror = true;
-		$('#info_source_error').text("Please select  source ");
-	}
-	if ($('#organisation_country').val().length === 0) {
-		ferror = ierror = true;
-		$('#residence_country_error').text("Please select country");
-	}
-	if ($('#image').val().length === 0) {
-		ferror = ierror = true;
-		$('#image_error').text("Please upload your ID or passport  picture");
-	}
-	if ($('#student_country').val().length === 0) {
-		ferror = ierror = true;
-		$('#residence_country_error').text("Please select country");
-	}
-	if ($('#school_name').val().length === 0) {
-		ferror = ierror = true;
-		$('#school_name_error').text("Please enter school  name");
-	}
-	if ($('#school_category').val().length === 0) {
-		ferror = ierror = true;
-		$('#school_category_error').text("Please select school category");
-	}
-	if ($('#organisation_country').val().length === 0) {
-		ferror = ierror = true;
-		$('#student_country_error').text("Please select country");
-	}
-	if ($('#student_city').val().length === 0) {
-		ferror = ierror = true;
-		$('#student_city_error').text("Please enter city");
-	}
+	var eventCode_ = $('#_EvCode_').val();
+	var eventParticiaptionCode_ = $('#_EvPCode_').val();
 
-	if ($('#organisation_country').val().length === 0) {
-		ferror = ierror = true;
-		$('#organisation_country_error').text("Please select country");
-	}
-	if ($('#residence_country').val().length === 0) {
-		ferror = ierror = true;
-		$('#residence_country_error').text("Please select country");
-	}
-	
-	if ($('#citizenship').val().length === 0) {
-		ferror = ierror = true;
-		$('#citizenship_error').text("Please select country");
-	}
+	resgistrationFormValidation(eventCode_, eventParticiaptionCode_);
 
-	if ($('#citizenship').val().length === 0) {
-		ferror = ierror = true;
-		$('#citizenship_error').text("Please select country");
-	}
 
 	var str = "";
 	if (ferror) {
@@ -731,3 +609,221 @@ $('.registerACPFormSubmit').on('click', function () {
 	// return false;
 
 });
+
+function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
+
+	/** Validation General - INPERSON - VIRTUAL - */
+
+	if ($('#firstname').val().length === 0) {
+		ferror = ierror = true;
+		$('#firstname_error').text("Please enter first name");
+	}
+	if ($('#lastname').val().length === 0) {
+		ferror = ierror = true;
+		$('#lastname_error').text("Please enter last name");
+	}
+	if ($('#email').val().length === 0 || !validateEmail($('#email').val())) {
+		ferror = ierror = true;
+		$('#email_error').text("Please enter valid email");
+	}
+	if ($('#confirm_email').val().length === 0 || !validateEmail($('#confirm_email').val())) {
+		ferror = ierror = true;
+		$('#confirm_email_error').text("Please  confirm email");
+	}
+	if ($('#confirm_email').val() != $('#email').val()) {
+		ferror = ierror = true;
+		$('#confirm_email_error').text("Email does not match");
+	}
+	if ($('#telephone').val().length === 0) {
+		ferror = ierror = true;
+		$('#telephone_error').text("Please enter telephone");
+	}
+	if ($('#job_title').val().length === 0) {
+		ferror = ierror = true;
+		$('#job_title_error').text("Please enter job title");
+	}
+	if ($('#job_category').val().length === 0) {
+		ferror = ierror = true;
+		$('#jobcategory_error').text("Please select job category");
+	}
+	if ($('#language').val().length === 0) {
+		ferror = ierror = true;
+		$('#language_error').text("Please select  language");
+	}
+	if ($('#gender').val().length === 0) {
+		ferror = ierror = true;
+		$('#gender_error').text("Please select  your gender");
+	}
+
+	if ($('#firt_objective').val().length === 0) {
+		ferror = ierror = true;
+		$('#firt_objective_error').text("Please type your first objective");
+	}
+	if ($('#second_objective').val().length === 0) {
+		ferror = ierror = true;
+		$('#second_objective_error').text("Please type your second objective");
+	}
+	if ($('#third_objective').val().length === 0) {
+		ferror = ierror = true;
+		$('#third_objective_error').text("Please type your third objective");
+	}
+
+	if ($('#info_source').val().length === 0) {
+		ferror = ierror = true;
+		$('#info_source_error').text("Please select  source ");
+	}
+
+
+
+	/** Validation For - All - Except Students And Youth Section -  */
+	if (eventParticiaptionCode != 'STYR004') {
+		if ($('#organisation_name').val().length === 0) {
+			ferror = ierror = true;
+			$('#organisationname_error').text("Please enter  the organization name");
+		}
+		if ($('#organisation_type').val().length === 0) {
+			ferror = ierror = true;
+			$('#organisationtype_error').text("Please select  the organization type");
+		}
+		if ($('#industry').val().length === 0) {
+			ferror = ierror = true;
+			$('#industry_error').text("Please select industry");
+		}
+		if ($('#organisation_country').val().length === 0) {
+			ferror = ierror = true;
+			$('#organisation_country_error').text("Please select country");
+		}
+		if ($('#organisation_city').val().length === 0) {
+			ferror = ierror = true;
+			$('#city_error').text("Please enter city");
+		}
+	}
+
+
+	/** Validation For In-person  - Identification Section - */
+	if (eventCode == 'INP001') {
+		if ($('#id_type').val().length === 0) {
+			ferror = ierror = true;
+			$('#id_type_error').text("Please select  type of ID ");
+		}
+		if ($('#id_number').val().length === 0) {
+			ferror = ierror = true;
+			$('#id_number_error').text("Please enter  ID number ");
+		}
+		if ($('#residence_country').val().length === 0) {
+			ferror = ierror = true;
+			$('#residence_country_error').text("Please select country");
+		}
+		if ($('#citizenship').val().length === 0) {
+			ferror = ierror = true;
+			$('#citizenship_error').text("Please select country");
+		}
+		if ($('#citizenship').val().length === 0) {
+			ferror = ierror = true;
+			$('#citizenship_error').text("Please select country");
+		}
+		if ($('#image').val().length === 0) {
+			ferror = ierror = true;
+			$('#image_error').text("Please upload your ID or passport  picture");
+		}
+
+		/** Validation For Media In-person - Media Tools Section - */
+		if (eventParticiaptionCode == 'MDR004') {
+			if ($('#media_equipment').val().length === 0) {
+				ferror = ierror = true;
+				$('#media_equipment_error').text("Please enter media equipment");
+			}
+			if ($('#special_request').val().length === 0) {
+				ferror = ierror = true;
+				$('#special_request_error').text("Please enter media special request");
+			}
+		}
+	}
+
+
+
+	/** Validation For Student And Youth  */
+	if (eventParticiaptionCode == 'STYR004') {
+		if ($('#student_country').val().length === 0) {
+			ferror = ierror = true;
+			$('#residence_country_error').text("Please select country");
+		}
+		if ($('#school_name').val().length === 0) {
+			ferror = ierror = true;
+			$('#school_name_error').text("Please enter school  name");
+		}
+		if ($('#school_category').val().length === 0) {
+			ferror = ierror = true;
+			$('#school_category_error').text("Please select school category");
+		}
+		if ($('#organisation_country').val().length === 0) {
+			ferror = ierror = true;
+			$('#student_country_error').text("Please select country");
+		}
+		if ($('#student_city').val().length === 0) {
+			ferror = ierror = true;
+			$('#student_city_error').text("Please enter city");
+		}
+		if (!checkAgeAtDateOfEvent($('#birthday').val(), 10, 35)) {
+			ferror = ierror = true;
+			$('#birthday_error').text("Only people with age between 10 and 35 can register to this event");
+		}
+	}
+
+
+
+
+	/** Validation For Virtual  */
+
+}
+
+function validate(input) {
+	var input_value = $(input).val();
+	var input_id = $(input).attr('id');
+	var error_validate_id = '#' + $(input).attr('id') + '_error';
+	var error_validate_msg = '';
+
+	if (input_value.length <= 1)
+		error_validate_msg = 'Please fill this field';
+
+	if (input_id == 'email')
+		if (!validateEmail(input_value) || input_value.length <= 5)
+			error_validate_msg = 'Please fill this field with valid email';
+
+	if (input_id == 'confirm_email')
+		if (!validateEmail(input_value) || input_value.length <= 5)
+			error_validate_msg = 'Please fill this field with valid email';
+
+	if (input_id == 'birthday')
+		alert("Value :: " + input_value);
+	// if (!checkAgeAtDateOfEvent(input_value, 10, 35))
+	// 	error_validate_msg = 'Only people with age between 10 and 35 can register to this event';
+
+	$(error_validate_id).text(error_validate_msg);
+}
+
+function convertToDate(str) {
+	var arr = str.split("-"); // split string at slashes to make an array
+	var yyyy = arr[0] - 0; // subtraction converts a string to a number
+	var jsmm = arr[1] - 1; // subtract 1 because stupid JavaScript month numbering
+	var dd = arr[2] - 0; // subtraction converts a string to a number 
+	return new Date(yyyy, jsmm, dd); // this gets you your date
+}
+
+function getDateTime(str_date) {
+	return convertToDate(str_date).getTime();
+}
+
+function getAgeAtDateOfEvent(inputDate) {
+	var str = inputDate.split('-');
+	var dateTo = getDateTime('2021-12-04'); // Date Of Participant
+	var dateFrom = getDateTime(inputDate); // Date Of Event
+
+	var dayDiff = Math.trunc(Math.ceil(dateTo - dateFrom) / (1000 * 60 * 60 * 24 * 365)); // Age At The Date Of The Event
+	return dayDiff;
+}
+
+function checkAgeAtDateOfEvent(inputDate, ageLimitAuthorizedFrom, ageLimitAuthorizedTo) {
+	var ageInput = getAgeAtDateOfEvent(inputDate);
+	return (ageInput >= ageLimitAuthorizedFrom && ageInput <= ageLimitAuthorizedTo) ? true : false;
+}
