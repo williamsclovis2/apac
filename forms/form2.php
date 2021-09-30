@@ -52,8 +52,8 @@
                             <div class="row">
                                 <label for="email" class="col-sm-3">Email <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                  <input class="form-control" name="email" id="email" type="text" placeholder="Email" data-rule="email" data-msg="Please enter a valid email"/>
-                                  <div class="validate" id="email_error"></div>
+                                  <input class="form-control" name="email" id="email" type="text" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
+                                    <div class="validate" id="email_error"></div>
                                 </div>
                             </div>
                         </div>
@@ -61,8 +61,8 @@
                             <div class="row">
                                 <label for="email" class="col-sm-3">Confirm email <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                  <input class="form-control" name="confirm_email" id="confirm_email" type="text" placeholder="Confirm email" data-rule="email" data-msg="email doesn't match field"/>
-                                  <div class="validate" id="confirm_email_error"></div>
+                                  <input class="form-control" name="confirm_email" id="confirm_email" type="text" placeholder="Confirm email" data-rule="email" data-msg="email doesn't match field" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
+                                    <div class="validate" id="confirm_email_error"></div>
                                 </div>
                             </div>
                         </div>
@@ -301,8 +301,28 @@
                             </div>
                         </div>
                     </div>
-
-                <span class="<?=$_HIDDEN_STATE['SECTION']['IDENTIFICATION']?>">
+                    <h4>WHERE DID YOU HEAR ABOUT APAC? </h4>
+                    <hr class="separator-line"> 
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="organisation-name" class="col-sm-3">Select source<span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <select class="form-control" name="info_source" id="info_source" data-rule="required" data-msg="Please select "/> 
+                                        <option value="" selected="">[--Select--]</option>
+                                        <option value="Radio"> Radio</option>
+                                        <option value="TV "> TV</option>
+                                        <option value="Online / Social media">Online / Social media </option>
+                                        <option value="Word of mouth"> Word of mouth </option>
+                                        <option value="Email "> Email </option>
+                                        <option value="Embassy / Consulate "> Embassy / Consulate </option>
+                                    </select>
+                                    <div class="validate" id="info_source_error"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="<?=$_HIDDEN_STATE['SECTION']['IDENTIFICATION']?>">
                     <h4>IDENTIFICATION</h4>
                     <hr class="separator-line"> 
                     <div class="row">
@@ -332,23 +352,11 @@
                                 <label for="organisation-name" class="col-sm-3">Country of residence <span>*</span></label>
                                 <div class="col-sm-9 ">
                                     <div class="row">
-                                        <div class="col-sm-6 field-validate">
+                                        <div class="col-sm-12 field-validate">
                                             <select id="organisation_country" name="residence_country" class="form-control" data-rule="required" data-msg="Please select country"/>
                                                 <option></option>
                                             </select>
                                             <div class="validate" id="residence_country_error"></div>
-                                        </div>
-                                        <div class="col-sm-6 field-validate">
-                                            <select class="form-control" name="info_source" id="info_source" data-rule="required" data-msg="Please select "/> 
-                                                <option value="" selected="">[--Where did you hear about APAC?--]</option>
-                                                <option value="Radio"> Radio</option>
-                                                <option value="TV "> TV</option>
-                                                <option value="Online / Social media">Online / Social media </option>
-                                                <option value="Word of mouth"> Word of mouth </option>
-                                                <option value="Email "> Email </option>
-                                                <option value="Embassy / Consulate "> Embassy / Consulate </option>
-                                            </select>
-                                            <div class="validate" id="info_source_error"></div>
                                         </div>
                                     </div>
                                 </div>
