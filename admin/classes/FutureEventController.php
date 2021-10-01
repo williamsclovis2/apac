@@ -249,11 +249,12 @@ class FutureEventController
 				];
 			endif;
 
-			if(!($_participant_ = self::getParticipantDataByID($_PID_))):
+			/** Get Participant Details */
+			if(!($_participant_data_ = self::getEventParticipantDataByID($ID))):
 				return (object)[
 					'ERRORS'		=> true,
-					'ERRORS_SCRIPT' => "Invalid Data",
-					'ERRORS_STRING' => "Invalid Data"
+					'ERRORS_SCRIPT' => "Invalid data",
+					'ERRORS_STRING' => "Invalid data"
 				];
 			endif;
 
@@ -278,20 +279,41 @@ class FutureEventController
 			if($diagnoArray[0] == 'NO_ERRORS'){
 				
 				$_fields = array(
-					'password'             => "",
+					'password'             => md5($password),
 					'salt'             	   => "",
 				);
 
 				try{
 					$FutureEventParticipantTable->updateParticipant($_fields, $_PID_);
-					/** Get Last Participant ID  */
-					$_PID_ 		 = self::getLastPacipatantID();
+			
 					/** Generate Auth Token */
 					$_AUTH_TOKEN 				  = $authtoken;
 					$_PARTICIPATION_PAYMENT_TYPE_ = $_participant_->payment_state;
 
 					/** Send Email To Participant */
+					$_data_ = array(
+						'email'     => $_participant_data_->participant_email, 
+						'firstname' => $_participant_data_->participant_firstname,
+						'fullname'  => $_participant_data_->participant_lastname,
+					
+						'event'                 => $_participant_data_->event_name,
+						'event_type'            => $_participant_data_->event_category,
+						'participation_type'    => $_participant_data_->participation_type_name,
+						'participation_subtype' => $_participant_data_->participation_subtype_name,
+						'price'                 => $_participant_data_->participation_subtype_price,
+						'currency'              => $_participant_data_->participation_subtype_currency,
+					);
 
+					switch($_participant_data_->payment_state):
+						case 'PAYABLE':
+							EmailController::sendEmailToParticipantOnRegistrationPayable($_data_);
+							break;
+						case 'FREE':
+							EmailController::sendEmailToParticipantOnRegistrationFree($_data_);
+							break;
+					endswitch;
+					
+					
 					
 				}catch(Exeption $e){
 					$diagnoArray[0] = "ERRORS_FOUND";
@@ -322,8 +344,8 @@ class FutureEventController
 
 	public static function createEventParticipantPrivateLink(){
 		$diagnoArray[0] = 'NO_ERRORS';
-		$validate = new \Validate();
-		$prfx = 'private-';
+		$validate 		= new \Validate();
+		$prfx 			= 'private-';
 		foreach($_POST as $index=>$val){
 			$ar = explode($prfx,$index);
 			if(count($ar)){
@@ -426,8 +448,24 @@ class FutureEventController
 					);
 					$FutureEventParticipantTable->updatePrivateLink($_update_fields_, $_ID_);
 
-					/** Send Email To Participant */
+					/** Get Event Private Invitation Link  By ID */
+					$_participant_data_ = self::getEventPrivateLinkDataByID($_ID_);
 
+					/** Send Email To Participant */
+					$_data_ = array(
+						'email'     => $_participant_data_->participant_email, 
+						'firstname' => $_participant_data_->participant_firstname,
+						'fullname'  => $_participant_data_->participant_lastname,
+					
+						'event'                 => $_participant_data_->event_name,
+						'event_type'            => $_participant_data_->event_category,
+						'participation_type'    => $_participant_data_->participation_type_name,
+						'participation_subtype' => $_participant_data_->participation_subtype_name,
+						'price'                 => $_participant_data_->participation_subtype_price,
+						'currency'              => $_participant_data_->participation_subtype_currency,
+					);
+
+					EmailController::sendEmailToParticipantOnLinkGenerated($_data_);
 					
 				}catch(Exeption $e){
 					$diagnoArray[0] = "ERRORS_FOUND";
@@ -631,9 +669,26 @@ class FutureEventController
 				try{
 					$FutureEventParticipantTable->updatePrivateLink($_fields, $_ID_);
 
+					/** Get Event Private Invitation Link  By ID */
+					$_participant_data_ = self::getEventPrivateLinkDataByID($_ID_);
 
 					/** Send Email To Participant */
+					$status = $status == 'ACTIVE'?'Activated':'Deactivated';
+					$_data_ = array(
+						'email'     => $_participant_data_->participant_email, 
+						'firstname' => $_participant_data_->participant_firstname,
+						'fullname'  => $_participant_data_->participant_lastname,
+					
+						'event'                 => $_participant_data_->event_name,
+						'event_type'            => $_participant_data_->event_category,
+						'participation_type'    => $_participant_data_->participation_type_name,
+						'participation_subtype' => $_participant_data_->participation_subtype_name,
+						'price'                 => $_participant_data_->participation_subtype_price,
+						'currency'              => $_participant_data_->participation_subtype_currency,
+						'status'                => $status,
+					);
 
+					EmailController::sendEmailToParticipantOnLinkStatusChanged($_data_);
 					
 				}catch(Exeption $e){
 					$diagnoArray[0] = "ERRORS_FOUND";
@@ -1279,6 +1334,54 @@ class FutureEventController
         return  false;
     }
 
+	public static function getEventParticipantDataByID($ID){
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT 
+		future_participants.id As participant_id, 
+		future_participants.firstname As participant_firstname, 
+		future_participants.lastname As participant_lastname, 
+		future_participants.email As participant_email, 
+		future_participation_type.name as participation_type_name, 
+		future_participation_sub_type.name As participation_subtype_name,
+		future_participation_sub_type.payment_state,
+		future_participation_sub_type.category As event_category,
+		future_participation_sub_type.price As participation_subtype_price,
+		future_participation_sub_type.currency As participation_subtype_currency,
+		future_event.id As event_id, 
+		future_event.event_name As event_name
+		FROM `future_participants` INNER JOIN future_participation_type ON future_participants.participation_type_id = future_participation_type.id 
+		INNER JOIN future_participation_sub_type ON future_participants.participation_sub_type_id = future_participation_sub_type.id 
+		INNER JOIN future_event ON future_participants.event_id = future_event.id 
+		WHERE future_participants.id = {$ID} ORDER BY future_participants.id DESC LIMIT 1");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->first();
+        return  false;
+    }
+
+	public static function getEventPrivateLinkDataByID($ID){
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT 
+		future_private_links.id As participant_id, 
+		future_private_links.firstname As participant_firstname, 
+		future_private_links.lastname As participant_lastname, 
+		future_private_links.email As participant_email, 
+		future_participation_type.name as participation_type_name, 
+		future_participation_sub_type.name As participation_subtype_name,
+		future_participation_sub_type.payment_state,
+		future_participation_sub_type.category As event_category,
+		future_participation_sub_type.price As participation_subtype_price,
+		future_participation_sub_type.currency As participation_subtype_currency,
+		future_event.id As event_id, 
+		future_event.event_name As event_name
+		FROM `future_private_links` INNER JOIN future_participation_type ON future_private_links.participation_type_id = future_participation_type.id 
+		INNER JOIN future_participation_sub_type ON future_private_links.participation_sub_type_id = future_participation_sub_type.id 
+		INNER JOIN future_event ON future_private_links.event_id = future_event.id 
+		WHERE future_private_links.id = {$ID} ORDER BY future_private_links.id DESC LIMIT 1");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->first();
+        return  false;
+    }
+
 	public static function getEventEndPointUrlRegistation($eventID ){
         $FutureEventTable = new FutureEvent();
         $FutureEventTable->selectQuery("SELECT url_registration from future_event WHERE id = $eventID ORDER BY id DESC LIMIT 1 ");
@@ -1288,7 +1391,7 @@ class FutureEventController
     }
 
 	public static function generatePrivateInvitationLink($event_id, $access_token){
-		return self::getEventEndPointUrlRegistation($event_id).'/private/invitation/'.$access_token;
+		return self::getEventEndPointUrlRegistation($event_id).'/register/invitation/'.$access_token;
 	}
 
 	public static function checkIfEventPrivateLinkExists($event_id, $participation_type_id, $participation_sub_type_id, $email){
@@ -1323,5 +1426,23 @@ class FutureEventController
         if($FutureEventTable->count())
           return  $FutureEventTable->first();
         return  false;
+    }
+
+	public static function checkValidityEventPrivateInvitationLink($ID){
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT  id  FROM `future_private_links  WHERE future_private_links.id = {$ID} AND status = 'ACTIVE' AND link_used_status = 0 ORDER BY future_private_links.id DESC LIMIT 1");
+        if($FutureEventTable->count())
+          return  true;
+        return  false;
+    }
+
+	public static function updatePrivateLinkData($Data, $ID){
+        try{
+			$FutureEventTable = new FutureEvent();
+			$FutureEventTable->updatePrivateLink($Data, $ID);
+			return true;
+		}catch(Exeption $e){
+			return false;
+		}
     }
 }

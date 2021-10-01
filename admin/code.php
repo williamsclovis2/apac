@@ -1,39 +1,25 @@
 <?php
 require_once "core/init.php"; 
 
+// $_data_ = array(
+//     'email'     => 'ezechielkalengya@gmail.com', //clovismul@gmail.com
+//     'firstname' => 'Kambale',
+//     'fullname'  => 'Kambale Clovis',
 
-$_DATA_ = FutureEventController::getVisiblePacipationSubCategory(7, 'INPERSON');
+//     'event'                 => 'The Future Summit',
+//     'event_type'            => 'In-person',
+//     'participation_type'    => 'Media',
+//     'participation_subtype' => 'Early Bird',
+//     'price'                 => '300',
+//     'currency'              => 'USD'
+// );
+// // EmailController::sendEmailToParticipant123OnRegistration($_data_);
+// EmailController::sendEmailToParticipant4OnRegistration($_data_);
+// echo '<br><br><hr><br>';
 
-// foreach($_DATA_ As $_data):
-//     $_data = (Object) $_data;
-    
-//     echo '<pre>';
-//     print_r($_data->participation_type_name);
-//     echo '</pre>';
+// $ID = 11;
+// $_ARRAY_DATA_ = FutureEventController::getParticipantSubTypeDataByID($ID);
 
-// endforeach;
-// $ctx = 235;
-// echo $ctx;
-// echo '<hr>';
-
-// $Hash = new Hash();
-
-// $encToken = Hash::encryptToken($ctx);
-// echo $encToken;
-// echo '<hr>';
-
-// echo $Hash->encryptAES($encToken);
-// echo '<hr>';
-
-// $enc = "4b335a2b51386a424d4278726f744b525a324b4837372b714f43484f696e542f6d55536b754d4f596a6149";
-// echo $enc;
-
-
-// echo '<hr>';
-
-// $dec = Hash::decryptAuthToken($enc);
-// echo $dec;
-
-echo '<pre>';
- var_dump(FutureEventController::getVisiblePacipationSubCategory(7, 'INPERSON'));
-echo '</pre>';
+// echo '<pre>';
+// print_r($_ARRAY_DATA_);
+// echo '</pre>';

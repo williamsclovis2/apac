@@ -152,25 +152,25 @@ class User {
         return $this->_count;
     }
 
-    // function send_mail($email,$message,$subject)
-    // {                       
-    //     require_once('mailer/class.phpmailer.php');
-    //     $mail = new PHPMailer();
-    //     $mail->IsSMTP(); 
-    //     $mail->SMTPDebug  = 0;                     
-    //     $mail->SMTPAuth   = true;                  
-    //     $mail->SMTPSecure = "ssl";                 
-    //     $mail->Host       = "smtp.gmail.com";
-    //     $mail->Port       = 465;             
-    //     $mail->AddAddress($email);
-    //     $mail->Username="cubedigitalteamtest@gmail.com";
-    //     $mail->Password="digitalteamtest12345";
-    //     $mail->SetFrom('cubedigitalteamtest@gmail.com','The Future Summit');
-    //     $mail->AddReplyTo("cubedigitalteamtest@gmail.com","The Future Summit");
-    //     $mail->Subject    = $subject;
-    //     $mail->MsgHTML($message);
-    //     $mail->Send();
-    // }
+    function send_mail($email,$message,$subject)
+    {                       
+        require_once('mailer/class.phpmailer.php');
+        $mail = new PHPMailer();
+        $mail->IsSMTP(); 
+        $mail->SMTPDebug  = 0;                     
+        $mail->SMTPAuth   = true;                  
+        $mail->SMTPSecure = "ssl";                 
+        $mail->Host       = "smtp.gmail.com";
+        $mail->Port       = 465;             
+        $mail->AddAddress($email);
+        $mail->Username="cubedigitalteamtest@gmail.com";
+        $mail->Password="digitalteamtest12345";
+        $mail->SetFrom('cubedigitalteamtest@gmail.com','The Future Summit');
+        $mail->AddReplyTo("cubedigitalteamtest@gmail.com","The Future Summit");
+        $mail->Subject    = $subject;
+        $mail->MsgHTML($message);
+        $mail->Send();
+    }
 
     // Torusguru
     // function send_mail($email,$message,$subject)
@@ -193,28 +193,57 @@ class User {
     //     $mail->Send();
     // }
 
-    function send_mail($email,$message,$subject)
-    {    
-        $from             = "info@torusguru.com"; 
-        $namefrom         = "The Future Summit";
-        $mail = new  PHPMailer();
-        $mail->SMTPDebug  = 0;
-        $mail->CharSet    = 'UTF-8';
-        $mail->isSMTP();
-        $mail->SMTPAuth   = true;
-        $mail->Host       = "n3plcpnl0129.prod.ams3.secureserver.net";
-        $mail->Port       = 587;
-        $mail->Username   = $from;
-        $mail->Password   = "torus2021";
-        $mail->SMTPSecure = "tls";
-        $mail->setFrom($from,$namefrom);
-        $mail->addCC($from,$namefrom);
-        $mail->Subject    = $subject;
-        $mail->isHTML();
-        $mail->Body       = $message;
-        $mail->addAddress($email);
-        $mail->send();
-    }
+    //
+    // function send_mail($email,$message,$subject)
+    // {    
+    //     $from             = "info@torusguru.com"; 
+    //     $namefrom         = "The Future Summit";
+    //     $mail = new  PHPMailer();
+    //     $mail->SMTPDebug  = 0;
+    //     $mail->CharSet    = 'UTF-8';
+    //     $mail->isSMTP();
+    //     $mail->SMTPAuth   = true;
+    //     $mail->Host       = "n3plcpnl0129.prod.ams3.secureserver.net";
+    //     $mail->Port       = 587;
+    //     $mail->Username   = $from;
+    //     $mail->Password   = "torus2021";
+    //     $mail->SMTPSecure = "tls";
+    //     $mail->setFrom($from,$namefrom);
+    //     $mail->addCC($from,$namefrom);
+    //     $mail->Subject    = $subject;
+    //     $mail->isHTML();
+    //     $mail->Body       = $message;
+    //     $mail->addAddress($email);
+    //     $mail->send();
+    // }
+
+    /** Email Apac Info */
+    // function send_mail($email,$message,$subject)
+    // {    
+    //     $from             = "info@apacongress.torusguru.com"; 
+    //     $namefrom         = "The Future Summit";
+    //     $mail = new  PHPMailer();
+    //     $mail->SMTPDebug  = 0;
+    //     $mail->CharSet    = 'UTF-8';
+    //     $mail->isSMTP();
+    //     $mail->SMTPAuth   = true;
+    //     $mail->Host       = "n3plcpnl0129.prod.ams3.secureserver.net";
+    //     $mail->Port       = 2096;
+    //     $mail->Username   = $from;
+    //     $mail->Password   = "6oltI*fk@ntj";
+    //     $mail->SMTPSecure = "tls";
+    //     $mail->setFrom($from,$namefrom);
+    //     $mail->addCC($from,$namefrom);
+    //     $mail->Subject    = $subject;
+    //     $mail->isHTML();
+    //     $mail->Body       = $message;
+    //     $mail->addAddress($email);
+    //     // $mail->send();
+    //     if($mail->send())
+    //         echo 'Yes. Sent';
+    //     else
+    //         echo "No. error";
+    // }
 
     // job titles//
 
