@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 $_SESSION['user'] = 16;
 
 function def(){
@@ -54,6 +55,13 @@ $GLOBALS['config'] = array(
         'name' => 'http://127.0.0.1/apac/'
         // 'name' => 'http://torusguru.com/thefuture/'
     ),
+
+    'url' => array(
+        
+		'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp", // Local
+
+		'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp_noreply", // Local
+    )
     
 );
 
