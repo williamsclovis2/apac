@@ -1163,10 +1163,10 @@ if($_LIST_DATA_): $count_ = 0;
         $_status_ = $_link_->status;
         $_status_label_ = 'label-warning';
 
-        if($_status_ == 'COMPLETED')
-            $_status_label_ = 'label-info';
-        if($_status_ == 'ACTIVE')
+        if($_status_ == 'COMPLETED' || $_status_ == 'USED')
             $_status_label_ = 'label-success';
+        if($_status_ == 'ACTIVE')
+            $_status_label_ = 'label-info';
         if($_status_ == 'DEACTIVE')
             $_status_label_ = 'label-danger';
         if($_status_ == 'EXPIRED')

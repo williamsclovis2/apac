@@ -6,8 +6,8 @@
 */
 class EmailController
 {
-    /** Send Email - Participant - When register Participant  */
-    public static function sendEmailToParticipantOnRegistrationPayable($_data_){
+  /** Send Email - Participant - When register Participant  */
+  public static function sendEmailToParticipantOnRegistrationPayable($_data_){
         $_data_            = (Object) $_data_;
         $email 		         = $_data_->email;
         $firstname         = $_data_->firstname;
@@ -58,10 +58,10 @@ class EmailController
         $User = new \User();
         $User->send_mail($_Email_, $_Message_, $_Subject_);
       
-    }
+  }
 
-    /** Send Email - Participant - When register Participant  */
-    public static function sendEmailToParticipantOnRegistrationFree($_data_){
+  /** Send Email - Participant - When register Participant  */
+  public static function sendEmailToParticipantOnRegistrationFree($_data_){
       $_data_            = (Object) $_data_;
       $email 		         = $_data_->email;
       $firstname         = $_data_->firstname;
@@ -116,7 +116,7 @@ class EmailController
   }
 
   
-  /** Send Email - Participant - When register Participant  */
+  /** Send Email - Participant - When register Participant Registration Link  */
   public static function sendEmailToParticipantOnLinkGenerated($_data_){
       $_data_            = (Object) $_data_;
       $email 		         = $_data_->email;
@@ -129,6 +129,7 @@ class EmailController
       $participation_subtype    = $_data_->participation_subtype;
       $price                    = $_data_->price;
       $currency                 = $_data_->currency;
+      $generated_link           = $_data_->generated_link;
 
       $_Email_    = $email;
       $_Subject_  = 'Event Registration';
@@ -149,7 +150,7 @@ class EmailController
                           <table class='buttonwrapper' bgcolor='#f47e20' border='0' cellspacing='0' cellpadding='0'>
                             <tr>
                               <td class='button' height='45'>
-                                <a href='http://torusguru.com/thefuture' target='_blank'>Click on this invitation link to proceed to registration</a>
+                                <a href='$generated_link' target='_blank'>Click on this invitation link to proceed to registration</a>
                               </td>
                             </tr>
                           </table>
@@ -206,10 +207,9 @@ class EmailController
     $User = new \User();
     $User->send_mail($_Email_, $_Message_, $_Subject_);
   
-}
+  }
 
-
-  
+ 
   /** Send Email - Payment success -  */
   public static function sendEmailToParticipantOnPaymentSuccess($_data_){
       $_data_            = (Object) $_data_;
@@ -383,7 +383,7 @@ class EmailController
     }
 
   
-}
+  }
 
 
 

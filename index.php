@@ -38,7 +38,7 @@
                     
                     <div class="row">
 <?php
-$_DATA_PARTICIPATION_CATEGORY_  = FutureEventController::getVisiblePacipationSubCategory(7, 'INPERSON');
+$_DATA_PARTICIPATION_CATEGORY_  = FutureEventController::getVisiblePacipationSubCategory($activeEventId, 'INPERSON');
 if($_DATA_PARTICIPATION_CATEGORY_ ):
     foreach($_DATA_PARTICIPATION_CATEGORY_ As $_event_participation_category_ ):
         $_event_participation_category_ = (Object) $_event_participation_category_ ;
@@ -78,7 +78,7 @@ endif;
                     <div class="row">
 
 <?php
-$_DATA_PARTICIPATION_CATEGORY_  = FutureEventController::getVisiblePacipationSubCategory(7, 'VIRTUAL');
+$_DATA_PARTICIPATION_CATEGORY_  = FutureEventController::getVisiblePacipationSubCategory($activeEventId, 'VIRTUAL');
 if($_DATA_PARTICIPATION_CATEGORY_ ):
     foreach($_DATA_PARTICIPATION_CATEGORY_ As $_event_participation_category_ ):
         $_event_participation_category_ = (Object) $_event_participation_category_ ;

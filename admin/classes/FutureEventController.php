@@ -24,12 +24,49 @@ class FutureEventController
 			
 			$str = new \Str();
 
+			
+			/**eventParticipation */
+			$eventParticipationEncrypted   = $str->data_in($_EDIT['eventParticipation']);
+			$eventParticipationSubTypeID   = Hash::decryptToken($eventParticipationEncrypted);
+
+			/** Get Participation Type And Sub Type Event Details */
+			$_participation_sub_type_data_ = self::getPacipationSubCategoryByID($eventParticipationSubTypeID);
+			$eventParticipationTypeID	   = $_participation_sub_type_data_->id;
+
+			/** Event */
+			$eventID = $str->data_in(Hash::decryptToken($_EDIT['eventId']));
+
+
 			/** PRIVATE REGISTRATION */
 			$_REGISTRATION_PRIVATE_ACCESS_TOKEN_ = NULL;
 			$_private_link_ID 					 = NULL;
 			if($_REGISTRATION_STATE_ == 'PRIVATE'):
 				$_REGISTRATION_PRIVATE_ACCESS_TOKEN_ = $str->data_in($_EDIT['eventInvitation']);
 				$_private_link_ID 					 = Hash::decryptAuthToken($_REGISTRATION_PRIVATE_ACCESS_TOKEN_);
+
+				/** Check If Private Link Exists And still valid */
+				if(!self::checkValidityEventPrivateInvitationLink($_private_link_ID)):
+					return (object)[
+						'ERRORS'		=> true,
+						'ERRORS_SCRIPT' => "Your invitation token is no longer valid",
+						'ERRORS_STRING' => "Your invitation token is no longer valid"
+					];
+				endif;
+
+				$_private_link_data_ = self::getEventPrivateInvitationLinkDataByID($_private_link_ID);
+
+				/** Compare Private Data With Form Data */
+				if($_private_link_data_->event_ID != $eventID || 
+					$_private_link_data_->participation_type_ID != $eventParticipationTypeID ||
+					$_private_link_data_->participation_sub_type_ID != $eventParticipationSubTypeID ):
+					return (object)[
+						'ERRORS'		=> true,
+						'ERRORS_SCRIPT' => "Invalid data",
+						'ERRORS_STRING' => "Invalid data"
+					];
+				endif;
+
+
 			endif;
 
 			/** Contact Information */
@@ -45,17 +82,6 @@ class FutureEventController
 			
 			$job_title         = $str->data_in($_EDIT['job_title']);
 			$job_category 	   = $str->data_in($_EDIT['job_category']);
-
-			/**eventParticipation */
-			$eventParticipationEncrypted   = $str->data_in($_EDIT['eventParticipation']);
-			$eventParticipationSubTypeID   = Hash::decryptToken($eventParticipationEncrypted);
-
-			/** Get Participation Type And Sub Type Event Details */
-			$_participation_sub_type_data_ = self::getPacipationSubCategoryByID($eventParticipationSubTypeID);
-			$eventParticipationTypeID	   = $_participation_sub_type_data_->id;
-
-			/** Event */
-			$eventID = $str->data_in(Hash::decryptToken($_EDIT['eventId']));
 
 			/** Attending Objective Information */
 			$firt_objective 		 = !Input::checkInput('firt_objective', 'post', 1)?'':$str->data_in($_EDIT['firt_objective']);
@@ -179,6 +205,16 @@ class FutureEventController
 					/** Generate Auth Token */
 					$_AUTH_TOKEN = Hash::encryptAuthToken($_PID_);
 
+					/** Update Private Link Data After Registration */
+					if($_REGISTRATION_STATE_ == 'PRIVATE' && $_private_link_ID != ''):
+						$_data_fields_ = array(
+							'link_used_time' 	=> time(),
+							'link_used_status'  => 1,
+							'status' 			=> 'USED'
+						);	
+						self::updatePrivateLinkData($_data_fields_, $_private_link_ID);
+					endif;
+
 					/** Send Email To Participant */
 
 					
@@ -250,7 +286,7 @@ class FutureEventController
 			endif;
 
 			/** Get Participant Details */
-			if(!($_participant_data_ = self::getEventParticipantDataByID($ID))):
+			if(!($_participant_data_ = self::getEventParticipantDataByID($_PID_))):
 				return (object)[
 					'ERRORS'		=> true,
 					'ERRORS_SCRIPT' => "Invalid data",
@@ -288,7 +324,7 @@ class FutureEventController
 			
 					/** Generate Auth Token */
 					$_AUTH_TOKEN 				  = $authtoken;
-					$_PARTICIPATION_PAYMENT_TYPE_ = $_participant_->payment_state;
+					$_PARTICIPATION_PAYMENT_TYPE_ = $_participant_data_->payment_state;
 
 					/** Send Email To Participant */
 					$_data_ = array(
@@ -463,6 +499,7 @@ class FutureEventController
 						'participation_subtype' => $_participant_data_->participation_subtype_name,
 						'price'                 => $_participant_data_->participation_subtype_price,
 						'currency'              => $_participant_data_->participation_subtype_currency,
+						'generated_link'        => $_participant_data_->generated_link,
 					);
 
 					EmailController::sendEmailToParticipantOnLinkGenerated($_data_);
@@ -1365,6 +1402,7 @@ class FutureEventController
 		future_private_links.firstname As participant_firstname, 
 		future_private_links.lastname As participant_lastname, 
 		future_private_links.email As participant_email, 
+		future_private_links.generated_link As generated_link, 
 		future_participation_type.name as participation_type_name, 
 		future_participation_sub_type.name As participation_subtype_name,
 		future_participation_sub_type.payment_state,

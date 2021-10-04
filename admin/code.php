@@ -17,9 +17,9 @@ require_once "core/init.php";
 // EmailController::sendEmailToParticipant4OnRegistration($_data_);
 // echo '<br><br><hr><br>';
 
-// $ID = 11;
-// $_ARRAY_DATA_ = FutureEventController::getParticipantSubTypeDataByID($ID);
+$ID = 35;
+$_ARRAY_DATA_ = FutureEventController::checkValidityEventPrivateInvitationLink($ID);
 
-// echo '<pre>';
-// print_r($_ARRAY_DATA_);
-// echo '</pre>';
+echo '<pre>';
+print_r($_ARRAY_DATA_);
+echo '</pre>';

@@ -30,7 +30,7 @@
                             <div class="row">
                                 <label for="firstname" class="col-sm-3">First name <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" oninput="validate(this)"  name="firstname" id="firstname" type="text" placeholder="First name" data-rule="required" data-msg="Please enter first name"/>
+                                    <input class="form-control" value="<?=$_PRIVATE_LINK_DATA_->participant_firstname?>" oninput="validate(this)"  name="firstname" id="firstname" type="text" placeholder="First name" data-rule="required" data-msg="Please enter first name"/>
                                     <div class="validate" id="firstname_error"></div>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                             <div class="row">
                                 <label for="lastname" class="col-sm-3">Second name <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" oninput="validate(this)" name="lastname" id="lastname" type="text" placeholder="Last name" data-rule="required" data-msg="Please enter last name"/>
+                                    <input class="form-control" value="<?=$_PRIVATE_LINK_DATA_->participant_lastname?>" oninput="validate(this)" name="lastname" id="lastname" type="text" placeholder="Last name" data-rule="required" data-msg="Please enter last name"/>
                                     <div class="validate" id="lastname_error"></div> 
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                             <div class="row">
                                 <label for="email" class="col-sm-3">Email <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                  <input class="form-control" oninput="validate(this)" name="email" id="email" type="text" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
+                                  <input class="form-control" value="<?=$_PRIVATE_LINK_DATA_->participant_email?>" oninput="validate(this)" name="email" id="email" type="text" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
                                     <div class="validate" id="email_error"></div>
                                 </div>
                             </div>

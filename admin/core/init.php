@@ -91,4 +91,4 @@ $errmsg         = $succmsg = $page = $link = $sublink = "";
 $controller     =  new Controller();
 $encodedEventId = Input::get('eventId');
 $progDay        = Input::get('day');
-$activeEventId  = 7;
+$activeEventId  = 8;
