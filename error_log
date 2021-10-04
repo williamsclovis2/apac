@@ -1,0 +1,57 @@
+[04-Oct-2021 08:46:56 UTC] PHP Warning:  require_once(/home/adstxgt4fsem/public_html/apacongress.torusguru.com/apac/admin/functions/functions.php): failed to open stream: No such file or directory in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/admin/core/init.php on line 68
+[04-Oct-2021 08:46:56 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/adstxgt4fsem/public_html/apacongress.torusguru.com/apac/admin/functions/functions.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/admin/core/init.php on line 68
+[04-Oct-2021 08:48:23 UTC] PHP Warning:  require_once(/home/adstxgt4fsem/public_html/apacongress.torusguru.com/apac/admin/functions/functions.php): failed to open stream: No such file or directory in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/admin/core/init.php on line 68
+[04-Oct-2021 08:48:23 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/adstxgt4fsem/public_html/apacongress.torusguru.com/apac/admin/functions/functions.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/admin/core/init.php on line 68
+[04-Oct-2021 08:48:46 UTC] PHP Warning:  require_once(/home/adstxgt4fsem/public_html/apacongress.torusguru.com/apac/admin/functions/functions.php): failed to open stream: No such file or directory in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/admin/core/init.php on line 68
+[04-Oct-2021 08:48:46 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/adstxgt4fsem/public_html/apacongress.torusguru.com/apac/admin/functions/functions.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/admin/core/init.php on line 68
+[04-Oct-2021 08:49:12 UTC] PHP Warning:  require_once(/home/adstxgt4fsem/public_html/apacongress.torusguru.com/apac/admin/functions/functions.php): failed to open stream: No such file or directory in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/admin/core/init.php on line 68
+[04-Oct-2021 08:49:12 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/adstxgt4fsem/public_html/apacongress.torusguru.com/apac/admin/functions/functions.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/admin/core/init.php on line 68
+[04-Oct-2021 08:50:49 UTC] PHP Warning:  require_once(): https:// wrapper is disabled in the server configuration by allow_url_include=0 in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/admin/core/init.php on line 68
+[04-Oct-2021 08:50:49 UTC] PHP Warning:  require_once(https://apacongress.torusguru.com/apac/admin/functions/functions.php): failed to open stream: no suitable wrapper could be found in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/admin/core/init.php on line 68
+[04-Oct-2021 08:50:49 UTC] PHP Fatal error:  require_once(): Failed opening required 'https://apacongress.torusguru.com/apac/admin/functions/functions.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/admin/core/init.php on line 68
+[04-Oct-2021 08:51:22 UTC] PHP Warning:  require_once(/home/adstxgt4fsem/public_html/apacongress.torusguru.com/apac/admin/classes/Config.php): failed to open stream: No such file or directory in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/admin/core/init.php on line 73
+[04-Oct-2021 08:51:22 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/adstxgt4fsem/public_html/apacongress.torusguru.com/apac/admin/classes/Config.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/admin/core/init.php on line 73
+[04-Oct-2021 08:51:57 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 08:51:57 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 08:52:12 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 08:52:12 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 08:53:17 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 08:53:17 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 08:53:26 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 08:53:26 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 08:53:41 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 08:53:41 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 08:53:53 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 08:53:53 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 08:55:04 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 08:55:04 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 08:55:25 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 08:55:25 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 08:56:40 UTC] PHP Notice:  Undefined variable: form in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form4.php on line 103
+[04-Oct-2021 08:56:40 UTC] PHP Notice:  Trying to get property 'ERRORS' of non-object in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form4.php on line 103
+[04-Oct-2021 08:56:40 UTC] PHP Notice:  Undefined variable: categ in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form4.php on line 103
+[04-Oct-2021 08:56:40 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 08:56:40 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 09:06:10 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 09:06:10 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 09:08:23 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 09:08:23 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 09:26:55 UTC] PHP Notice:  Undefined variable: form in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form4.php on line 103
+[04-Oct-2021 09:26:55 UTC] PHP Notice:  Trying to get property 'ERRORS' of non-object in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form4.php on line 103
+[04-Oct-2021 09:26:55 UTC] PHP Notice:  Undefined variable: categ in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form4.php on line 103
+[04-Oct-2021 09:26:55 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 09:26:55 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 09:26:57 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 09:26:57 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 09:36:42 UTC] PHP Notice:  Undefined variable: form in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form4.php on line 103
+[04-Oct-2021 09:36:42 UTC] PHP Notice:  Trying to get property 'ERRORS' of non-object in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form4.php on line 103
+[04-Oct-2021 09:36:42 UTC] PHP Notice:  Undefined variable: categ in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form4.php on line 103
+[04-Oct-2021 09:36:42 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 09:36:42 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 09:36:57 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 09:36:57 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[04-Oct-2021 09:38:18 UTC] PHP Notice:  Undefined variable: form in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form1.php on line 102
+[04-Oct-2021 09:38:18 UTC] PHP Notice:  Trying to get property 'ERRORS' of non-object in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form1.php on line 102
+[04-Oct-2021 09:38:18 UTC] PHP Notice:  Undefined variable: categ in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form1.php on line 102
+[04-Oct-2021 09:38:18 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[04-Oct-2021 09:38:18 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80

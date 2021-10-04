@@ -14,7 +14,7 @@ $page = "home";
 <html>
 
 <head>
-    <?php include $INC_DIR . "head-index.php"; ?>
+    <?php include  "includes/head-index.php"; ?>
 </head>
 
 <body>

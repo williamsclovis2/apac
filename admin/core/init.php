@@ -29,19 +29,19 @@ function def(){
 
 
 $GLOBALS['config'] = array(
+    // 'mysql' => array(
+        // 'host' => '127.0.0.1',
+        // 'username' => 'root',
+        // 'password' => '',
+        // 'db' => 'future_summit_db'
+    // ),
+
     'mysql' => array(
-        'host' => '127.0.0.1',
-        'username' => 'root',
-        'password' => '',
+        'host' => 'localhost',
+        'username' => 'cubedigital',
+        'password' => 'cubedigital@torus',
         'db' => 'future_summit_db'
     ),
-
-    // 'mysql' => array(
-    //     'host' => 'localhost',
-    //     'username' => 'cubedigital',
-    //     'password' => 'cubedigital@torus',
-    //     'db' => 'future_summit_db'
-    // ),
     
     'remember' => array(
         'cookie_name' => 'hash',
@@ -52,8 +52,8 @@ $GLOBALS['config'] = array(
         'token_name' => 'token'
     ),
     'server' => array(
-        'name' => 'http://127.0.0.1/apac/'
-        // 'name' => 'http://torusguru.com/thefuture/'
+        // 'name' => 'http://127.0.0.1/apac/'
+        'name' => "http://apacongress.torusguru.com/"
     ),
 
     'url' => array(
@@ -65,10 +65,13 @@ $GLOBALS['config'] = array(
     
 );
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/functions/functions.php';
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/functions/functions.php';
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/functions/functions.php';
 
 spl_autoload_register(function($class) {
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/classes/' . $class . '.php';
+    // require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/classes/' . $class . '.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/classes/' . $class . '.php';
 });
 
 
@@ -92,3 +95,5 @@ $controller     =  new Controller();
 $encodedEventId = Input::get('eventId');
 $progDay        = Input::get('day');
 $activeEventId  = 8;
+
+// $INC_DIR = '';
