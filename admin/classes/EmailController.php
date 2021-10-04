@@ -282,9 +282,9 @@ class EmailController
         .innerpadding {padding: 30px 30px 30px 30px;}
         .borderbottom {border-bottom: 1px solid #f2eeed;}
         .subhead {font-size: 15px; color: #ffffff; font-family: sans-serif; letter-spacing: 10px;}
-        .h1 {color: #ffffff; font-family: sans-serif;}
+        .h1 {color: #1e3e27; font-family: sans-serif;}
         .h2, .bodycopy {color: #7A838B; font-family: sans-serif;}
-        .h1 {font-size: 30px; line-height: 38px; font-weight: bold;}
+        .h1 {font-size: 18px; line-height: 38px; font-weight: bold;}
         .h2 {padding: 0 0 15px 0; font-size: 24px; line-height: 28px; font-weight: bold;}
         .bodycopy {font-size: 16px; line-height: 22px;}
         .button {text-align: center; font-size: 18px; font-family: sans-serif; font-weight: bold; padding: 0 30px 0 30px;}
@@ -308,11 +308,11 @@ class EmailController
             <td>
               <table bgcolor='#ffffff' class='content' align='center' cellpadding='0' cellspacing='0' border='0'>
                 <tr>
-                  <td bgcolor='#f47e20' class='header'>
+                  <td bgcolor='#e6e6e6' class='header'>
                     <table width='60' align='left' border='0' cellpadding='0' cellspacing='0'>  
                       <tr>
                         <td height='60' style='padding: 10px 10px 10px 0;'>
-                          <img class='fix' src='http://torusguru.com/thefuture/img/logo.png' width='60' height='60' border='0' alt='' />
+                          <img class='fix' src='http://apacongress.torusguru.com/img/apac-web-logo.png' width='60' height='60' border='0' alt='' />
                         </td>
                       </tr>
                     </table>
@@ -322,7 +322,7 @@ class EmailController
                         <td height='70'>
                           <table width='100%' border='0' cellspacing='0' cellpadding='0'>
                             <tr>
-                              <td class='h1' style='padding: 5px 0 0 0;'>The Future Summit</td>
+                              <td class='h1' style='padding: 5px 0 0 0;'>Africa Protected Areas Congress (APAC)</td>
                             </tr>
                           </table>
                         </td>
@@ -338,7 +338,7 @@ class EmailController
     public static function emailLayoutSectionFooter(){
       $_FooterLayout_ = "
                   <tr>
-                    <td class='footer' bgcolor='#000000'>
+                    <td class='footer' bgcolor='#1e3e27'>
                       <table width='100%' border='0' cellspacing='0' cellpadding='0'>
                         <tr>
                           <td align='center' class='footercopy' style='font-family: sans-serif;'> 
