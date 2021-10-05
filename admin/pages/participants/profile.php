@@ -63,6 +63,47 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <h3 class="card-sect-title">Event </h3>
+                                    <div class="card mt-3">
+                                        <div class="card-body side-card">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <h6 class="mb-0">Event Name</h6>
+                                                </div>
+                                                <div class="col-sm-7 text-secondary">
+                                                    <h6>Apac</h6>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <h6 class="mb-0">Event Type</h6>
+                                                </div>
+                                                <div class="col-sm-7 text-secondary">
+                                                    <h6>Hybrid</h6>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <h6 class="mb-0">Participation Type</h6>
+                                                </div>
+                                                <div class="col-sm-7 text-secondary">
+                                                    <h6>African based</h6>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <h6 class="mb-0">Participation Sub-type</h6>
+                                                </div>
+                                                <div class="col-sm-6 text-secondary">
+                                                    <h6>Standard</h6>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                    </div>
                                     <h3 class="card-sect-title">Payment </h3>
                                     <div class="card mt-3">
                                         <div class="card-body side-card">
@@ -72,6 +113,18 @@
                                                 </div>
                                                 <div class="col-sm-7 text-secondary">
                                                     <h6>Visa Card</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-3">
+                                        <div class="card-body side-card">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <h6 class="mb-0">Amount paid</h6>
+                                                </div>
+                                                <div class="col-sm-7 text-secondary">
+                                                    <h6>$200</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -281,10 +334,9 @@
                                                     <h6 class="mb-0">Document</h6>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary" style="padding:10px 0;">
-                                                    <img src="<?php linkto("img/photo_default.png");?>" width="250px" text-right>
+                                                    <div class="doc-img"><img src="<?php linkto("img/photo_default.png");?>" class="fullscreen" id="theImage" onClick="makeFullScreen()" width="250px"></div>
                                                 </div>
                                             </div>
-                                            <hr>
                                         </div>
                                     </div>
                                 </div>
@@ -302,9 +354,9 @@
         </script>
         
         <?php include $INC_DIR . "footer.php"; ?>
-
+        
         </div>
-        </div>
+    </div>
 </body>
 
 </html>
