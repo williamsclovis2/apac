@@ -927,8 +927,8 @@
         $eventId   = Input::get('eventId');
         $day       = Input::get('day');
         $getVenue  = DB::getInstance()->get('future_homepage_about', array('event_id', '=', $eventId));
-        $city      = $getVenue->first()->inperson_city;
-        $continent = country_to_continent($getVenue->first()->inperson_country);
+        $city      = @$getVenue->first()->inperson_city;
+        $continent = country_to_continent(@$getVenue->first()->inperson_country);
         $timezone  = $continent."/".$city;
         $controller->get('future_homepage_program', '*', NULL, "`event_id` = '$eventId' && `day` = '$day'", 'DATE(start_time) ASC');
         if (!$controller->count()) {

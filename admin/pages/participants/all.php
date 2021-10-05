@@ -48,7 +48,7 @@ $_PARTICIPATION_TYPE_TOKEN_ = Input::get('participationTypeToken', 'get');
                 <!-- <div class="col-lg-2"></div> -->
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
-                        <div class="type_subtype"> --- <?=Input::get('participationTypeToken', 'get')?> --
+                        <div class="type_subtype"> 
                             <a href="#" class="btn btn-primary" style="display: inline-block;">In-person</a>
                             <a href="#" class="btn btn-primary" style="display: inline-block;">Virtual</a>
                             <a href="#" class="btn btn-primary" style="display: inline-block;">Early Bird / In-person </a>
@@ -215,7 +215,7 @@ if($_LIST_DATA_): $count_ = 0;
 ?>
                  
                 <!-- Edit Link Modal  -->
-                <div class="modal inmodal fade" id="approveModal<?=Hash::encryptToken($_data_->id)?>" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal inmodal fade" id="activateModal<?=Hash::encryptToken($_data_->id)?>" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -231,11 +231,11 @@ if($_LIST_DATA_): $count_ = 0;
                                     </div>
                                 </div>
                                 <div class="modal-footer"> 
-                                    <input type="hidden" name="request" value="activateParticipationSubType"/> 
+                                    <input type="hidden" name="request" value="approveParticipantRegistration"/> 
                                     <input type="hidden" name="eventId" value="<?=Hash::encryptAuthToken($eventId) ?>"/>
                                     <input type="hidden" name="Id" value="<?=Hash::encryptToken($_data_->id) ?>"/>
                                     <button type="button" class="btn btn-white" data-dismiss="modal"><i class="fa fa-times-circle"></i> Close</button>
-                                    <button type="button" id="activateButton" class="btn btn-primary activateButtonDynamic" data-loading-text="Loading..." data-key = "<?=Hash::encryptToken($_data_->id)?>" autocomplete="off"><i class="fa fa fa-external-link"></i> Activate</button>
+                                    <button type="button" id="activateButton" class="btn btn-primary activateButtonDynamic" data-loading-text="Loading..." data-key = "<?=Hash::encryptToken($_data_->id)?>" autocomplete="off"><i class="fa fa fa-external-link"></i> Approve Registration</button>
                                 </div>
                             </form>
                         </div>
@@ -259,11 +259,11 @@ if($_LIST_DATA_): $count_ = 0;
                                     </div>
                                 </div>
                                 <div class="modal-footer"> 
-                                    <input type="hidden" name="request" value="deactivateParticipationSubType"/> 
+                                    <input type="hidden" name="request" value="denyParticipantRegistration"/> 
                                     <input type="hidden" name="eventId" value="<?=Hash::encryptAuthToken($eventId) ?>"/>
                                     <input type="hidden" name="Id" value="<?=Hash::encryptToken($_data_->id) ?>"/>
                                     <button type="button" class="btn btn-white" data-dismiss="modal"><i class="fa fa-times-circle"></i> Close</button>
-                                    <button type="button" id="deactivateButton" class="btn btn-primary deactivateButtonDynamic" data-loading-text="Loading..." data-key = "<?=Hash::encryptToken($_data_->id)?>" autocomplete="off"><i class="fa fa fa-external-link"></i> Deactivate</button>
+                                    <button type="button" id="deactivateButton" class="btn btn-primary deactivateButtonDynamic" data-loading-text="Loading..." data-key = "<?=Hash::encryptToken($_data_->id)?>" autocomplete="off"><i class="fa fa fa-external-link"></i> Deny Registration</button>
                                 </div>
                             </form>
                         </div>

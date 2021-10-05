@@ -5,11 +5,47 @@ if(!$user->isLoggedIn())
   
 $valid['success'] = array('success' => false, 'messages' => array());
 
+
+    // $_POST = array(
+    //     'Id'              => "383232323232323231",
+    //     'eventId'    => "386452724a46643151372f64686f714e5a4a496d6454644f5231566e6376455446732f724c424363563741",
+
+    //     'request' => 'denyParticipantRegistration',
+    // );
+
+
 /** Load all participants table */ 
 if(Input::checkInput('request', 'post', 1)):
 	$_post_request_ = Input::get('request', 'post');
 	switch($_post_request_):
 
+		/** Action - Approve the participant Registration */
+		case 'approveParticipantRegistration':
+			$_form_ = FutureEventController::changeStatusParticipantRegistration('APPROVED');
+            if($_form_->ERRORS == false):
+                $valid['success']  = true;
+                $valid['messages'] = "Successfully, participant's registration approved";    
+            else:
+                $valid['success']  = false;
+                $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+            endif;
+            echo json_encode($valid);
+		break;
+		
+		/** Action - Deny the participant Registration */
+		case 'denyParticipantRegistration':
+			$_form_ = FutureEventController::changeStatusParticipantRegistration('DENIED');
+            if($_form_->ERRORS == false):
+                $valid['success']  = true;
+                $valid['messages'] = "Successfully, participant's registration denied";    
+            else:
+                $valid['success']  = false;
+                $valid['messages'] = "Error {$_form_->ERRORS_STRING}";
+            endif;
+            echo json_encode($valid);
+		break;
+
+		/** Table - Display the list of Participant Registered */
 		case 'fetchParticitants':
 			/** Filter Condition */
 			$_filter_condition_ = "";
@@ -110,12 +146,12 @@ if(Input::checkInput('request', 'post', 1)):
 
 							if($participant_->status != 'APPROVED'):
 	?>
-												<li><a class="menu block_user" data-toggle="modal" data-target="#approveModal<?=Hash::encryptToken($participant_->id)?>" ><i class="fa fa-check icon"></i> Approve</a></li>
+												<li><a class="menu block_user" data-toggle="modal" data-target="#activateModal<?=Hash::encryptToken($participant_->id)?>" ><i class="fa fa-check icon"></i> Approve</a></li>
 <?php 
 							endif;
 	
 							if($participant_->status != 'DENIED'):?>
-												<li><a class="menu block_user"  data-toggle="modal" data-target="#denyModal<?=Hash::encryptToken($participant_->id)?>" ><i class="fa fa-remove icon"></i> Deny</a></li>
+												<li><a class="menu block_user"  data-toggle="modal" data-target="#deactivateModal<?=Hash::encryptToken($participant_->id)?>" ><i class="fa fa-remove icon"></i> Deny</a></li>
 <?php 
 							endif;
 

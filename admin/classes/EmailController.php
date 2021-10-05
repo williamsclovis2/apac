@@ -115,6 +115,47 @@ class EmailController
     
   }
 
+     
+  /** Send Email - Participant - When register Participant  */
+  public static function sendEmailToParticipantOnStatusChanged($_data_){
+    $_data_            = (Object) $_data_;
+    $email 		         = $_data_->email;
+    $firstname         = $_data_->firstname;
+    $fullname          = $_data_->fullname;
+    
+    $event		                = $_data_->event;
+    $event_type               = $_data_->event_type;
+    $participation_type       = $_data_->participation_type;
+    $participation_subtype    = $_data_->participation_subtype;
+    $price                    = $_data_->price;
+    $currency                 = $_data_->currency;
+
+    $status                   = $_data_->status;
+
+    $_Email_    = $email;
+    $_Subject_  = 'Registration Status '.$status;
+    $_Message_  = self::emailSectionHeaderLayout()."
+              <tr>
+                <td class='innerpadding borderbottom'>
+                  <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+                    <tr>
+                      <td class='h2' style='font-family: sans-serif;'>Dear $fullname</td>
+                    </tr>
+                    <tr>
+                      <td class='bodycopy' style='font-family: sans-serif;'>
+                      Hope this email finds you well, this is to inform you that your registration for our  $event_type event: $event, has  been $status.<br><br>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              
+    ".self::emailLayoutSectionFooter();
+
+    $User = new \User();
+    $User->send_mail($_Email_, $_Message_, $_Subject_);
+  
+  }
   
   /** Send Email - Participant - When register Participant Registration Link  */
   public static function sendEmailToParticipantOnLinkGenerated($_data_){

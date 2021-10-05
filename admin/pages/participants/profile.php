@@ -1,12 +1,23 @@
 <?php
-    require_once "../../core/init.php"; 
-    if(!$user->isLoggedIn()) {
-        Redirect::to('admin/login');
-    }
+require_once "../../core/init.php"; 
+if(!$user->isLoggedIn()) 
+    Redirect::to('admin/login');
+    
+if(!Input::checkInput('participantToken', 'get', 1))
+    Redirect::to('admin/');
 
-    $page = "profile";
-    $link = "profile";
-    $eventId = base64_decode(Input::get('eventId'));
+$page = "profile";
+$link = "profile";
+
+$_participant_token_ = Input::get('participantToken', 'get');
+$_participant_id_    = Hash::decryptToken( $_participant_token_);
+$_participant_data_  = FutureEventController::getEventParticipantDataByID($_participant_id_);
+
+
+
+$_event_id = $_participant_data_->event_id;
+
+$event_token  = base64_encode($_event_id);
 
 ?>
 
@@ -30,7 +41,7 @@
                         <a href="<?php linkto('admin/'); ?>">Home</a>
                     </li>
                     <li>
-                        <a>Participants</a>
+                        <a  href="<?php linkto('admin/pages/participants/all/'.$event_token); ?>">Participants</a>
                     </li>
                     <li class="active">
                         <strong>Profile</strong>
@@ -45,6 +56,9 @@
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins" id="card-profile">
                         <div class="ibox-title" style="height: auto;">
+                        <?php echo '<pre>';
+			print_r($_event_id );
+			echo '</pre>';?>
                           
                         </div>
                         <div class="ibox-content">

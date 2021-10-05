@@ -244,6 +244,97 @@ class FutureEventController
 		}
 	}
 
+	
+	public static function changeStatusParticipantRegistration($status = 'APPROVED'){
+		$diagnoArray[0] = 'NO_ERRORS';
+		$validate = new \Validate();
+		$prfx = 'participant-';
+		foreach($_POST as $index=>$val){
+			$ar = explode($prfx,$index);
+			if(count($ar)){
+				$_EDIT[end($ar)] = $val;
+			}
+		}
+		// $_EDIT = $_POST;
+		
+		$validation = $validate->check($_EDIT, array(
+			
+		));
+		
+		if($validate->passed()){
+			$FutureEventParticipantTable = new \FutureEvent();
+			
+			$str = new \Str();
+
+			/** Get Id */
+			$_ID_ = Hash::decryptToken($str->data_in($_EDIT['Id']));
+
+			/** Check If Valid $_PID_ And Exists In Participant Table */
+			if(!is_integer($_ID_)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "Invalid Data",
+					'ERRORS_STRING' => "Invalid Data"
+				];
+			endif;
+
+			if($diagnoArray[0] == 'NO_ERRORS'){
+				
+				$_fields = array(
+					'status'    => $status,
+				);
+
+				try{
+					$FutureEventParticipantTable->updateParticipant($_fields, $_ID_);
+
+					/** Get Event Private Invitation Link  By ID */
+					$_participant_data_ = self::getEventParticipantDataByID($_ID_);
+
+					/** Send Email To Participant */
+					$status = $status == 'APPROVED'?'Approved':'Denied';
+					$_data_ = array(
+						'email'     => $_participant_data_->participant_email, 
+						'firstname' => $_participant_data_->participant_firstname,
+						'fullname'  => $_participant_data_->participant_lastname,
+					
+						'event'                 => $_participant_data_->event_name,
+						'event_type'            => $_participant_data_->event_category,
+						'participation_type'    => $_participant_data_->participation_type_name,
+						'participation_subtype' => $_participant_data_->participation_subtype_name,
+						'price'                 => $_participant_data_->participation_subtype_price,
+						'currency'              => $_participant_data_->participation_subtype_currency,
+						'status'                => $status,
+					);
+
+					EmailController::sendEmailToParticipantOnStatusChanged($_data_);
+					
+				}catch(Exeption $e){
+					$diagnoArray[0] = "ERRORS_FOUND";
+					$diagnoArray[]  = $e->getMessage();
+				}
+			}
+		}else{
+			$diagnoArray[0] = 'ERRORS_FOUND';
+			$error_msg 	    = ul_array($validation->errors());
+		}
+		if($diagnoArray[0] == 'ERRORS_FOUND'){
+			return (object)[
+				'ERRORS'		=> true,
+				'ERRORS_SCRIPT' => $validate->getErrorLocation(),
+				'ERRORS_STRING' => ""
+			];
+		}else{
+			return (object)[
+				'ERRORS'	    => false,
+				'SUCCESS'	    => true,
+				'ERRORS_SCRIPT' => "",
+				// 'EMAIL'     	=> $email,
+				// 'PARTICIPATIONPAYMENTTYPE'=> $_PARTICIPATION_PAYMENT_TYPE_,
+				'ERRORS_STRING' => ""
+			];
+		}
+	}
+
 	public static function createEventParticipantPassword(){
 		$diagnoArray[0] = 'NO_ERRORS';
 		$validate = new \Validate();
