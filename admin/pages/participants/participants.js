@@ -53,6 +53,12 @@ $(document).ready(function () {
 				if (response.success == true) {
 					$(FormKey + " #activateButton").button('reset');
 					$(FormKey + " #activateForm")[0].reset();
+					if ($('#page').val() == 'profile') {
+						$('.display_status_').html('Approved <i class="fa fa-check-circle"></i>');
+						$('.display_status_').css('color', '#5cb85c');
+						$('.disable_btn_approve').addClass('disabled');
+						$('.disable_btn_deny').removeClass('disabled');
+					}
 					showParticipantsList();
 					$(FormKey + ' #activate-messages').html('<div class="sent-message">' + response.messages + '</div>');
 					this_form.find(FormKey + ' .sent-message').slideDown().html(response.messages);
@@ -130,6 +136,12 @@ $(document).ready(function () {
 				if (response.success == true) {
 					$(FormKey + " #deactivateButton").button('reset');
 					$(FormKey + " #deactivateForm")[0].reset();
+					if ($('#page').val() == 'profile') {
+						$('.display_status_').html('Denied  <i class="fa fa-times-circle"></i>');
+						$('.display_status_').css('color', '#c13c5a');
+						$('.disable_btn_approve').removeClass('disabled');
+						$('.disable_btn_deny').addClass('disabled');
+					}
 					showParticipantsList();
 					$(FormKey + ' #deactivate-messages').html('<div class="sent-message">' + response.messages + '</div>');
 					this_form.find(FormKey + ' .sent-message').slideDown().html(response.messages);

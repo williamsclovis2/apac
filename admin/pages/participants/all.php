@@ -232,6 +232,7 @@ if($_LIST_DATA_): $count_ = 0;
                                 </div>
                                 <div class="modal-footer"> 
                                     <input type="hidden" name="request" value="approveParticipantRegistration"/> 
+                                    <input type="hidden" name="page" id="page" value="list"/> 
                                     <input type="hidden" name="eventId" value="<?=Hash::encryptAuthToken($eventId) ?>"/>
                                     <input type="hidden" name="Id" value="<?=Hash::encryptToken($_data_->id) ?>"/>
                                     <button type="button" class="btn btn-white" data-dismiss="modal"><i class="fa fa-times-circle"></i> Close</button>
@@ -260,6 +261,7 @@ if($_LIST_DATA_): $count_ = 0;
                                 </div>
                                 <div class="modal-footer"> 
                                     <input type="hidden" name="request" value="denyParticipantRegistration"/> 
+                                    <input type="hidden" name="page" id="page" value="list"/> 
                                     <input type="hidden" name="eventId" value="<?=Hash::encryptAuthToken($eventId) ?>"/>
                                     <input type="hidden" name="Id" value="<?=Hash::encryptToken($_data_->id) ?>"/>
                                     <button type="button" class="btn btn-white" data-dismiss="modal"><i class="fa fa-times-circle"></i> Close</button>
