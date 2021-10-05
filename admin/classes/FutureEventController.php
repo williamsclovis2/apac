@@ -1371,6 +1371,23 @@ class FutureEventController
         return  false;
     }
 
+	public static function getParticipantByID($ID){
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT future_participants.*, future_participants.id as participant_ID, future_participation_type.name as participation_type_name,  future_participation_sub_type.name as participation_subtype_name , future_participation_sub_type.payment_state, future_participation_sub_type.category as participation_subtype_category, future_participation_sub_type.price as participation_subtype_price, future_participation_sub_type.currency as participation_subtype_currency FROM `future_participants` INNER JOIN future_participation_type ON future_participants.participation_type_id = future_participation_type.id INNER JOIN future_participation_sub_type ON future_participants.participation_sub_type_id = future_participation_sub_type.id WHERE future_participants.id = {$ID} ORDER BY future_participants.id DESC LIMIT 1");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->first();
+        return  false;
+    }
+	
+	public static function getParticipantsByEventID($eventID, $condition = ""){
+		$_SQL_Condition_  = $condition == ""?"":" $condition ";
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT future_participants.*, future_participants.id as participant_ID, future_participation_type.name as participation_type_name,  future_participation_sub_type.name as participation_subtype_name , future_participation_sub_type.payment_state, future_participation_sub_type.category as participation_subtype_category, future_participation_sub_type.price as participation_subtype_price, future_participation_sub_type.currency as participation_subtype_currency FROM `future_participants` INNER JOIN future_participation_type ON future_participants.participation_type_id = future_participation_type.id INNER JOIN future_participation_sub_type ON future_participants.participation_sub_type_id = future_participation_sub_type.id WHERE future_participants.event_id = {$eventID} $_SQL_Condition_  ORDER BY future_participants.id DESC ");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->data();
+        return  false;
+    }
+
 	public static function getEventParticipantDataByID($ID){
         $FutureEventTable = new FutureEvent();
         $FutureEventTable->selectQuery("SELECT 

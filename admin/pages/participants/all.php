@@ -1,12 +1,16 @@
 <?php
-    require_once "../../core/init.php"; 
-    if(!$user->isLoggedIn()) {
-        Redirect::to('admin/login');
-    }
+require_once "../../core/init.php"; 
+if(!$user->isLoggedIn()) {
+    Redirect::to('admin/login');
+}
 
-    $page = "participants";
-    $link = "all";
-    $eventId = base64_decode(Input::get('eventId'));
+$page = "participants";
+$link = "all";
+$eventId = base64_decode(Input::get('eventId'));
+
+/** Filter By Participation Type */
+$_PARTICIPATION_TYPE_TOKEN_ = Input::get('participationTypeToken', 'get');
+
 
 ?>
 
@@ -44,7 +48,7 @@
                 <!-- <div class="col-lg-2"></div> -->
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
-                        <div class="type_subtype">
+                        <div class="type_subtype"> --- <?=Input::get('participationTypeToken', 'get')?> --
                             <a href="#" class="btn btn-primary" style="display: inline-block;">In-person</a>
                             <a href="#" class="btn btn-primary" style="display: inline-block;">Virtual</a>
                             <a href="#" class="btn btn-primary" style="display: inline-block;">Early Bird / In-person </a>
@@ -201,8 +205,78 @@
             </div>
         </div>
 
+
+
+        
+<?php
+$_LIST_DATA_ = FutureEventController::getParticipantsByEventID($eventId);
+if($_LIST_DATA_): $count_ = 0;
+    foreach($_LIST_DATA_  As $_data_): $count_++;
+?>
+                 
+                <!-- Edit Link Modal  -->
+                <div class="modal inmodal fade" id="approveModal<?=Hash::encryptToken($_data_->id)?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">Approve Participant Registration</h4>
+                            </div>
+                            <form action="<?php linkto("admin/pages/content/content_action.php"); ?>" method="post" class="formCustom modal-form" id="activateForm">
+                                <div class="modal-body">
+                                    <div id="activate-messages"></div>
+                                    <p class="text-center">Do you really want to Approve the registration of this participant:  <strong> <?=$_data_->firstname ?> </strong> ?</p>
+                                    <div class="row">
+                                        
+                                    </div>
+                                </div>
+                                <div class="modal-footer"> 
+                                    <input type="hidden" name="request" value="activateParticipationSubType"/> 
+                                    <input type="hidden" name="eventId" value="<?=Hash::encryptAuthToken($eventId) ?>"/>
+                                    <input type="hidden" name="Id" value="<?=Hash::encryptToken($_data_->id) ?>"/>
+                                    <button type="button" class="btn btn-white" data-dismiss="modal"><i class="fa fa-times-circle"></i> Close</button>
+                                    <button type="button" id="activateButton" class="btn btn-primary activateButtonDynamic" data-loading-text="Loading..." data-key = "<?=Hash::encryptToken($_data_->id)?>" autocomplete="off"><i class="fa fa fa-external-link"></i> Activate</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Link Modal  -->
+                <div class="modal inmodal fade" id="deactivateModal<?=Hash::encryptToken($_data_->id)?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">Deny Participant Registration</h4>
+                            </div>
+                            <form action="<?php linkto("admin/pages/content/content_action.php"); ?>" method="post" class="formCustom modal-form" id="deactivateForm">
+                                <div class="modal-body">
+                                    <div id="deactivate-messages"></div>
+                                    <p class="text-center">Do you really want to Deny the registration of this participant:  <strong> <?=$_data_->firstname ?> </strong> ?</p>
+                                    <div class="row">
+                                        
+                                    </div>
+                                </div>
+                                <div class="modal-footer"> 
+                                    <input type="hidden" name="request" value="deactivateParticipationSubType"/> 
+                                    <input type="hidden" name="eventId" value="<?=Hash::encryptAuthToken($eventId) ?>"/>
+                                    <input type="hidden" name="Id" value="<?=Hash::encryptToken($_data_->id) ?>"/>
+                                    <button type="button" class="btn btn-white" data-dismiss="modal"><i class="fa fa-times-circle"></i> Close</button>
+                                    <button type="button" id="deactivateButton" class="btn btn-primary deactivateButtonDynamic" data-loading-text="Loading..." data-key = "<?=Hash::encryptToken($_data_->id)?>" autocomplete="off"><i class="fa fa fa-external-link"></i> Deactivate</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+<?php
+    endforeach;
+endif;
+?>
+
         <script type="text/javascript">
             var eventId = '<?php echo $eventId; ?>';
+            var participationTypeToken = '<?php echo $_PARTICIPATION_TYPE_TOKEN_; ?>';
             var linkto  = '<?php linkto("admin/pages/participants/participants_action.php"); ?>';
         </script>
         <script src="<?php linkto('admin/pages/participants/participants.js'); ?>"></script>
