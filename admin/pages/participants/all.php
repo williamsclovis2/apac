@@ -46,22 +46,52 @@ $_PARTICIPATION_TYPE_TOKEN_ = Input::get('participationTypeToken', 'get');
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <!-- <div class="col-lg-2"></div> -->
+                <div class="type_subtype"> 
+                    <form action="">
+                    <label for="gender" class="col-sm-12">Filter By </label>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select id="language" name="participation_type"  class="form-control" data-rule="required" data-msg="Please select Language">
+                                    <option value="">[--Participation type--]</option>
+                                    <option value="English">All</option>
+                                    <option value="French">African based</option>
+                                    <option value="Portuguese">Non African based</option>
+                                    <option value="Arabic">Media</option>
+                                </select>
+                            </div>  
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select id="language" name="participation_type"  class="form-control" data-rule="required" data-msg="Please select Language">
+                                    <option value="">[--Part Subtype--]</option>
+                                    <option value="English">All</option>
+                                    <option value="French">Early bird</option>
+                                    <option value="Portuguese">Standard</option>
+                                </select>
+                            </div>  
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select id="language" name="participation_type"  class="form-control" data-rule="required" data-msg="Please select Language">
+                                    <option value="">[--Category--]</option>
+                                    <option value="English">All</option>
+                                    <option value="French">In-person</option>
+                                    <option value="Portuguese">Virtual</option>
+                                </select>
+                            </div>  
+                        </div>
+                        <div class="col-md-3"><button class="btn btn-sm btn-primary">Show details</button></div>
+                    </form>
+                </div>
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
-                        <div class="type_subtype"> 
-                            <a href="#" class="btn btn-primary" style="display: inline-block;">In-person</a>
-                            <a href="#" class="btn btn-primary" style="display: inline-block;">Virtual</a>
-                            <a href="#" class="btn btn-primary" style="display: inline-block;">Early Bird / In-person </a>
-                            <a href="#" class="btn btn-primary" style="display: inline-block;">Early Bird / Virtual</a>
-                            <a href="#" class="btn btn-primary" style="display: inline-block;">Standard / In-person</a>
-                            <a href="#" class="btn btn-primary" style="display: inline-block;">Standard / Virtual</a>
-                        </div>
+                        
                         <div class="ibox-title" style="height: auto;">
                           
                         </div>
 
                         <div class="ibox-content" id="participants-table"></div>
-
+                        
                         <div class="modal inmodal fade" id="editClientModal" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
