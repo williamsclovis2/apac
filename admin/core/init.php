@@ -24,7 +24,8 @@ function def(){
     define('Url_NS','app\Http\Url\\');
     define("DNADMIN",DN._.Config::get('server/name')._.'admin');
     define("DN_IMG_CARDS", DN._.'img/cards');
-    define("DN_IMG_ID_DOC", DN._.'img/id_document/');
+    define("VIEW_IMG_ID_DOC", DN.'img/id_document/');
+    define("DN_IMG_ID_DOC", Config::get('filepath/image').'id_document/');
 }
 
 
@@ -61,7 +62,11 @@ $GLOBALS['config'] = array(
 		'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp", // Local
 
 		'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp_noreply", // Local
-    )
+    ),
+    'filepath' => array(
+		'image' => $_SERVER['DOCUMENT_ROOT'].'/apac/img/',  // Local
+		// 'image' => $_SERVER['DOCUMENT_ROOT'].'/img/',  //Live 
+	)
     
 );
 

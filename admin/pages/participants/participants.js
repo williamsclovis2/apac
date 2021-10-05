@@ -1,6 +1,22 @@
 $(document).ready(function () {
 	showParticipantsList();
 
+	$('#filterForm').submit(function () {
+
+		var type = $('#type').val();
+		var subtype = $('#subtype').val();
+
+		$.ajax({
+			type: 'POST',
+			url: linkto,
+			data: { eventId: eventId, type: type, subtype: subtype, participationTypeToken: "all", request: "fetchParticitants" },
+			success: function (data) {
+				$('#participants-table').html(data);
+			}
+		});
+		return false;
+	});
+
 	/** Activate */
 	$('.activateButtonDynamic').on('click', function () {
 		var Key = $(this).attr('data-key');
@@ -172,9 +188,22 @@ function showParticipantsList() {
 		// data: {
 		// 	fetchParticitants: 1
 		// },
-		data: { eventId: eventId, participationTypeToken: participationTypeToken, request: "fetchParticitants" },
+		data: { eventId: eventId, type: "", subtype: "", participationTypeToken: participationTypeToken, request: "fetchParticitants" },
 		success: function (data) {
 			$('#participants-table').html(data);
+		}
+	});
+}
+
+
+function filterOptionsSubtype(type_input) {
+	var type = $(type_input).val();
+	$.ajax({
+		type: 'POST',
+		url: linkto,
+		data: { eventId: eventId, type: type, request: "filterParticipationSubType" },
+		success: function (data) {
+			$('#subtype').html(data);
 		}
 	});
 }

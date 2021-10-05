@@ -82,6 +82,7 @@ class FutureEventController
 			
 			$job_title         = $str->data_in($_EDIT['job_title']);
 			$job_category 	   = $str->data_in($_EDIT['job_category']);
+			$language	 	   =!Input::checkInput('language', 'post', 1)?'': $str->data_in($_EDIT['language']);
 
 			/** Attending Objective Information */
 			$firt_objective 		 = !Input::checkInput('firt_objective', 'post', 1)?'':$str->data_in($_EDIT['firt_objective']);
@@ -130,10 +131,27 @@ class FutureEventController
 			$educacation_institute_country      = !Input::checkInput('institute_country', 'post', 1)?'':$str->data_in($_EDIT['institute_country']);
 			$educacation_institute_city         = !Input::checkInput('institute_city', 'post', 1)?'':$str->data_in($_EDIT['institute_city']);
 
+			/** Student State - When An Youth Or Student regsiters - */
+			$student_state = 0;
+			if($educacation_institute_name != '' && $educacation_institute_category != '' )
+				$student_state = 1;
+
 			/** Upload The ID Document Picture */
 			$id_document_picture = '';
-			// if($_FILES['id_document_picture']['name']  != "")
-			// 	$id_document_picture = Functions::fileUpload(DN_IMG_ID_DOC, $_FILES['id_document_picture']);
+			if(isset($_FILES['id_document_picture']))
+				if($_FILES['id_document_picture']['name']  != "")
+					$id_document_picture = Functions::fileUpload(DN_IMG_ID_DOC, $_FILES['id_document_picture']);
+
+			/** Check If Email Address not yet used */
+			if(self::checkEmailAlreadyUsed($eventID, $email)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "This email address has already been used!",
+					'ERRORS_STRING' => "This email address has already been used!"
+				];
+			endif;
+
+			/** Check Age - [ 10 - ] */
 		
 			if($diagnoArray[0] == 'NO_ERRORS'){
 				
@@ -184,6 +202,7 @@ class FutureEventController
 					'reg_date'             => date('Y-m-d H:i:s'),
 					'status'               => "PENDING",
 					
+					'student_state'					  => $student_state,
 					'educacation_institute_name'      => $educacation_institute_name,
 					'educacation_institute_category'  => $educacation_institute_category,
 					'educacation_institute_industry'  => $educacation_institute_industry,
@@ -1591,4 +1610,12 @@ class FutureEventController
 			return false;
 		}
     }
+
+	public static function checkEmailAlreadyUsed($eventID, $email){
+		$FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT  id  FROM `future_participants  WHERE future_participants.event_id = {$eventID} AND future_participants.email = '{$email}' ORDER BY future_participants.id DESC LIMIT 1");
+        if($FutureEventTable->count())
+          return  true;
+        return  false;
+	}
 }
