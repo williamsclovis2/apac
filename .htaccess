@@ -42,6 +42,7 @@ RewriteRule ^admin/pages/content/partners/([^/]+)$ admin/pages/content/partners.
 RewriteRule ^admin/pages/content/program/([^/]+)/([^/]+)$ admin/pages/content/program.php?eventId=$1&day=$2 [L]
 
 RewriteRule ^admin/pages/participants/all/([^/]+)$ admin/pages/participants/all.php?eventId=$1 [L]
+RewriteRule ^admin/pages/participants/profile/([^/]+)$ admin/pages/participants/profile.php?eventId=$1 [L]
 RewriteRule ^admin/pages/accounts/export_client/([^/]+)$ admin/pages/accounts/export_client.php?clientId=$1 [L]
 
 RewriteRule ^admin/pages/exhibitors/list/([^/]+)$ admin/pages/exhibitors/list.php?eventId=$1 [L]
