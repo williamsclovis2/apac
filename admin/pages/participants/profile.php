@@ -109,6 +109,18 @@
                                         <div class="card-body side-card">
                                             <div class="row">
                                                 <div class="col-sm-5">
+                                                    <h6 class="mb-0">Payment Status</h6>
+                                                </div>
+                                                <div class="col-sm-7 text-secondary">
+                                                    <h6>Paid</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-3">
+                                        <div class="card-body side-card">
+                                            <div class="row">
+                                                <div class="col-sm-5">
                                                     <h6 class="mb-0">Payment method</h6>
                                                 </div>
                                                 <div class="col-sm-7 text-secondary">
@@ -214,9 +226,11 @@
                                                     <h6>1/1/1999</h6>
                                                 </div>
                                             </div>
-                                            <hr>
-                                            <h3 class="card-sect-title">ORGANIZATION</h3>
-                                            <hr>
+                                        </div>
+                                    </div>
+                                    <h3 class="card-sect-title">ORGANIZATION</h3>
+                                    <div class="card mb-3" >
+                                        <div class="card-body">
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <h6 class="mb-0">Organization name</h6>
@@ -261,9 +275,12 @@
                                                     <h6>Kigali Rwanda</h6>
                                                 </div>
                                             </div>
-                                            <hr>
-                                            <h3 class="card-sect-title">WHAT ARE YOUR OBJECTIVES FOR ATTENDING THIS CONGRESS?</h3>
-                                            <hr>
+                                            
+                                        </div>
+                                    </div>
+                                    <h3 class="card-sect-title">WHAT ARE YOUR OBJECTIVES FOR ATTENDING THIS CONGRESS?</h3>
+                                    <div class="card mb-3">
+                                        <div  class="card-body">
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <h6 class="mb-0">first objective</h6>
@@ -299,9 +316,11 @@
                                                     <h6>TV</h6>
                                                 </div>
                                             </div>
-                                            <hr>
-                                            <h3 class="card-sect-title">IDENTIFICATION</h3>
-                                            <hr>
+                                        </div>
+                                    </div>
+                                    <h3 class="card-sect-title">IDENTIFICATION</h3>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <h6 class="mb-0">Type of ID document </h6>

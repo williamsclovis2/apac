@@ -312,7 +312,7 @@ class EmailController
                     <table width='60' align='left' border='0' cellpadding='0' cellspacing='0'>  
                       <tr>
                         <td height='60' style='padding: 10px 10px 10px 0;'>
-                          <img class='fix' src='http://apacongress.torusguru.com/img/apac-web-logo.png' width='60' height='60' border='0' alt='' />
+                          <img class='fix' src='http://apacongress.torusguru.com/img/apac-web-logo.png' width='90' height='60' border='0' alt='' />
                         </td>
                       </tr>
                     </table>
