@@ -70,12 +70,16 @@ $GLOBALS['config'] = array(
     
 );
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/functions/functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/functions/functions.php'; // Local
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/functions/functions.php'; // Live
 
 spl_autoload_register(function($class) {
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/classes/' . $class . '.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/classes/' . $class . '.php'; // Local
+    // require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/classes/' . $class . '.php'; // Live
 });
 
+/** Dictionary */
+$GLOBALS['_Dictionary'] = new \Properties('eng-lang');
 
 /** Initialize Define */
 def();
