@@ -29,9 +29,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                <div class="section_title mb-4 ">
-                        <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-                    </div>
+                
                     <div class="section_title wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                         <h3>In-person attendance registration </h3> 
                     </div>
@@ -51,9 +49,7 @@ if($_DATA_PARTICIPATION_CATEGORY_ ):
                             <sup> <?= $currency_?> </sup> <?= $_event_participation_category_->participation_sub_type_price?>
                            <span><?= $_event_participation_category_->participation_sub_type_name?> </span></h4>
                           <ul>
-                            <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
-                            <li><i class="bx bx-check"></i> Nec feugiat nisl </li>
-                            <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis </span></li>
+                           
                           </ul>
                           <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn">Register</a>
                         </div>
@@ -92,8 +88,6 @@ if($_DATA_PARTICIPATION_CATEGORY_ ):
                             <span><?= $_event_participation_category_->participation_sub_type_name?></span></h4>
                           <ul>
                             <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
-                            <li><i class="bx bx-check"></i> Nec feugiat nisl </li>
-                            <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis </span></li>
                           </ul>
                           <a href="registration/event/virtual/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn">Register</a>
                         </div>
