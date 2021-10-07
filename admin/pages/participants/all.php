@@ -52,9 +52,9 @@ $_PARTICIPATION_TYPE_TOKEN_ = Input::get('participationTypeToken', 'get');
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         
-                        <div class="ibox-title" style="height: auto;">
+                        <!-- <div class="ibox-title" style="height: auto;">
                             Filter By:
-                        </div>
+                        </div> -->
 
                         <div class="ibox-content" style="padding: 15px 20px 0px 20px;">
 
