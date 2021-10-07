@@ -52,9 +52,9 @@ $_PARTICIPATION_TYPE_TOKEN_ = Input::get('participationTypeToken', 'get');
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         
-                        <div class="ibox-title" style="height: auto;">
+                        <!-- <div class="ibox-title" style="height: auto;">
                             Filter By:
-                        </div>
+                        </div> -->
 
                         <div class="ibox-content" style="padding: 15px 20px 0px 20px;">
 
@@ -93,9 +93,8 @@ $_PARTICIPATION_TYPE_TOKEN_ = Input::get('participationTypeToken', 'get');
 
                 <!-- <br><br> -->
                         </div>
-                        <!-- <div class="col-md-3"><button class="btn btn-sm btn-primary" style="height:33px !important; border-radius:0 !important;">Show details</button></div>
-                    </form> -->
-                <!-- </div> -->
+                    </div>
+                </div>
 
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">

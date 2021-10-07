@@ -15,7 +15,7 @@ class Redirect {
                 }
             }
             // header('Location: '. $location);
-            header('Location: ' . Config::get('server/name') . $location);
+            header('Location: ' . Config::get('server/name') .'/'. $location);
             exit();
         }
     }

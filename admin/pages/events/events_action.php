@@ -50,7 +50,7 @@
                     	data-placement="left" role="button" data-html="true" data-toggle="popover"
    						data-content='<ul id="popover-content" class="list-group">
 					 	<a href="#" class="list-group-item view_event" data-id="<?php echo $resEvent->id;?>"><i class="fa fa-eye"></i> View</a>
-					  	<a href="<?php linkto("admin/pages/participants/all"); ?>" class="list-group-item"><i class="fa fa-users"></i> Participants</a>
+					  	<a href="<?php linkto("admin/pages/participants/all/$eventId"); ?>" class="list-group-item"><i class="fa fa-users"></i> Participants</a>
 					  	<a href="<?php linkto("admin/pages/content/banner/$eventId"); ?>" class="list-group-item"><i class="fa fa-pencil-square"></i> Website content</a>
 					  	<a href="#" class="list-group-item edit_event" data-id="<?php echo $resEvent->id;?>"><i class="fa fa-pencil"></i> Edit</a>
 					</ul>'><i class="fa fa-cog"></i></a>
