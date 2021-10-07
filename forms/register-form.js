@@ -1,4 +1,4 @@
-$(document).ready(function () {
+p$(document).ready(function () {
 	// Delegate registration
 	$('#registerButton').prop('disabled', true);
 	$('#registerForm1').submit(function () {
@@ -594,13 +594,13 @@ $('.registerACPFormSubmit').on('click', function () {
 			var response = JSON.parse(dataResponse);
 
 			if (response.status == 100) {
-				window.location.href = $('.host').attr('link') + "payment/" + response.authToken;
+				window.location.href = $('.host').attr('link') + "/payment/" + response.authToken;
 			}
 			else if (response.status == 101) {
-				window.location.href = $('.host').attr('link') + "notification";
+				window.location.href = $('.host').attr('link') + "/notification";
 			}
 			else if (response.status == 200) {
-				window.location.href = $('.host').attr('link') + "notification";
+				window.location.href = $('.host').attr('link') + "/notification";
 			}
 			else {
 				$("#loginButton").prop('disabled', false);

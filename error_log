@@ -165,3 +165,8 @@
 [07-Oct-2021 12:23:40 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
 [07-Oct-2021 12:25:30 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
 [07-Oct-2021 12:25:30 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
+[07-Oct-2021 12:30:13 UTC] PHP Notice:  Undefined variable: form in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form1.php on line 102
+[07-Oct-2021 12:30:13 UTC] PHP Notice:  Trying to get property 'ERRORS' of non-object in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form1.php on line 102
+[07-Oct-2021 12:30:13 UTC] PHP Notice:  Undefined variable: categ in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/forms/form1.php on line 102
+[07-Oct-2021 12:30:13 UTC] PHP Notice:  Undefined variable: set_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 79
+[07-Oct-2021 12:30:13 UTC] PHP Notice:  Undefined variable: end_countdown in /home/adstxgt4fsem/public_html/apacongress.torusguru.com/includes/footer.php on line 80
