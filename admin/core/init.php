@@ -97,3 +97,6 @@ $controller     =  new Controller();
 $encodedEventId = Input::get('eventId');
 $progDay        = Input::get('day');
 $activeEventId  = 8;
+
+/** SCRIPT - AUTO EXPIRY - PRIVATE LINKS - */
+// FutureEventController::autoExpirationStatusEventPrivateInvitationLink($eventID);
