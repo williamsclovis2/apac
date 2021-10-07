@@ -15,7 +15,7 @@
                                 <div class="main-menu  d-none d-xl-block">
                                     <nav>
                                     <ul id="navigation">
-                                            <li><a href="https://apacongress.africa/">Home</a></li>
+                                            <li><a href="<?php linkto('index'); ?>">Home</a></li>
                                             <li><a href="#">Contact Us</a></li>
                                             <?php if(isset($_SESSION['username'])) {?>
                                             <li><a href="<?php linkto('logout'); ?>">Logout</a></li>
