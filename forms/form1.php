@@ -146,7 +146,7 @@
                             <div class="row">
                                 <label for="birthday" class="col-sm-3">Date of birth</label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="birthday" value="1999-01-01"  oninput="validate(this)"  id="birthday" type="date" data-rule="required" data-msg="Please enter date of birth"/>
+                                    <input class="form-control" name="birthday"  oninput="validate(this)"  id="birthday" type="date"  data-msg="Please enter date of birth"/>
                                     <div class="validate" id="birthday_error"></div>
                                 </div>
                             </div>
