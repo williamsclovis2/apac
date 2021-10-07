@@ -26,8 +26,8 @@
 
                 <div class="col-sm-12">
                     <div class="footer-date">
-                        <h3>Africa Protected Areas Congress - APAC</h3>
-                        <p>1 - 4 June 2022</p>
+                        <h3><?=$event_name?></h3>
+                        <p><?=$event_date?></p>
                         <div class="border-top"></div>
                         <p><a href="mailto:info@thesummit.org">info@thesummit.org</a></p>
                         <p><a href="<?php linkto('privacy'); ?>">Terms & Conditions</a> | <a href="<?php linkto('privacy'); ?>">Privacy Policy</a></p>
