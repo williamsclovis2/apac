@@ -35,7 +35,7 @@ if(Session::exists('username')) {
             <div class="row">
                 <div class="col-lg-4"></div>
                 <div class="col-lg-4">
-                    <form action="<?php linkto("forms/register_action.php"); ?>" class="login-form bg-gray mt-5" id="loginForm" method="post">
+                    <form  class="login-form bg-gray mt-5" id="loginForm" method="post">
                         <div id="login-messages" style="margin-bottom: 10px;"></div>
                         <h4>Login to join the event</h4>
                         <div class="row">
