@@ -338,7 +338,7 @@ function validateEmail(email) {
 
 
 $('.registerFormSubmit').on('click', function () {
-	location.href = "#" + "registerForm";
+	// location.href = "#" + "registerForm";
 	$('.field-validate .validate').text('');
 
 	var f = $("#registerForm").find('.field-validate'),
@@ -447,11 +447,17 @@ $('.registerFormSubmit').on('click', function () {
 
 	// alert("DATA - " + action);
 
+	var form = $('#registerForm')[0];
+	var formData = new FormData(form);
+	event.preventDefault();
+
 	$.ajax({
 		type: "POST",
 		url: action,
-		data: str,
+		data: formData,
 		cache: false,
+		processData: false,
+		contentType: false,
 		success: function (dataResponse) {
 
 			var response = JSON.parse(dataResponse);

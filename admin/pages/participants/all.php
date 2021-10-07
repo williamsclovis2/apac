@@ -46,43 +46,57 @@ $_PARTICIPATION_TYPE_TOKEN_ = Input::get('participationTypeToken', 'get');
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <!-- <div class="col-lg-2"></div> -->
-                <div class="type_subtype"> 
-                    <form action="">
-                    <label for="gender" class="col-sm-12">Filter By </label>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <select id="language" name="participation_type"  class="form-control" data-rule="required" data-msg="Please select Language">
-                                    <option value="">[--Participation type--]</option>
-                                    <option value="English">All</option>
-                                    <option value="French">African based</option>
-                                    <option value="Portuguese">Non African based</option>
-                                    <option value="Arabic">Media</option>
-                                </select>
-                            </div>  
+                
+               
+
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        
+                        <div class="ibox-title" style="height: auto;">
+                            Filter By:
                         </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <select id="language" name="participation_type"  class="form-control" data-rule="required" data-msg="Please select Language">
-                                    <option value="">[--Part Subtype--]</option>
-                                    <option value="English">All</option>
-                                    <option value="French">Early bird</option>
-                                    <option value="Portuguese">Standard</option>
-                                </select>
-                            </div>  
+
+                        <div class="ibox-content" style="padding: 15px 20px 0px 20px;">
+
+                        <form action="" id="filterForm" class="row" method='post'>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <select id="type" name="type" onchange="filterOptionsSubtype(this);" required  class="form-control" data-rule="required" data-msg="Please select Language">
+                                        <option value="">- Select Participation Type -</option>
+                                        <option value="">All</option>
+    <?php
+    $_TYPE_DATA_ = FutureEventController::getPacipationTypeyByEventID($eventId);
+    if($_TYPE_DATA_):
+        foreach($_TYPE_DATA_ As $type_):
+    ?>  
+                                        <option value="<?=Hash::encryptToken($type_->id)?>"><?=$type_->name?></option>
+    <?php
+        endforeach;
+    endif;
+    ?>
+                                    </select>
+                                </div>  
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <select id="subtype" name="subtype"  class="form-control" data-rule="required" data-msg="Please select Language">
+                                        <option value="">- Select Participation Subtype -</option>
+                                        <option value="">All</option>
+
+                                    </select>
+                                </div>  
+                            </div>
+                            <!-- <div class="col-md-1"> -->
+                                <button type="submit" style="border-radius: 0px;"  autocomplete="off" class="btn btn-md btn-primary col-md-1"> <i class=" fa fa-filter"></i> Filter</button>
+                            <!-- </div> -->
+                        </form>
+
+                <!-- <br><br> -->
                         </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <select id="language" name="participation_type"  class="form-control" data-rule="required" data-msg="Please select Language">
-                                    <option value="">[--Category--]</option>
-                                    <option value="English">All</option>
-                                    <option value="French">In-person</option>
-                                    <option value="Portuguese">Virtual</option>
-                                </select>
-                            </div>  
-                        </div>
-                        <div class="col-md-3"><button class="btn btn-sm btn-primary" style="height:33px !important; border-radius:0 !important;">Show details</button></div>
-                    </form>
-                </div>
+                        <!-- <div class="col-md-3"><button class="btn btn-sm btn-primary" style="height:33px !important; border-radius:0 !important;">Show details</button></div>
+                    </form> -->
+                <!-- </div> -->
+
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         

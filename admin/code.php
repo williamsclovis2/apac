@@ -19,10 +19,13 @@ require_once "core/init.php";
 
 $ID = 8;
 $eventID = 8;
-$_ARRAY_DATA_ = FutureEventController::getParticipantsByEventID($eventID);
+$privatelinkID = 1;
 
-echo '<pre>';
-var_dump($_ARRAY_DATA_);
-echo '</pre>';
 
-echo 'ok';
+// $_ARRAY_DATA_ = FutureEventController::autoExpirationStatusEventPrivateInvitationLink($eventID);
+
+// echo '<pre>';
+// var_dump($_ARRAY_DATA_);
+// echo '</pre>';
+
+// echo '<br> ok <br>';

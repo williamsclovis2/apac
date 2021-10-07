@@ -51,25 +51,24 @@ if(Input::checkInput('request', 'post', 1)):
 			$_filter_condition_ = "";
 
 			/** Filter By Participation Type */
-			$_EVENT_ID_ 				= Input::get('eventId', 'post');
-			$_PARTICIPATION_TYPE_TOKEN_ = Input::get('participationTypeToken', 'post');
+			$_EVENT_ID_ 				   = Input::get('eventId', 'post');
+			$_PARTICIPATION_TYPE_TOKEN_    = Input::get('type', 'post');
+			$_PARTICIPATION_SUBTYPE_TOKEN_ = Input::get('subtype', 'post');
+			
 
-			/** Display All Participants  */
-			if($_PARTICIPATION_TYPE_TOKEN_ == 'all'):
-				
-			/** Filter By Type ID */
-			else:
-				$_PARTICIPATION_TYPE_ID_ = Hash::decryptToken($_PARTICIPATION_TYPE_TOKEN_);
-				$_filter_condition_ 	 = " AND participation_type_id = {$_PARTICIPATION_TYPE_ID_} ";
+			if($_PARTICIPATION_TYPE_TOKEN_ != '' ):
+				$_TYPE_ID_	 				= Hash::decryptToken($_PARTICIPATION_TYPE_TOKEN_);
+				if(is_integer($_TYPE_ID_))
+					$_filter_condition_    .= " AND future_participants.participation_type_id = $_TYPE_ID_ ";
+			endif;
+			
+			if($_PARTICIPATION_SUBTYPE_TOKEN_ != '' ):
+				$_SUBTYPE_ID_   	 	    = Hash::decryptToken($_PARTICIPATION_SUBTYPE_TOKEN_);
+				if(is_integer($_SUBTYPE_ID_))
+					$_filter_condition_    .= " AND future_participants.participation_sub_type_id = $_SUBTYPE_ID_ ";
 			endif;
 
-			// echo '---'.$_filter_condition_.' *----';
-
-			$_LIST_DATA_ = FutureEventController::getParticipantsByEventID($_EVENT_ID_);
-
-			// echo '<pre>';
-			// print_r($_LIST_DATA_);
-			// echo '</pre>';
+			$_LIST_DATA_ = FutureEventController::getParticipantsByEventID($_EVENT_ID_, $_filter_condition_);
 
 			if (!$_LIST_DATA_):
 				Danger("No participant recorded");
@@ -79,7 +78,7 @@ if(Input::checkInput('request', 'post', 1)):
 					<thead>
 						<tr>
 							<th>#ID</th>
-							<th>Full name -- <?=$_PARTICIPATION_TYPE_TOKEN_ ?> #</th>
+							<th>Full name</th>
 							<th>Type</th>
 							<th>Subtype</th>
 							<th>Category</th>
@@ -184,6 +183,25 @@ if(Input::checkInput('request', 'post', 1)):
 					});
 				</script>
 				<?php
+		break;
+
+		/** Filter Subtype By Type */
+		case 'filterParticipationSubType':
+			$_EVENT_ID_  = Input::get('eventId', 'post');
+			$_TYPE_ID_   = Hash::decryptToken(Input::get('type', 'post'));
+			$_TYPE_DATA_ = FutureEventController::getPacipationSubType($_EVENT_ID_, $_TYPE_ID_);
+?>
+			<option value="">- Select Participation Subtype -</option>
+			<option value="">All</option>
+<?php
+			if($_TYPE_DATA_):
+				foreach($_TYPE_DATA_ As $type_):
+?>  
+												<option value="<?=Hash::encryptToken($type_->id)?>"><?=$type_->name.' '.($type_->name == ''?'':'/ ')?> <?=$type_->category?></option>
+<?php
+				endforeach;
+			endif;
+
 		break;
 	endswitch;
 endif;		

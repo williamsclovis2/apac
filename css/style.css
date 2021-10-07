@@ -3480,7 +3480,7 @@ h1,h2,h3,h4,h5,h6 {line-height: 1.2em;}
 }
 .pricing .buy-btn {
   display: inline-block;
-  padding: 12px 35px;
+  padding: 4px 25px;
   border-radius: 50px;
   color: #37af47;
   transition: none;

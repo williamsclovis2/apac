@@ -722,6 +722,12 @@ class Functions
 		return $new_array;
 	}
 
+	public static function cleanDateFormat($str_date){
+		list($day, $month, $year) = explode('/', $str_date);
+		$foramted_date = "$day-$month-$year";
+		return (String)$foramted_date;
+	}
+
 
 
 }
