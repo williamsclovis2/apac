@@ -75,47 +75,7 @@
 <script type="text/javascript" src="<?php //linkto('js/moment.js'); ?>"></script>
 <script type="text/javascript" src="<?php //linkto('js/moment-timezone-with-data.js'); ?>"></script>
 <script type="text/javascript" src="<?php //linkto('js/timer.js'); ?>"></script>
-<script type="text/javascript">
-    var setCountdown = '<?php echo $set_countdown; ?>';
-    var enCountdown  = '<?php echo $end_countdown; ?>';
-    (function () {
-        const second = 1000,
-            minute   = second * 60,
-            hour     = minute * 60,
-            day      = hour * 24;
-        let event     = setCountdown,
-            end_event = enCountdown,
-            countDown = new Date(event).getTime(),
-            countDownEnd = new Date(end_event).getTime(),
-            x = setInterval(function() {    
-                let now = new Date().getTime(),
-                    distance = countDown - now;
-                    distanceEnd = countDownEnd - now;
-                    document.getElementById("days").innerText    = Math.floor(distance / (day)),
-                    document.getElementById("hours").innerText   = Math.floor((distance % (day)) / (hour)),
-                    document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
-                    document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
-                    //do something later when date is reached
-                    if (distance < 0 && distanceEnd >= 0) {
-                        let clock      = document.getElementById("clock"),
-                            eventStart = document.getElementById("eventStart"),
-                            headline = document.getElementById("headline");
-                            clock.style.display      = "none";
-                            headline.innerText       = "The event has started!";
-                            eventStart.style.display = "block";
-                      clearInterval(x);
-                    } else if (distanceEnd < 0) {
-                        let clock      = document.getElementById("clock"),
-                            eventStart = document.getElementById("eventStart"),
-                            headline = document.getElementById("headline");
-                            clock.style.display      = "none";
-                            headline.innerText       = "This event has ended";
-                            eventStart.style.display = "block";
-                    }
-                    //seconds
-          }, 0)
-    }());
-</script>
+
 
 <script src="<?php linkto('js/owl.carousel.js'); ?>"></script>
 <script>
