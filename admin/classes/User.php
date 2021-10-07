@@ -169,7 +169,7 @@ class User {
         $mail->AddReplyTo("cubedigitalteamtest@gmail.com","The Future Summit");
         $mail->Subject    = $subject;
         $mail->MsgHTML($message);
-        $mail->Send();
+        // $mail->Send();
     }
 
     // Torusguru

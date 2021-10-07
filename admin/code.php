@@ -1,31 +1,17 @@
 <?php
 require_once "core/init.php"; 
 
-// $_data_ = array(
-//     'email'     => 'ezechielkalengya@gmail.com', //clovismul@gmail.com
-//     'firstname' => 'Kambale',
-//     'fullname'  => 'Kambale Clovis',
+echo $_Dictionary->string('consumed-e'); 
 
-//     'event'                 => 'The Future Summit',
-//     'event_type'            => 'In-person',
-//     'participation_type'    => 'Media',
-//     'participation_subtype' => 'Early Bird',
-//     'price'                 => '300',
-//     'currency'              => 'USD'
-// );
-// // EmailController::sendEmailToParticipant123OnRegistration($_data_);
-// EmailController::sendEmailToParticipant4OnRegistration($_data_);
-// echo '<br><br><hr><br>';
+// require_once 'core/phpqrcode/qrlib.php';
 
-$ID = 8;
-$eventID = 8;
-$privatelinkID = 1;
+//                             $text = "ABCDEFGHIJ";
+// 							$folder='includes/';
+// 							$file_name=$text.".png";
+// 							$file_name=$folder.$file_name;
+// 							QRcode::png($text,$file_name);
+
+// ?>
+                           <!-- <img style=" margin-top: -15px;width: 300px" src='includes/https%3A%2F%2Fwww.youtube.com%2Fwatch.png'> -->
 
 
-// $_ARRAY_DATA_ = FutureEventController::autoExpirationStatusEventPrivateInvitationLink($eventID);
-
-// echo '<pre>';
-// var_dump($_ARRAY_DATA_);
-// echo '</pre>';
-
-// echo '<br> ok <br>';

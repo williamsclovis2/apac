@@ -737,10 +737,10 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 		// 	ferror = ierror = true;
 		// 	$('#citizenship_error').text("Please select country");
 		// }
-		if ($('#image').val().length === 0) {
-			ferror = ierror = true;
-			$('#image_error').text("Please upload your ID or passport  picture");
-		}
+		// if ($('#image').val().length === 0) {
+		// 	ferror = ierror = true;
+		// 	$('#image_error').text("Please upload your ID or passport  picture");
+		// }
 
 		/** Validation For Media In-person - Media Tools Section - */
 		if (eventParticiaptionCode == 'MDR004') {
