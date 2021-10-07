@@ -1,4 +1,4 @@
-p$(document).ready(function () {
+$(document).ready(function () {
 	// Delegate registration
 	$('#registerButton').prop('disabled', true);
 	$('#registerForm1').submit(function () {
