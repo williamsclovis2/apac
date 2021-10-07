@@ -93,8 +93,7 @@ $_PARTICIPATION_TYPE_TOKEN_ = Input::get('participationTypeToken', 'get');
 
                 <!-- <br><br> -->
                         </div>
-                        <!-- <div class="col-md-3"><button class="btn btn-sm btn-primary" style="height:33px !important; border-radius:0 !important;">Show details</button></div>
-                    </form> -->
+                    </div>
                 </div>
 
                 <div class="col-lg-12">
