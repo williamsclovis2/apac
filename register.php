@@ -46,7 +46,7 @@ if($_EVENT_TYPE_ == 'VIRTUAL'):
     $_EvCode_ = 'VRT002';
 endif;
 
-
+$_DCOLOR_ = '#dedede!important';
 
 ?>
 

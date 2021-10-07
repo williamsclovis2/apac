@@ -17,7 +17,11 @@
                                         <ul id="navigation">
                                             <li><a href="https://apacongress.africa/">Home</a></li>
                                             <li><a href="#">Contact Us</a></li>
-                                            
+                                            <?php if(isset($_SESSION['username'])) {?>
+                                            <li><a href="<?php linkto('logout'); ?>">Logout</a></li>
+                                            <?php } else { ?>
+                                            <li><a href="<?php linkto('login'); ?>">Login</a></li>
+                                            <?php } ?>
                                         </ul>
                                     </nav>
                                 </div>

@@ -8,7 +8,15 @@
 </head>
 
 <body>
-    <?php include'includes/nav.php';?>
+    <?php include'includes/nav-session.php';?>
+    <?php
+        $getContent = DB::getInstance()->get('future_event', array('id', '=', $activeEventId));
+        $banner     = $getContent->first()->banner;
+        $event_name = $getContent->first()->event_name;
+        $start_date = date('j', strtotime(dateFormat($getContent->first()->start_date)));
+        $end_date   = date("j F Y", strtotime(dateFormat($getContent->first()->end_date)));
+        $event_date = $start_date." - ".$end_date;
+    ?>
 
     <div class="slider_area">
         <div class="single_slider single_slider_reg d-flex align-items-center slider_bg_1">
@@ -16,8 +24,8 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-12">
                         <div class="slider_text slider_text_register">
-                            <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;">Africa Protected Areas Congress (APAC)</h3>
-                            <span class="separator-line wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s"></span>
+                            <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s"><?=$event_name?></h3>                            <span class="separator-line wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s"></span>
+                            <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s"><?=$event_date?></p>
                         </div>
                     </div>
                 </div>
@@ -29,11 +37,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                <div class="section_title mb-4 ">
-                        <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-                    </div>
+                
                     <div class="section_title wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                         <h3>In-person attendance registration </h3> 
+
                     </div>
                     
                     <div class="row">
@@ -51,9 +58,7 @@ if($_DATA_PARTICIPATION_CATEGORY_ ):
                             <sup> <?= $currency_?> </sup> <?= $_event_participation_category_->participation_sub_type_price?>
                            <span><?= $_event_participation_category_->participation_sub_type_name?> </span></h4>
                           <ul>
-                            <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
-                            <li><i class="bx bx-check"></i> Nec feugiat nisl </li>
-                            <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis </span></li>
+                           
                           </ul>
                           <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn">Register</a>
                         </div>
@@ -92,8 +97,6 @@ if($_DATA_PARTICIPATION_CATEGORY_ ):
                             <span><?= $_event_participation_category_->participation_sub_type_name?></span></h4>
                           <ul>
                             <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
-                            <li><i class="bx bx-check"></i> Nec feugiat nisl </li>
-                            <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis </span></li>
                           </ul>
                           <a href="registration/event/virtual/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn">Register</a>
                         </div>

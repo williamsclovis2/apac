@@ -82,6 +82,7 @@ class FutureEventController
 			
 			$job_title         = $str->data_in($_EDIT['job_title']);
 			$job_category 	   = $str->data_in($_EDIT['job_category']);
+			$language	 	   =!Input::checkInput('language', 'post', 1)?'': $str->data_in($_EDIT['language']);
 
 			/** Attending Objective Information */
 			$firt_objective 		 = !Input::checkInput('firt_objective', 'post', 1)?'':$str->data_in($_EDIT['firt_objective']);
@@ -105,7 +106,6 @@ class FutureEventController
 			$postal_code 	 		 = !Input::checkInput('postal_code', 'post', 1)?'':$str->data_in($_EDIT['postal_code']);
 			$website       	 		 = !Input::checkInput('website', 'post', 1)?'':$str->data_in($_EDIT['website']);
 
-
 			/** Identification - When In Person Event */
 			$residence_country 		 = !Input::checkInput('residence_country', 'post', 1)?'':$str->data_in($_EDIT['residence_country']);
 			$residence_city    		 = !Input::checkInput('residence_city', 'post', 1)?'':$str->data_in($_EDIT['residence_city']);
@@ -113,14 +113,12 @@ class FutureEventController
 			$id_type          		 = !Input::checkInput('id_type', 'post', 1)?'':$str->data_in($_EDIT['id_type']);
 			$id_number 		  		 = !Input::checkInput('id_number', 'post', 1)?'':$str->data_in($_EDIT['id_number']);
 
-			
 			/** Media Information */
 			$media_card_number 	  	= !Input::checkInput('media_card_number', 'post', 1)?'':$str->data_in($_EDIT['media_card_number']);
 			$media_card_authority 	= !Input::checkInput('media_card_authority', 'post', 1)?'':$str->data_in($_EDIT['media_card_authority']);
 			$media_equipment        = !Input::checkInput('media_equipment', 'post', 1)?'':$str->data_in($_EDIT['media_equipment']);
 			$special_request 		= !Input::checkInput('special_request', 'post', 1)?'':$str->data_in($_EDIT['special_request']);
 			$delegate_type        	= !Input::checkInput('delegate_type', 'post', 1)?'':$str->data_in($_EDIT['delegate_type']);
-
 
 			/** Media Information */
 			$educacation_institute_name 	  	= !Input::checkInput('institute_name', 'post', 1)?'':$str->data_in($_EDIT['institute_name']);
@@ -130,10 +128,27 @@ class FutureEventController
 			$educacation_institute_country      = !Input::checkInput('institute_country', 'post', 1)?'':$str->data_in($_EDIT['institute_country']);
 			$educacation_institute_city         = !Input::checkInput('institute_city', 'post', 1)?'':$str->data_in($_EDIT['institute_city']);
 
+			/** Student State - When An Youth Or Student regsiters - */
+			$student_state = 0;
+			if($educacation_institute_name != '' && $educacation_institute_category != '' )
+				$student_state = 1;
+
 			/** Upload The ID Document Picture */
 			$id_document_picture = '';
-			// if($_FILES['id_document_picture']['name']  != "")
-			// 	$id_document_picture = Functions::fileUpload(DN_IMG_ID_DOC, $_FILES['id_document_picture']);
+			if(isset($_FILES['id_document_picture']))
+				if($_FILES['id_document_picture']['name']  != "")
+					$id_document_picture = Functions::fileUpload(DN_IMG_ID_DOC, $_FILES['id_document_picture']);
+
+			/** Check If Email Address not yet used */
+			if(self::checkEmailAlreadyUsed($eventID, $email)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "This email address has already been used!",
+					'ERRORS_STRING' => "This email address has already been used!"
+				];
+			endif;
+
+			/** Check Age - [ 10 - ] */
 		
 			if($diagnoArray[0] == 'NO_ERRORS'){
 				
@@ -184,6 +199,7 @@ class FutureEventController
 					'reg_date'             => date('Y-m-d H:i:s'),
 					'status'               => "PENDING",
 					
+					'student_state'					  => $student_state,
 					'educacation_institute_name'      => $educacation_institute_name,
 					'educacation_institute_category'  => $educacation_institute_category,
 					'educacation_institute_industry'  => $educacation_institute_industry,
@@ -239,6 +255,97 @@ class FutureEventController
 				'SUCCESS'	    => true,
 				'ERRORS_SCRIPT' => "",
 				'AUTHTOKEN'     => $_AUTH_TOKEN,
+				'ERRORS_STRING' => ""
+			];
+		}
+	}
+
+	
+	public static function changeStatusParticipantRegistration($status = 'APPROVED'){
+		$diagnoArray[0] = 'NO_ERRORS';
+		$validate = new \Validate();
+		$prfx = 'participant-';
+		foreach($_POST as $index=>$val){
+			$ar = explode($prfx,$index);
+			if(count($ar)){
+				$_EDIT[end($ar)] = $val;
+			}
+		}
+		// $_EDIT = $_POST;
+		
+		$validation = $validate->check($_EDIT, array(
+			
+		));
+		
+		if($validate->passed()){
+			$FutureEventParticipantTable = new \FutureEvent();
+			
+			$str = new \Str();
+
+			/** Get Id */
+			$_ID_ = Hash::decryptToken($str->data_in($_EDIT['Id']));
+
+			/** Check If Valid $_PID_ And Exists In Participant Table */
+			if(!is_integer($_ID_)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "Invalid Data",
+					'ERRORS_STRING' => "Invalid Data"
+				];
+			endif;
+
+			if($diagnoArray[0] == 'NO_ERRORS'){
+				
+				$_fields = array(
+					'status'    => $status,
+				);
+
+				try{
+					$FutureEventParticipantTable->updateParticipant($_fields, $_ID_);
+
+					/** Get Event Private Invitation Link  By ID */
+					$_participant_data_ = self::getEventParticipantDataByID($_ID_);
+
+					/** Send Email To Participant */
+					$status = $status == 'APPROVED'?'Approved':'Denied';
+					$_data_ = array(
+						'email'     => $_participant_data_->participant_email, 
+						'firstname' => $_participant_data_->participant_firstname,
+						'fullname'  => $_participant_data_->participant_lastname,
+					
+						'event'                 => $_participant_data_->event_name,
+						'event_type'            => $_participant_data_->event_category,
+						'participation_type'    => $_participant_data_->participation_type_name,
+						'participation_subtype' => $_participant_data_->participation_subtype_name,
+						'price'                 => $_participant_data_->participation_subtype_price,
+						'currency'              => $_participant_data_->participation_subtype_currency,
+						'status'                => $status,
+					);
+
+					EmailController::sendEmailToParticipantOnStatusChanged($_data_);
+					
+				}catch(Exeption $e){
+					$diagnoArray[0] = "ERRORS_FOUND";
+					$diagnoArray[]  = $e->getMessage();
+				}
+			}
+		}else{
+			$diagnoArray[0] = 'ERRORS_FOUND';
+			$error_msg 	    = ul_array($validation->errors());
+		}
+		if($diagnoArray[0] == 'ERRORS_FOUND'){
+			return (object)[
+				'ERRORS'		=> true,
+				'ERRORS_SCRIPT' => $validate->getErrorLocation(),
+				'ERRORS_STRING' => ""
+			];
+		}else{
+			return (object)[
+				'ERRORS'	    => false,
+				'SUCCESS'	    => true,
+				'ERRORS_SCRIPT' => "",
+				// 'EMAIL'     	=> $email,
+				// 'PARTICIPATIONPAYMENTTYPE'=> $_PARTICIPATION_PAYMENT_TYPE_,
 				'ERRORS_STRING' => ""
 			];
 		}
@@ -410,6 +517,14 @@ class FutureEventController
 			$participation_sub_type_id      = Hash::decryptAuthToken($_participation_sub_type_token);
 			$event_id					    = Hash::decryptAuthToken($_event_token);
 
+			/** Check If Participant Email Not yet Used */
+			if(self::checkIfPrivateLinkEmailAlreadyUsed($event_id, $participation_sub_type_id, $email)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "This E-mail address has been used",
+					'ERRORS_STRING' => "This E-mail address has been used"
+				];
+			endif;
 
 			/** Get Particiption Type Id  */
 			if(!($participation_type_data_ = self::getPacipationSubCategoryByID($participation_sub_type_id))):
@@ -423,9 +538,9 @@ class FutureEventController
 
 			/** Generated Link */
 			$generated_link = '';
-			$access_token = '';
+			$access_token   = '';
 			$access_generated_time = time();
-			$access_expiry_time    = time();
+			$access_expiry_time    = self::getEventPrivateLinkAccessExpirationTime($event_id);
 
 			/** Check If Valid $_PID_ And Exists In Participant Table */
 			if(!is_integer($participation_sub_type_id) || !is_integer($event_id)):
@@ -444,7 +559,6 @@ class FutureEventController
 					'ERRORS_STRING' => "This Email was already registered"
 				];
 			endif;
-
 
 			if($diagnoArray[0] == 'NO_ERRORS'){
 				
@@ -1371,6 +1485,23 @@ class FutureEventController
         return  false;
     }
 
+	public static function getParticipantByID($ID){
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT future_participants.*,  future_event.event_name as event_name,  future_participants.id as participant_ID, future_participation_type.name as participation_type_name,  future_participation_sub_type.name as participation_subtype_name , future_participation_sub_type.payment_state, future_participation_sub_type.category as participation_subtype_category, future_participation_sub_type.price as participation_subtype_price, future_participation_sub_type.currency as participation_subtype_currency FROM `future_participants` INNER JOIN future_event ON future_event.id = future_participants.event_id INNER JOIN future_participation_type ON future_participants.participation_type_id = future_participation_type.id INNER JOIN future_participation_sub_type ON future_participants.participation_sub_type_id = future_participation_sub_type.id WHERE future_participants.id = {$ID} ORDER BY future_participants.id DESC LIMIT 1");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->first();
+        return  false;
+    }
+	
+	public static function getParticipantsByEventID($eventID, $condition = ""){
+		$_SQL_Condition_  = $condition == ""?"":" $condition ";
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT future_participants.*, future_participants.id as participant_ID, future_participation_type.name as participation_type_name,  future_participation_sub_type.name as participation_subtype_name , future_participation_sub_type.payment_state, future_participation_sub_type.category as participation_subtype_category, future_participation_sub_type.price as participation_subtype_price, future_participation_sub_type.currency as participation_subtype_currency FROM `future_participants` INNER JOIN future_participation_type ON future_participants.participation_type_id = future_participation_type.id INNER JOIN future_participation_sub_type ON future_participants.participation_sub_type_id = future_participation_sub_type.id WHERE future_participants.event_id = {$eventID} $_SQL_Condition_  ORDER BY future_participants.id DESC ");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->data();
+        return  false;
+    }
+
 	public static function getEventParticipantDataByID($ID){
         $FutureEventTable = new FutureEvent();
         $FutureEventTable->selectQuery("SELECT 
@@ -1468,7 +1599,7 @@ class FutureEventController
 
 	public static function checkValidityEventPrivateInvitationLink($ID){
         $FutureEventTable = new FutureEvent();
-        $FutureEventTable->selectQuery("SELECT  id  FROM `future_private_links  WHERE future_private_links.id = {$ID} AND status = 'ACTIVE' AND link_used_status = 0 ORDER BY future_private_links.id DESC LIMIT 1");
+        $FutureEventTable->selectQuery("SELECT  id  FROM future_private_links  WHERE future_private_links.id = {$ID} AND status = 'ACTIVE' AND link_used_status = 0 ORDER BY future_private_links.id DESC LIMIT 1");
         if($FutureEventTable->count())
           return  true;
         return  false;
@@ -1483,4 +1614,62 @@ class FutureEventController
 			return false;
 		}
     }
+
+	public static function getEventEndDate($eventID){
+		$FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT  end_date  FROM future_event  WHERE id = {$eventID} ORDER BY id DESC LIMIT 1");
+        if($FutureEventTable->count())
+          return $FutureEventTable->first()->end_date;
+        return  false;
+	}
+
+	public static function checkEmailAlreadyUsed($eventID, $email){
+		$FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT  id  FROM future_participants  WHERE future_participants.event_id = {$eventID} AND future_participants.email = '{$email}' ORDER BY future_participants.id DESC LIMIT 1");
+        if($FutureEventTable->count())
+          return  true;
+        return  false;
+	}
+	
+	public static function checkIfPrivateLinkEmailAlreadyUsed($eventID, $participation_sub_type_id, $email){
+		$FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT  id  FROM future_private_links  WHERE future_private_links.event_id = {$eventID} AND future_private_links.participation_sub_type_id = {$participation_sub_type_id} AND future_private_links.email = '{$email}' ORDER BY future_private_links.id DESC LIMIT 1");
+        if($FutureEventTable->count())
+          return  true;
+        return  false;
+	}
+
+	public static function checkIfProvateLinkHasExpired($eventID, $private_link_ID){
+		$FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT  id  FROM future_private_links  WHERE id = {$private_link_ID} AND event_id = {$eventID} AND link_used_status = 0 AND access_expiry_time < ". time()." AND status != 'USED' ORDER BY  id DESC LIMIT 1");
+        if($FutureEventTable->count())
+          return  true;
+        return  false;
+	}
+
+	public static function autoExpirationStatusEventPrivateInvitationLink($eventID){
+		if(($_event_private_links_ = self::getGeneratedPrivateLinks($eventID)))
+			foreach($_event_private_links_ As $_private_link_)
+				if( self::checkIfProvateLinkHasExpired($eventID, $_private_link_->id ))
+					self::updatePrivateLinkStatusToExpired($_private_link_->id);
+	}
+
+	public static function updatePrivateLinkStatusToExpired($private_link_ID){
+		$_expiry_data_  = array(
+			'status' => 'EXPIRED'
+		);
+		echo '-'.self::updatePrivateLinkData($_expiry_data_, $private_link_ID);
+	}
+	
+	public static function getEventPrivateLinkAccessExpirationTime($eventID){
+		return strtotime(self::cleanDateFormat(self::getEventEndDate($eventID)).' -12 hours '); # Access Private Link Token Will Expire 12 hours before the event end date
+	}
+
+	public static function cleanDateFormat($str_date){
+		list($day, $month, $year) = explode('/', $str_date);
+		$foramted_date = "$day-$month-$year";
+		return (String)$foramted_date;
+	}
+
+
 }

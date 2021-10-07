@@ -91,8 +91,8 @@
             <li class="<?php echo ($page == "participants" ? "active" : "")?>">
                 <a href="#"><i class="fa fa-list"></i> <span class="nav-label">Participants</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li class="<?php echo ($link == "all" ? "active" : "")?>"><a href="<?php linkto("admin/pages/participants/all/$encodedEventId"); ?>"><i class="fa fa-circle-o"></i> All</a></li>
-                    <li class="<?php echo ($link == "delegate" ? "active" : "")?>"><a href="<?php linkto("admin/pages/participants/all/$encodedEventId"); ?>"><i class="fa fa-circle-o"></i> Delegates</a></li>
+                    <li class="<?php echo ($link == "all" ? "active" : "")?>"><a href="<?php linkto("admin/pages/participants/all/$encodedEventId"); ?>"><i class="fa fa-circle-o"></i> List </a></li>
+                    <!-- <li class="<?php echo ($link == "delegate" ? "active" : "")?>"><a href="<?php linkto("admin/pages/participants/all/$encodedEventId"); ?>"><i class="fa fa-circle-o"></i> Delegates</a></li> -->
                 </ul>
             </li>
             <?php }?>

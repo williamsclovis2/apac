@@ -24,16 +24,17 @@ function def(){
     define('Url_NS','app\Http\Url\\');
     define("DNADMIN",DN._.Config::get('server/name')._.'admin');
     define("DN_IMG_CARDS", DN._.'img/cards');
-    define("DN_IMG_ID_DOC", DN._.'img/id_document/');
+    define("VIEW_IMG_ID_DOC", DN.'img/id_document/');
+    define("DN_IMG_ID_DOC", Config::get('filepath/image').'id_document/');
 }
 
 
 $GLOBALS['config'] = array(
     // 'mysql' => array(
-        // 'host' => '127.0.0.1',
-        // 'username' => 'root',
-        // 'password' => '',
-        // 'db' => 'future_summit_db'
+    //     'host' => '127.0.0.1',
+    //     'username' => 'root',
+    //     'password' => '',
+    //     'db' => 'future_summit_db'
     // ),
 
     'mysql' => array(
@@ -52,28 +53,35 @@ $GLOBALS['config'] = array(
         'token_name' => 'token'
     ),
     'server' => array(
-        // 'name' => 'http://127.0.0.1/apac/'
-        'name' => "http://apacongress.torusguru.com/"
+        // 'name' => "http://{$_SERVER['HTTP_HOST']}/apac",
+        'name' => "http://{$_SERVER['HTTP_HOST']}",
     ),
 
     'url' => array(
         
-		'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp", // Local
+		// 'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp", // Local
+		'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp", // Live
 
-		'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp_noreply", // Local
-    )
+		// 'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp_noreply", // Local
+		'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp_noreply", // Live
+    ),
+    'filepath' => array(
+		// 'image' => $_SERVER['DOCUMENT_ROOT'].'/apac/img/',  // Local
+		'image' => $_SERVER['DOCUMENT_ROOT'].'/img/',  //Live 
+	)
     
 );
 
-// require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/functions/functions.php';
-
-require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/functions/functions.php';
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/functions/functions.php'; // Local
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/functions/functions.php'; // Live
 
 spl_autoload_register(function($class) {
-    // require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/classes/' . $class . '.php';
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/classes/' . $class . '.php';
+    // require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/classes/' . $class . '.php'; // Local
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/classes/' . $class . '.php'; // Live
 });
 
+/** Dictionary */
+$GLOBALS['_Dictionary'] = new \Properties('eng-lang');
 
 /** Initialize Define */
 def();
@@ -96,4 +104,5 @@ $encodedEventId = Input::get('eventId');
 $progDay        = Input::get('day');
 $activeEventId  = 8;
 
-// $INC_DIR = '';
+/** SCRIPT - AUTO EXPIRY - PRIVATE LINKS - */
+// FutureEventController::autoExpirationStatusEventPrivateInvitationLink($eventID);

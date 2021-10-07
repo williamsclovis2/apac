@@ -149,7 +149,7 @@
                             <div class="row">
                                 <label for="birthday" class="col-sm-3">Date of birth</label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" oninput="validate(this)"  name="birthday" id="birthday" type="date" data-rule="required" data-msg="Please enter date of birth"/>
+                                    <input class="form-control" oninput="validate(this)"  name="birthday" id="birthday" type="date"  data-msg="Please enter date of birth"/>
                                     <div class="validate" id="birthday_error"></div> 
                                 </div>
                             </div>
@@ -330,7 +330,7 @@
 if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
 ?>
                 <span class="<?=$_HIDDEN_STATE['SECTION']['IDENTIFICATION']?>">
-                    <h4>IDENTIFICATION</h4>
+                    <h4>BADGE COLLECTION IDENTIFICATION</h4>
                     <hr class="separator-line"> 
                     <div class="row">
                         <div class="form-group col-sm-12">
@@ -369,21 +369,6 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-sm-12">
-                            <div class="row">
-                                <label for="organisation-name" class="col-sm-3">Upload document <span>*</span>
-                                <p style="color: red; font-size:13px;"> <b>Format : jpg or png file</b> </p>
-                                </label>
-                                <div class="col-sm-9 field-validate">
-                                <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
-                                    <div class="kv-avatar center-block">                            
-                                        <input type="file" name="id_document_picture" class="form-control" id="image" placeholder="Id Document picture"  class="file-loading" style="width:auto;" data-rule="required" data-msg="Please select Id Document picture"/>
-                                        <div class="validate" id="image_error"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                       
                     </div>
                 </span>
 <?php

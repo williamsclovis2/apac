@@ -338,7 +338,7 @@ function validateEmail(email) {
 
 
 $('.registerFormSubmit').on('click', function () {
-	location.href = "#" + "registerForm";
+	// location.href = "#" + "registerForm";
 	$('.field-validate .validate').text('');
 
 	var f = $("#registerForm").find('.field-validate'),
@@ -430,7 +430,7 @@ $('.registerFormSubmit').on('click', function () {
 	str = $('#registerForm').serialize();
 
 	var this_form = $('#registerForm');
-	var action = $('.host').attr('link') + "registration";
+	var action = $('.host').attr('link') + "/registration";
 	// var inputCaptcha = document.getElementById("securityCode").value.trim();
 
 
@@ -447,11 +447,17 @@ $('.registerFormSubmit').on('click', function () {
 
 	// alert("DATA - " + action);
 
+	var form = $('#registerForm')[0];
+	var formData = new FormData(form);
+	event.preventDefault();
+
 	$.ajax({
 		type: "POST",
 		url: action,
-		data: str,
+		data: formData,
 		cache: false,
+		processData: false,
+		contentType: false,
 		success: function (dataResponse) {
 
 			var response = JSON.parse(dataResponse);
@@ -572,7 +578,7 @@ $('.registerACPFormSubmit').on('click', function () {
 	str = $('#accountForm').serialize();
 
 	var this_form = $('#accountForm');
-	var action = $('.host').attr('link') + "registration";
+	var action = $('.host').attr('link') + "/registration";
 	// var inputCaptcha = document.getElementById("securityCode").value.trim();
 
 
@@ -731,10 +737,10 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 		// 	ferror = ierror = true;
 		// 	$('#citizenship_error').text("Please select country");
 		// }
-		if ($('#image').val().length === 0) {
-			ferror = ierror = true;
-			$('#image_error').text("Please upload your ID or passport  picture");
-		}
+		// if ($('#image').val().length === 0) {
+		// 	ferror = ierror = true;
+		// 	$('#image_error').text("Please upload your ID or passport  picture");
+		// }
 
 		/** Validation For Media In-person - Media Tools Section - */
 		if (eventParticiaptionCode == 'MDR004') {

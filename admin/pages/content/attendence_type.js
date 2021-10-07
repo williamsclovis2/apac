@@ -76,11 +76,9 @@ $(document).ready(function () {
 		var Key = $(this).attr('data-key');
 		var FormKey = "#editModal" + Key;
 
-
 		var f = $(this).find(FormKey + ' .form-group'),
 			ferror = false,
 			emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
-
 
 		f.children('input').each(function () { // run all inputs
 			var i = $(this); // current input
@@ -156,7 +154,6 @@ $(document).ready(function () {
 		var f = $(this).find(FormKey + ' .form-group'),
 			ferror = false,
 			emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
-
 
 		f.children('input').each(function () { // run all inputs
 			var i = $(this); // current input

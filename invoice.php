@@ -192,4 +192,54 @@
           </table>
         </body>
         </html>
+
+        <!doctype html>
+<html>
+  <head>
+     <style>
+      .fullscreen:-webkit-full-screen {
+      width: auto !important;
+      height: auto !important;
+      margin:auto !important;
+  }
+     .fullscreen:-moz-full-screen {
+      width: auto !important;
+      height: auto !important;
+      margin:auto !important;
+  }
+     .fullscreen:-ms-fullscreen {
+      width: auto !important;
+      height: auto !important;
+      margin:auto !important;
+  }     
+     </style>
+     <script>
+        function makeFullScreen() {
+         var divObj = document.getElementById("theImage");
+       //Use the specification method before using prefixed versions
+      if (divObj.requestFullscreen) {
+        divObj.requestFullscreen();
+      }
+      else if (divObj.msRequestFullscreen) {
+        divObj.msRequestFullscreen();               
+      }
+      else if (divObj.mozRequestFullScreen) {
+        divObj.mozRequestFullScreen();      
+      }
+      else if (divObj.webkitRequestFullscreen) {
+        divObj.webkitRequestFullscreen();       
+      } else {
+        console.log("Fullscreen API is not supported");
+      } 
+
+    }
+     </script>
+
+  </head>
+  <body>
+    Hello Image...</br>
+    <img id="theImage" style="width:400px; height:auto;"  class="fullscreen" src="img/photo_default.png" onClick="makeFullScreen()"></img>
+
+  </body>
+</html>
         
