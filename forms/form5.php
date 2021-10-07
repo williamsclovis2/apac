@@ -410,7 +410,7 @@ endif;
                         <input type="hidden" name="del_type" value="">
                         <input type="hidden" name="eventParticipation" value="<?=$_EVENT_PARTICIPATION_SUB_TYPE_ID_ENCRYPTED_?>">
                         <input type="hidden" name="eventInvitation" value="<?=$_INVITATION_ACCESS_TOKEN_?>">
-                        <button type="button" id="registerButton" class="btn btn-primary px-5 py-2 text-white pull-right registerFormSubmit">Submit</button>
+                        <button type="button" id="registerButton" class="btn btn-primary px-5 py-2 text-white pull-right registerFormSubmit" data-loading-text="Loading...">Submit</button>
                     </div>
                 </form>
             </div>
