@@ -16,7 +16,8 @@ function root($path) {
 
 // absulot path used in links
 function linkto($path) {
-	echo "/apac/{$path}";
+	// echo "/apac/{$path}";
+    echo "/{$path}";
 }
 
 //Print Success Message Style

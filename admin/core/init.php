@@ -53,8 +53,8 @@ $GLOBALS['config'] = array(
         'token_name' => 'token'
     ),
     'server' => array(
-        // 'name' => 'http://127.0.0.1/apac/'
-        'name' => 'http://torusguru.com/thefuture/'
+        // 'name' => "http://{$_SERVER['HTTP_HOST']}/apac",
+        'name' => "http://{$_SERVER['HTTP_HOST']}",
     ),
 
     'url' => array(
