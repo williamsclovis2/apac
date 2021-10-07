@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 $_SESSION['user'] = 16;
 
 function def(){
@@ -30,19 +30,19 @@ function def(){
 
 
 $GLOBALS['config'] = array(
-    // 'mysql' => array(
-    //     'host' => '127.0.0.1',
-    //     'username' => 'root',
-    //     'password' => '',
-    //     'db' => 'future_summit_db'
-    // ),
-
     'mysql' => array(
-        'host' => 'localhost',
-        'username' => 'cubedigital',
-        'password' => 'cubedigital@torus',
+        'host' => '127.0.0.1',
+        'username' => 'root',
+        'password' => '',
         'db' => 'future_summit_db'
     ),
+
+    // 'mysql' => array(
+    //     'host' => 'localhost',
+    //     'username' => 'cubedigital',
+    //     'password' => 'cubedigital@torus',
+    //     'db' => 'future_summit_db'
+    // ),
     
     'remember' => array(
         'cookie_name' => 'hash',
@@ -53,31 +53,31 @@ $GLOBALS['config'] = array(
         'token_name' => 'token'
     ),
     'server' => array(
-        // 'name' => "http://{$_SERVER['HTTP_HOST']}/apac",
-        'name' => "http://{$_SERVER['HTTP_HOST']}",
+        'name' => "http://{$_SERVER['HTTP_HOST']}/apac",
+        // 'name' => "http://{$_SERVER['HTTP_HOST']}",
     ),
 
     'url' => array(
         
-		// 'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp", // Local
-		'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp", // Live
+		'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp", // Local
+		// 'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp", // Live
 
-		// 'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp_noreply", // Local
-		'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp_noreply", // Live
+		'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp_noreply", // Local
+		// 'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp_noreply", // Live
     ),
     'filepath' => array(
-		// 'image' => $_SERVER['DOCUMENT_ROOT'].'/apac/img/',  // Local
-		'image' => $_SERVER['DOCUMENT_ROOT'].'/img/',  //Live 
+		'image' => $_SERVER['DOCUMENT_ROOT'].'/apac/img/',  // Local
+		// 'image' => $_SERVER['DOCUMENT_ROOT'].'/img/',  //Live 
 	)
     
 );
 
-// require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/functions/functions.php'; // Local
-require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/functions/functions.php'; // Live
+require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/functions/functions.php'; // Local
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/functions/functions.php'; // Live
 
 spl_autoload_register(function($class) {
-    // require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/classes/' . $class . '.php'; // Local
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/classes/' . $class . '.php'; // Live
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/classes/' . $class . '.php'; // Local
+    // require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/classes/' . $class . '.php'; // Live
 });
 
 /** Dictionary */
