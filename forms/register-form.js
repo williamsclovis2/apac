@@ -430,7 +430,7 @@ $('.registerFormSubmit').on('click', function () {
 	str = $('#registerForm').serialize();
 
 	var this_form = $('#registerForm');
-	var action = $('.host').attr('link') + "registration";
+	var action = $('.host').attr('link') + "/registration";
 	// var inputCaptcha = document.getElementById("securityCode").value.trim();
 
 
@@ -578,7 +578,7 @@ $('.registerACPFormSubmit').on('click', function () {
 	str = $('#accountForm').serialize();
 
 	var this_form = $('#accountForm');
-	var action = $('.host').attr('link') + "registration";
+	var action = $('.host').attr('link') + "/registration";
 	// var inputCaptcha = document.getElementById("securityCode").value.trim();
 
 
