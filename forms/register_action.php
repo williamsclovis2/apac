@@ -3,6 +3,12 @@
 
   $valid['success'] = array('success' => false, 'messages' => array());
 
+    // $_POST = array(
+    // 'username'             		=> 'ezechiel@gmail.com',
+    // 'password'     => "111111",
+    // 'request' => 'login',
+    // );
+
   // $_POST = array(
   //   'eventId'             		=> '33323039393636333339',
   //   'eventParticipation'     => "31363138313336393237",
@@ -301,8 +307,9 @@
     $password = md5(escape(Input::get('password')));
     $findDel  = DB::getInstance()->query("SELECT * FROM `future_participants` WHERE `email` = '$email' AND `password` = '$password'");
     if ($findDel->count()) {
-      $_SESSION['username'] = $email;
-      $_SESSION['name']     = $findDel->first()->firstname." ".$findDel->first()->lastname;
+      $_SESSION['username']    = $email;
+      $_SESSION['name']        = $findDel->first()->firstname." ".$findDel->first()->lastname;
+      $_SESSION['userToken']   = Hash::encryptAuthToken($findDel->first()->id);
 
       $valid['success']  = true;
       $valid['messages'] = "Login successfully";
