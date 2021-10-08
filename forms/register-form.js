@@ -435,20 +435,22 @@ $('.registerFormSubmit').on('click', function () {
 
 
 	$('#registerButton').prop('disabled', true);
+	
+	
 
 	$.ajax({
 		type: "POST",
 		url: action,
 		data: { request: "captchaSession" },
-		dataType: 'json',
-		success: function (response) {
-
-			if (!response.messages == inputCaptcha) {
-
+		cache: false,
+		success: function (responseData) {
+		    var responseCaptcha = JSON.parse(responseData);
+            
+			if (responseCaptcha.messages == inputCaptcha) {
 
 				var form = $('#registerForm')[0];
 				var formData = new FormData(form);
-				event.preventDefault();
+				// event.preventDefault();
 
 				$.ajax({
 					type: "POST",
@@ -460,6 +462,8 @@ $('.registerFormSubmit').on('click', function () {
 					success: function (dataResponse) {
 
 						var response = JSON.parse(dataResponse);
+						
+						console.log("Response :: "+dataResponse);
 
 						if (response.status == 100) {
 							$("#register_area").css("display", "none");
@@ -492,6 +496,7 @@ $('.registerFormSubmit').on('click', function () {
 					}
 				});
 			} else {
+			    
 				$('#registerButton').prop('disabled', false);
 				$('#securityCode_error').text("Invalid security code");
 			}

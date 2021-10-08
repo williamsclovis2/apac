@@ -127,24 +127,7 @@ $_DCOLOR_ = '#dedede!important';
     
     <?php include 'includes/footer.php';?>
     <script src="<?php linkto('fileinput/js/fileinput.min.js'); ?>"></script>
-    <script>
-        $("#image").fileinput({
-        overwriteInitial: true,
-	    maxFileSize: 2500,
-	    showClose: false,
-	    showCaption: false,
-	    browseLabel: '',
-	    removeLabel: '',
-	    browseIcon: '<i class="fa fa-folder-open"></i> Upload from computer',
-	    removeIcon: '<i class="fa fa-remove"></i> Delete image',
-	    removeTitle: 'Cancel or reset changes',
-	    elErrorContainer: '#kv-avatar-errors-1',
-	    msgErrorClass: 'alert alert-block alert-danger',
-	    defaultPreviewContent: '<img src="<?=Config::get('server/name')?>img/photo_default.png" alt="Event banner" style="width:100%;">',
-	    layoutTemplates: {main2: '{preview} {remove} {browse}'},								    
-  		allowedFileExtensions: ["jpg", "png", "gif", "JPG", "PNG", "GIF"]
-	});
-    </script>
+
     <script src="<?php linkto('forms/register-form.js'); ?>"></script>
 
     <script src="<?php linkto('js/select2.min.js'); ?>"></script>
@@ -168,34 +151,6 @@ $_DCOLOR_ = '#dedede!important';
             utilsScript: "../build/js/utils.js",
         });
     </script>
-    <script>
-        var input = document.querySelector("#delegate-phone");
-        window.intlTelInput(input, {
-            autoPlaceholder: "off",
-            initialCountry: "rw",
-            separateDialCode: true,
-            utilsScript: "../build/js/utils.js",
-        });
-    </script>
-    <script>
-        var input = document.querySelector("#line_one");
-        window.intlTelInput(input, {
-            autoPlaceholder: "off",
-            initialCountry: "rw",
-            separateDialCode: true,
-            utilsScript: "../build/js/utils.js",
-        });
-    </script>
-    <script>
-        var input = document.querySelector("#line_two");
-        window.intlTelInput(input, {
-            autoPlaceholder: "off",
-            initialCountry: "rw",
-            separateDialCode: true,
-            utilsScript: "../build/js/utils.js",
-        });
-    </script>
-    
-    
+  
 </body>
 </html>

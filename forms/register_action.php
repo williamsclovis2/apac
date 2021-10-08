@@ -60,7 +60,9 @@
   //   'request' => 'registration',
   // );
 
+// $_POST['request'] = 'captchaSession';
 
+// echo $_SESSION['captcha'];
 
   // Get captcha session
   if(Input::get('request') && Input::get('request') == 'captchaSession') {
@@ -330,6 +332,7 @@
           $response['status'] = 400;
           $response['message']= $_form_->ERRORS_STRING;
         endif;
+        echo json_encode($response);
       break;
 
       /** After Registration - Create Account Password  - Form Submission */
@@ -357,6 +360,7 @@
           $response['status'] = 400;
           $response['message']= $_form_->ERRORS_STRING;
         endif;
+        echo json_encode($response);
       break;
 
         
@@ -373,10 +377,10 @@
           $response['status'] = 400;
           $response['message']= $_form_->ERRORS_STRING;
         endif;
+        echo json_encode($response);
       break;
-
     endswitch;
-    echo json_encode($response);
+    
   endif;
 
   
