@@ -131,6 +131,11 @@ if(Input::checkInput('request', 'post', 1)):
 									<ul class="dropdown-menu dropdown-user popover-menu-list">
 											<li><a class="menu edit_client" href="<?php linkto('admin/pages/participants/profile/'.Hash::encryptToken($participant_->id)); ?>" ><i class="fa fa-eye icon"></i> Profile </a></li>
 <?php
+					if($participant_->participation_subtype_category  == 'INPERSON'):
+	?>
+											<li><a class="menu edit_client" href="<?php linkto('admin/ebadge/'.Hash::encryptToken($participant_->qrCode)); ?>" ><i class="fa fa-eye icon"></i> Profile </a></li>
+<?php
+					endif;
 					$user = new User(); 
 					if($user->data()->id == $participant_->id):
 	?>

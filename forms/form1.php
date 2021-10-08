@@ -368,19 +368,19 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                         </div>
                         <div class="form-group col-sm-12">
                             <div class="row">
-                            <label for="image" class="col-lg-3 control-label">
-                                Profile picture <span>*</span><br>
-                                <p style="color: red; font-size:14px;line-height:unset;">
-                                Image size: 160 × 160<br>The maximum image size will be 500kb.<br>
-                                Format: jpg or png file</p>
-                            </label>
-                            <div class="col-lg-9">
-                                <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
-                                <div class="kv-avatar center-block">                            
-                                    <input type="file" name="image" class="form-control" id="image" placeholder="speaker picture"  class="file-loading" style="width:auto;" data-rule="required" data-msg="Please select speaker picture"/>
-                                    <div class="validate"></div>
+                                <label for="image" class="col-lg-3 control-label">
+                                    Profile picture <span>*</span><br>
+                                    <p style="color: red; font-size:14px;line-height:unset;">
+                                    Image size: 160 × 160<br>The maximum image size will be 500kb.<br>
+                                    Format: jpg or png file</p>
+                                </label>
+                                <div class="col-lg-9">
+                                    <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
+                                    <div class="kv-avatar center-block">                            
+                                        <input type="file" name="image" class="form-control" id="image" placeholder="speaker picture"  class="file-loading" style="width:auto;" data-rule="required" data-msg="Please select speaker picture"/>
+                                        <div class="validate"></div>
+                                    </div>
                                 </div>
-                            </div>
                             <div>
                         </div>
                     </div>
@@ -430,4 +430,6 @@ endif;
             <div class="col-lg-2"></div>
         </div>
     </div>
+</div>
+</div>
 </div>

@@ -20,7 +20,7 @@ $_EVENT_NAME_ = $_participant_data_->event_name;
 
 /** Handle Qr COde */
 $_qrID_		= $_participant_data_->qrID;
-$_qrEncoded_= "http://192.168.1.145/apac/participant/ebadge/$_participant_data_->qrCode";
+$_qrEncoded_= "http://apacongress.torusguru.com/participant/ebadge/$_participant_data_->qrCode";
 $_DR_		= DN_IMG_QR;
 $_qrFilename_= $_qrID_.".png";
 $_qrFile_ 	= $_DR_.$_qrFilename_;

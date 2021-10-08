@@ -440,70 +440,70 @@ $('.registerFormSubmit').on('click', function () {
 
 
 
+	// $.ajax({
+	// 	type: "POST",
+	// 	url: action,
+	// 	data: { request: "captchaSession" },
+	// 	cache: false,
+	// 	success: function (responseData) {
+	// 		var responseCaptcha = JSON.parse(responseData);
+
+	// 		if (responseCaptcha.messages == inputCaptcha) {
+
+	var form = $('#registerForm')[0];
+	var formData = new FormData(form);
+	// event.preventDefault();
+
 	$.ajax({
 		type: "POST",
 		url: action,
-		data: { request: "captchaSession" },
+		data: formData,
 		cache: false,
-		success: function (responseData) {
-			var responseCaptcha = JSON.parse(responseData);
+		processData: false,
+		contentType: false,
+		success: function (dataResponse) {
 
-			if (responseCaptcha.messages == inputCaptcha) {
+			var response = JSON.parse(dataResponse);
 
-				var form = $('#registerForm')[0];
-				var formData = new FormData(form);
-				// event.preventDefault();
+			console.log("Response :: " + dataResponse);
 
-				$.ajax({
-					type: "POST",
-					url: action,
-					data: formData,
-					cache: false,
-					processData: false,
-					contentType: false,
-					success: function (dataResponse) {
+			if (response.status == 100) {
+				$("#register_area").css("display", "none");
+				$("#account_area").css("display", "block");
+				// $("#register_area").addClass("hidden", "hidden");
+				// $("#account_area").show();
+				// $('#register-messages').val(response.message);
+				$("#accountForm #accountButton").attr("authtoken", response.authToken);
+				$("#accountForm #authtoken").val(response.authToken);
 
-						var response = JSON.parse(dataResponse);
-
-						console.log("Response :: " + dataResponse);
-
-						if (response.status == 100) {
-							$("#register_area").css("display", "none");
-							$("#account_area").css("display", "block");
-							// $("#register_area").addClass("hidden", "hidden");
-							// $("#account_area").show();
-							// $('#register-messages').val(response.message);
-							$("#accountForm #accountButton").attr("authtoken", response.authToken);
-							$("#accountForm #authtoken").val(response.authToken);
-
-						}
-						else if (response.status == 201) {
-							$('#registerButton').prop('disabled', false);
-							$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
-							$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
-							this_form.find('.error-message').slideDown().html(response.message);
-							$(".error-message").delay(500).show(10, function () {
-
-							});
-						}
-						else {
-							$('#registerButton').prop('disabled', false);
-							$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
-							$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
-							this_form.find('.error-message').slideDown().html(response.message);
-							$(".error-message").delay(500).show(10, function () {
-
-							});
-						}
-					}
-				});
-			} else {
-
+			}
+			else if (response.status == 201) {
 				$('#registerButton').prop('disabled', false);
-				$('#securityCode_error').text("Invalid security code");
+				$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
+				$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
+				this_form.find('.error-message').slideDown().html(response.message);
+				$(".error-message").delay(500).show(10, function () {
+
+				});
+			}
+			else {
+				$('#registerButton').prop('disabled', false);
+				$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
+				$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
+				this_form.find('.error-message').slideDown().html(response.message);
+				$(".error-message").delay(500).show(10, function () {
+
+				});
 			}
 		}
 	});
+	// 		} else {
+
+	// 			$('#registerButton').prop('disabled', false);
+	// 			$('#securityCode_error').text("Invalid security code");
+	// 		}
+	// 	}
+	// });
 	return false;
 
 });

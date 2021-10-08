@@ -24,8 +24,8 @@ function def(){
     define('Url_NS','app\Http\Url\\');
     define("DNADMIN",DN._.Config::get('server/name')._.'admin');
     define("DN_IMG_CARDS", DN._.'img/cards');
-    define("VIEW_IMG_ID_DOC", DN.'img/id_document/');
-    define("VIEW_PROFILE", DN.'img/profile/');
+    define("VIEW_IMG_ID_DOC", DN.'/img/id_document/');
+    define("VIEW_PROFILE", DN.'/img/profile/');
     define("DN_IMG_ID_DOC", Config::get('filepath/image').'id_document/');
     define("DN_IMG_PROFILE", Config::get('filepath/image').'profile/');
     define("VIEW_QR", DN.'/img/qr/');

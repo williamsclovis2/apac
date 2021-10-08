@@ -80,7 +80,7 @@ $_DCOLOR_ = '#dedede!important';
 }
 </style>
 <body>
-    <?php include'includes/nav.php'; ?>
+    <?php include 'includes/nav.php'; ?>
     <?php 
         switch ($_EVENT_PARTICIPATION_TYPE_FORM_ID_ ) {
             case '1':
