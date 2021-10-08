@@ -1,8 +1,31 @@
 <?php
-require_once 'admin/core/init.php';
+require_once 'core/init.php';
+require_once 'config/phpqrcode/qrlib.php';
 // if(!isset($_SESSION['username'])) {
 //     Redirect::to('login');
 // }
+if(!Input::checkInput('authtoken_', 'get', 1))
+	Redirect::to('dashboarrd');
+
+
+$_QR_CODE_ = Input::get('authtoken_', 'get');
+$_QR_ID_   = FutureEventController::decodeQrString($_QR_CODE_);
+
+/** Find Participant By Qr ID */
+if(!($_participant_data_ = FutureEventController::getParticipantByQrID($_QR_ID_)))
+	Redirect::to('404');
+
+
+$_EVENT_NAME_ = $_participant_data_->event_name;
+
+/** Handle Qr COde */
+$_qrID_		= $_participant_data_->qrID;
+$_qrEncoded_= "http://192.168.1.145/apac/participant/ebadge/$_participant_data_->qrCode";
+$_DR_		= DN_IMG_QR;
+$_qrFilename_= $_qrID_.".png";
+$_qrFile_ 	= $_DR_.$_qrFilename_;
+QRcode::png($_qrEncoded_, $_qrFile_);
+
 ?>
 
 <!doctype html>
@@ -23,11 +46,11 @@ require_once 'admin/core/init.php';
     ?>
     <div class="card-container">
 		<div class="event-details">
-			<h3>Africa Protected Areas Congress (APAC)</h3>
-			<p>13-15 February 2022 | Kigali Rwanda</p>
+			<h3> <?=$_EVENT_NAME_?> </h3>
+			<p><?=$start_date?> - <?=$end_date?> | Kigali Rwanda</p>
 		</div>
 		<div class="inner-img">
-			<img src="img/profile.jpg">
+			<img src="../../img/profile.jpg">
 		</div>
 		<div class="reg-datails">
 			<div class="names">
@@ -37,10 +60,10 @@ require_once 'admin/core/init.php';
 			</div>
 		</div>
 		<div class="qr-code">
-			<img src="img/qr.png">
+			<img src="<?=VIEW_QR.$_qrFilename_?>">
 		</div>
 		<div class="p-category">
-			<h4>Production</h4>
+			<h4><?=$_participant_data_->participation_type_name?></h4>
 		</div>
 
 	</div>

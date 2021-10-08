@@ -139,6 +139,13 @@ class FutureEventController
 				if($_FILES['id_document_picture']['name']  != "")
 					$id_document_picture = Functions::fileUpload(DN_IMG_ID_DOC, $_FILES['id_document_picture']);
 
+			
+			/** Upload The ID Document Picture */
+			$profile = '';
+			if(isset($_FILES['image']))
+				if($_FILES['image']['name']  != "")
+					$profile = Functions::fileUpload(DN_IMG_PROFILE, $_FILES['image']);
+
 			/** Check If Email Address not yet used */
 			if(self::checkEmailAlreadyUsed($eventID, $email)):
 				return (object)[
@@ -151,6 +158,10 @@ class FutureEventController
 			/** Check Age - [ 10 - ] */
 		
 			if($diagnoArray[0] == 'NO_ERRORS'){
+
+				/** Auto Generate QR For Participant */
+				$participantID = self::getLastPacipatantID() + 1;
+				$Qr_ 		   = FutureEventController::generateQrID($eventID, $participantID);
 				
 				$_fields = array(
 					'event_id'             		=> $eventID,
@@ -211,6 +222,11 @@ class FutureEventController
 					'attending_objective_2'   => $second_objective,
 					'attending_objective_3'   => $third_objective,
 					'info_source'   		  => $info_source,
+					
+					'profile'  => $profile,
+
+					'qrID'   	=> $Qr_->ID,
+					'qrCode'    => $Qr_->STRING,
 				);
 
             
@@ -1493,6 +1509,14 @@ class FutureEventController
         return  false;
     }
 	
+	public static function getParticipantByQrID($QrID){
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT future_participants.*,  future_event.event_name as event_name,  future_participants.id as participant_ID, future_participation_type.name as participation_type_name,  future_participation_sub_type.name as participation_subtype_name , future_participation_sub_type.payment_state, future_participation_sub_type.category as participation_subtype_category, future_participation_sub_type.price as participation_subtype_price, future_participation_sub_type.currency as participation_subtype_currency FROM `future_participants` INNER JOIN future_event ON future_event.id = future_participants.event_id INNER JOIN future_participation_type ON future_participants.participation_type_id = future_participation_type.id INNER JOIN future_participation_sub_type ON future_participants.participation_sub_type_id = future_participation_sub_type.id WHERE future_participants.qrID = '{$QrID}' ORDER BY future_participants.id DESC LIMIT 1");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->first();
+        return  false;
+    }
+
 	public static function getParticipantsByEventID($eventID, $condition = ""){
 		$_SQL_Condition_  = $condition == ""?"":" $condition ";
         $FutureEventTable = new FutureEvent();
@@ -1671,5 +1695,17 @@ class FutureEventController
 		return (String)$foramted_date;
 	}
 
+	public static function generateQrID($eventID, $participantID){
+		$_Qr_ID_     =  "FTS".date('m').date('y').$eventID."00".$participantID;
+		$_Qr_string_ =  Hash::encryptSecToken($_Qr_ID_);
+		return (Object) [
+			'ID' 	 => $_Qr_ID_,
+			'STRING' => $_Qr_string_
+		];
+	}
+
+	public static function decodeQrString($QrString){
+		return Hash::decryptSecToken($QrString);
+	}
 
 }

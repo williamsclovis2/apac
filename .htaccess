@@ -25,6 +25,11 @@ RewriteRule ^mail_smtp_noreply(/*)$  admin/config/mail/mails/smtp_noreply.php
 
 
 # Set Payment page
+RewriteRule ^ebadge/([0-9a-zA-Z]+)$	admin/badge.php?authtoken_=$1 [L] 
+RewriteRule ^admin/ebadge/([0-9a-zA-Z]+)$	admin/badge.php?authtoken_=$1 [L] 
+RewriteRule ^participant/ebadge/([0-9a-zA-Z]+)$	admin/badge.php?authtoken_=$1 [L] 
+
+# Set Payment page
 RewriteRule ^payment/([0-9a-zA-Z]+)$	paymentmethod.php?authtoken_=$1 [L] 
 
 # Set the website content pages

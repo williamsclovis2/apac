@@ -25,24 +25,28 @@ function def(){
     define("DNADMIN",DN._.Config::get('server/name')._.'admin');
     define("DN_IMG_CARDS", DN._.'img/cards');
     define("VIEW_IMG_ID_DOC", DN.'img/id_document/');
+    define("VIEW_PROFILE", DN.'img/profile/');
     define("DN_IMG_ID_DOC", Config::get('filepath/image').'id_document/');
+    define("DN_IMG_PROFILE", Config::get('filepath/image').'profile/');
+    define("VIEW_QR", DN.'/img/qr/');
+    define("DN_IMG_QR", Config::get('filepath/image').'qr/');
 }
 
 
 $GLOBALS['config'] = array(
-    // 'mysql' => array(
-    //     'host' => '127.0.0.1',
-    //     'username' => 'root',
-    //     'password' => '',
-    //     'db' => 'future_summit_db'
-    // ),
-
     'mysql' => array(
-        'host' => 'localhost',
-        'username' => 'cubedigital',
-        'password' => 'cubedigital@torus',
+        'host' => '127.0.0.1',
+        'username' => 'root',
+        'password' => '',
         'db' => 'future_summit_db'
     ),
+
+    // 'mysql' => array(
+    //     'host' => 'localhost',
+    //     'username' => 'cubedigital',
+    //     'password' => 'cubedigital@torus',
+    //     'db' => 'future_summit_db'
+    // ),
     
     'remember' => array(
         'cookie_name' => 'hash',
@@ -53,31 +57,31 @@ $GLOBALS['config'] = array(
         'token_name' => 'token'
     ),
     'server' => array(
-        // 'name' => "http://{$_SERVER['HTTP_HOST']}/apac",
-        'name' => "http://{$_SERVER['HTTP_HOST']}",
+        'name' => "http://{$_SERVER['HTTP_HOST']}/apac",
+        // 'name' => "http://{$_SERVER['HTTP_HOST']}",
     ),
 
     'url' => array(
         
-		// 'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp", // Local
-		'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp", // Live
+		'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp", // Local
+		// 'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp", // Live
 
-		// 'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp_noreply", // Local
-		'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp_noreply", // Live
+		'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp_noreply", // Local
+		// 'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp_noreply", // Live
     ),
     'filepath' => array(
-		// 'image' => $_SERVER['DOCUMENT_ROOT'].'/apac/img/',  // Local
-		'image' => $_SERVER['DOCUMENT_ROOT'].'/img/',  //Live 
+		'image' => $_SERVER['DOCUMENT_ROOT'].'/apac/img/',  // Local
+		// 'image' => $_SERVER['DOCUMENT_ROOT'].'/img/',  //Live 
 	)
     
 );
 
-// require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/functions/functions.php'; // Local
-require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/functions/functions.php'; // Live
+require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/functions/functions.php'; // Local
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/functions/functions.php'; // Live
 
 spl_autoload_register(function($class) {
-    // require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/classes/' . $class . '.php'; // Local
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/classes/' . $class . '.php'; // Live
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/classes/' . $class . '.php'; // Local
+    // require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/classes/' . $class . '.php'; // Live
 });
 
 /** Dictionary */

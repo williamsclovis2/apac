@@ -31,6 +31,7 @@
 
     <!-- For files -->
     <link href="<?php linkto('fileinput/css/fileinput.min.css'); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?php linkto('css/custom.css'); ?>">
 
     <style type="text/css">
         .modal-body label { padding-left: 0; margin-top: 10px;}

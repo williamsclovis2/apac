@@ -62,6 +62,19 @@ class Hash {
         return $this->cryptAES('base64_decode', $cipher_text);
       }
 
+        public static function encryptSecToken($ctx){
+            $Hash   = new \Hash();
+            $result = $Hash->encryptAES($ctx);
+            return bin2hex($result);
+        }
+
+        public static function decryptSecToken($ctx){
+            $Hash   = new \Hash();
+            $result = $ctx;
+            $result = $Hash->decryptAES(hex2bin($ctx));
+            return $result;
+        }
+
         public static function encryptAuthToken($ctx){
             $Hash   = new \Hash();
             $result = $Hash->encryptAES(Hash::encryptToken($ctx));

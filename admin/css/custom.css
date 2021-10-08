@@ -1,0 +1,439 @@
+
+/*login and reset password page*/
+.ms-auth-container {
+    display: flex;
+}
+.ms-auth-col {
+    width: 50%;
+    flex: 1 1 auto;
+    height: 100vh;
+}
+.ms-auth-bg {
+    position: relative;
+    height: 100%;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url("../img/banner/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.ms-auth-form {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 3rem 1rem;
+}
+.ms-auth-form form {
+    width: 60%;
+    padding: 30px;
+    background-color: #323f46;
+    box-shadow: 0 2px 1px rgb(0 0 0 / 9%), 0 4px 2px rgb(0 0 0 / 9%), 0 8px 4px rgb(0 0 0 / 9%), 0 16px 8px rgb(0 0 0 / 9%), 0 32px 16px rgb(0 0 0 / 9%);
+}
+.ms-auth-form form h3{
+    font-size: 18px;
+    color: #f57e20;
+    margin-bottom: 10px;
+    font-weight: 500 !important;
+}
+.ms-auth-form form .forgot-pass {
+    font-size: 13px;
+    color: #f57e20;
+    text-decoration: unset;
+}
+.ms-auth-form form label{
+    font-size: 13px;
+    color: #f8f8f8;
+    margin-bottom: .9rem;
+    font-weight: 300 !important;
+}
+.ms-checkbox-wrap {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.ms-checkbox-wrap input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.ms-checkbox-check {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .ms-checkbox-check {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.ms-checkbox-wrap input:checked ~ .ms-checkbox-check {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.ms-checkbox-check:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.ms-checkbox-wrap input:checked ~ .ms-checkbox-check:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.ms-checkbox-wrap .ms-checkbox-check:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#log-div{
+    width: 100%;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+}
+
+
+
+
+/*loading divs*/
+#log-div{
+	width: 100%;
+	border-radius: 6px;
+	padding: 10px 15px;
+	margin-bottom: 15px;
+}
+
+#failed-div{
+	width: 100%;
+	border-radius: 6px;
+	padding: 10px 15px;
+	margin-bottom: 15px;
+}
+
+#success-div{
+	width: 100%;
+	border-radius: 6px;
+	padding: 10px 15px;
+	margin-bottom: 15px;
+}
+
+#log-div i{
+	font-size: 20px;
+}
+
+#failed-div i{
+	font-size: 20px;
+}
+
+#success-div i{
+	font-size: 20px;
+}
+
+.succes-div{
+	background-color: #9acd32; 
+	
+}
+.failed-div{
+	background-color: #ff4500;
+}
+.wrong{
+	background-color: #ed8e49;
+}
+.dot{
+	display: inline-block;
+	margin-left: 20px;
+}
+.fo-login{
+	font-size: 14px;
+	color: #fff;
+}
+
+.dot span {
+	display: inline-block; 
+	margin: 0 auto;
+}
+
+.dot span[class*="l-"] {
+	height: 6px; width: 6px;
+	background: #fff;
+	display: inline-block;
+	/*margin: 12px 2px;*/
+	
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	
+	-webkit-animation: loader 4s infinite;
+	-webkit-animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
+	-webkit-animation-fill-mode: both;
+	-moz-animation: loader 4s infinite;
+	-moz-animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
+	-moz-animation-fill-mode: both;
+	-ms-animation: loader 4s infinite;
+	-ms-animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
+	-ms-animation-fill-mode: both;
+	animation: loader 4s infinite;
+	animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
+	animation-fill-mode: both;
+}
+
+.dot span.l-1 {-webkit-animation-delay: 1s;animation-delay: 1s;-ms-animation-delay: 1s;-moz-animation-delay: 1s;}
+.dot span.l-2 {-webkit-animation-delay: 0.8s;animation-delay: 0.8s;-ms-animation-delay: 0.8s;-moz-animation-delay: 0.8s;}
+.dot span.l-3 {-webkit-animation-delay: 0.6s;animation-delay: 0.6s;-ms-animation-delay: 0.6s;-moz-animation-delay: 0.6s;}
+.dot span.l-4 {-webkit-animation-delay: 0.4s;animation-delay: 0.4s;-ms-animation-delay: 0.4s;-moz-animation-delay: 0.4s;}
+.dot span.l-5 {-webkit-animation-delay: 0.2s;animation-delay: 0.2s;-ms-animation-delay: 0.2s;-moz-animation-delay: 0.2s;}
+.dot span.l-6 {-webkit-animation-delay: 0;animation-delay: 0;-ms-animation-delay: 0;-moz-animation-delay: 0;}
+
+@-webkit-keyframes loader {
+	0% {-webkit-transform: translateX(-30px); opacity: 0;}
+	25% {opacity: 1;}
+	50% {-webkit-transform: translateX(30px); opacity: 0;}
+	100% {opacity: 0;}
+}
+
+@-moz-keyframes loader {
+	0% {-moz-transform: translateX(-30px); opacity: 0;}
+	25% {opacity: 1;}
+	50% {-moz-transform: translateX(30px); opacity: 0;}
+	100% {opacity: 0;}
+}
+
+@-keyframes loader {
+	0% {-transform: translateX(-30px); opacity: 0;}
+	25% {opacity: 1;}
+	50% {-transform: translateX(30px); opacity: 0;}
+	100% {opacity: 0;}
+}
+
+@-ms-keyframes loader {
+	0% {-ms-transform: translateX(-30px); opacity: 0;}
+	25% {opacity: 1;}
+	50% {-ms-transform: translateX(30px); opacity: 0;}
+	100% {opacity: 0;}
+}
+
+/* end loading divs*/
+/*logo css*/
+.form-logo{
+	margin: auto;
+	text-align: center;
+}
+#card-profile .card {
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+#card-profile .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  margin-bottom: 10px;
+}
+#card-profile .card hr{
+  margin-bottom: 0.7rem;
+  margin-top: 0.7rem;
+}
+
+#card-profile .card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
+}
+
+#card-profile .gutters-sm {
+  margin-right: -8px;
+  margin-left: -8px;
+}
+
+#card-profile .gutters-sm>.col, .gutters-sm>[class*=col-] {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+#card-profile .mb-3, .my-3 {
+  margin-bottom: 1rem!important;
+}
+
+#card-profile .bg-gray-300 {
+  background-color: #e2e8f0;
+}
+#card-profile .h-100 {
+  height: 100%!important;
+}
+#card-profile .shadow-none {
+  box-shadow: none!important;
+}
+#card-profile .card-sect-title{
+  padding: 5px 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #f47e20;
+}
+#card-profile  .card h6{
+  font-size: 14px !important;
+  font-weight: 600;
+}
+.text-secondary h6{
+  font-weight: 200 !important;
+  text-align: right;
+}
+.text-secondary .fullscreen{
+  cursor: pointer;
+}
+.text-secondary .fullscreen:-webkit-full-screen {
+  width: auto !important;
+  height: auto !important;
+  margin:auto !important;
+}
+.text-secondary .fullscreen:-moz-full-screen {
+  width: auto !important;
+  height: auto !important;
+  margin:auto !important;
+}
+.text-secondary .fullscreen:-ms-fullscreen {
+  width: auto !important;
+  height: auto !important;
+  margin:auto !important;
+}  
+.doc-img{
+  text-align: right !important;
+  margin-right: 17px;
+}
+
+/* badge style */
+.card-container{
+	width: 300px;
+	height: 430px;
+	background: #fff;
+	background-image: url(../img/banner/badgebg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+	border-radius: 6px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	box-shadow: 0px 1px 10px 1px #f1f1f1;
+	overflow: hidden;
+	display: inline-block;
+}
+.event-details{
+	padding: 30px 10px 48px;
+	background: #37af47;
+	font-weight: 300;
+	text-align: center;
+	background-image:linear-gradient(rgb(17 70 24 / 50%),rgb(17 70 24 / 50%)),url(../img/banner/banner_new.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.event-details h3{
+	color: #fff;
+	font-weight: 300;
+	font-size: 18px;
+	margin: 0;
+}
+.event-details p{
+	font-size: 12px;
+	color: #ececed;
+}
+.inner-img{
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	border: 3px solid #fff;
+	margin: auto;
+	text-align: center;
+	margin-top: -50px;
+}
+.inner-img img{
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+}
+.names{
+	margin: auto;
+	text-align: center;
+}
+.names h4{
+	margin-top: 15px !important;
+	margin-bottom: 4px !important;
+}
+.names h5{
+	margin-top: 0px !important;
+	font-size: 15px;
+	font-weight: 100;
+	margin-bottom: 10px !important;
+}
+.names hr{
+	width: 80%;
+	margin-bottom: 15px !important;
+}
+.qr-code{
+	margin: auto;
+	text-align: center;
+	margin-top: 10px;
+}
+.qr-code img{
+	width: 70px;
+}
+.p-category{
+	margin: auto;
+	text-align: center;
+	padding: 8px 0;
+	background: #37af47;
+	bottom: 0;
+	margin-top: 22px;
+}
+.p-category h4{
+	margin: 0;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+
+
+
+
+
+
+
+
+@media(max-width:640px) {
+	.ms-auth-form form{
+		width: 90%;
+		padding: 10px 30px;
+	}
+}
