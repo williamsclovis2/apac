@@ -440,70 +440,68 @@ $('.registerFormSubmit').on('click', function () {
 
 
 
-	// $.ajax({
-	// 	type: "POST",
-	// 	url: action,
-	// 	data: { request: "captchaSession" },
-	// 	cache: false,
-	// 	success: function (responseData) {
-	// 		var responseCaptcha = JSON.parse(responseData);
-
-	// 		if (responseCaptcha.messages == inputCaptcha) {
-
-	var form = $('#registerForm')[0];
-	var formData = new FormData(form);
-	// event.preventDefault();
-
 	$.ajax({
 		type: "POST",
 		url: action,
-		data: formData,
+		data: { request: "captchaSession" },
 		cache: false,
-		processData: false,
-		contentType: false,
-		success: function (dataResponse) {
+		success: function (responseData) {
+			var responseCaptcha = JSON.parse(responseData);
 
-			var response = JSON.parse(dataResponse);
+			if (responseCaptcha.messages == inputCaptcha) {
 
-			console.log("Response :: " + dataResponse);
+				var form = $('#registerForm')[0];
+				var formData = new FormData(form);
+				// event.preventDefault();
 
-			if (response.status == 100) {
-				$("#register_area").css("display", "none");
-				$("#account_area").css("display", "block");
-				// $("#register_area").addClass("hidden", "hidden");
-				// $("#account_area").show();
-				// $('#register-messages').val(response.message);
-				$("#accountForm #accountButton").attr("authtoken", response.authToken);
-				$("#accountForm #authtoken").val(response.authToken);
+				$.ajax({
+					type: "POST",
+					url: action,
+					data: formData,
+					cache: false,
+					processData: false,
+					contentType: false,
+					success: function (dataResponse) {
 
-			}
-			else if (response.status == 201) {
-				$('#registerButton').prop('disabled', false);
-				$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
-				$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
-				this_form.find('.error-message').slideDown().html(response.message);
-				$(".error-message").delay(500).show(10, function () {
+						var response = JSON.parse(dataResponse);
 
+						if (response.status == 100) {
+							$("#register_area").css("display", "none");
+							$("#account_area").css("display", "block");
+							// $("#register_area").addClass("hidden", "hidden");
+							// $("#account_area").show();
+							// $('#register-messages').val(response.message);
+							$("#accountForm #accountButton").attr("authtoken", response.authToken);
+							$("#accountForm #authtoken").val(response.authToken);
+
+						}
+						else if (response.status == 201) {
+							$('#registerButton').prop('disabled', false);
+							$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
+							$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
+							this_form.find('.error-message').slideDown().html(response.message);
+							$(".error-message").delay(500).show(10, function () {
+
+							});
+						}
+						else {
+							$('#registerButton').prop('disabled', false);
+							$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
+							$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
+							this_form.find('.error-message').slideDown().html(response.message);
+							$(".error-message").delay(500).show(10, function () {
+
+							});
+						}
+					}
 				});
-			}
-			else {
-				$('#registerButton').prop('disabled', false);
-				$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
-				$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
-				this_form.find('.error-message').slideDown().html(response.message);
-				$(".error-message").delay(500).show(10, function () {
+			} else {
 
-				});
+				$('#registerButton').prop('disabled', false);
+				$('#securityCode_error').text("Invalid security code");
 			}
 		}
 	});
-	// 		} else {
-
-	// 			$('#registerButton').prop('disabled', false);
-	// 			$('#securityCode_error').text("Invalid security code");
-	// 		}
-	// 	}
-	// });
 	return false;
 
 });
