@@ -63,7 +63,7 @@ $_DCOLOR_ = '#dedede!important';
 </head>
 <style>
     .file-default-preview img{
-        width:40% !important;
+        width:50% !important;
     }
     .file-thumbnail-footer{
         display: none !important;
@@ -127,6 +127,24 @@ $_DCOLOR_ = '#dedede!important';
     
     <?php include 'includes/footer.php';?>
     <script src="<?php linkto('fileinput/js/fileinput.min.js'); ?>"></script>
+    <script>
+        $("#image").fileinput({
+        overwriteInitial: true,
+	    maxFileSize: 500,
+	    showClose: false,
+	    showCaption: false,
+	    browseLabel: '',
+	    removeLabel: '',
+	    browseIcon: '<i class="fa fa-folder-open"></i> Upload from computer',
+	    removeIcon: '<i class="fa fa-remove"></i> Delete image',
+	    removeTitle: 'Cancel or reset changes',
+	    elErrorContainer: '#kv-avatar-errors-1',
+	    msgErrorClass: 'alert alert-block alert-danger',
+	    defaultPreviewContent: '<img src="<?=DN?>/img/photo_default.png" alt="Event banner" style="width:100%;">',
+	    layoutTemplates: {main2: '{preview} {remove} {browse}'},								    
+  		allowedFileExtensions: ["jpg", "png", "gif", "JPG", "PNG", "GIF"]
+	});  
+    </script>
 
     <script src="<?php linkto('forms/register-form.js'); ?>"></script>
 
