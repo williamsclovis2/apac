@@ -250,7 +250,7 @@ $(document).ready(function () {
 		else var str = $(this).serialize();
 
 		var this_form = $(this);
-		var action = $(this).attr('action');
+		var action = $('.host').attr('link') + "/registration";
 
 		$("#loginButton").prop('disabled', true);
 
@@ -260,6 +260,8 @@ $(document).ready(function () {
 			data: str,
 			dataType: 'json',
 			success: function (response) {
+
+
 				if (response.success == true) {
 					// $("#loginButton").prop('disabled', false);
 					// $("#loginForm")[0].reset();
@@ -436,19 +438,21 @@ $('.registerFormSubmit').on('click', function () {
 
 	$('#registerButton').prop('disabled', true);
 
+
+
 	$.ajax({
 		type: "POST",
 		url: action,
 		data: { request: "captchaSession" },
-		dataType: 'json',
-		success: function (response) {
+		cache: false,
+		success: function (responseData) {
+			var responseCaptcha = JSON.parse(responseData);
 
-			if (!response.messages == inputCaptcha) {
-
+			if (responseCaptcha.messages == inputCaptcha) {
 
 				var form = $('#registerForm')[0];
 				var formData = new FormData(form);
-				event.preventDefault();
+				// event.preventDefault();
 
 				$.ajax({
 					type: "POST",
@@ -460,6 +464,8 @@ $('.registerFormSubmit').on('click', function () {
 					success: function (dataResponse) {
 
 						var response = JSON.parse(dataResponse);
+
+						console.log("Response :: " + dataResponse);
 
 						if (response.status == 100) {
 							$("#register_area").css("display", "none");
@@ -492,6 +498,7 @@ $('.registerFormSubmit').on('click', function () {
 					}
 				});
 			} else {
+
 				$('#registerButton').prop('disabled', false);
 				$('#securityCode_error').text("Invalid security code");
 			}

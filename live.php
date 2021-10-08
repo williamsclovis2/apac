@@ -1,8 +1,32 @@
 <?php
 require_once 'admin/core/init.php';
-// if(!isset($_SESSION['username'])) {
-//     Redirect::to('login');
-// }
+if(!Session::exists('username') AND !Session::exists('userToken'))
+    Redirect::to('login');
+
+/** Get Session User Data By Token */
+$_session_user_token_ = Session::get('userToken');
+$_session_user_ID_    = Hash::decryptAuthToken($_session_user_token_);
+
+if(!is_integer($_session_user_ID_))
+    Redirect::to('login');
+
+if(!($_session_user_data_ = FutureEventController::getParticipantByID($_session_user_ID_)))
+    Redirect::to('login');
+
+$_participant_data_ = $_session_user_data_;
+
+$_status_ = $_participant_data_->status;
+$_status_color_ = 'label-warning';
+
+if($_status_ == 'COMPLETED' || $_status_ == 'APPROVED')
+    $_status_color_ = '#5cb85c';
+if($_status_ == 'ACTIVE')
+    $_status_color_ = '#1a7bb9';
+if($_status_ == 'DENIED')
+    $_status_color_ = '#c13c5a';
+if($_status_ == 'EXPIRED')
+    $_status_color_ = '#9f9597';
+
 ?>
 
 <!doctype html>
@@ -46,8 +70,14 @@ require_once 'admin/core/init.php';
                                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                                 <div class="mt-3">
                                     <h4><?= $_participant_data_->firstname .' '. $_participant_data_->lastname ?></h4>
-                                    <p class="text-secondary mb-1 display_status_" style="color: <?=$_status_color_?>;"><?=$_status_?> <i class="fa fa-times-circle"></i></p>
+                                    <p class="text-secondary mb-1 display_status_" style="color: <?=$_status_color_?> !important;"><?=Functions::getStatus($_status_)?> <i class="fa fa-times-circle"></i></p>
+<?php
+if($_status_ == 'APPROVED'):
+ ?>
                                     <button class="btn btn-xs btn-outline-danger disable_btn_deny " ><i class="fa fa-video icon"></i> Join session </button>
+<?php
+endif;
+ ?>
                                 </div>
                             </div>
                         </div>
@@ -56,10 +86,10 @@ require_once 'admin/core/init.php';
                     <div class="card mt-3">
                         <div class="card-body side-card">
                             <div class="row">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0">Event Name</h6>
+                                <div class="col-sm-4">
+                                    <h6 class="mb-0">Event Name </h6>
                                 </div>
-                                <div class="col-sm-7 text-secondary">
+                                <div class="col-sm-8 text-secondary">
                                     <h6><?= $_participant_data_->event_name ?></h6>
                                 </div>
                             </div>
@@ -74,10 +104,10 @@ require_once 'admin/core/init.php';
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-sm-5">
+                                <div class="col-sm-6">
                                     <h6 class="mb-0">Participation Type</h6>
                                 </div>
-                                <div class="col-sm-7 text-secondary">
+                                <div class="col-sm-6 text-secondary">
                                     <h6><?= $_participant_data_->participation_type_name ?></h6>
                                 </div>
                             </div>
@@ -236,6 +266,10 @@ require_once 'admin/core/init.php';
                             </div>
                         </div>
                     </div>
+<?php
+/** Display Organization Section - When Not Media - */
+if( $_participant_data_->participation_type_name != 'Media' && $_participant_data_->student_state == 0  ):
+?>
                     <h3 class="card-sect-title">ORGANIZATION</h3>
                     <div class="card mb-3" >
                         <div class="card-body">
@@ -287,6 +321,10 @@ require_once 'admin/core/init.php';
                             
                         </div>
                     </div>
+<?php
+/** Display Organization Section - When Not Media - Students - */
+elseif( $_participant_data_->participation_type_name != 'Media' && $_participant_data_->student_state == 1  ):
+?>
                     <h3 class="card-sect-title">EDUCATION INSTITUTE</h3>
                     <div class="card mb-3" >
                         <div class="card-body">
@@ -338,6 +376,10 @@ require_once 'admin/core/init.php';
                             
                         </div>
                     </div>
+<?php
+/** Display Organization Section - When  Media - */
+elseif( $_participant_data_->participation_type_name == 'Media'):
+?>
                     <!-- info fo media person -->
                     <h3 class="card-sect-title">ORGANIZATION</h3>
                     <div class="card mb-3" >
@@ -412,7 +454,9 @@ require_once 'admin/core/init.php';
                             <!-- <hr> -->
                         </div>
                     </div>
-
+<?php
+    endif;
+?>
                     <h3 class="card-sect-title">WHAT ARE YOUR OBJECTIVES FOR ATTENDING THIS CONGRESS?</h3>
                     <div class="card mb-3">
                         <div  class="card-body">
@@ -453,6 +497,10 @@ require_once 'admin/core/init.php';
                             </div>
                         </div>
                     </div>
+<?php
+/** Only For In-person participation event */
+if($_participant_data_->participation_subtype_category == 'INPERSON'):
+?>
                     <h3 class="card-sect-title">IDENTIFICATION</h3>
                     <div class="card mb-3">
                         <div class="card-body">
@@ -475,34 +523,20 @@ require_once 'admin/core/init.php';
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <h6 class="mb-0">Country/ City of residence</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
+                                <div class="col-sm-8 text-secondary">
                                     <h6><?= countryCodeToCountry($_participant_data_->residence_country) ?> / <?= $_participant_data_->residence_city ?></h6>
                                 </div>
                             </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Document</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary" style="padding:10px 0;">
-<?php
-if($_participant_data_->id_document_picture == ''):
-?>
-                                    <div class="doc-img"><img src="<?php linkto("img/photo_default.png");?>" class="fullscreen" id="theImage" onClick="makeFullScreen()" width="250px"></div>
-<?php
-else:
-?>
-                                    <div class="doc-img"><img src="<?=VIEW_IMG_ID_DOC.$_participant_data_->id_document_picture?>" class="fullscreen" id="theImage" onClick="makeFullScreen()" width="250px"></div>
-<?php
-endif;
-?>                                              
-                                </div>
-                            </div>
+                         
+                           
                         </div>
                     </div>
+<?php
+endif;
+?>
                 </div>
             </div>
         </div>

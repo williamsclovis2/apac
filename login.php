@@ -1,14 +1,13 @@
 <?php
 require_once 'admin/core/init.php';
-if(Session::exists('username')) {
+if(Session::exists('username') AND Session::exists('userToken'))
     Redirect::to('live');
-}
 ?>
 
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
-    <?php include 'includes/head.php';?>
+    <?php include 'includes/head.php';?> 
 </head>
 
 <body>

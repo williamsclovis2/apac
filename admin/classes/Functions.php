@@ -636,28 +636,25 @@ class Functions
 	   }
 
 
-	   public static function getStatus($status)
-	   {
-		   switch($status)
-			   {
-				   case "PENDING":
-				   return "Pending";
-				   break;
-				   case "DISTRIBUTED":
-					   return "Distributed";
-				   break;
-				   case "ACTIVE":
+	   public static function getStatus($status) {
+		    switch($status):
+				case "PENDING":
+				   	return "Pending";
+					break;
+				case "DENIED":
+					   return "Denied";
+				break;
+				case "ACTIVE":
 					return "Active";
+					break;
+				case "APPROVED":
+					return "Approved";
+					break;
+				
+				default:
+					return $status;
 				break;
-				case "NOTACTIVE":
-					return "Deactivated";
-				break;
-
-
-				   default:
-					   return "NOT DEFINED ";
-				   break;
-			   }
+			endswitch;
 	   }
 
 	   

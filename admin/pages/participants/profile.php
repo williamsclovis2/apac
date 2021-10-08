@@ -80,7 +80,7 @@ if($_status_ == 'EXPIRED')
                                                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                                                 <div class="mt-3">
                                                     <h4><?= $_participant_data_->firstname .' '. $_participant_data_->lastname ?></h4>
-                                                    <p class="text-secondary mb-1 display_status_" style="color: <?=$_status_color_?>;"><?=$_status_?> <i class="fa fa-times-circle"></i></p>
+                                                    <p class="text-secondary mb-1 display_status_" style="color: <?=$_status_color_?>;"><?=Functions::getStatus($_status_)?> <i class="fa fa-times-circle"></i></p>
                                                     <button class="btn btn-xs btn-success disable_btn_approve <?=$_participant_data_->status=='APPROVED'?'disabled':''?>"  data-toggle="modal" data-target="#activateModal<?=Hash::encryptToken($_participant_data_->id)?>" ><i class="fa fa-check icon"></i> Approve</button>
                                                     <button class="btn btn-xs btn-outline-danger disable_btn_deny <?=$_participant_data_->status=='DENIED'?'disabled':''?>"   data-toggle="modal" data-target="#deactivateModal<?=Hash::encryptToken($_participant_data_->id)?>" ><i class="fa fa-remove icon"></i> Deny</button>
                                                 </div>
@@ -538,25 +538,7 @@ if($_participant_data_->participation_subtype_category == 'INPERSON'):
                                                     <h6><?= countryCodeToCountry($_participant_data_->residence_country) ?> / <?= $_participant_data_->residence_city ?></h6>
                                                 </div>
                                             </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <h6 class="mb-0">Document</h6>
-                                                </div>
-                                                <div class="col-sm-9 text-secondary" style="padding:10px 0;">
-<?php
-if($_participant_data_->id_document_picture == ''):
-?>
-                                                    <div class="doc-img"><img src="<?php linkto("img/photo_default.png");?>" class="fullscreen" id="theImage" onClick="makeFullScreen()" width="250px"></div>
-<?php
-else:
-?>
-                                                    <div class="doc-img"><img src="<?=VIEW_IMG_ID_DOC.$_participant_data_->id_document_picture?>" class="fullscreen" id="theImage" onClick="makeFullScreen()" width="250px"></div>
-<?php
-endif;
-?>                                              
-                                                </div>
-                                            </div>
+                                          
                                         </div>
                                     </div>
 <?php

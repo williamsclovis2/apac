@@ -13,6 +13,7 @@
     <link href="<?php linkto('css/owl.carousel.css'); ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php linkto('css/magnific-popup.css'); ?>">
     <link rel="stylesheet" href="<?php linkto('css/font-awesome.min.css'); ?>">
+    <link rel="stylesheet" class="host" link="<?=Config::get('server/name')?>"></link>
     <link href="<?php linkto('css/boxicons.min.css'); ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php linkto('css/themify-icons.css'); ?>">
     <link rel="stylesheet" href="<?php linkto('css/flaticon.css'); ?>">

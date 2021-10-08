@@ -4,11 +4,11 @@
 <html class="no-js" lang="zxx">
 
 <head>
-    <?php include'includes/head.php';?>
+    <?php include 'includes/head.php';?>
 </head>
 
 <body>
-    <?php include'includes/nav-session.php';?>
+    <?php include 'includes/nav-session.php';?>
     <?php
         $getContent = DB::getInstance()->get('future_event', array('id', '=', $activeEventId));
         $banner     = $getContent->first()->banner;
