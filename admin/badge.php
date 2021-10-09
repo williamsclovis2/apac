@@ -57,20 +57,7 @@ $_PARTICIPANT_QR_IMAGE_    = VIEW_QR.$_qrFilename_;
 			overflow-x: hidden;
 		}
 		.card-container {
-			width: 300px;
-			height: 430px;
-			background: #fff;
-			background-image: url(../img/banner/badgebg.png);
-			background-repeat: no-repeat;
-			background-size: cover;
-			border-radius: 6px;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%,-50%);
 			box-shadow: 0px 0px 0px 0px #f1f1f1;
-			overflow: hidden;
-			display: inline-block;
 		}
 		.p-category {
 			margin: auto;
