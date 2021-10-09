@@ -133,7 +133,7 @@ if(Input::checkInput('request', 'post', 1)):
 <?php
 					if($participant_->participation_subtype_category  == 'INPERSON'):
 	?>
-											<li><a class="menu edit_client" href="<?php linkto('admin/ebadge/'.$participant_->qrCode); ?>" ><i class="fa fa-id-badge" aria-hidden="true"></i> Badge </a></li>
+											<li><a class="menu edit_client" href="<?php linkto('admin/ebadge/'.$participant_->qrCode); ?>" ><i class="fa fa-user" aria-hidden="true"></i> Generate Badge </a></li>
 <?php
 					endif;
 					$user = new User(); 
