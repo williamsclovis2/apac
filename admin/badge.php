@@ -1,9 +1,10 @@
 <?php
 require_once 'core/init.php';
 require_once 'config/phpqrcode/qrlib.php';
-// if(!isset($_SESSION['username'])) {
-//     Redirect::to('login');
-// }
+
+if(!isset($_SESSION['username']))
+    Redirect::to('login');
+
 if(!Input::checkInput('authtoken_', 'get', 1))
 	Redirect::to('dashboarrd');
 
@@ -33,6 +34,30 @@ QRcode::png($_qrEncoded_, $_qrFile_);
 
 <head>
     <?php include 'includes/head.php';?>
+	<style>
+		body {
+			font-family: ubuntu-light;
+			background-color: #c2d4d79e;
+			font-size: 13px;
+			overflow-x: hidden;
+		}
+		.card-container {
+			width: 300px;
+			height: 430px;
+			background: #fff;
+			background-image: url(../img/banner/badgebg.png);
+			background-repeat: no-repeat;
+			background-size: cover;
+			border-radius: 6px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			box-shadow: 0px 0px 0px 0px #f1f1f1;
+			overflow: hidden;
+			display: inline-block;
+		}
+	</style>
 </head>
 
 <body>
