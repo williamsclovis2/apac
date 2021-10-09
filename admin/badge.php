@@ -2,8 +2,8 @@
 require_once 'core/init.php';
 require_once 'config/phpqrcode/qrlib.php';
 
-if(!isset($_SESSION['username']))
-    Redirect::to('login');
+// if(!isset($_SESSION['username']))
+//     Redirect::to('login');
 
 if(!Input::checkInput('authtoken_', 'get', 1))
 	Redirect::to('dashboarrd');
