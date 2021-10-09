@@ -17,7 +17,21 @@ if(!($_participant_data_ = FutureEventController::getParticipantByQrID($_QR_ID_)
 	Redirect::to('404');
 
 
-$_EVENT_NAME_ = $_participant_data_->event_name;
+$getContent   = DB::getInstance()->get('future_event', array('id', '=', $activeEventId));
+$banner       = $getContent->first()->banner;
+$event_name   = $getContent->first()->event_name;
+$start_date   = date('j', strtotime(dateFormat($getContent->first()->start_date)));
+$end_date     = date("j F Y", strtotime(dateFormat($getContent->first()->end_date)));
+$event_date   = $start_date." - ".$end_date;
+
+$_EVENT_NAME_ 		       = $_participant_data_->event_name;
+$_PARTICIPANT_FULL_NAME_   = $_participant_data_->firstname.' '.$_participant_data_->lastname;
+$_COMPANY_NAME_			   = 'Cube communication Ltd';
+$_EVENT_START_END_DATE_    = $start_date?> - <?=$end_date;
+$_EVENT_ADDRESS_	       = 'Kigali Rwanda';
+$_PARTICIPANT_PROFILE_     = $_participant_data_->profile != null? VIEW_PROFILE.$_participant_data_->profile: "https://bootdey.com/img/Content/avatar/avatar7.png";
+$_PARTICIPANT_QR_IMAGE_    = VIEW_QR.$_qrFilename_;
+$_PARTICIPATION_TYPE_NAME_ = $_participant_data_->participation_type_name;
 
 /** Handle Qr COde */
 $_qrID_		= $_participant_data_->qrID;
@@ -69,34 +83,26 @@ QRcode::png($_qrEncoded_, $_qrFile_);
 </head>
 
 <body>
-    <?php
-        $getContent = DB::getInstance()->get('future_event', array('id', '=', $activeEventId));
-        $banner     = $getContent->first()->banner;
-        $event_name = $getContent->first()->event_name;
-        $start_date = date('j', strtotime(dateFormat($getContent->first()->start_date)));
-        $end_date   = date("j F Y", strtotime(dateFormat($getContent->first()->end_date)));
-        $event_date = $start_date." - ".$end_date;
-    ?>
     <div class="card-container">
 		<div class="event-details">
 			<h3> <?=$_EVENT_NAME_?> </h3>
-			<p><?=$start_date?> - <?=$end_date?> | Kigali Rwanda</p>
+			<p>  <?=$_EVENT_START_END_DATE_?> | <?=$_EVENT_ADDRESS_?> </p>
 		</div>
 		<div class="inner-img">
-			<img src="../../img/profile.jpg">
+			<img src="<?=$_PARTICIPANT_PROFILE_?>">
 		</div>
 		<div class="reg-datails">
 			<div class="names">
-				<h4>Kambale Mulwahali Clovis</h4>
-				<h5> Cube communication Ltd</h5>
+				<h4> <?=$_PARTICIPANT_FULL_NAME_?> </h4>
+				<h5> <?=$_COMPANY_NAME_ ?></h5>
 				<hr>
 			</div>
 		</div>
 		<div class="qr-code">
-			<img src="<?=VIEW_QR.$_qrFilename_?>">
+			<img src="<?=$_PARTICIPANT_QR_IMAGE_?>">
 		</div>
 		<div class="p-category">
-			<h4><?=$_participant_data_->participation_type_name?></h4>
+			<h4><?=$_PARTICIPATION_TYPE_NAME_?></h4>
 		</div>
 
 	</div>
