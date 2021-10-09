@@ -113,7 +113,7 @@ if(Input::checkInput('request', 'post', 1)):
 						
 						<tr class="gradeX" style="background: #f8f8f8; border-bottom: 2px solid #fff;">
 							<td>
-								<span style="color: #3c8dbc; border-left: 2px solid #3c8dbc; padding: 3px; font-size: 12px;"> <?= "FSUM-". $count_;?> </span>
+								<span style="color: #3c8dbc; border-left: 2px solid #3c8dbc; padding: 3px; font-size: 12px;"> <?= "". $count_;?> </span>
 							</td>
 							<td><?= $participant_->firstname .' '. $participant_->lastname   ?> </td>
 							<td><?= $participant_->participation_type_name ?> 		</td>
