@@ -621,6 +621,8 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 
 	/** Validation General - INPERSON - VIRTUAL - */
 
+	alert("IMAGE PROFILE -- " + $('#image').val());
+
 	if ($('#firstname').val().length === 0) {
 		ferror = ierror = true;
 		$('#firstname_error').text("Please enter first name");

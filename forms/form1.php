@@ -378,7 +378,7 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                                     <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
                                     <div class="kv-avatar center-block">                            
                                         <input type="file" name="image" class="form-control" id="image" placeholder="speaker picture"  class="file-loading" style="width:auto;" data-rule="required" data-msg="Please select speaker picture"/>
-                                        <div class="validate"></div>
+                                        <div class="validate" id="image_error"></div>
                                     </div>
                                 </div>
                             <div>
