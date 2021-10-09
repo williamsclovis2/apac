@@ -81,6 +81,13 @@ if($_status_ == 'EXPIRED')
                                                 <div class="mt-3">
                                                     <h4><?= $_participant_data_->firstname .' '. $_participant_data_->lastname ?></h4>
                                                     <p class="text-secondary mb-1 display_status_" style="color: <?=$_status_color_?>;"><?=Functions::getStatus($_status_)?> <i class="fa fa-times-circle"></i></p>
+<?php
+if($_participant_data_->payment_state == 'PAYABLE'):
+    ?>
+                                                    <a class="btn btn-xs btn-success "  href="<?php linkto('admin/ebadge/'.$_participant_data_->qrCode); ?>"   ><i class="fa fa-badge icon"></i> Generate Badge</a>
+<?php
+endif;
+    ?>
                                                     <button class="btn btn-xs btn-success disable_btn_approve <?=$_participant_data_->status=='APPROVED'?'disabled':''?>"  data-toggle="modal" data-target="#activateModal<?=Hash::encryptToken($_participant_data_->id)?>" ><i class="fa fa-check icon"></i> Approve</button>
                                                     <button class="btn btn-xs btn-outline-danger disable_btn_deny <?=$_participant_data_->status=='DENIED'?'disabled':''?>"   data-toggle="modal" data-target="#deactivateModal<?=Hash::encryptToken($_participant_data_->id)?>" ><i class="fa fa-remove icon"></i> Deny</button>
                                                 </div>
@@ -146,6 +153,9 @@ if($_status_ == 'EXPIRED')
                                             <hr>
                                         </div>
                                     </div>
+<?php
+if($_participant_data_->payment_state == 'PAYABLE'):
+    ?>
                                     <h3 class="card-sect-title">Payment </h3>
                                     <div class="card mt-3">
                                         <div class="card-body side-card">
@@ -183,7 +193,11 @@ if($_status_ == 'EXPIRED')
                                             </div>
                                         </div>
                                     </div>
+<?php
+endif;
+    ?>
                                 </div>
+
                                 <div class="col-md-8">
 
                                     <h3 class="card-sect-title">CONTACT INFORMATION </h3>

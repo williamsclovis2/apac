@@ -33,7 +33,7 @@ if($_status_ == 'EXPIRED')
 <html class="no-js" lang="zxx">
 
 <head>
-    <?php include'includes/head.php';?>
+    <?php include 'includes/head.php';?>
 </head>
 
 <body>
@@ -141,6 +141,9 @@ endif;
                             <hr>
                         </div>
                     </div>
+<?php
+if($_participant_data_->payment_state == 'PAYABLE'):
+    ?>
                     <h3 class="card-sect-title">Payment </h3>
                     <div class="card mt-3">
                         <div class="card-body side-card">
@@ -178,6 +181,9 @@ endif;
                             </div>
                         </div>
                     </div>
+<?php
+endif;
+    ?>
                 </div>
 
                 <div class="col-md-8">
