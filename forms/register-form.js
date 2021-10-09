@@ -621,8 +621,6 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 
 	/** Validation General - INPERSON - VIRTUAL - */
 
-	alert("IMAGE PROFILE -- " + $('#image').val());
-
 	if ($('#firstname').val().length === 0) {
 		ferror = ierror = true;
 		$('#firstname_error').text("Please enter first name");
@@ -682,6 +680,10 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 		$('#info_source_error').text("Please select  source ");
 	}
 
+	if ($('#securityCode').val().length === 0) {
+		ferror = ierror = true;
+		$('#securityCode_error').text("Please enter captcha characters ");
+	}
 
 
 	/** Validation For - All - Except Students And Youth Section -  */
