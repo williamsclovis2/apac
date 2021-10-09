@@ -27,7 +27,7 @@ $event_date   = $start_date." - ".$end_date;
 $_EVENT_NAME_ 		       = $_participant_data_->event_name;
 $_PARTICIPANT_FULL_NAME_   = $_participant_data_->firstname.' '.$_participant_data_->lastname;
 $_COMPANY_NAME_			   = 'Cube communication Ltd';
-$_EVENT_START_END_DATE_    = $start_date?> - <?=$end_date;
+$_EVENT_START_END_DATE_    = $start_date.' - '.$end_date;
 $_EVENT_ADDRESS_	       = 'Kigali Rwanda';
 $_PARTICIPANT_PROFILE_     = $_participant_data_->profile != null? VIEW_PROFILE.$_participant_data_->profile: "https://bootdey.com/img/Content/avatar/avatar7.png";
 
