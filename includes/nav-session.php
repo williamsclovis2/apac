@@ -22,6 +22,16 @@
                                             <?php } else { ?>
                                             <li><a href="<?php linkto('login'); ?>">Login</a></li>
                                             <?php } ?>
+                                            <li class="dropdown drop-language">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <img src="<?php linkto("img/En.png")?>">  English 
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="#"><img src="<?php linkto("img/french.png")?>"> French </a>
+                                                    <a class="dropdown-item" href="#"><img src="<?php linkto("img/arabic.png")?>">Arabic</a>
+                                                    <a class="dropdown-item" href="#"> <img src="<?php linkto("img/pt.png")?>"> Portuguese</a>
+                                                </div>
+                                            </li>
                                         </ul>
                                     </nav>
                                 </div>
