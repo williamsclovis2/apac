@@ -84,7 +84,7 @@ if($_status_ == 'EXPIRED')
 <?php
 if($_participant_data_->payment_state == 'PAYABLE'):
     ?>
-                                                    <a class="btn btn-xs btn-outline-danger "  href="<?php linkto('admin/ebadge/'.$_participant_data_->qrCode); ?>"   ><i class="fa fa-id-badge icon"></i> Generate Badge</a>
+                                                    <a class="btn btn-xs btn-secondary "  href="<?php linkto('admin/ebadge/'.$_participant_data_->qrCode); ?>"   > <i class="fa fa-id-badge" aria-hidden="true"></i> Generate Badge</a>
 <?php
 endif;
     ?>
