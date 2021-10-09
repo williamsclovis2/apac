@@ -12,7 +12,15 @@ if(Session::exists('username') AND Session::exists('userToken'))
 
 <body>
 
-   <?php include 'includes/nav.php';?>
+   <?php include 'includes/nav-session.php';?>
+   <?php
+        $getContent = DB::getInstance()->get('future_event', array('id', '=', $activeEventId));
+        $banner     = $getContent->first()->banner;
+        $event_name = $getContent->first()->event_name;
+        $start_date = date('j', strtotime(dateFormat($getContent->first()->start_date)));
+        $end_date   = date("j F Y", strtotime(dateFormat($getContent->first()->end_date)));
+        $event_date = $start_date." - ".$end_date;
+    ?>
 
     <div class="slider_area">
         <div class="single_slider single_slider_reg d-flex align-items-center slider_bg_1">

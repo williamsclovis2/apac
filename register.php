@@ -80,7 +80,15 @@ $_DCOLOR_ = '#dedede!important';
 }
 </style>
 <body>
-    <?php include 'includes/nav.php'; ?>
+    <?php include 'includes/nav-nav-session.php'; ?>
+    <?php
+        $getContent = DB::getInstance()->get('future_event', array('id', '=', $activeEventId));
+        $banner     = $getContent->first()->banner;
+        $event_name = $getContent->first()->event_name;
+        $start_date = date('j', strtotime(dateFormat($getContent->first()->start_date)));
+        $end_date   = date("j F Y", strtotime(dateFormat($getContent->first()->end_date)));
+        $event_date = $start_date." - ".$end_date;
+    ?>
     <?php 
         switch ($_EVENT_PARTICIPATION_TYPE_FORM_ID_ ) {
             case '1':
