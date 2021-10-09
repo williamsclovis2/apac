@@ -30,7 +30,7 @@ $_COMPANY_NAME_			   = 'Cube communication Ltd';
 $_EVENT_START_END_DATE_    = $start_date?> - <?=$end_date;
 $_EVENT_ADDRESS_	       = 'Kigali Rwanda';
 $_PARTICIPANT_PROFILE_     = $_participant_data_->profile != null? VIEW_PROFILE.$_participant_data_->profile: "https://bootdey.com/img/Content/avatar/avatar7.png";
-$_PARTICIPANT_QR_IMAGE_    = VIEW_QR.$_qrFilename_;
+
 $_PARTICIPATION_TYPE_NAME_ = $_participant_data_->participation_type_name;
 
 /** Handle Qr COde */
@@ -41,6 +41,7 @@ $_qrFilename_= $_qrID_.".png";
 $_qrFile_ 	= $_DR_.$_qrFilename_;
 QRcode::png($_qrEncoded_, $_qrFile_);
 
+$_PARTICIPANT_QR_IMAGE_    = VIEW_QR.$_qrFilename_;
 ?>
 
 <!doctype html>
@@ -78,6 +79,15 @@ QRcode::png($_qrEncoded_, $_qrFile_);
 			background: #37af47;
 			bottom: 0;
 			margin-top: 49px;
+		}
+		.inner-img {
+			width: 106px;
+			height: 100px;
+			border-radius: 100%;
+			border: 0px solid #fff;
+			margin: auto;
+			text-align: center;
+			margin-top: -50px;
 		}
 	</style>
 </head>
