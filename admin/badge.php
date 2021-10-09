@@ -57,6 +57,14 @@ QRcode::png($_qrEncoded_, $_qrFile_);
 			overflow: hidden;
 			display: inline-block;
 		}
+		.p-category {
+			margin: auto;
+			text-align: center;
+			padding: 8px 0;
+			background: #37af47;
+			bottom: 0;
+			margin-top: 49px;
+		}
 	</style>
 </head>
 
