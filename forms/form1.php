@@ -386,25 +386,15 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                     <div class="row">
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="lastname" class="col-sm-3" style="margin:0 !important">You need an accommodation ? <span>*</span></label>
+                                <label for="lastname" class="col-sm-12" >Would you like to receive information on accommodation booking in Kigali? <span>*</span></label>
                                 <div class="col-sm-9">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="yes" id="yes" value="Yes" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            Yes
-                                        </label>
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">Yes</label>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="no" id="no" value="No">
-                                        <label class="form-check-label" for="exampleRadios2">
-                                            No
-                                        </label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="notsure" id="notsure" value="Not sure">
-                                        <label class="form-check-label" for="exampleRadios2">
-                                            Not sure yet
-                                        </label>
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">No</label>
                                     </div>
                                 </div>
                             </div>
