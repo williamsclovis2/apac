@@ -84,9 +84,6 @@ spl_autoload_register(function($class) {
     // require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/classes/' . $class . '.php'; // Live
 });
 
-/** Dictionary */
-$GLOBALS['_Dictionary'] = new \Properties('eng-lang');
-
 /** Initialize Define */
 def();
 
@@ -110,3 +107,11 @@ $activeEventId  = 8;
 
 /** SCRIPT - AUTO EXPIRY - PRIVATE LINKS - */
 // FutureEventController::autoExpirationStatusEventPrivateInvitationLink($eventID);
+
+/** Handle Language */
+$GLOBALS['_Lang']     = Session::exists('lang')?Session::get('lang'):'eng-lang';
+$GLOBALS['_LangName'] = Functions::getLanguageName($_Lang);
+
+
+/** Dictionary */
+$GLOBALS['_Dictionary'] = new \Properties($_Lang);

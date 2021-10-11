@@ -24,12 +24,32 @@
                                             <?php } ?>
                                             <li class="dropdown drop-language">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <img src="<?php linkto("img/En.png")?>">  English 
+                            <?php
+                            // echo $_LangName;
+                            if($_LangName == 'English'):
+                                ?>
+                                                <img src="<?php linkto("img/En.png")?>">  English
+                            <?php
+                            elseif($_LangName == 'French'):
+                                ?>
+                                                <img src="<?php linkto("img/french.png")?>"> French
+                            <?php
+                            elseif($_LangName == 'Arabic'):
+                                ?>
+                                                <img src="<?php linkto("img/arabic.png")?>"> Arabic
+                            <?php
+                            elseif($_LangName == 'Portuguese'):
+                                ?>
+                                                <img src="<?php linkto("img/pt.png")?>"> Portuguese
+                            <?php
+                            endif;
+                                ?>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#"><img src="<?php linkto("img/french.png")?>"> French </a>
-                                                    <a class="dropdown-item" href="#"><img src="<?php linkto("img/arabic.png")?>">Arabic</a>
-                                                    <a class="dropdown-item" href="#"> <img src="<?php linkto("img/pt.png")?>"> Portuguese</a>
+                                                    <a class="dropdown-item" onclick="multilangselect('eng-lang')"><img src="<?php linkto("img/En.png")?>"> English </a>
+                                                    <a class="dropdown-item" onclick="multilangselect('fr-lang')"><img src="<?php linkto("img/french.png")?>"> French </a>
+                                                    <a class="dropdown-item" onclick="multilangselect('ar-lang')"><img src="<?php linkto("img/arabic.png")?>"> Arabic</a>
+                                                    <a class="dropdown-item" onclick="multilangselect('pt-lang')"><img src="<?php linkto("img/pt.png")?>"> Portuguese</a>
                                                 </div>
                                             </li>
                                         </ul>

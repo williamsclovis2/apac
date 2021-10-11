@@ -72,7 +72,7 @@ if(Session::exists('username') AND Session::exists('userToken'))
         </div>
     </div>
 
-    <?php include'includes/footer.php';?>
+    <?php include 'includes/footer.php';?>
     <script src="<?php linkto('forms/register-form.js'); ?>"></script>
 </body>
 

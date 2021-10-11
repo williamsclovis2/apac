@@ -112,6 +112,7 @@ endif;
     </div>
 
     <?php include 'includes/footer.php';?>
+    <script src="<?php linkto('forms/register-form.js'); ?>"></script>
 </body>
 
 </html>

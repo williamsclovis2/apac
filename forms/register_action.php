@@ -386,6 +386,18 @@
         endif;
         echo json_encode($response);
       break;
+
+            
+      /** Submission Of The Participant Registration - Set Language - */
+      case 'selectLanguage':
+        $_current_lang_    = Input::checkInput('lang', 'post', 1)?Input::get('lang', 'post'):'en-lang';
+        Session::put('lang', $_current_lang_);
+
+        $response['status']  = 400;
+        $response['message'] = $_form_->ERRORS_STRING;
+        echo json_encode($response);
+      break;
+
     endswitch;
     
   endif;

@@ -823,3 +823,15 @@ function checkAgeAtDateOfEvent(inputDate, ageLimitAuthorizedFrom, ageLimitAuthor
 	var ageInput = getAgeAtDateOfEvent(inputDate);
 	return (ageInput >= ageLimitAuthorizedFrom && ageInput <= ageLimitAuthorizedTo) ? true : false;
 }
+
+function multilangselect(lang) {
+	var action = $('.host').attr('link') + "/language";
+	$.ajax({
+		type: 'POST',
+		url: action,
+		data: { lang: lang, request: "selectLanguage" },
+		success: function (data) {
+			window.location.reload(true);
+		}
+	});
+}

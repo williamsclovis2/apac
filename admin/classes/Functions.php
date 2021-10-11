@@ -724,6 +724,26 @@ class Functions
 		$foramted_date = "$day-$month-$year";
 		return (String)$foramted_date;
 	}
+	public static function getLanguageName($lang_code = 'eng-lang'){
+		switch($lang_code):
+			case 'eng-lang':
+				return 'English';
+				break;
+			case 'fr-lang':
+				return 'French';
+				break;
+			case 'ar-lang':
+				return 'Arabic';
+				break;
+			case 'pt-lang':
+				return 'Portuguese';
+				break;
+			default:
+				return 'English';
+				break;
+		endswitch;
+			
+	}
 
 
 
