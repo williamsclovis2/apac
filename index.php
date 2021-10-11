@@ -39,7 +39,7 @@
                 <div class="col-lg-12">
                 
                     <div class="section_title wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                        <h3>In-person attendance registration </h3> 
+                        <h3>Please select the appropriate category to attend in person </h3> 
 
                     </div>
                     
@@ -57,9 +57,10 @@ if($_DATA_PARTICIPATION_CATEGORY_ ):
                           <h4>
                             <sup> <?= $currency_?> </sup> <?= $_event_participation_category_->participation_sub_type_price?>
                            <span><?= $_event_participation_category_->participation_sub_type_name?> </span></h4>
-                          <ul>
-                           
-                          </ul>
+                           <div class="div-inst">
+                            <p class=>Early bird discounted rate Valid till 31st December 2021. <br>
+                            $450 from 1st January 2021 - 5th March 2022.</p>
+                           </div>
                           <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn">Register</a>
                         </div>
                       </div>
@@ -95,9 +96,10 @@ if($_DATA_PARTICIPATION_CATEGORY_ ):
                           <h4>
                             <sup><?= $currency_?> </sup><?= $_event_participation_category_->participation_sub_type_price?>
                             <span><?= $_event_participation_category_->participation_sub_type_name?></span></h4>
-                          <ul>
-                            <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
-                          </ul>
+                            <div class="div-inst">
+                                <p class=>Early bird discounted rate Valid till 31st December 2021. <br>
+                                $450 from 1st January 2021 - 5th March 2022.</p>
+                            </div>
                           <a href="registration/event/virtual/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn">Register</a>
                         </div>
                       </div>
