@@ -356,7 +356,7 @@
 						}
 					},
 					{
-						"firstname": {
+						"first-name": {
 							"fr-lang": "Prénom",
 							"eng-lang": "First name",
 							"ar-lang": "الاسم الأول",
@@ -364,7 +364,7 @@
 						}
 					},
 					{
-						"lastname": {
+						"last-name": {
 							"fr-lang": "Nom de famille",
 							"eng-lang": "Last name",
 							"ar-lang": "الكنية",
@@ -404,7 +404,7 @@
 						}
 					},
 					{
-						"job_title": {
+						"job-title": {
 							"fr-lang": "Profession",
 							"eng-lang": "Job title",
 							"ar-lang": "عنوان وظيفي",
@@ -412,7 +412,7 @@
 						}
 					},
 					{
-						"job_category": {
+						"job-category": {
 							"fr-lang": "Catégorie d'emploi",
 							"eng-lang": "Job category",
 							"ar-lang": "تصنيف الوظيفة",
@@ -516,7 +516,7 @@
 						}
 					},
 					{
-						"content-what-are-your-objectives-for-attending-this-congress?": {
+						"what-are-your-objectives-for-attending-this-congress?": {
 							"fr-lang": "QUELS SONT VOS OBJECTIFS POUR PARTICIPER À CE CONGRÈS ?",
 							"eng-lang": "WHAT ARE YOUR OBJECTIVES FOR ATTENDING THIS CONGRESS?",
 							"ar-lang": "ما هي أهدافك من حضور هذا المؤتمر؟",
@@ -548,7 +548,7 @@
 						}
 					},
 					{
-						"content-where-did-you-hear-about-apac?": {
+						"where-did-you-hear-about-apac?": {
 							"fr-lang": "OÙ AVEZ-VOUS ENTENDU APAC?",
 							"eng-lang": "WHERE DID YOU HEAR ABOUT APAC?",
 							"ar-lang": "أين سمعت آسيا والمحيط الهادئ؟",
@@ -564,7 +564,7 @@
 						}
 					},
 					{
-						"content-badge-collection-identification": {
+						"badge-collection-identification": {
 							"fr-lang": "IDENTIFICATION DE LA COLLECTION DE BADGES",
 							"eng-lang": "BADGE COLLECTION IDENTIFICATION",
 							"ar-lang": "تحديد مجموعة الشارات",
@@ -588,7 +588,7 @@
 						}
 					},
 					{
-						"content-create-password": {
+						"create-password": {
 							"fr-lang": "CRÉER UN MOT DE PASSE",
 							"eng-lang": "CREATE PASSWORD",
 							"ar-lang": "إنشاء كلمة المرور",
@@ -644,11 +644,19 @@
 						}
 					},
 					{
-						"content-type-the-captcha-characters-here": {
-							"fr-lang": "",
+						"type-the-captcha-characters-here": {
+							"fr-lang": "Tapez les caractères captcha ici",
 							"eng-lang": "Type the captcha characters here",
-							"ar-lang": "",
-							"pt-lang": ""
+							"ar-lang": "اكتب أحرف captcha هنا",
+							"pt-lang": "Digite os caracteres do captcha aqui"
+						}
+					},
+					{
+						"type-the-captcha-characters-you-see": {
+							"fr-lang": "Tapez les caractères captcha que vous voyez",
+							"eng-lang": "Type the captcha characters you see",
+							"ar-lang": "اكتب أحرف الكابتشا التي تراها",
+							"pt-lang": "Digite os caracteres de captcha que você vê"
 						}
 					},
 					{
@@ -692,51 +700,51 @@
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
-							"ar-lang": "",
-							"pt-lang": ""
+						"registration-form": {
+							"fr-lang": "Formulaire d'inscription",
+							"eng-lang": "Registration Form",
+							"ar-lang": "إستمارة تسجيل",
+							"pt-lang": "Formulário de registro"
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
-							"ar-lang": "",
-							"pt-lang": ""
+						"please": {
+							"fr-lang": "Veuillez",
+							"eng-lang": "Please",
+							"ar-lang": "لو سمحت",
+							"pt-lang": "Por favor"
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
-							"ar-lang": "",
-							"pt-lang": ""
+						"enter-your-objective": {
+							"fr-lang": "Entrez votre objectif",
+							"eng-lang": "Enter your objective",
+							"ar-lang": "أدخل هدفك",
+							"pt-lang": "Entrez votre objectif"
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
-							"ar-lang": "",
-							"pt-lang": ""
+						"select-source": {
+							"fr-lang": "Sélectionner la source",
+							"eng-lang": "Select source",
+							"ar-lang": "اختر مصدر",
+							"pt-lang": "Selecione a fonte"
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
-							"ar-lang": "",
-							"pt-lang": ""
+						"would-you-like-to-receive-information-on-accommodation-booking-in-kigali?": {
+							"fr-lang": "Souhaitez-vous recevoir des informations sur la réservation d'un hébergement à Kigali ?",
+							"eng-lang": "Would you like to receive information on accommodation booking in Kigali?",
+							"ar-lang": "هل ترغب في الحصول على معلومات حول حجز الإقامة في كيغالي؟",
+							"pt-lang": "Gostaria de receber informações sobre reservas de alojamento em Kigali?"
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
-							"ar-lang": "",
-							"pt-lang": ""
+						"form-by-clicking-you-agree-terms-conditions": {
+							"fr-lang": "En cliquant sur ce bouton, je choisis de ne pas partager mon nom, mon titre et mon affiliation avec les sponsors de l'APAC.",
+							"eng-lang": "By clicking this button I choose to opt out of sharing my name, title and affiliation with APAC sponsors. ",
+							"ar-lang": "بالنقر فوق هذا الزر ، أختار إلغاء الاشتراك في مشاركة اسمي ولقبي وانتمائي مع رعاة APAC.",
+							"pt-lang": "Ao clicar neste botão, opto por não compartilhar meu nome, cargo e afiliação com os patrocinadores da APAC."
 						}
 					},
 					{

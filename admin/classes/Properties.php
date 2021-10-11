@@ -96,6 +96,23 @@ class Properties
 		endif;
 		return empty(implode(' ', $results))?$map_word:implode(' ', $results);
 	}
+		
+	/**
+	 * Returns the i18n String Output setted in properties.json Depending on the selected Lang
+	 * @param string name of the string key setted in properties.json
+	 */
+	public function translate($map_word){
+		$array    = explode(' ', $map_word);
+		$array    = implode('-', $array);
+		$array    = strtolower($array);
+		$array    = str_replace(['--'], '', $array);
+		// var_dump(($array));
+		$results  = array();
+		if(!empty($array)):
+				$results[] = $this->string(strtolower($array))=='fr-lang'?$value:$this->string(strtolower($array));
+		endif;
+		return empty(implode(' ', $results))?$map_word:implode(' ', $results);
+	}
 
 	/**
 	 * Returns true or false if selected Language has changed

@@ -1472,7 +1472,7 @@ class FutureEventController
 
     public static function getPacipationSubCategoryByID($ID){
         $FutureEventTable = new FutureEvent();
-        $FutureEventTable->selectQuery("SELECT future_participation_type.*, future_participation_sub_type.name As sub_type_name  FROM `future_participation_type`  INNER JOIN future_participation_sub_type ON future_participation_type.id = future_participation_sub_type.participation_type_id WHERE future_participation_sub_type.id = {$ID} ");
+        $FutureEventTable->selectQuery("SELECT future_participation_type.*, future_participation_sub_type.name As sub_type_name, future_participation_sub_type.price as sub_type_price, future_participation_sub_type.currency As sub_type_currency  FROM `future_participation_type`  INNER JOIN future_participation_sub_type ON future_participation_type.id = future_participation_sub_type.participation_type_id WHERE future_participation_sub_type.id = {$ID} ");
         if($FutureEventTable->count())
           return  $FutureEventTable->first();
         return  false;
