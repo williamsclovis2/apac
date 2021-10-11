@@ -79,6 +79,9 @@ $_DCOLOR_ = '#dedede!important';
     font-weight: 100;
     margin:10px 0;
 }
+.form-check-label{
+    margin: 0 !important;
+}
 </style>
 <body>
     <?php include 'includes/nav-session.php'; ?>
