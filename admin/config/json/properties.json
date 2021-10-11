@@ -1,954 +1,253 @@
-               {
-"properties":[
-	{ "software-author":{
-			"author-name":"Ezechiel Kalengya Ezpk",
-			"author-email":"ezechielkalengya@gmail.com"
-	}},
-	{	"software-lang":{
-			"lang":"eng-lang"
-	}},
-	{	"software-name":{
-				"fr-lang":  "CNS Software",
-				"eng-lang": "CNS Software"
-	}},
-	{	"software-short-name":{
-				"fr-lang":  "CNS",
-				"eng-lang": "CNS"
-	}},
-
-
-	{	"dashboard":{
-				"fr-lang":  "Accueil",
-				"eng-lang": "Dashboard"
-	}},
-	{	"admin":{
-				"fr-lang":  "Administrateurs",
-				"eng-lang": "Administrators"
-	}},
-	{	"admins":{
-				"fr-lang":  "Administrateurs",
-				"eng-lang": "Administrators"
-	}},
-	{	"new-admin":{
-				"fr-lang":  "Nouveau Administrateur",
-				"eng-lang": "New Administrator"
-	}},
-	{	"list-admin":{
-				"fr-lang":  "Liste Administrateurs",
-				"eng-lang": "List Administrators"
-	}},
-
-	{	"employee":{
-				"fr-lang":  "Employe",
-				"eng-lang": "Employee"
-	}},
-	{	"employees":{
-				"fr-lang":  "Employes",
-				"eng-lang": "Employees"
-	}},
-	{	"new-employee":{
-				"fr-lang":  "Nouveau Employe",
-				"eng-lang": "New Employee"
-	}},
-	{	"list-employee":{
-				"fr-lang":  "Liste Employes",
-				"eng-lang": "List Employees"
-	}},
-	{	"agent":{
-				"fr-lang":  "Agent",
-				"eng-lang": "Agent"
-	}},
-	{	"agents":{
-				"fr-lang":  "Agents",
-				"eng-lang": "Agents"
-	}},
-	{	"new-agent":{
-				"fr-lang":  "Nouveau Agent",
-				"eng-lang": "New Agent"
-	}},
-	{	"list-agent":{
-				"fr-lang":  "Liste Agents",
-				"eng-lang": "List Agents"
-	}},
-	{	"patient":{
-				"fr-lang":  "Patient",
-				"eng-lang": "Patient"
-	}},
-	{	"patients":{
-				"fr-lang":  "Patients",
-				"eng-lang": "Patients"
-	}},
-	{	"new-patient":{
-				"fr-lang":  "Nouveau Patient",
-				"eng-lang": "New Patient"
-	}},
-	{	"new-patient-registration":{
-				"fr-lang":  "Enregistrement Nouveau Patient",
-				"eng-lang": "New Patient Registration"
-	}},
-	{	"list-patient":{
-				"fr-lang":  "Liste Patients",
-				"eng-lang": "List Patients"
-	}},
-
-  {	"parental-status":{
-				"fr-lang":  "Statut Parental",
-				"eng-lang": "Parental Status"
-	}},
-  {	"family-members":{
-				"fr-lang":  "Membres Famille",
-				"eng-lang": "Family Members"
-	}},
-
-  {	"disclosure":{
-				"fr-lang":  "Divulgation",
-				"eng-lang": "Disclosure"
-	}},
-	{	"new-disclosure":{
-				"fr-lang":  "Nouvelle Divulgation",
-				"eng-lang": "New Disclosure"
-	}},
-	{	"list-disclosure":{
-				"fr-lang":  "Liste Divulgation",
-				"eng-lang": "List Disclosure"
-	}},
-	{	"evolution-disclosure":{
-				"fr-lang":  "Evolution Divulgation",
-				"eng-lang": "Evolution Disclosure"
-	}},
-
-  {	"echel-hamilton":{
-				"fr-lang":  "Echel Hamilton",
-				"eng-lang": "Echel Hamilton"
-	}},
-  {	"post-disclosure":{
-				"fr-lang":  "Post Divulgation",
-				"eng-lang": "Post Disclosure"
-	}},
-	{	"new-post-disclosure":{
-				"fr-lang":  "Nouvelle Post Divulgation",
-				"eng-lang": "New Post Disclosure"
-	}},
-	{	"list-post-disclosure":{
-				"fr-lang":  "Liste Divulgation",
-				"eng-lang": "List Disclosure"
-	}},
-
-  {	"announcement-process":{
-				"fr-lang":  "Processus Annonce",
-				"eng-lang": "Announce Process"
-	}},
-	{	"new-announcement-process":{
-				"fr-lang":  "Nouvelle Annonce",
-				"eng-lang": "New Announcement"
-	}},
-	{	"list-announcement-process":{
-				"fr-lang":  "Liste Annonces",
-				"eng-lang": "List Announcements"
-	}},
-	{	"list-children":{
-				"fr-lang":  "Liste Enfants",
-				"eng-lang": "List Children"
-	}},
-	{	"childrens":{
-				"fr-lang":  "Enfants",
-				"eng-lang": "Children"
-	}},
-	{	"year":{
-				"fr-lang":  "An",
-				"eng-lang": "Year"
-	}},
-	{	"years":{
-				"fr-lang":  "Ans",
-				"eng-lang": "Years"
-	}},
-	{	"new-appointment":{
-				"fr-lang":  "Nouvelle Rendez-vous",
-				"eng-lang": "New Appointment"
-	}},
-	{	"list-appointment":{
-				"fr-lang":  "Liste Rendez-vous",
-				"eng-lang": "List Appointments"
-	}},
-	{	"appointment":{
-				"fr-lang":  "Rendez-vous",
-				"eng-lang": "Appointment"
-	}},
-	{	"appointments":{
-				"fr-lang":  "Liste Rendez-vous",
-				"eng-lang": "List Appointments"
-	}},
-
-  {	"session":{
-				"fr-lang":  "Session",
-				"eng-lang": "Session"
-	}},
-  {	"sessions":{
-				"fr-lang":  "Sessions",
-				"eng-lang": "Sessions"
-	}},
-  {	"groups-sessions":{
-				"fr-lang":  "Groupes Sessions",
-				"eng-lang": "Groups Sessions"
-	}},
-	{	"groups-topics":{
-				"fr-lang":  "Groupes Sujets",
-				"eng-lang": "Groups Subjects"
-	}},
-
-	{	"activities":{
-				"fr-lang":  "Activités",
-				"eng-lang": "Activities"
-	}},
-	{	"analytics":{
-				"fr-lang":  "Analytique",
-				"eng-lang": "Analytics"
-	}},
-	{	"statistics":{
-				"fr-lang":  "Statistiques",
-				"eng-lang": "Statistics"
-	}},
-	{	"settings":{
-				"fr-lang":  "Paramètres",
-				"eng-lang": "Settings"
-	}},
-	{	"report":{
-				"fr-lang":  "Rapport",
-				"eng-lang": "Report"
-	}},
-	{	"reports":{
-				"fr-lang":  "Rapports",
-				"eng-lang": "Reports"
-	}},
-
-	{	"entry":{
-				"fr-lang":  "Entrée",
-				"eng-lang": "Entry"
-	}},
-	{	"entries":{
-				"fr-lang":  "Entrées",
-				"eng-lang": "Entries"
-	}},
-	{	"stock-entries":{
-				"fr-lang":  "Stock Entrées",
-				"eng-lang": "Stock Entries"
-	}},
-	{	"list-entries":{
-				"fr-lang":  "List Entrées",
-				"eng-lang": "List Entries"
-	}},
-	{	"medicine-consumed":{
-				"fr-lang":  "Medicaments Consommés",
-				"eng-lang": "Medicine Consumed"
-	}},
-	{	"consumed":{
-				"fr-lang":  "Consommé",
-				"eng-lang": "Consumed"
-	}},
-	{	"consumed-e":{
-				"fr-lang":  "Consommée",
-				"eng-lang": "Consumed"
-	}},
-	{	"consumed-es":{
-				"fr-lang":  "Consommées",
-				"eng-lang": "Consumed"
-	}},
-	{	"consumed-s":{
-				"fr-lang":  "Consommés",
-				"eng-lang": "Consumed"
-	}},
-	{	"medicine":{
-				"fr-lang":  "Medicament",
-				"eng-lang": "Medicine"
-	}},
-	{	"medicines":{
-				"fr-lang":  "Medicaments",
-				"eng-lang": "Medicines"
-	}},
-	{	"new-medicine":{
-				"fr-lang":  "Nouveau Medicament",
-				"eng-lang": "New Medicine"
-	}},
-	{	"list-medicine":{
-				"fr-lang":  "Liste Medicaments",
-				"eng-lang": "List Medicine"
-	}},
-	{	"medicines-received":{
-				"fr-lang":  "Medicaments Recus",
-				"eng-lang": "Medicine Received"
-	}},
-	{	"new-entry":{
-				"fr-lang":  "Nouvelle Entrée",
-				"eng-lang": "New Entry"
-	}},
-	{	"list-entries":{
-				"fr-lang":  "Liste Entrées",
-				"eng-lang": "List Entries"
-	}},
-
-	{	"requests":{
-				"fr-lang":  "Requettes",
-				"eng-lang": "Requests"
-	}},
-	{	"list-purchase":{
-				"fr-lang":  "Liste Achats",
-				"eng-lang": "List Purchase"
-	}},
-
-	{	"new-purchase":{
-				"fr-lang":  "Nouveau Achat",
-				"eng-lang": "New Purchase"
-	}},
-	{	"list-purchase":{
-				"fr-lang":  "Liste Achats",
-				"eng-lang": "List Purchase"
-	}},
-
-	{	"purchase":{
-				"fr-lang":  "Achats",
-				"eng-lang": "Purchase"
-	}},
-	{	"new-purchase":{
-				"fr-lang":  "Nouveau Achat",
-				"eng-lang": "New Purchase"
-	}},
-	{	"list-purchase":{
-				"fr-lang":  "Liste Achats",
-				"eng-lang": "List Purchase"
-	}},
-	{	"sale":{
-				"fr-lang":  "Ventes",
-				"eng-lang": "Sales"
-	}},
-	{	"new-sale":{
-				"fr-lang":  "Nouvelle Vente",
-				"eng-lang": "New Sale"
-	}},
-	{	"list-sale":{
-				"fr-lang":  "Liste Ventes",
-				"eng-lang": "List SaleS"
-	}},
-	{	"initial":{
-				"fr-lang":  "Initial",
-				"eng-lang": "Initial"
-	}},
-	{	"initial-e":{
-				"fr-lang":  "Initiale",
-				"eng-lang": "Initial"
-	}},
-	{	"quantity":{
-				"fr-lang":  "Quantité",
-				"eng-lang": "Quantity"
-	}},
-	{	"received":{
-				"fr-lang":  "Recu",
-				"eng-lang": "Received"
-	}},
-	{	"received-e":{
-				"fr-lang":  "Recue",
-				"eng-lang": "Received"
-	}},
-	{	"":{
-				"fr-lang":  "Recu",
-				"eng-lang": "Received"
-	}},
-	{	"received-e":{
-				"fr-lang":  "Recue",
-				"eng-lang": "Received"
-	}},
-	{	"stock":{
-				"fr-lang":  "Stock",
-				"eng-lang": "Stock"
-	}},
-	{	"stock-available":{
-				"fr-lang":  "Medicaments Disponible",
-				"eng-lang": "Available Drugs"
-	}},
-	{	"stock-expired":{
-				"fr-lang":  "Medicaments Expirés",
-				"eng-lang": "Expired Drugs"
-	}},
-	{	"stock-finished":{
-				"fr-lang":  "Medicaments Finis",
-				"eng-lang": "Finished Drugs"
-	}},
-	{	"available":{
-				"fr-lang":  "Disponible",
-				"eng-lang": "Available"
-	}},
-	{	"expired":{
-				"fr-lang":  "Expiré",
-				"eng-lang": "Expired"
-	}},
-	{	"expired-s":{
-				"fr-lang":  "Expirés",
-				"eng-lang": "Expired"
-	}},
-	{	"expired-e":{
-				"fr-lang":  "Expirées",
-				"eng-lang": "Expired"
-	}},
-	{	"finished":{
-				"fr-lang":  "Finis",
-				"eng-lang": "Finished"
-	}},
-	{	"shelf":{
-				"fr-lang":  "Etageres",
-				"eng-lang": "Shelf"
-	}},
-	{	"new-shelf":{
-				"fr-lang":  "Nouveau Etagere",
-				"eng-lang": "New Shelf"
-	}},
-	{	"list-shelf":{
-				"fr-lang":  "Liste Etageres",
-				"eng-lang": "List Shelf"
-	}},
-	{	"super-patients":{
-				"fr-lang":  "Super Patients",
-				"eng-lang": "Super Patients"
-	}},
-	{	"peer-educators":{
-				"fr-lang":  "Pairs Educateurs",
-				"eng-lang": "Peer Educators "
-	}},
-	{	"group-visits":{
-				"fr-lang":  "Groupes Visites",
-				"eng-lang": "Groups Visits"
-	}},
-	{	"visits":{
-				"fr-lang":  "Visites",
-				"eng-lang": "Visits"
-	}},
-	{	"patients-visited":{
-				"fr-lang":  "Visites",
-				"eng-lang": "Visits"
-	}},
-	{	"evolution":{
-				"fr-lang":  "Evolution",
-				"eng-lang": "Evolution "
-	}},
-	{	"projects":{
-				"fr-lang":  "Projets",
-				"eng-lang": "Projects"
-	}},
-	{	"calender-visits":{
-				"fr-lang":  "Calendrier Visites",
-				"eng-lang": "Calender Visits"
-	}},
-	{	"list":{
-				"fr-lang":  "Liste",
-				"eng-lang": "List"
-	}},
-	{	"new":{
-				"fr-lang":  "Nouveau",
-				"eng-lang": "New"
-	}},
-	{	"new-e":{
-				"fr-lang":  "Nouvelle",
-				"eng-lang": "New"
-	}},
-  {	"new_e":{
-        "fr-lang":  "Nouvelle",
-        "eng-lang": "New"
-  }},
-  {	"of":{
-        "fr-lang":  "de",
-        "eng-lang": "of"
-  }},
-  {	"of-s":{
-        "fr-lang":  "des",
-        "eng-lang": "of"
-  }},
-  {	"of-":{
-        "fr-lang":  "des",
-        "eng-lang": "of"
-  }},
-
-	{	"pregnancies":{
-				"fr-lang":  "Groussesses",
-				"eng-lang": "Pregnancies"
-	}},
-	{	"pregnancy":{
-				"fr-lang":  "Groussesse",
-				"eng-lang": "Pregnancy"
-	}},
-	{	"mother-daugther":{
-				"fr-lang":  "Fille Mere",
-				"eng-lang": "Mother Daugther"
-	}},
-	{	"mother-daugthers":{
-				"fr-lang":  "Fille Mere",
-				"eng-lang": "Mother Daugthers"
-	}},
-	{	"consultation":{
-				"fr-lang":  "Consultation",
-				"eng-lang": "Consultation"
-	}},
-	{	"consultation-motif":{
-				"fr-lang":  "Motif Consultation",
-				"eng-lang": "Consultation Motif"
-	}},
-	{	"counseling":{
-				"fr-lang":  "Counseling",
-				"eng-lang": "Counseling"
-	}},
-	{	"new-counseling":{
-				"fr-lang":  "Nouveau Counseling",
-				"eng-lang": "New Counseling"
-	}},
-	{	"list-counseling":{
-				"fr-lang":  "Liste Counseling",
-				"eng-lang": "List Counseling"
-	}},
-	{	"counseling-motif":{
-				"fr-lang":  "Motif Counseling",
-				"eng-lang": "Motif Counseling"
-	}},
-	{	"new-counseling-motif":{
-				"fr-lang":  "Nouveau Motif",
-				"eng-lang": "New Motif"
-	}},
-	{	"list-counseling-motif":{
-				"fr-lang":  "Liste Motif",
-				"eng-lang": "List Motif"
-	}},
-	{	"lost-to-followup":{
-				"fr-lang":  "Perdus de vue",
-				"eng-lang": "Lost to Followup"
-	}},
-	{	"transfer-out":{
-				"fr-lang":  "Transfert Out",
-				"eng-lang": "Transfer Out"
-	}},
-	{	"syndromes":{
-				"fr-lang":  "Syndromes",
-				"eng-lang": "Syndromes"
-	}},
-	{	"new-syndrome":{
-				"fr-lang":  "Nouveau Syndrome",
-				"eng-lang": "New Syndrome"
-	}},
-	{	"list-syndromes":{
-				"fr-lang":  "Liste Syndromes",
-				"eng-lang": "List Syndromes"
-	}},
-	{	"new-case":{
-				"fr-lang":  "Nouveau Cas",
-				"eng-lang": "New Case"
-	}},
-	{	"list-cases":{
-				"fr-lang":  "Liste Cas",
-				"eng-lang": "List Cases"
-	}},
-	{	"treatments":{
-				"fr-lang":  "Traitements",
-				"eng-lang": "Treatments"
-	}},
-	{	"patients-treatment":{
-				"fr-lang":  "Patients Traitement",
-				"eng-lang": "Patients Treatment"
-	}},
-	{	"new-patients-treatment":{
-				"fr-lang":  "Nouveau Traitement",
-				"eng-lang": "New Treatment"
-	}},
-	{	"list-patients-treatment":{
-				"fr-lang":  "Liste Traitement",
-				"eng-lang": "List Treatment"
-	}},
-	{	"treatment-categories":{
-				"fr-lang":  "Traitement Categories",
-				"eng-lang": "Treatments Categories"
-	}},
-	{	"treatment-regimen":{
-				"fr-lang":  "Traitement Regimes",
-				"eng-lang": "Treatments Regimen"
-	}},
-	{	"hospitalization-cases":{
-				"fr-lang":  "Cas Hospitalisation",
-				"eng-lang": "Hospitalization Cases"
-	}},
-	{	"hospitalization-causes":{
-				"fr-lang":  "Liste Causes",
-				"eng-lang": "List Causes"
-	}},
-	{	"ambulatory-cases":{
-				"fr-lang":  "Cas Ambulatoire",
-				"eng-lang": "Ambulatory Cases"
-	}},
-	{	"ambulatory-exams":{
-				"fr-lang":  "Liste Examens",
-				"eng-lang": "List Exam"
-	}},
-
-	{	"name":{
-				"fr-lang":  "Nom",
-				"eng-lang": "Name"
-	}},
-	{	"names":{
-				"fr-lang":  "Noms",
-				"eng-lang": "Names"
-	}},
-	{	"firstname":{
-				"fr-lang":  "Prénom",
-				"eng-lang": "First Name"
-	}},
-	{	"lastname":{
-				"fr-lang":  "Nom de Famille",
-				"eng-lang": "Last Name"
-	}},
-	{	"surname":{
-				"fr-lang":  "Surnom",
-				"eng-lang": "Surname"
-	}},
-	{	"day":{
-				"fr-lang":  "Jour",
-				"eng-lang": "Day"
-	}},
-	{	"days":{
-				"fr-lang":  "Jours",
-				"eng-lang": "Days"
-	}},
-	{	"date":{
-				"fr-lang":  "Date",
-				"eng-lang": "Date"
-	}},
-	{	"birth":{
-				"fr-lang":  "Naissance",
-				"eng-lang": "Birth"
-	}},
-	{	"age":{
-				"fr-lang":  "Age",
-				"eng-lang": "Age"
-	}},
-	{	"study-level":{
-				"fr-lang":  "Niveau d'Etude",
-				"eng-lang": "Study Level"
-	}},
-	{	"profession":{
-				"fr-lang":  "Profession",
-				"eng-lang": "Profession"
-	}},
-	{	"parental-status":{
-				"fr-lang":  "Statut Parental",
-				"eng-lang": "Parental Status"
-	}},
-	{	"marital-status":{
-				"fr-lang":  "Etat Civil",
-				"eng-lang": "Marital Status"
-	}},
-	{	"partner-name":{
-				"fr-lang":  "Nom du Partenaire",
-				"eng-lang": "Partner's name"
-	}},
-	{	"number":{
-				"fr-lang":  "Nombre",
-				"eng-lang": "Number"
-	}},
-	{	"number-of-children":{
-				"fr-lang":  "Nombre d'Enfants",
-				"eng-lang": "Number of Children"
-	}},
-	{	"gender":{
-				"fr-lang":  "Genre",
-				"eng-lang": "Gender"
-	}},
-	{	"gender-male":{
-				"fr-lang":  "Masculin",
-				"eng-lang": "Male"
-	}},
-	{	"gender-female":{
-				"fr-lang":  "Feminin",
-				"eng-lang": "Female"
-	}},
-	{	"nationality":{
-				"fr-lang":  "Nationalite",
-				"eng-lang": "Nationality"
-	}},
-	{	"continent":{
-				"fr-lang":  "Continent",
-				"eng-lang": "Continent"
-	}},
-	{	"country":{
-				"fr-lang":  "Pays",
-				"eng-lang": "Country"
-	}},
-	{	"province":{
-				"fr-lang":  "Province",
-				"eng-lang": "Province"
-	}},
-	{	"city":{
-				"fr-lang":  "Ville",
-				"eng-lang": "City"
-	}},
-	{	"commune":{
-				"fr-lang":  "Commune",
-				"eng-lang": "Commune"
-	}},
-	{	"quarter":{
-				"fr-lang":  "Quartier",
-				"eng-lang": "Quarter"
-	}},
-	{	"avenue":{
-				"fr-lang":  "Avenue",
-				"eng-lang": "Avenue"
-	}},
-	{	"house-number":{
-				"fr-lang":  "Numero Maison",
-				"eng-lang": "House Number"
-	}},
-	{	"email":{
-				"fr-lang":  "E-mail",
-				"eng-lang": "Email"
-	}},
-	{	"telephone":{
-				"fr-lang":  "Telephone",
-				"eng-lang": "Telephone"
-	}},
-	{	"health-area":{
-				"fr-lang":  "Air de Sante",
-				"eng-lang": "Health Area"
-	}},
-	{	"stade-clinic":{
-				"fr-lang":  "Stade Clinic",
-				"eng-lang": "Stade Clinic"
-	}},
-	{	"address":{
-				"fr-lang":  "Adresse",
-				"eng-lang": "Address"
-	}},
-	{	"therapeutic-line":{
-				"fr-lang":  "Ligne Therapeutique",
-				"eng-lang": "Therapeutic Line"
-	}},
-	{	"cd4":{
-				"fr-lang":  "CD4",
-				"eng-lang": "CD4"
-	}},
-	{	"charge-viral":{
-				"fr-lang":  "Charge Viral",
-				"eng-lang": "Charge Viral"
-	}},
-	{	"start-d":{
-				"fr-lang":  "Debut",
-				"eng-lang": "Start"
-	}},
-	{	"type-of-document":{
-				"fr-lang":  "Type du Document",
-				"eng-lang": "Type of Document"
-	}},
-	{	"document":{
-				"fr-lang":  "Document",
-				"eng-lang": "Document"
-	}},
-	{	"id-number":{
-				"fr-lang":  "Numero ID",
-				"eng-lang": "ID Number"
-	}},
-	{	"information":{
-				"fr-lang":  "Information",
-				"eng-lang": "Information"
-	}},
-	{	"code":{
-				"fr-lang":  "Code",
-				"eng-lang": "Code"
-	}},
-	{	"motif":{
-				"fr-lang":  "Motif",
-				"eng-lang": "Motif"
-	}},
-	{	"motifs":{
-				"fr-lang":  "Motifs",
-				"eng-lang": "Motifs"
-	}},
-	{	"observation":{
-				"fr-lang":  "Observation",
-				"eng-lang": "Observation"
-	}},
-  {	"description":{
-				"fr-lang":  "Descrition",
-				"eng-lang": "Descrition"
-	}},
-	{	"status":{
-				"fr-lang":  "Statut",
-				"eng-lang": "Status"
-	}},
-	{	"action":{
-				"fr-lang":  "Action",
-				"eng-lang": "Action"
-	}},
-	{	"delete":{
-				"fr-lang":  "Supprimmer",
-				"eng-lang": "Delete"
-	}},
-	{	"deleted":{
-				"fr-lang":  "Supprimmé",
-				"eng-lang": "Deleted"
-	}},
-	{	"deleted-s":{
-				"fr-lang":  "Supprimmés",
-				"eng-lang": "Deleted"
-	}},
-	{	"edit":{
-				"fr-lang":  "Editer",
-				"eng-lang": "Edit"
-	}},
-	{	"open":{
-				"fr-lang":  "Ouvrir",
-				"eng-lang": "Open"
-	}},
-	{	"perform":{
-				"fr-lang":  "Effectuer",
-				"eng-lang": "Perform"
-	}},
-
-	{	"next":{
-				"fr-lang":  "Suivant",
-				"eng-lang": "Next"
-	}},
-	{	"previous":{
-				"fr-lang":  "Precedent",
-				"eng-lang": "Previous"
-	}},
-	{	"register":{
-				"fr-lang":  "Enregistrer",
-				"eng-lang": "Register"
-	}},
-	{	"registration":{
-				"fr-lang":  "Enregistrement",
-				"eng-lang": "Registration"
-	}},
-	{	"cancel":{
-				"fr-lang":  "Annuler",
-				"eng-lang": "Cancel"
-	}},
-	{	"add":{
-				"fr-lang":  "Ajouter",
-				"eng-lang": "Add"
-	}},
-	{	"reaction":{
-				"fr-lang":  "Reaction",
-				"eng-lang": "Reaction"
-	}},
-
-	{	"single":{
-				"fr-lang":  "Celelibateur",
-				"eng-lang": "Single"
-	}},
-	{	"married":{
-				"fr-lang":  "Marie(e)",
-				"eng-lang": "Married"
-	}},
-	{	"widower":{
-				"fr-lang":  "Veuf(ve)",
-				"eng-lang": "Widower"
-	}},
-	{	"divorced":{
-				"fr-lang":  "Divorcé(e)",
-				"eng-lang": "Divorced"
-	}},
-	{	"free":{
-				"fr-lang":  "Libre",
-				"eng-lang": "Free"
-	}},
-	{	"union":{
-				"fr-lang":  "Union",
-				"eng-lang": "Union"
-	}},
-
-  {	"doctor":{
-				"fr-lang":  "Docteur",
-				"eng-lang": "Doctor"
-	}},
-	{	"counselor":{
-				"fr-lang":  "Conseiller",
-				"eng-lang": "Counselor"
-	}},
-	{	"psychologist":{
-				"fr-lang":  "Psychologue",
-				"eng-lang": "Psychologist"
-	}},
-  {	"receptionist":{
-				"fr-lang":  "Réceptionniste",
-				"eng-lang": "Receptionist"
-	}},
-	{	"pharmacist":{
-				"fr-lang":  "Pharmacien",
-				"eng-lang": "Pharmacist"
-	}},
-	{	"psychologist":{
-				"fr-lang":  "Psychologue",
-				"eng-lang": "Psychologist"
-	}},
-
-	{	"activated":{
-				"fr-lang":  "Activé",
-				"eng-lang": "Activated"
-	}},
-	{	"deactivated":{
-				"fr-lang":  "Désactivé",
-				"eng-lang": "Deactivated"
-	}},
-	{	"service":{
-				"fr-lang":  "Service",
-				"eng-lang": "Service"
-	}},
-	{	"services":{
-				"fr-lang":  "Services",
-				"eng-lang": "Services"
-	}},
-	{	"user":{
-				"fr-lang":  "Utilisateur",
-				"eng-lang": "User"
-	}},
-	{	"users":{
-				"fr-lang":  "Utilisateurs",
-				"eng-lang": "Users"
-	}},
-	{	"user-type":{
-				"fr-lang":  "Type d'Utilisateur",
-				"eng-lang": "User Type"
-	}},
-	{	"type":{
-				"fr-lang":  "Type",
-				"eng-lang": "Type"
-	}},
-	{	"collaborator":{
-				"fr-lang":  "Collaborator",
-				"eng-lang": "Collaborator"
-	}},
-	{	"collaborators":{
-				"fr-lang":  "Collaborators",
-				"eng-lang": "Collaborators"
-	}},
-	{	"by":{
-				"fr-lang":  "Par",
-				"eng-lang": "By"
-	}},
-	{	"category":{
-				"fr-lang":  "Categorie",
-				"eng-lang": "Category"
-	}},
-	{	"categorys":{
-				"fr-lang":  "Categories",
-				"eng-lang": "Categories"
-	}},
-
-	{	"success-history":{
-				"fr-lang":  "Histoire Success",
-				"eng-lang": "Success History"
-	}},
-	{	"success-histories":{
-				"fr-lang":  "Histoires Success",
-				"eng-lang": "Success Histories"
-	}},
-
-
-	{	"footer-string":{
-				"fr-lang": "@Copyright 2020. CNS Software ~  Powered by CNS Company",
-				"eng-lang": "@Copyright 2020. CNS Software ~ Powered by CNS Company"
-	}}
-
-
-]}
+			{
+				"properties": [
+					{
+						"software-author": {
+							"author-name": "Ezechiel Kalengya Ezpk",
+							"author-email": "ezechielkalengya@gmail.com"
+						}
+					},
+					{
+						"software-lang": {
+							"lang": "eng-lang"
+						}
+					},
+					{
+						"software-name": {
+							"fr-lang": "CNS Software",
+							"eng-lang": "CNS Software",
+							"ar-lang": "CNS Software",
+							"pt-lang": "CNS Software"
+						}
+					},
+					{
+						"software-short-name": {
+							"fr-lang": "CNS",
+							"eng-lang": "CNS",
+							"ar-lang": "CNS",
+							"pt-lang": "CNS"
+						}
+					},
+					{
+						"content-event-title": {
+							"fr-lang": "Congrès des aires protégées de l'UICN en Afrique (APAC)",
+							"eng-lang": "IUCN Africa Protected Areas Congress (APAC)",
+							"ar-lang": "مؤتمر المناطق المحمية في إفريقيا IUCN (APAC)",
+							"pt-lang": "Congresso de Áreas Protegidas da IUCN África (APAC)"
+						}
+					},
+					{
+						"content-event-date": {
+							"fr-lang": "7 - 12 Mars 2022",
+							"eng-lang": "7 - 12 March 2022",
+							"ar-lang": "7-12 مارس 2022",
+							"pt-lang": "7 a 12 de março de 2022"
+						}
+					},
+					{
+						"dashboard": {
+							"fr-lang": "Accueil",
+							"eng-lang": "Dashboard",
+							"ar-lang": "لوحة القيادة",
+							"pt-lang": "Painel"
+						}
+					},
+					{
+						"home": {
+							"fr-lang": "Accueil",
+							"eng-lang": "Home",
+							"ar-lang": "الصفحة الرئيسية",
+							"pt-lang": "Casa"
+						}
+					},
+					{
+						"contact-us": {
+							"fr-lang": "Nous contacter",
+							"eng-lang": "Contact Us",
+							"ar-lang": "اتصل بنا",
+							"pt-lang": "Contato"
+						}
+					},
+					{
+						"login": {
+							"fr-lang": "Connexion",
+							"eng-lang": "Login",
+							"ar-lang": "تسجيل الدخول",
+							"pt-lang": "Conecte-se"
+						}
+					},
+					{
+						"logout": {
+							"fr-lang": "Déconnexion",
+							"eng-lang": "Logout",
+							"ar-lang": "تسجيل خروج",
+							"pt-lang": "Sair"
+						}
+					},
+					{
+						"content-inperson-attendance-registration": {
+							"fr-lang": "Inscription des présences en personne",
+							"eng-lang": "In-person attendance registration",
+							"ar-lang": "تسجيل الحضور الشخصي",
+							"pt-lang": "Registro de presença presencial"
+						}
+					},
+					{
+						"content-in-person-attendance-registration": {
+							"fr-lang": "Inscription des présences en personne",
+							"eng-lang": "In-person attendance registration",
+							"ar-lang": "تسجيل الحضور الشخصي",
+							"pt-lang": "Registro de presença presencial"
+						}
+					},
+					{
+						"content-virtual-attendance-registration": {
+							"fr-lang": "Inscription virtuelle",
+							"eng-lang": "Virtual attendance registration",
+							"ar-lang": "تسجيل الحضور الافتراضي",
+							"pt-lang": "Registro de atendimento virtual"
+						}
+					},
+					{
+						"content-africa-based-participants": {
+							"fr-lang": "Participants basés en Afrique",
+							"eng-lang": "Africa based participants",
+							"ar-lang": "المشاركون في أفريقيا",
+							"pt-lang": "Participantes baseados na África"
+						}
+					},
+					{
+						"content-non-africa-based-participants": {
+							"fr-lang": "Participants non basés en Afrique",
+							"eng-lang": "Non-Africa based participants",
+							"ar-lang": "المشاركون من خارج أفريقيا",
+							"pt-lang": "Participantes não residentes na África"
+						}
+					},
+					{
+						"content-students-/-youth-participants": {
+							"fr-lang": "Étudiants / Jeunes participants",
+							"eng-lang": "Students / Youth participants",
+							"ar-lang": "الطلاب / الشباب المشاركين",
+							"pt-lang": "Alunos / jovens participantes"
+						}
+					},
+					{
+						"content-students-youth-participants": {
+							"fr-lang": "Étudiants / Jeunes participants",
+							"eng-lang": "Students / Youth participants",
+							"ar-lang": "الطلاب / الشباب المشاركين",
+							"pt-lang": "Alunos / jovens participantes"
+						}
+					},
+					{
+						"content-early-bird": {
+							"fr-lang": "Lève tôt",
+							"eng-lang": "Early Bird",
+							"ar-lang": "سريع البديهة",
+							"pt-lang": "Madrugador"
+						}
+					},
+					{
+						"content-standard": {
+							"fr-lang": "Standard",
+							"eng-lang": "Standard",
+							"ar-lang": "اساسي",
+							"pt-lang": "Padrão"
+						}
+					},
+					{
+						"apply": {
+							"fr-lang": "Appliquer",
+							"eng-lang": "Apply",
+							"ar-lang": "تطبيق",
+							"pt-lang": "Aplicar"
+						}
+					},
+					{
+						"register": {
+							"fr-lang": "S'inscrire",
+							"eng-lang": "Register",
+							"ar-lang": "يسجل",
+							"pt-lang": "Registro"
+						}
+					},
+					{
+						"home": {
+							"fr-lang": "",
+							"eng-lang": "",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"home": {
+							"fr-lang": "",
+							"eng-lang": "",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"home": {
+							"fr-lang": "",
+							"eng-lang": "",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"home": {
+							"fr-lang": "",
+							"eng-lang": "",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"home": {
+							"fr-lang": "",
+							"eng-lang": "",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"home": {
+							"fr-lang": "",
+							"eng-lang": "",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"terms-conditions": {
+							"fr-lang": "Termes et Conditions",
+							"eng-lang": "Terms and Conditions",
+							"ar-lang": "البنود و الظروف",
+							"pt-lang": "termos e Condições"
+						}
+					},
+					{
+						"privancy-policy": {
+							"fr-lang": "Politique de confidentialité",
+							"eng-lang": "Privacy Policy",
+							"ar-lang": "سياسة خاصة",
+							"pt-lang": "Política de Privacidade"
+						}
+					},
+					{
+						"powered-by": {
+							"fr-lang": "Propulsépar",
+							"eng-lang": "Powered by",
+							"ar-lang": "مشغل بواسطة",
+							"pt-lang": "Distribuído por"
+						}
+					},
+					{
+						"footer-string": {
+							"fr-lang": "@Copyright 2020. CNS Software ~  Powered by CNS Company",
+							"eng-lang": "@Copyright 2020. CNS Software ~ Powered by CNS Company"
+						}
+					}
+				]
+			}

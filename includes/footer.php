@@ -26,11 +26,11 @@
 
                 <div class="col-sm-12">
                     <div class="footer-date">
-                        <h3><?=$event_name?></h3>
-                        <p><?=$event_date?></p>
+                        <h3><?=$_Dictionary->words('content-event-title')?></h3>
+                        <p><?=$_Dictionary->words('content-event-date')?></p>
                         <div class="border-top"></div>
                         <p><a href="mailto:info@thesummit.org">info@thesummit.org</a></p>
-                        <p><a href="<?php linkto('privacy'); ?>">Terms & Conditions</a> | <a href="<?php linkto('privacy'); ?>">Privacy Policy</a></p>
+                        <p><a href="<?php linkto('privacy'); ?>"><?=$_Dictionary->words('terms-conditions')?></a> | <a href="<?php linkto('privacy'); ?>"><?=$_Dictionary->words('privancy-policy')?></a></p>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
     <div class="row pt-3 mt-1 text-center">
         <div class="col-md-12">
             <div class="">
-              <p>Powered by <a href="#">TorusEvents</a></p>
+              <p><?=$_Dictionary->words('powered-by')?> <a href="#">TorusEvents</a></p>
             </div>
         </div>
     </div>
