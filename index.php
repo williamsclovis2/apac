@@ -56,11 +56,11 @@ if($_DATA_PARTICIPATION_CATEGORY_ ):
                           <h3> <?= $_Dictionary->content($_event_participation_category_->participation_type_name)?> </h3>
                           <h4>
                             <sup> <?= $currency_?> </sup> <?= $_event_participation_category_->participation_sub_type_price?>
-                           <span><?= $_Dictionary->content($_event_participation_category_->participation_sub_type_name)?> </span></h4>
-                          <ul>
-                           
-                          </ul>
-                          <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn"><?=$_Dictionary->words('Apply')?></a>
+                           <span><?= $_Dictionary->content($_event_participation_category_->participation_sub_type_name) ?> </span></h4>
+                           <div class="div-inst">
+                                <p class=><?= $_Dictionary->content('discount-inperson-'.$_event_participation_category_->participation_type_form_order)?></p>
+                           </div>
+                          <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn"> <?= $_Dictionary->words('Register')?></a>
                         </div>
                       </div>
 <?php
@@ -78,7 +78,7 @@ endif;
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section_title wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                        <h3 class="red-title">Virtual attendance registration </h3> 
+                    <h3 class="red-card"><?=$_Dictionary->content('Virtual attendance registration')?></h3>  
                     </div>
                     <div class="row">
 
@@ -94,11 +94,11 @@ if($_DATA_PARTICIPATION_CATEGORY_ ):
                           <h3><?= $_Dictionary->content($_event_participation_category_->participation_type_name)?></h3>
                           <h4>
                             <sup><?= $currency_?> </sup><?= $_event_participation_category_->participation_sub_type_price?>
-                            <span><?= $_Dictionary->content($_event_participation_category_->participation_sub_type_name)?></span></h4>
-                          <ul>
-                            <li><i class="bx bx-check"></i> Quam adipiscing vitae </li>
-                          </ul>
-                          <a href="registration/event/virtual/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn"><?= $_Dictionary->content('Apply')?></a>
+                            <span><?= $_Dictionary->content($_event_participation_category_->participation_sub_type_name) ?></span></h4>
+                            <div class="div-inst">
+                                <p class=><?= $_Dictionary->content('discount-virtual-'.$_event_participation_category_->participation_type_form_order)?></p>
+                            </div>
+                          <a href="registration/event/virtual/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn"><?= $_Dictionary->words('Register')?></a>
                         </div>
                       </div>
 <?php

@@ -7,7 +7,7 @@
                     <div class="slider_text slider_text_register">
                         <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?=$_EVENT_PARTICIPATION_TYPE_NAME_ ?> Registration Form </h3>
                         <span class="separator-line wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s"></span>
-                        <h5 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?= ucfirst($_EVENT_SUB_TYPE_NAME_) .' '. strlen($_EVENT_SUB_TYPE_NAME_)==0?'':'/ '?> <?= ucfirst($_EVENT_TYPE_NAME_) ?> Event </h5>
+                        <h5 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?= ucfirst($_EVENT_SUB_TYPE_NAME_) .' '. strlen($_EVENT_SUB_TYPE_NAME_)==0?'':'/ '?> <?= ucfirst($_EVENT_TYPE_NAME_) ?>  </h5>
                     </div>
                 </div>
             </div>
@@ -352,40 +352,6 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-sm-12">
-                            <div class="row">
-                                <label for="organisation-name" class="col-sm-3">Country of residence <span>*</span></label>
-                                <div class="col-sm-9 ">
-                                    <div class="row">
-                                        <div class="col-sm-6 field-validate">
-                                            <select id="residence_country"  onchange="validate(this)"  name="residence_country" class="form-control" data-rule="required" data-msg="Please select country"/>
-                                                <option></option>
-                                            </select>
-                                            <div class="validate" id="residence_country_error"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <div class="row">
-                            <label for="image" class="col-lg-3 control-label">
-                                Profile picture <span>*</span><br>
-                                <p style="color: red; font-size:14px;line-height:unset;">
-                                Image size: 160 × 160<br>The maximum image size will be 500kb.<br>
-                                Format: jpg or png file</p>
-                            </label>
-                            <div class="col-lg-9">
-                                <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
-                                <div class="kv-avatar center-block">                            
-                                    <input type="file" name="image" class="form-control" id="image" placeholder="speaker picture"  class="file-loading" style="width:auto;" data-rule="required" data-msg="Please select speaker picture"/>
-                                    <div class="validate"></div>
-                                </div>
-                            </div>
-                            <div>
-                        </div>
-                        
-                       
                     </div>
                 </span>
 <?php

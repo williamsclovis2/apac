@@ -1438,11 +1438,12 @@ class FutureEventController
 					foreach($_participation_sub_type_data_ As $sub_type_):
 						$_array_data_[] = array(
 							'participation_type_name' 			=> $_participation_type_->name,
-							'participation_type_payment_state'  =>  $_participation_type_->payment_state,
+							'participation_type_payment_state'  => $_participation_type_->payment_state,
 							'participation_sub_type_id' 		=> $sub_type_->id,
 							'participation_sub_type_name' 		=> $sub_type_->name, 
 							'participation_sub_type_price' 		=> $sub_type_->price,
 							'participation_sub_type_currency' 	=> $sub_type_->currency, 
+							'participation_type_form_order' 	=> $_participation_type_->form_order, 
 						);
 					endforeach;
 
@@ -1706,6 +1707,34 @@ class FutureEventController
 
 	public static function decodeQrString($QrString){
 		return Hash::decryptSecToken($QrString);
+	}
+
+	public static function participationTypeDiscountDescription($type_, $sub_type_){
+		$description = "";
+		$_id_ 		 = 1;
+		if($type_ == 'Africa based participants'):
+			$_id_        = 1;
+			$description = "Early bird discounted rate
+			Valid till 31st December 2021 <br>
+			$450 from 1st January 2021 - 5th March 2022";
+
+		elseif($type_ == 'Non-Africa based participants'):
+			$_id_        = 2;
+			$description = "Early bird discounted rate
+			Valid till 31st December 2021
+			$600 from 1st January 2021 - 5th March 2022";
+
+		elseif($type_ == 'Students / Youth participants'):
+			$_id_        = 3;
+			$description = "Early bird discounted rate
+			Valid till 31st December 2021 <br>
+			$200 from 1st January 2021 - 5th March 2022";
+
+		elseif($type_ == 'Media'):
+			$_id_        = 4;
+			$description = "Local & international meda are invited to attend the congress. <br>
+			Apply for media accreditation here.";
+		endif;
 	}
 
 }

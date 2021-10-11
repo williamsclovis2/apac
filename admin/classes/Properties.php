@@ -55,7 +55,8 @@ class Properties
 	 * @param string name of the string key setted in properties.json
 	 */
 	public function words($map_word){
-		$array    = explode(' ', $map_word);
+		$array    = $this->regroupRecognizedWords($map_word);
+		$array    = explode(' ', $array);
 		$results  = array();
 		if(!empty($array)):
 			foreach($array as $key => $value):
@@ -63,6 +64,20 @@ class Properties
 			endforeach;
 		endif;
 		return implode(' ', $results);
+	}
+
+	public function regroupRecognizedWords($map_word){
+		$array_rec = array(
+			'Early bird' => 'early-bird',
+			'Early Bird' => 'early-bird',
+			'discounted rate' => 'discounted-rate'
+			
+		);
+		foreach($array_rec As $recognized_key => $recognized_value)
+			if(strpos($map_word, $recognized_key) !== false)
+				$map_word = str_replace($recognized_key, $recognized_value, ($map_word));
+		
+		return $map_word;
 	}
 	
 	/**

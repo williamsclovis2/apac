@@ -321,7 +321,58 @@
                                 </div>
                             </div>
                         </div>
+                        <h4>CREATE PASSWORD</h4>
+                    <hr class="separator-line">
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="firstname" class="col-sm-3">Password <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <input class="form-control" name="password" id="password" type="password" placeholder="Enter password" data-rule="minlen:6" data-msg="Minimum 6 characters"/>
+                                    <div class="validate" id="password_error"></div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="lastname" class="col-sm-3">Confirm Password <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                  <input class="form-control" name="confirm_password" id="confirm_password" type="password" placeholder="Confirm password" data-rule="matches" data-msg="Password doesn't match"/>
+                                    <div class="validate" id="confirm_password_error"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4>ACCOMMODATION</h4>
+                    <hr class="separator-line">
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="lastname" class="col-sm-3" style="margin:0 !important">You need an accommodation ? <span>*</span></label>
+                                <div class="col-sm-9">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="yes" id="yes" value="Yes" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="no" id="no" value="No">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            No
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="notsure" id="notsure" value="Not sure">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Not sure yet
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                         <div class="row">
                             <div class="form-group col-sm-12">
                                 <div>

@@ -73,14 +73,18 @@ $_DCOLOR_ = '#dedede!important';
     }
 
     .slider_area .single_slider .slider_text_register h5, .slider_area .single_slider .slider_text_register_btn h5 {
-    font-size: 18px;
+    font-size: 22px;
     margin-bottom: 10px;
     color: <?=$_DCOLOR_?>;
-    font-weight: 600;
+    font-weight: 100;
+    margin:10px 0;
+}
+.form-check-label{
+    margin: 0 !important;
 }
 </style>
 <body>
-    <?php include 'includes/nav-nav-session.php'; ?>
+    <?php include 'includes/nav-session.php'; ?>
     <?php
         $getContent = DB::getInstance()->get('future_event', array('id', '=', $activeEventId));
         $banner     = $getContent->first()->banner;
