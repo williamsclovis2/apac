@@ -32,6 +32,7 @@ class FutureEventController
 			/** Get Participation Type And Sub Type Event Details */
 			$_participation_sub_type_data_ = self::getPacipationSubCategoryByID($eventParticipationSubTypeID);
 			$eventParticipationTypeID	   = $_participation_sub_type_data_->id;
+			$_PARTICIPATION_PAYMENT_TYPE_  = $_participation_sub_type_data_->sub_type_payment_state;
 
 			/** Event */
 			$eventID = $str->data_in(Hash::decryptToken($_EDIT['eventId']));
@@ -83,6 +84,10 @@ class FutureEventController
 			$job_title         = $str->data_in($_EDIT['job_title']);
 			$job_category 	   = $str->data_in($_EDIT['job_category']);
 			$language	 	   =!Input::checkInput('language', 'post', 1)?'': $str->data_in($_EDIT['language']);
+
+			/** Participant Password */
+			$password 			= $str->data_in($_EDIT['password']);
+			$confirm_password 	= $str->data_in($_EDIT['confirm_password']);
 
 			/** Attending Objective Information */
 			$firt_objective 		 = !Input::checkInput('firt_objective', 'post', 1)?'':$str->data_in($_EDIT['firt_objective']);
@@ -155,8 +160,28 @@ class FutureEventController
 				];
 			endif;
 
+			/** Check If Password Match */
+			if(strlen($password) < 6 || strlen($confirm_password) < 6):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "Password must have at least 6 characters",
+					'ERRORS_STRING' => "Password must have at least 6 characters"
+				];
+			endif;
+
+			if($password != $confirm_password):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "password don't match",
+					'ERRORS_STRING' => "password don't match"
+				];
+			endif;
+
+			/** Need Accommodation */
+			$needAccommodation = !Input::checkInput('needAccommodation', 'post', 1)?0:$str->data_in($_EDIT['needAccommodation']);
+
+
 			/** Check Age - [ 10 - ] */
-		
 			if($diagnoArray[0] == 'NO_ERRORS'){
 
 				/** Auto Generate QR For Participant */
@@ -172,7 +197,7 @@ class FutureEventController
 					'firstname'            => $firstname,
 					'lastname'             => $lastname,
 					'email'                => $email,
-					'password'             => "",
+					'password'             => md5($password),
 					'salt'             	   => "",
 
 					'telephone'            => $telephone,
@@ -223,10 +248,12 @@ class FutureEventController
 					'attending_objective_3'   => $third_objective,
 					'info_source'   		  => $info_source,
 					
-					'profile'  => $profile,
+					'profile'   => $profile,
 
 					'qrID'   	=> $Qr_->ID,
 					'qrCode'    => $Qr_->STRING,
+
+					'need_accommodation_state' => $needAccommodation
 				);
 
             
@@ -271,6 +298,7 @@ class FutureEventController
 				'SUCCESS'	    => true,
 				'ERRORS_SCRIPT' => "",
 				'AUTHTOKEN'     => $_AUTH_TOKEN,
+				'PARTICIPATIONPAYMENTTYPE'=> $_PARTICIPATION_PAYMENT_TYPE_,
 				'ERRORS_STRING' => ""
 			];
 		}
@@ -1472,7 +1500,7 @@ class FutureEventController
 
     public static function getPacipationSubCategoryByID($ID){
         $FutureEventTable = new FutureEvent();
-        $FutureEventTable->selectQuery("SELECT future_participation_type.*, future_participation_sub_type.name As sub_type_name, future_participation_sub_type.price as sub_type_price, future_participation_sub_type.currency As sub_type_currency  FROM `future_participation_type`  INNER JOIN future_participation_sub_type ON future_participation_type.id = future_participation_sub_type.participation_type_id WHERE future_participation_sub_type.id = {$ID} ");
+        $FutureEventTable->selectQuery("SELECT future_participation_type.*, future_participation_sub_type.name As sub_type_name, future_participation_sub_type.price as sub_type_price, future_participation_sub_type.currency As sub_type_currency, future_participation_sub_type.payment_state AS sub_type_payment_state  FROM `future_participation_type`  INNER JOIN future_participation_sub_type ON future_participation_type.id = future_participation_sub_type.participation_type_id WHERE future_participation_sub_type.id = {$ID} ");
         if($FutureEventTable->count())
           return  $FutureEventTable->first();
         return  false;

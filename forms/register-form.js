@@ -424,6 +424,23 @@ $('.registerFormSubmit').on('click', function () {
 
 	resgistrationFormValidation(eventCode_, eventParticiaptionCode_);
 
+	if ($('#password').val().length === 0) {
+		ferror = ierror = true;
+		$('#password_error').text($('#password').attr('data-msg'));
+	}
+	if ($('#password').val().length < 6) {
+		ferror = ierror = true;
+		$('#password_error').text($('#password').attr('data-msg'));
+	}
+	if ($('#confirm_password').val().length === 0) {
+		ferror = ierror = true;
+		$('#confirm_password_error').text($('#confirm_password').attr('data-msg'));
+	}
+	if ($('#password').val() != $('#confirm_password').val()) {
+		ferror = ierror = true;
+		$('#confirm_password_error').text($('#confirm_password').attr('data-msg'));
+	}
+
 	var str = "";
 	if (ferror) {
 		location.href = "#" + "registerForm";
@@ -440,69 +457,68 @@ $('.registerFormSubmit').on('click', function () {
 
 
 
+	// $.ajax({
+	// 	type: "POST",
+	// 	url: action,
+	// 	data: { request: "captchaSession" },
+	// 	cache: false,
+	// 	success: function (responseData) {
+	// 		var responseCaptcha = JSON.parse(responseData);
+
+	// 		if (responseCaptcha.messages == inputCaptcha) {
+
+	var form = $('#registerForm')[0];
+	var formData = new FormData(form);
+	// event.preventDefault();
+
 	$.ajax({
 		type: "POST",
 		url: action,
-		data: { request: "captchaSession" },
+		data: formData,
 		cache: false,
-		success: function (responseData) {
-			var responseCaptcha = JSON.parse(responseData);
+		processData: false,
+		contentType: false,
+		success: function (dataResponse) {
 
-			if (responseCaptcha.messages == inputCaptcha) {
+			var response = JSON.parse(dataResponse);
 
-				var form = $('#registerForm')[0];
-				var formData = new FormData(form);
-				// event.preventDefault();
-
-				$.ajax({
-					type: "POST",
-					url: action,
-					data: formData,
-					cache: false,
-					processData: false,
-					contentType: false,
-					success: function (dataResponse) {
-
-						var response = JSON.parse(dataResponse);
-
-						if (response.status == 100) {
-							$("#register_area").css("display", "none");
-							$("#account_area").css("display", "block");
-							// $("#register_area").addClass("hidden", "hidden");
-							// $("#account_area").show();
-							// $('#register-messages').val(response.message);
-							$("#accountForm #accountButton").attr("authtoken", response.authToken);
-							$("#accountForm #authtoken").val(response.authToken);
-
-						}
-						else if (response.status == 201) {
-							$('#registerButton').prop('disabled', false);
-							$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
-							$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
-							this_form.find('.error-message').slideDown().html(response.message);
-							$(".error-message").delay(500).show(10, function () {
-
-							});
-						}
-						else {
-							$('#registerButton').prop('disabled', false);
-							$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
-							$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
-							this_form.find('.error-message').slideDown().html(response.message);
-							$(".error-message").delay(500).show(10, function () {
-
-							});
-						}
-					}
-				});
-			} else {
-
+			if (response.status == 100) {
+				window.location.href = $('.host').attr('link') + "/payment/" + response.authToken;
+			}
+			else if (response.status == 101) {
+				window.location.href = $('.host').attr('link') + "/notification";
+			}
+			else if (response.status == 200) {
+				window.location.href = $('.host').attr('link') + "/notification";
+			}
+			else if (response.status == 201) {
 				$('#registerButton').prop('disabled', false);
-				$('#securityCode_error').text("Invalid security code");
+				$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
+				$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
+				this_form.find('.error-message').slideDown().html(response.message);
+				$(".error-message").delay(500).show(10, function () {
+
+				});
+			}
+			else {
+				$('#registerButton').prop('disabled', false);
+				$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
+				$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
+				this_form.find('.error-message').slideDown().html(response.message);
+				$(".error-message").delay(500).show(10, function () {
+
+				});
 			}
 		}
 	});
-	return false;
+	// 		} else {
+
+	// 			$('#registerButton').prop('disabled', false);
+	// 			$('#securityCode_error').text("Invalid security code");
+	// 		}
+	// 	}
+	// });
+	// return false;
 
 });
 
@@ -621,131 +637,148 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 
 	/** Validation General - INPERSON - VIRTUAL - */
 
-	if ($('#firstname').val().length === 0) {
-		ferror = ierror = true;
-		$('#firstname_error').text("Please enter first name");
-	}
-	if ($('#lastname').val().length === 0) {
-		ferror = ierror = true;
-		$('#lastname_error').text("Please enter last name");
-	}
-	if ($('#email').val().length === 0 || !validateEmail($('#email').val())) {
-		ferror = ierror = true;
-		$('#email_error').text("Please enter valid email");
-	}
-	if ($('#confirm_email').val().length === 0 || !validateEmail($('#confirm_email').val())) {
-		ferror = ierror = true;
-		$('#confirm_email_error').text("Please  confirm email");
-	}
-	if ($('#confirm_email').val() != $('#email').val()) {
-		ferror = ierror = true;
-		$('#confirm_email_error').text("Email does not match");
-	}
-	if ($('#telephone').val().length === 0) {
-		ferror = ierror = true;
-		$('#telephone_error').text("Please enter telephone");
-	}
-	if ($('#job_title').val().length === 0) {
-		ferror = ierror = true;
-		$('#job_title_error').text("Please enter job title");
-	}
-	if ($('#job_category').val().length === 0) {
-		ferror = ierror = true;
-		$('#jobcategory_error').text("Please select job category");
-	}
-	if ($('#language').val().length === 0) {
-		ferror = ierror = true;
-		$('#language_error').text("Please select  language");
-	}
-	if ($('#gender').val().length === 0) {
-		ferror = ierror = true;
-		$('#gender_error').text("Please select  your gender");
-	}
+	// if ($('#firstname').val().length === 0) {
+	// 	ferror = ierror = true;
+	// 	$('#firstname_error').text($('#firstname').attr('data-msg'));
+	// }
+	// if ($('#lastname').val().length === 0) {
+	// 	ferror = ierror = true;
+	// 	$('#lastname_error').text($('#lastname').attr('data-msg'));
+	// }
+	// if ($('#email').val().length === 0 || !validateEmail($('#email').val())) {
+	// 	ferror = ierror = true;
+	// 	$('#email_error').text("Please enter valid email");
+	// }
+	// if ($('#confirm_email').val().length === 0 || !validateEmail($('#confirm_email').val())) {
+	// 	ferror = ierror = true;
+	// 	$('#confirm_email_error').text("Please  confirm email");
+	// }
+	// if ($('#confirm_email').val() != $('#email').val()) {
+	// 	ferror = ierror = true;
+	// 	$('#confirm_email_error').text("Email does not match");
+	// }
+	// if ($('#telephone').val().length === 0) {
+	// 	ferror = ierror = true;
+	// 	$('#telephone_error').text("Please enter telephone");
+	// }
+	// if ($('#job_title').val().length === 0) {
+	// 	ferror = ierror = true;
+	// 	$('#job_title_error').text("Please enter job title");
+	// }
+	// if ($('#job_category').val().length === 0) {
+	// 	ferror = ierror = true;
+	// 	$('#jobcategory_error').text("Please select job category");
+	// }
+	// if ($('#language').val().length === 0) {
+	// 	ferror = ierror = true;
+	// 	$('#language_error').text("Please select  language");
+	// }
+	// if ($('#gender').val().length === 0) {
+	// 	ferror = ierror = true;
+	// 	$('#gender_error').text("Please select  your gender");
+	// }
 
-	if ($('#firt_objective').val().length === 0) {
-		ferror = ierror = true;
-		$('#firt_objective_error').text("Please type your first objective");
-	}
-	if ($('#second_objective').val().length === 0) {
-		ferror = ierror = true;
-		$('#second_objective_error').text("Please type your second objective");
-	}
-	if ($('#third_objective').val().length === 0) {
-		ferror = ierror = true;
-		$('#third_objective_error').text("Please type your third objective");
-	}
+	// if ($('#firt_objective').val().length === 0) {
+	// 	ferror = ierror = true;
+	// 	$('#firt_objective_error').text("Please type your first objective");
+	// }
+	// if ($('#second_objective').val().length === 0) {
+	// 	ferror = ierror = true;
+	// 	$('#second_objective_error').text("Please type your second objective");
+	// }
+	// if ($('#third_objective').val().length === 0) {
+	// 	ferror = ierror = true;
+	// 	$('#third_objective_error').text("Please type your third objective");
+	// }
 
-	if ($('#info_source').val().length === 0) {
-		ferror = ierror = true;
-		$('#info_source_error').text("Please select  source ");
-	}
+	// if ($('#info_source').val().length === 0) {
+	// 	ferror = ierror = true;
+	// 	$('#info_source_error').text("Please select  source ");
+	// }
 
-	if ($('#securityCode').val().length === 0) {
+	// if ($('#securityCode').val().length === 0) {
+	// 	ferror = ierror = true;
+	// 	$('#securityCode_error').text("Please enter captcha characters ");
+	// }
+
+	if ($('#password').val().length === 0) {
 		ferror = ierror = true;
-		$('#securityCode_error').text("Please enter captcha characters ");
+		$('#password_error').text($('#password').attr('data-msg'));
+	}
+	if ($('#password').val().length < 6) {
+		ferror = ierror = true;
+		$('#password_error').text($('#password').attr('data-msg'));
+	}
+	if ($('#confirm_password').val().length === 0) {
+		ferror = ierror = true;
+		$('#confirm_password_error').text($('#confirm_password').attr('data-msg'));
+	}
+	if ($('#password').val() != $('#confirm_password').val()) {
+		ferror = ierror = true;
+		$('#confirm_password_error').text($('#confirm_password').attr('data-msg'));
 	}
 
 
 	/** Validation For - All - Except Students And Youth Section -  */
 	if (eventParticiaptionCode != 'STYR003') {
-		if ($('#organisation_name').val().length === 0) {
-			ferror = ierror = true;
-			$('#organisationname_error').text("Please enter  the organization name");
-		}
-		if ($('#organisation_type').val().length === 0) {
-			ferror = ierror = true;
-			$('#organisationtype_error').text("Please select  the organization type");
-		}
+		// if ($('#organisation_name').val().length === 0) {
+		// 	ferror = ierror = true;
+		// 	$('#organisationname_error').text("Please enter  the organization name");
+		// }
+		// if ($('#organisation_type').val().length === 0) {
+		// 	ferror = ierror = true;
+		// 	$('#organisationtype_error').text("Please select  the organization type");
+		// }
 
-		if ($('#organisation_city').val().length === 0) {
-			ferror = ierror = true;
-			$('#city_error').text("Please enter city");
-		}
+		// if ($('#organisation_city').val().length === 0) {
+		// 	ferror = ierror = true;
+		// 	$('#city_error').text("Please enter city");
+		// }
 	}
 
 	/** Validation For African Based - Organization Section -  */
 	if (eventParticiaptionCode == 'AFBR004') {
-		if ($('#african_country').val().length === 0) {
-			ferror = ierror = true;
-			$('#organisation_country_error').text("Please select country");
-		}
+		// if ($('#african_country').val().length === 0) {
+		// 	ferror = ierror = true;
+		// 	$('#organisation_country_error').text("Please select country");
+		// }
 	}
 
 	/** Validation For Non African Based - Organization Section -  */
 	if (eventParticiaptionCode == 'AFBR004') {
-		if ($('#non_african_country').val().length === 0) {
-			ferror = ierror = true;
-			$('#organisation_country_error').text("Please select country");
-		}
+		// if ($('#non_african_country').val().length === 0) {
+		// 	ferror = ierror = true;
+		// 	$('#organisation_country_error').text("Please select country");
+		// }
 	}
 
 
 	/** Validation For In-person  - Identification Section - */
 	if (eventCode == 'INP001') {
-		if ($('#id_type').val().length === 0) {
-			ferror = ierror = true;
-			$('#id_type_error').text("Please select  type of ID ");
-		}
-		if ($('#id_number').val().length === 0) {
-			ferror = ierror = true;
-			$('#id_number_error').text("Please enter  ID number ");
-		}
-		if ($('#residence_country').val().length === 0) {
-			ferror = ierror = true;
-			$('#residence_country_error').text("Please select country");
-		}
-		// if ($('#citizenship').val().length === 0) {
+		// if ($('#id_type').val().length === 0) {
 		// 	ferror = ierror = true;
-		// 	$('#citizenship_error').text("Please select country");
+		// 	$('#id_type_error').text("Please select  type of ID ");
+		// }
+		// if ($('#id_number').val().length === 0) {
+		// 	ferror = ierror = true;
+		// 	$('#id_number_error').text("Please enter  ID number ");
+		// }
+		// if ($('#residence_country').val().length === 0) {
+		// 	ferror = ierror = true;
+		// 	$('#residence_country_error').text("Please select country");
 		// }
 		// if ($('#citizenship').val().length === 0) {
 		// 	ferror = ierror = true;
 		// 	$('#citizenship_error').text("Please select country");
 		// }
-		if ($('#image').val().length === 0) {
-			ferror = ierror = true;
-			$('#image_error').text("Please upload your profile picture");
-		}
+		// if ($('#citizenship').val().length === 0) {
+		// 	ferror = ierror = true;
+		// 	$('#citizenship_error').text("Please select country");
+		// }
+		// if ($('#image').val().length === 0) {
+		// 	ferror = ierror = true;
+		// 	$('#image_error').text("Please upload your profile picture");
+		// }
 
 		/** Validation For Media In-person - Media Tools Section - */
 		if (eventParticiaptionCode == 'MDR004') {

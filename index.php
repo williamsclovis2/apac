@@ -56,9 +56,9 @@ if($_DATA_PARTICIPATION_CATEGORY_ ):
                           <h3> <?= $_Dictionary->content($_event_participation_category_->participation_type_name)?> </h3>
                           <h4>
                             <sup> <?= $currency_?> </sup> <?= $_event_participation_category_->participation_sub_type_price?>
-                           <span><?= $_Dictionary->content($_event_participation_category_->participation_sub_type_name) ?> </span></h4>
+                           <span><?= $_event_participation_category_->participation_sub_type_name == ''?'':$_Dictionary->content($_event_participation_category_->participation_sub_type_name) ?> </span></h4>
                            <div class="div-inst">
-                                <p class=><?= $_Dictionary->content('discount-inperson-'.$_event_participation_category_->participation_type_form_order)?></p>
+                                <p class=><?= $_event_participation_category_->participation_type_form_order == ''?'111':$_Dictionary->content('discount-inperson-'.$_event_participation_category_->participation_type_form_order)?></p>
                            </div>
                           <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn"> <?= $_Dictionary->words('Register')?></a>
                         </div>
@@ -78,7 +78,7 @@ endif;
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section_title wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                    <h3 class="red-card"><?=$_Dictionary->content('Virtual attendance registration')?></h3>  
+                    <h3 class="red-card" style="color: #a42f1d !important;"><?=$_Dictionary->content('Virtual attendance registration')?></h3>  
                     </div>
                     <div class="row">
 

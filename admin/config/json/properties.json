@@ -420,7 +420,7 @@
 						}
 					},
 					{
-						"language ": {
+						"language": {
 							"fr-lang": "Langue",
 							"eng-lang": "Language",
 							"ar-lang": "لغة",
@@ -615,8 +615,16 @@
 						"enter": {
 							"fr-lang": "Entrer",
 							"eng-lang": "Enter",
-							"ar-lang": "",
-							"pt-lang": ""
+							"ar-lang": "يدخل",
+							"pt-lang": "Digitar"
+						}
+					},
+					{
+						"enter-your": {
+							"fr-lang": "Entrer votre",
+							"eng-lang": "Enter your",
+							"ar-lang": "ادخل",
+							"pt-lang": "Insira o seu"
 						}
 					},
 					{
@@ -684,7 +692,7 @@
 						}
 					},
 					{
-						"category ": {
+						"category": {
 							"fr-lang": "Categorie",
 							"eng-lang": "Category",
 							"ar-lang": "فئة",
@@ -748,19 +756,115 @@
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
-							"ar-lang": "",
-							"pt-lang": ""
+						"content-media": {
+							"fr-lang": "Médias",
+							"eng-lang": "Media",
+							"ar-lang": "وسائط",
+							"pt-lang": "meios de comunicação"
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
-							"ar-lang": "",
-							"pt-lang": ""
+						"content-local-cbos": {
+							"fr-lang": "OCB locaux",
+							"eng-lang": "Local CBOs",
+							"ar-lang": "منظمات المجتمع المحلي المحلية",
+							"pt-lang": "CBOs locais"
+						}
+					},
+					{
+						"media-category": {
+							"fr-lang": "Catégorie média",
+							"eng-lang": "Media category",
+							"ar-lang": "فئة الوسائط",
+							"pt-lang": "Categoria de mídia"
+						}
+					},
+					{
+						"press-card-number": {
+							"fr-lang": "Numéro de carte de presse",
+							"eng-lang": "Press card number",
+							"ar-lang": "اضغط على رقم البطاقة",
+							"pt-lang": "Pressione o número do cartão"
+						}
+					},
+					{
+						"issuing-authority": {
+							"fr-lang": "Autorité de délivrance",
+							"eng-lang": "Issuing authority",
+							"ar-lang": "سلطة الإصدار",
+							"pt-lang": "Autoridade emissora"
+						}
+					},
+					{
+						"equipment": {
+							"fr-lang": "équipement",
+							"eng-lang": "equipment",
+							"ar-lang": "معدات",
+							"pt-lang": "equipamento"
+						}
+					},
+					{
+						"tools": {
+							"fr-lang": "OUTILS",
+							"eng-lang": "TOOLS",
+							"ar-lang": "أدوات",
+							"pt-lang": "FERRAMENTAS"
+						}
+					},
+					{
+						"list-of-equipment-to-be-brought": {
+							"fr-lang": "Liste du matériel à apporter",
+							"eng-lang": "List of equipment to be brought",
+							"ar-lang": "قائمة المعدات التي سيتم إحضارها",
+							"pt-lang": "Lista de equipamentos a serem trazidos"
+						}
+					},
+					{
+						"eg:-camera,-microphone": {
+							"fr-lang": "Par exemple : appareil photo, microphone",
+							"eng-lang": "Eg: Camera, Microphone",
+							"ar-lang": "على سبيل المثال: الكاميرا والميكروفون",
+							"pt-lang": "Por exemplo: câmera, microfone"
+						}
+					},
+					{
+						"eg.-sessions-cover,": {
+							"fr-lang": "par exemple. Couverture des séances,",
+							"eng-lang": "eg. Sessions cover,",
+							"ar-lang": "على سبيل المثال تغطية الجلسات ،",
+							"pt-lang": "por exemplo. Capa das sessões,"
+						}
+					},
+					{
+						"successful-registration": {
+							"fr-lang": "Inscription Réussie",
+							"eng-lang": "Successful Registration",
+							"ar-lang": "تسجيل ناجح",
+							"pt-lang": "registro bem sucedido"
+						}
+					},
+					{
+						"content-notification-success": {
+							"fr-lang": "Merci pour votre inscription. Nous reviendrons sous peu.<br> En attendant, veuillez prendre une minute pour nous suivre<br> sur nos comptes de réseaux sociaux :",
+							"eng-lang": "Thank you for your registration. We will revert shortly.<br> In the meantime, please take a minute to follow us<br> on our social media accounts:",
+							"ar-lang": "نشكرك على التسجيل. سنعود بعد قليل. <br> في غضون ذلك ، يرجى تخصيص دقيقة لمتابعتنا <br> على حسابات وسائل التواصل الاجتماعي الخاصة بنا:",
+							"pt-lang": "Obrigado por sua inscrição. Nós voltaremos em breve. <br> Enquanto isso, reserve um minuto para nos seguir <br> em nossas contas de mídia social:"
+						}
+					},
+					{
+						"content-title-partner-sponsors": {
+							"fr-lang": "Partenaires / Commanditaires",
+							"eng-lang": "Partners / Sponsors",
+							"ar-lang": "الشركاء / الرعاة",
+							"pt-lang": "Partnerzy / Sponsorzy"
+						}
+					},
+					{
+						"no-partners-yet": {
+							"fr-lang": "Pas encore de partenaires",
+							"eng-lang": "No partners yet",
+							"ar-lang": "لا يوجد شركاء حتى الآن",
+							"pt-lang": "Ainda sem parceiros"
 						}
 					},
 					{
