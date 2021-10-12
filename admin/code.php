@@ -1,24 +1,17 @@
 <?php
 require_once "core/init.php"; 
 
-// echo $_Dictionary->string('consumed-e'); 
+function regroupRecognizedWords($map_word){
+	$array_rec = array(
+		'Early bird' => 'early-bird',
+		
+	);
+	foreach($array_rec As $recognized_key => $recognized_value)
+		if(strpos($map_word, $recognized_key) !== false)
+			$map_word = str_replace($recognized_key, $recognized_value, ($map_word));
+	
+	return $map_word;
+}
 
-echo "FTS"."021"."2"."00"."4".date('s');
-
-$_ID_ = "FTS".data('y');
-
-echo
-
-require_once 'config/phpqrcode/qrlib.php';
-
-                            $text = "ABCDEFGHIJ";
-                            $enco = "https://www.youtube.com/watch?v=dzgEjZyN9ec";
-							$folder='includes/';
-							$file_name=$text.".png";
-							$file_name=$folder.$file_name;
-							QRcode::png($enco, $file_name);
-
-?>
-                           <img style=" margin-top: -15px;width: 300px" src='<?=$file_name?>'>
-
-
+echo regroupRecognizedWords('Early bird discounted rate Valid till 31st December 2021.
+$450 from 1st January 2021 - 5th March 2022.');

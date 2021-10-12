@@ -85,8 +85,9 @@ endif;
 }
 </style>
 <body>
-    <?php include'includes/nav.php'; ?>
-    <?php 
+<?php 
+        include 'includes/nav-session.php';
+    
         switch ($_EVENT_PARTICIPATION_TYPE_FORM_ID_ ) {
             case '1':
                 $_EvPCode_ = 'AFBR001';

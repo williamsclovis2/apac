@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section_title">
-                    <h3>Partners / Sponsors</h3> 
+                    <h3><?=$_Dictionary->translate('content-title-partner-sponsors')?></h3> 
                 </div>
 
                 <div id="partners" class="owl-carousel owl-theme">
@@ -11,7 +11,7 @@
                         $controller->get('future_homepage_partners', '*', NULL, "`event_id` = '$activeEventId'", 'p_order ASC');
                         $i = 1;
                         if (!$controller->count()) {
-                            Danger("No partners yet");
+                            Danger($_Dictionary->translate("No partners yet"));
                         } else {
                             foreach($controller->data() as $resPartner) {
                                 $i++;

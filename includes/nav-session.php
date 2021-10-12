@@ -1,4 +1,9 @@
 <header>
+<style>
+.dropdown-item{
+    cursor: pointer;
+}
+</style>
         <div class="header-area header-area-session">
             <div id="sticky-header" class="main-header-area">
                 <div class="container">
@@ -25,9 +30,9 @@
                                             <li><a href="<?php linkto('index'); ?>">our partners</a></li>
                                             <li><a href="<?php linkto('index'); ?>">Sponsorship</a></li>
                                             <?php if(isset($_SESSION['username'])) {?>
-                                            <li><a href="<?php linkto('logout'); ?>">Logout</a></li>
+                                            <li><a href="<?php linkto('logout'); ?>"><?=$_Dictionary->words('Logout')?></a></li>
                                             <?php } else { ?>
-                                            <li><a href="<?php linkto('login'); ?>">Login</a></li>
+                                            <li><a href="<?php linkto('login'); ?>"><?=$_Dictionary->words('Login')?></a></li>
                                             <?php } ?>
                                             <li class="dropdown drop-language">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

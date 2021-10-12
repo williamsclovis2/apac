@@ -24,8 +24,8 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-12">
                         <div class="slider_text slider_text_register">
-                            <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s"><?=$event_name?></h3>                            <span class="separator-line wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s"></span>
-                            <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s"><?=$event_date?></p>
+                            <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s"><?=$_Dictionary->words('content-event-title')?></h3>                            <span class="separator-line wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s"></span>
+                            <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s"><?=$_Dictionary->words('content-event-date')?></p>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                 <div class="col-lg-12">
                 
                     <div class="section_title wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                        <h3>Please select the appropriate category to attend in person </h3> 
+                        <h3><?=$_Dictionary->content('In-person attendance registration')?></h3> 
 
                     </div>
                     
@@ -53,15 +53,14 @@ if($_DATA_PARTICIPATION_CATEGORY_ ):
   ?>
                       <div class="col-lg-3">
                         <div class="box wow fadeInLeft" data-wow-duration="1.2s" data-wow-delay=".5s">
-                          <h3> <?= $_event_participation_category_->participation_type_name?> </h3>
+                          <h3> <?= $_Dictionary->content($_event_participation_category_->participation_type_name)?> </h3>
                           <h4>
                             <sup> <?= $currency_?> </sup> <?= $_event_participation_category_->participation_sub_type_price?>
-                           <span><?= $_event_participation_category_->participation_sub_type_name?> </span></h4>
+                           <span><?= $_event_participation_category_->participation_sub_type_name == ''?'':$_Dictionary->content($_event_participation_category_->participation_sub_type_name) ?> </span></h4>
                            <div class="div-inst">
-                            <p class=>Early bird discounted rate Valid till 31st December 2021. <br>
-                            $450 from 1st January 2021 - 5th March 2022.</p>
+                                <p class=><?= $_event_participation_category_->participation_type_form_order == ''?'111':$_Dictionary->content('discount-inperson-'.$_event_participation_category_->participation_type_form_order)?></p>
                            </div>
-                          <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn">Register</a>
+                          <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn"> <?= $_Dictionary->words('Register')?></a>
                         </div>
                       </div>
 <?php
@@ -79,7 +78,7 @@ endif;
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section_title wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                        <h3 class="red-title">Virtual attendance registration </h3> 
+                    <h3 class="red-card" style="color: #a42f1d !important;"><?=$_Dictionary->content('Virtual attendance registration')?></h3>  
                     </div>
                     <div class="row">
 
@@ -92,15 +91,14 @@ if($_DATA_PARTICIPATION_CATEGORY_ ):
  ?>                   
                       <div class="col-lg-3">
                         <div class="box wow fadeInLeft red-card" data-wow-duration="1.2s" data-wow-delay=".5s">
-                          <h3><?= $_event_participation_category_->participation_type_name?></h3>
+                          <h3><?= $_Dictionary->content($_event_participation_category_->participation_type_name)?></h3>
                           <h4>
                             <sup><?= $currency_?> </sup><?= $_event_participation_category_->participation_sub_type_price?>
-                            <span><?= $_event_participation_category_->participation_sub_type_name?></span></h4>
+                            <span><?= $_Dictionary->content($_event_participation_category_->participation_sub_type_name) ?></span></h4>
                             <div class="div-inst">
-                                <p class=>Early bird discounted rate Valid till 31st December 2021. <br>
-                                $450 from 1st January 2021 - 5th March 2022.</p>
+                                <p class=><?= $_Dictionary->content('discount-virtual-'.$_event_participation_category_->participation_type_form_order)?></p>
                             </div>
-                          <a href="registration/event/virtual/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn">Register</a>
+                          <a href="registration/event/virtual/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn"><?= $_Dictionary->words('Register')?></a>
                         </div>
                       </div>
 <?php

@@ -331,9 +331,26 @@
         $_form_ = FutureEventController::registerEventParticipant();
         if($_form_->ERRORS == false):
 
-            $response['status']    = 100;
-            $response['message']   = 'REDIRECT_TO_PASSWORD_SETTINGS';
-            $response['authToken'] = $_form_->AUTHTOKEN;
+            // $response['status']    = 100;
+            // $response['message']   = 'REDIRECT_TO_PASSWORD_SETTINGS';
+            // $response['authToken'] = $_form_->AUTHTOKEN;
+
+            $_PARTICIPATION_PAYMENT_TYPE_ = $_form_->PARTICIPATIONPAYMENTTYPE;
+
+            if($_PARTICIPATION_PAYMENT_TYPE_ == 'PAYABLE'):
+              $response['status']    = 100;
+              $response['message']   = 'REDIRECT_TO_PAYMENT_CHANNEL';
+              $response['authToken'] = $_form_->AUTHTOKEN;
+            
+            elseif($_PARTICIPATION_PAYMENT_TYPE_ == 'FREE'):
+              $response['status']    = 101;
+              $response['message']   = 'REDIRECT_TO_NOTIFICATION';
+              $response['authToken'] = $_form_->AUTHTOKEN;
+
+            else:
+              $response['status'] = 200;
+              $response['message']= 'REDIRECT_TO_NOTIFICATION';
+            endif;
 
         else:
           $response['status'] = 400;
