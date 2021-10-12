@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section_title">
-                    <h3><?=$_Dictionary->translate('content-title-partner-sponsors')?></h3> 
+                    <h3><?=$_Dictionary->translate('Partners/ Sponsors')?></h3> 
                 </div>
 
                 <div id="partners" class="owl-carousel owl-theme">
