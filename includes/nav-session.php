@@ -11,7 +11,7 @@
                         <div class="row align-items-center">
                             <div class="col-xl-2 col-lg-2" style="padding:0;">
                                 <div class="logo">
-                                    <a href="<?php linkto('index'); ?>">
+                                    <a href="https://apacongress.africa/">
                                         <img src="<?php linkto('img/apac-web-logo.png'); ?>" class="img img-responsive" style="width: 150px;" alt="">
                                     </a>
                                 </div>
@@ -20,15 +20,15 @@
                                 <div class="main-menu  d-none d-xl-block">
                                     <nav>
                                     <ul id="navigation">
-                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->words('Home')?></a></li>
-                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->words('About')?></a></li>
-                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->words('Program')?></a></li>
-                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->words('Registration')?></a></li>
-                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->translate('Call for proposals')?></a></li>
-                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->translate('Media')?></a></li>
-                                            <li><a href="#"><?=$_Dictionary->translate('Contact Us')?></a></li>
-                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->translate('our partners')?></a></li>
-                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->words('Sponsorship')?></a></li>
+                                            <li><a href="https://apacongress.africa/"><?=$_Dictionary->words('Home')?></a></li>
+                                            <li><a href="https://apacongress.africa/about/"><?=$_Dictionary->words('About')?></a></li>
+                                            <li><a href="https://apacongress.africa/programme/"><?=$_Dictionary->words('Program')?></a></li>
+                                            <li><a href="https://apacongress.africa/registration/"><?=$_Dictionary->words('Registration')?></a></li>
+                                            <li><a href="https://apacongress.africa/call-for-proposals/"><?=$_Dictionary->translate('Call for proposals')?></a></li>
+                                            <li><a href="#"><?=$_Dictionary->translate('Media')?></a></li>
+                                            <li><a href="https://apacongress.africa/contact/"><?=$_Dictionary->translate('Contact Us')?></a></li>
+                                            <li><a href="https://apacongress.africa/our-partners/"><?=$_Dictionary->translate('our partners')?></a></li>
+                                            <li><a href="https://apacongress.africa/sponsorship/"><?=$_Dictionary->words('Sponsorship')?></a></li>
                                             <?php if(isset($_SESSION['username'])) {?>
                                             <li><a href="<?php linkto('logout'); ?>"><?=$_Dictionary->words('Logout')?></a></li>
                                             <?php } else { ?>
