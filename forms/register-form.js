@@ -457,68 +457,68 @@ $('.registerFormSubmit').on('click', function () {
 
 
 
-	// $.ajax({
-	// 	type: "POST",
-	// 	url: action,
-	// 	data: { request: "captchaSession" },
-	// 	cache: false,
-	// 	success: function (responseData) {
-	// 		var responseCaptcha = JSON.parse(responseData);
-
-	// 		if (responseCaptcha.messages == inputCaptcha) {
-
-	var form = $('#registerForm')[0];
-	var formData = new FormData(form);
-	// event.preventDefault();
-
 	$.ajax({
 		type: "POST",
 		url: action,
-		data: formData,
+		data: { request: "captchaSession" },
 		cache: false,
-		processData: false,
-		contentType: false,
-		success: function (dataResponse) {
+		success: function (responseData) {
+			var responseCaptcha = JSON.parse(responseData);
 
-			var response = JSON.parse(dataResponse);
+			if (responseCaptcha.messages == inputCaptcha) {
 
-			if (response.status == 100) {
-				window.location.href = $('.host').attr('link') + "/payment/" + response.authToken;
-			}
-			else if (response.status == 101) {
-				window.location.href = $('.host').attr('link') + "/notification";
-			}
-			else if (response.status == 200) {
-				window.location.href = $('.host').attr('link') + "/notification";
-			}
-			else if (response.status == 201) {
-				$('#registerButton').prop('disabled', false);
-				$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
-				$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
-				this_form.find('.error-message').slideDown().html(response.message);
-				$(".error-message").delay(500).show(10, function () {
+				var form = $('#registerForm')[0];
+				var formData = new FormData(form);
+				// event.preventDefault();
 
+				$.ajax({
+					type: "POST",
+					url: action,
+					data: formData,
+					cache: false,
+					processData: false,
+					contentType: false,
+					success: function (dataResponse) {
+
+						var response = JSON.parse(dataResponse);
+
+						if (response.status == 100) {
+							window.location.href = $('.host').attr('link') + "/payment/" + response.authToken;
+						}
+						else if (response.status == 101) {
+							window.location.href = $('.host').attr('link') + "/notification";
+						}
+						else if (response.status == 200) {
+							window.location.href = $('.host').attr('link') + "/notification";
+						}
+						else if (response.status == 201) {
+							$('#registerButton').prop('disabled', false);
+							$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
+							$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
+							this_form.find('.error-message').slideDown().html(response.message);
+							$(".error-message").delay(500).show(10, function () {
+
+							});
+						}
+						else {
+							$('#registerButton').prop('disabled', false);
+							$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
+							$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
+							this_form.find('.error-message').slideDown().html(response.message);
+							$(".error-message").delay(500).show(10, function () {
+
+							});
+						}
+					}
 				});
-			}
-			else {
-				$('#registerButton').prop('disabled', false);
-				$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
-				$('#register-messages').html('<div class="error-message">' + response.message + '</div>');
-				this_form.find('.error-message').slideDown().html(response.message);
-				$(".error-message").delay(500).show(10, function () {
+			} else {
 
-				});
+				$('#registerButton').prop('disabled', false);
+				$('#securityCode_error').text("Invalid security code");
 			}
 		}
 	});
-	// 		} else {
-
-	// 			$('#registerButton').prop('disabled', false);
-	// 			$('#securityCode_error').text("Invalid security code");
-	// 		}
-	// 	}
-	// });
-	// return false;
+	return false;
 
 });
 
