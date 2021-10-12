@@ -87,6 +87,7 @@ if(Input::checkInput('request', 'post', 1)):
 							<th>Gender</th>
 							<th>Job Type</th>
 							<th>Country</th>
+							<th>Accommodation</th>
 							<th>Status</th>
 							<th class="text-center">Action</th>
 						</tr>
@@ -95,6 +96,12 @@ if(Input::checkInput('request', 'post', 1)):
 <?php 
 				$count_ = 0;
 				foreach( $_LIST_DATA_ as $participant_): $count_++;
+
+					$_accommodation_ 	   = $participant_->need_accommodation_state?'Yes':'No';
+					$_accommodation_label_ = 'label-default';
+
+					if($participant_->need_accommodation_state == 1)
+						$_accommodation_label_ = 'label-dark';
 				
 					$_status_ = $participant_->status;
 					$_status_label_ = 'label-warning';
@@ -124,6 +131,7 @@ if(Input::checkInput('request', 'post', 1)):
 							<td><?= $participant_->gender ?> </td>
 							<td><?= $participant_->job_title ?> </td>
 							<td><?= countryCodeToCountry($participant_->organisation_country) ?> </td>
+							<td><span class="label <?= $_accommodation_label_ ?>" style="display: block;"><?=$_accommodation_ ?></span></td>
 							<td><span class="label <?= $_status_label_ ?>" style="display: block;"><?=$_status_ ?></span></td>
 							<td>
 								<div class="ibox-tools">

@@ -20,6 +20,12 @@ $_PARTICIPATION_TYPE_TOKEN_ = Input::get('participationTypeToken', 'get');
 <head>
     <?php include $INC_DIR . "head.php"; ?>
     <script src="<?php linkto('admin/js/jquery-2.1.1.js'); ?>"></script>
+    <style>
+        .label-dark {
+            background-color: #2c4897;
+            color: #FFFFFF;
+        }
+    </style>
 </head>
 
 <body>
