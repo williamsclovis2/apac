@@ -7,7 +7,7 @@
                     <div class="slider_text slider_text_register">
                         <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?=$_Dictionary->content($_EVENT_PARTICIPATION_TYPE_NAME_)?> <?=$_Dictionary->words('registration-form')?> </h3>
                         <span class="separator-line wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s"></span>
-                        <h5 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?= $_Dictionary->translate(ucfirst($_EVENT_SUB_TYPE_NAME_)) ?>  <?= $_Dictionary->translate(ucfirst($_EVENT_SUB_TYPE_NAME_)) == ''?'':'|' ?> <?= $_Dictionary->translate(ucfirst($_EVENT_TYPE_NAME_)) ?>  | <sup>$</sup> <?=$_EVENT_SUB_TYPE_PRICE_?></h5>
+                        <h5 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?= $_Dictionary->translate(ucfirst($_EVENT_SUB_TYPE_NAME_)) ?>  <?= $_Dictionary->translate(ucfirst($_EVENT_SUB_TYPE_NAME_)) == ''?'':'|' ?> <?= $_Dictionary->translate(ucfirst($_EVENT_TYPE_NAME_)) ?> </h5>
                     </div>
                 </div>
             </div>

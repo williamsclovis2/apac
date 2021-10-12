@@ -109,11 +109,11 @@ class Properties
 	 * @param string name of the string key setted in properties.json
 	 */
 	public function translate($map_word){
+		$map_word = str_replace(['  ', '   '], ' ', $map_word);
 		$array    = explode(' ', trim($map_word));
 		$array    = implode('-', $array);
 		$array    = strtolower($array);
 		$array    = str_replace(['--'], '', $array);
-
 		$results  = array();
 		if(!empty($array)):
 				$results[] = $this->string(strtolower($array))=='fr-lang'?$map_word:$this->string(strtolower($array));

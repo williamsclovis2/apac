@@ -55,7 +55,13 @@ if($_DATA_PARTICIPATION_CATEGORY_ ):
                         <div class="box wow fadeInLeft" data-wow-duration="1.2s" data-wow-delay=".5s">
                           <h3> <?= $_Dictionary->content($_event_participation_category_->participation_type_name)?> </h3>
                           <h4>
+<?php
+if($_event_participation_category_->participation_sub_type_price > 0):
+    ?>
                             <sup> <?= $currency_?> </sup> <?= $_event_participation_category_->participation_sub_type_price?>
+<?php
+endif;
+?>
                            <span><?= $_event_participation_category_->participation_sub_type_name == ''?'':$_Dictionary->content($_event_participation_category_->participation_sub_type_name) ?> </span></h4>
                            <div class="div-inst">
                                 <p class=><?= $_event_participation_category_->participation_type_form_order == ''?'111':$_Dictionary->content('discount-inperson-'.$_event_participation_category_->participation_type_form_order)?></p>

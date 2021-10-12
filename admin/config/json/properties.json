@@ -180,6 +180,126 @@
 						}
 					},
 					{
+						"about": {
+							"fr-lang": "À propos",
+							"eng-lang": "About",
+							"ar-lang": "معلومات عنا",
+							"pt-lang": "Sobre nós"
+						}
+					},
+					{
+						"program": {
+							"fr-lang": "Programme",
+							"eng-lang": "Program",
+							"ar-lang": "برنامج",
+							"pt-lang": "Programa"
+						}
+					},
+					{
+						"call-for-proposals": {
+							"fr-lang": "APPEL À PROPOSITIONS",
+							"eng-lang": "CALL FOR PROPOSALS",
+							"ar-lang": "دعوة لتقديم العروض",
+							"pt-lang": "CONVITE PARA PROPOSTAS"
+						}
+					},
+					{
+						"registration": {
+							"fr-lang": "ENREGISTREMENT",
+							"eng-lang": "REGISTRATION",
+							"ar-lang": "التسجيل",
+							"pt-lang": "CADASTRO"
+						}
+					},
+					{
+						"our-partners": {
+							"fr-lang": "NOS PARTENAIRES",
+							"eng-lang": "OUR PARTNERS",
+							"ar-lang": "شركاؤنا",
+							"pt-lang": "NOSSOS PARCEIROS"
+						}
+					},
+					{
+						"sponsorship": {
+							"fr-lang": "PARRAINAGE",
+							"eng-lang": "SPONSORSHIP",
+							"ar-lang": "رعاية",
+							"pt-lang": "PATROCÍNIO"
+						}
+					},
+					{
+						"pay-using-bank-transfer": {
+							"fr-lang": "Payer par virement bancaire",
+							"eng-lang": "Pay using bank transfer",
+							"ar-lang": "ادفع باستخدام التحويل المصرفي",
+							"pt-lang": "Pague por transferência bancária"
+						}
+					},
+					{
+						"click-to-pay-with-one-of-services-listed-bellow": {
+							"fr-lang": "Cliquez pour payer avec l'un des services énumérés ci-dessous",
+							"eng-lang": "Click to pay with one of  services listed  bellow",
+							"ar-lang": "انقر للدفع بإحدى الخدمات المدرجة أدناه",
+							"pt-lang": "Clique para pagar com um dos serviços listados abaixo"
+						}
+					},
+					{
+						"please-select-a-method-of-payment-below": {
+							"fr-lang": "Veuillez sélectionner un mode de paiement ci-dessous",
+							"eng-lang": "Please select a method of payment below",
+							"ar-lang": "الرجاء تحديد طريقة الدفع أدناه",
+							"pt-lang": "Selecione um método de pagamento abaixo"
+						}
+					},
+					{
+						"register-here": {
+							"fr-lang": "Inscrivez-vous ici",
+							"eng-lang": "Register here",
+							"ar-lang": "سجل هنا",
+							"pt-lang": "Registre-se aqui"
+						}
+					},
+					{
+						"not-registered-yet?": {
+							"fr-lang": "Pas encore inscrit?",
+							"eng-lang": "Not registered yet?",
+							"ar-lang": "لم يتم تسجيلة بعد؟",
+							"pt-lang": "não registrado ainda?"
+						}
+					},
+					{
+						"forgot-password?": {
+							"fr-lang": "Mot de passe oublié?",
+							"eng-lang": "Forgot password?",
+							"ar-lang": "هل نسيت كلمة السر؟",
+							"pt-lang": "Esqueceu sua senha?"
+						}
+					},
+					{
+						"remember-me": {
+							"fr-lang": "Souviens-toi de moi",
+							"eng-lang": "Remember me",
+							"ar-lang": "تذكرنى",
+							"pt-lang": "Lembre de mim"
+						}
+					},
+					{
+						"username": {
+							"fr-lang": "username",
+							"eng-lang": "Username",
+							"ar-lang": "اسم االمستخدم",
+							"pt-lang": "nome do usuário"
+						}
+					},
+					{
+						"login-to-join-the-event": {
+							"fr-lang": "Connectez-vous pour rejoindre l'événement",
+							"eng-lang": "Login to join the event",
+							"ar-lang": "تسجيل الدخول للانضمام إلى الحدث",
+							"pt-lang": "Faça login para participar do evento"
+						}
+					},
+					{
 						"login": {
 							"fr-lang": "Connexion",
 							"eng-lang": "Login",
@@ -757,6 +877,14 @@
 					},
 					{
 						"content-media": {
+							"fr-lang": "Médias",
+							"eng-lang": "Media",
+							"ar-lang": "وسائط",
+							"pt-lang": "meios de comunicação"
+						}
+					},
+					{
+						"media": {
 							"fr-lang": "Médias",
 							"eng-lang": "Media",
 							"ar-lang": "وسائط",

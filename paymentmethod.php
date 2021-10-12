@@ -24,7 +24,7 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-12">
                         <div class="slider_text slider_text_register">
-                            <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;">Please select a method of payment below. </h3>
+                            <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?=$_Dictionary->translate('Please select a method of payment below')?> </h3>
                             <span class="separator-line wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s"></span>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="payment-meth wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                        <a class="btn btn-primary  DPO_link" href="#" style="width:100%;">Click to pay with one of  services listed  bellow </a>
+                        <a class="btn btn-primary  DPO_link" href="#" style="width:100%;"><?=$_Dictionary->translate('Click to pay with one of services listed bellow')?> </a>
                         <div class="row img-card">
                             <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/visa.png"></a></div>
                             <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/MC.png"></a></div>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="payment-meth wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                        <a class="btn btn-primary  DPO_link " href="#"><i class="fa fa-bank"></i> Pay using bank transfer</a>
+                        <a class="btn btn-primary  DPO_link " href="#"><i class="fa fa-bank"></i> <?=$_Dictionary->translate('Pay using bank transfer')?></a>
                         
                     </div>
                 </div>

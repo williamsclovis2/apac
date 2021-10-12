@@ -20,15 +20,15 @@
                                 <div class="main-menu  d-none d-xl-block">
                                     <nav>
                                     <ul id="navigation">
-                                            <li><a href="<?php linkto('index'); ?>">Home</a></li>
-                                            <li><a href="<?php linkto('index'); ?>">About</a></li>
-                                            <li><a href="<?php linkto('index'); ?>">Programme</a></li>
-                                            <li><a href="<?php linkto('index'); ?>">Registration</a></li>
-                                            <li><a href="<?php linkto('index'); ?>">Call for proposals</a></li>
-                                            <li><a href="<?php linkto('index'); ?>">Media</a></li>
-                                            <li><a href="#">Contact Us</a></li>
-                                            <li><a href="<?php linkto('index'); ?>">our partners</a></li>
-                                            <li><a href="<?php linkto('index'); ?>">Sponsorship</a></li>
+                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->words('Home')?></a></li>
+                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->words('About')?></a></li>
+                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->words('Program')?></a></li>
+                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->words('Registration')?></a></li>
+                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->translate('Call for proposals')?></a></li>
+                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->translate('Media')?></a></li>
+                                            <li><a href="#"><?=$_Dictionary->translate('Contact Us')?></a></li>
+                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->translate('our partners')?></a></li>
+                                            <li><a href="<?php linkto('index'); ?>"><?=$_Dictionary->words('Sponsorship')?></a></li>
                                             <?php if(isset($_SESSION['username'])) {?>
                                             <li><a href="<?php linkto('logout'); ?>"><?=$_Dictionary->words('Logout')?></a></li>
                                             <?php } else { ?>
