@@ -6,7 +6,7 @@
 </style>
         <div class="header-area header-area-session">
             <div id="sticky-header" class="main-header-area">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="header_bottom_border">
                         <div class="row align-items-center">
                             <div class="col-xl-2 col-lg-2" style="padding:0;">

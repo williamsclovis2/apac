@@ -410,8 +410,8 @@
         $_current_lang_    = Input::checkInput('lang', 'post', 1)?Input::get('lang', 'post'):'en-lang';
         Session::put('lang', $_current_lang_);
 
-        $response['status']  = 400;
-        $response['message'] = $_form_->ERRORS_STRING;
+        $response['status']  = 100;
+        $response['message'] = 'SUCCESS - '.Session::get('lang');
         echo json_encode($response);
       break;
 
