@@ -904,17 +904,18 @@ h3 {
 
 @media (min-width: 1200px) and (max-width: 1500px) {
   .header-area .main-header-area .main-menu ul li {
-    margin: 0 14px;
+    margin: 0 6px;
   }
 }
 .header-area .main-header-area .main-menu ul li a {
   color: #1e3e27;
-  font-size: 14px;
-  font-weight: 600;
+  
+  
   display: inline-block;
   padding: 35px 0px 35px 0px;
   position: relative;
   text-transform: uppercase;
+  
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -925,7 +926,8 @@ h3 {
 
 @media (min-width: 1200px) and (max-width: 1500px) {
   .header-area .main-header-area .main-menu ul li a {
-    font-size: 12px;
+    font-family: Comfortaa-bold;
+    font-size: 10px;
   }
 }
 .header-area .main-header-area .main-menu ul li a i {
@@ -1111,7 +1113,7 @@ h3 {
 .slider_area {
   position: relative;
   z-index: 0;
-  margin-top: 90px;
+  margin-top: 85px;
 }
 .slider_area::before {
   background: #144a23;
@@ -3575,6 +3577,7 @@ h1,h2,h3,h4,h5,h6 {line-height: 1.2em;}
 #backtotop:hover{opacity:1;}
 @media (max-width: 575px) {
   #backtotop {right: 16px;}
+  
 }
 
 .live_about_border {border-left: 1px solid #a0a0a0;}
