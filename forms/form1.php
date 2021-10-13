@@ -21,7 +21,7 @@
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <form  class="form-contact" id="registerForm" method="post">
-                    <div id="register-messages"></div>
+                    <div id="div-messages"></div>
                     <label><?=$_Dictionary->words('all-fields-are-mendatory')?> </label>
                     <h4><?=$_Dictionary->translate('CONTACT INFORMATION')?></h4>
                     <hr class="separator-line"> 

@@ -404,7 +404,27 @@
         echo json_encode($response);
       break;
 
-            
+     
+      /** Submission Of The Participant Registration Payment */
+      case 'submit-payment-request':
+        $_form_ = PaymentController::paymentTransactionRequest();
+        if($_form_->ERRORS == false):
+          if($_form_->PAYURL != NULL):
+            $response['status']    = 100;
+            $response['message']   = 'SUCCESS';
+            $response['authToken'] = $_form_->AUTHTOKEN;
+            $response['payURL']    = $_form_->PAYURL;
+          else:
+            $response['status']    = 200;
+            $response['message']   = 'Faild to request for payment. Please try again later';
+          endif;
+        else:
+          $response['status'] = 400;
+          $response['message']= $_form_->ERRORS_STRING;
+        endif;
+        echo json_encode($response);
+      break;
+
       /** Submission Of The Participant Registration - Set Language - */
       case 'selectLanguage':
         $_current_lang_    = Input::checkInput('lang', 'post', 1)?Input::get('lang', 'post'):'en-lang';

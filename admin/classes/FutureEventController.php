@@ -1568,6 +1568,8 @@ class FutureEventController
 		future_participation_sub_type.category As event_category,
 		future_participation_sub_type.price As participation_subtype_price,
 		future_participation_sub_type.currency As participation_subtype_currency,
+		future_participants.participation_type_id As participation_type_id, 
+		future_participants.participation_sub_type_id As participation_sub_type_id,
 		future_event.id As event_id, 
 		future_event.event_name As event_name
 		FROM `future_participants` INNER JOIN future_participation_type ON future_participants.participation_type_id = future_participation_type.id 

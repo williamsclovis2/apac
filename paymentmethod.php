@@ -1,10 +1,21 @@
-<?php require_once 'admin/core/init.php'; ?>
+<?php 
+require_once 'admin/core/init.php';
+
+if(!Input::checkInput('authtoken_', 'get', 1))
+  Redirect::to('');
+
+$_AUTHTOKEN_           = Input::get('authtoken_', 'get');
+
+if(!is_integer(($_AUTHTOKEN_ID_   = Hash::decryptAuthToken($_AUTHTOKEN_))))
+    Redirect::to('');
+
+?>
 
 <!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
-    <?php include'includes/head.php';?>
+    <?php include 'includes/head.php';?>
 </head>
 
 <body>
@@ -35,10 +46,11 @@
 
     <div class="service_area about_event passes"  id="payment_area">
         <div class="container">
+            <div id="div-messages"></div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="payment-meth wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                        <a class="btn btn-primary  DPO_link" href="#" style="width:100%;"><?=$_Dictionary->translate('Click to pay with one of services listed bellow')?> </a>
+                        <a class="btn btn-primary  DPO_link" data-e="<?=Hash::encryptToken($activeEventId)?>" data-a="<?=$_AUTHTOKEN_?>"  data-d="cc"  style="width:100%; color: white;"><?=$_Dictionary->translate('Click to pay with one of services listed bellow')?> </a>
                         <div class="row img-card">
                             <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/visa.png"></a></div>
                             <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/MC.png"></a></div>
@@ -55,7 +67,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="payment-meth wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                        <a class="btn btn-primary  DPO_link " href="#"><i class="fa fa-bank"></i> <?=$_Dictionary->translate('Pay using bank transfer')?></a>
+                        <a class="btn btn-primary  DPO_link " style="color: white;" data-e = "<?=Hash::encryptToken($activeEventId)?>" data-a="<?=$_AUTHTOKEN_?>" data-d="bt" ><i class="fa fa-bank"></i> <?=$_Dictionary->translate('Pay using bank transfer')?></a>
                         
                     </div>
                 </div>
@@ -65,7 +77,8 @@
         </div>
     </div>
 
-    <?php include'includes/footer.php';?>
+    <?php include 'includes/footer.php';?>
+    <script src="<?php linkto('forms/register-form.js'); ?>"></script>
 </body>
 
 </html>

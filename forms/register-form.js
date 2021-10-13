@@ -633,73 +633,17 @@ $('.registerACPFormSubmit').on('click', function () {
 
 });
 
+$('.DPO_link').on('click', function(){
+	var authtoken = $(this).attr('data-a');
+	var defaultpm = $(this).attr('data-d');
+	var event = $(this).attr('data-e');
+	// alert("DATA -- "+authtoken +"<br>"+defaultpm +"<br>"+event);
+	paymentRequest(event, authtoken, defaultpm);
+});
+
 function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 
 	/** Validation General - INPERSON - VIRTUAL - */
-
-	// if ($('#firstname').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#firstname_error').text($('#firstname').attr('data-msg'));
-	// }
-	// if ($('#lastname').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#lastname_error').text($('#lastname').attr('data-msg'));
-	// }
-	// if ($('#email').val().length === 0 || !validateEmail($('#email').val())) {
-	// 	ferror = ierror = true;
-	// 	$('#email_error').text("Please enter valid email");
-	// }
-	// if ($('#confirm_email').val().length === 0 || !validateEmail($('#confirm_email').val())) {
-	// 	ferror = ierror = true;
-	// 	$('#confirm_email_error').text("Please  confirm email");
-	// }
-	// if ($('#confirm_email').val() != $('#email').val()) {
-	// 	ferror = ierror = true;
-	// 	$('#confirm_email_error').text("Email does not match");
-	// }
-	// if ($('#telephone').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#telephone_error').text("Please enter telephone");
-	// }
-	// if ($('#job_title').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#job_title_error').text("Please enter job title");
-	// }
-	// if ($('#job_category').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#jobcategory_error').text("Please select job category");
-	// }
-	// if ($('#language').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#language_error').text("Please select  language");
-	// }
-	// if ($('#gender').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#gender_error').text("Please select  your gender");
-	// }
-
-	// if ($('#firt_objective').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#firt_objective_error').text("Please type your first objective");
-	// }
-	// if ($('#second_objective').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#second_objective_error').text("Please type your second objective");
-	// }
-	// if ($('#third_objective').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#third_objective_error').text("Please type your third objective");
-	// }
-
-	// if ($('#info_source').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#info_source_error').text("Please select  source ");
-	// }
-
-	// if ($('#securityCode').val().length === 0) {
-	// 	ferror = ierror = true;
-	// 	$('#securityCode_error').text("Please enter captcha characters ");
-	// }
 
 	if ($('#password').val().length === 0) {
 		ferror = ierror = true;
@@ -721,19 +665,7 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 
 	/** Validation For - All - Except Students And Youth Section -  */
 	if (eventParticiaptionCode != 'STYR003') {
-		// if ($('#organisation_name').val().length === 0) {
-		// 	ferror = ierror = true;
-		// 	$('#organisationname_error').text("Please enter  the organization name");
-		// }
-		// if ($('#organisation_type').val().length === 0) {
-		// 	ferror = ierror = true;
-		// 	$('#organisationtype_error').text("Please select  the organization type");
-		// }
 
-		// if ($('#organisation_city').val().length === 0) {
-		// 	ferror = ierror = true;
-		// 	$('#city_error').text("Please enter city");
-		// }
 	}
 
 	/** Validation For African Based - Organization Section -  */
@@ -755,30 +687,7 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 
 	/** Validation For In-person  - Identification Section - */
 	if (eventCode == 'INP001') {
-		// if ($('#id_type').val().length === 0) {
-		// 	ferror = ierror = true;
-		// 	$('#id_type_error').text("Please select  type of ID ");
-		// }
-		// if ($('#id_number').val().length === 0) {
-		// 	ferror = ierror = true;
-		// 	$('#id_number_error').text("Please enter  ID number ");
-		// }
-		// if ($('#residence_country').val().length === 0) {
-		// 	ferror = ierror = true;
-		// 	$('#residence_country_error').text("Please select country");
-		// }
-		// if ($('#citizenship').val().length === 0) {
-		// 	ferror = ierror = true;
-		// 	$('#citizenship_error').text("Please select country");
-		// }
-		// if ($('#citizenship').val().length === 0) {
-		// 	ferror = ierror = true;
-		// 	$('#citizenship_error').text("Please select country");
-		// }
-		// if ($('#image').val().length === 0) {
-		// 	ferror = ierror = true;
-		// 	$('#image_error').text("Please upload your profile picture");
-		// }
+
 
 		/** Validation For Media In-person - Media Tools Section - */
 		if (eventParticiaptionCode == 'MDR004') {
@@ -799,7 +708,6 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 	if (eventParticiaptionCode == 'STYR003') {
 
 	}
-
 
 
 
@@ -865,6 +773,29 @@ function multilangselect(lang) {
 		data: { lang: lang, request: "selectLanguage" },
 		success: function (data) {
 			window.location.reload(true);
+		}
+	});
+}
+
+
+
+function paymentRequest(event, authToken, defaultPM) {
+	var action = $('.host').attr('link') + "/language";
+	$.ajax({
+		type: 'POST',
+		url: action,
+		cache: false,
+		data: { eventId: event, authtoken: authToken, defaultMethod: defaultPM, request: "submit-payment-request" },
+		success: function (dataResponse) {
+			var response = JSON.parse(dataResponse);
+			if (response.status == 100) {
+				window.location.href = response.payURL;
+			}
+			else {
+				$('#div-messages').html('<div class="error-message">' + response.messages + '</div>');
+				$('#div-messages').find('.error-message').slideDown().html(response.messages);
+				$(".error-message").delay(500).show(10, function () { });
+			}
 		}
 	});
 }
