@@ -633,7 +633,7 @@ $('.registerACPFormSubmit').on('click', function () {
 
 });
 
-$('.DPO_link').on('click', function(){
+$('.DPO_link').on('click', function () {
 	var authtoken = $(this).attr('data-a');
 	var defaultpm = $(this).attr('data-d');
 	var event = $(this).attr('data-e');
@@ -793,7 +793,7 @@ function paymentRequest(event, authToken, defaultPM) {
 			}
 			else {
 				$('#div-messages').html('<div class="error-message">' + response.messages + '</div>');
-				$('#div-messages').find('.error-message').slideDown().html(response.messages);
+				// $('#div-messages').find('.error-message').slideDown().html(response.messages);
 				$(".error-message").delay(500).show(10, function () { });
 			}
 		}

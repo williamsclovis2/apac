@@ -36,9 +36,9 @@ class PaymentHandler
 		$ServiceDescription	= $_DATA->service_description; # Ex. Pay My Event Entracy 
 		$ServiceDate        = $_DATA->service_date; # Ex. 2020/12/27 19:00
 
-		$RedirectURL     	= "/pay/callback";
-		$BackURL         	= "/pay/callback/called";
-		$DeclinedURL     	= "/pay/callback";
+		$RedirectURL     	= Config::get('server/name')."/pay/callback";
+		$BackURL         	= Config::get('server/name')."/pay/callback/called";
+		$DeclinedURL     	= Config::get('server/name')."/pay/callback";
                 
         $_CURL_ = curl_init();
         curl_setopt( $_CURL_, CURLOPT_URL, $this->_url );

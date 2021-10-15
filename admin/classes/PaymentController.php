@@ -137,7 +137,7 @@ class PaymentController
 
 				$payment_id           = '';
 				$callback_cmd  		  = '';
-				$callback_time        = '';
+				$callback_time        = 0;
 				
 				$_fields = array(
 					'event_id'            		  => $event_id,
