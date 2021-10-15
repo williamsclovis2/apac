@@ -26,7 +26,7 @@
 
                 <div class="col-sm-12">
                     <div class="footer-date">
-                        <h3><?=$_Dictionary->words('content-event-title')?></h3>
+                        <h3><?=$_Dictionary->words('footer-content-event-title')?></h3>
                         <p><?=$_Dictionary->words('content-event-date')?></p>
                         <div class="border-top"></div>
                         <p><a href="mailto:info@thesummit.org">info@thesummit.org</a></p>

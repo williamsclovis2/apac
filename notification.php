@@ -8,7 +8,7 @@
     <?php include 'includes/nav-session.php';?>
 
     <div class="slider_area">
-        <div class="single_slider single_slider_reg d-flex align-items-center slider_bg_1">
+        <div class="single_slider single_slider_reg d-flex align-items-center slider_bg_1" style="height: 250px;">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-12">
@@ -22,7 +22,7 @@
         </div>
     </div>
     
-    <div class="service_area about_event" style="background: #000;">
+    <div class="service_area about_event">
         <div class="container">
             <div class="row">
                 <div class="col-lg-2"></div>
@@ -31,9 +31,9 @@
                         <p><?=$_Dictionary->translate('content-notification-success')?></p>
                         <div class="socail_links">
                             <ul>
-                                <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://twitter.com/APA_Congress" target="_bank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.facebook.com/APACongress" target="_bank"><i class="ti-facebook"></i></a></li>
+                                <li><a href="https://www.instagram.com/africaprotectedareascongress/" target="_bank"><i class="fa fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -42,9 +42,6 @@
             </div>
         </div>
     </div>
-
-    <?php include 'views/partners.php';?>
-
     <?php include 'includes/footer.php';?>
     <script src="<?php linkto('forms/register-form.js'); ?>"></script>
  
