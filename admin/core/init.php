@@ -115,3 +115,6 @@ $GLOBALS['_LangName'] = Functions::getLanguageName($_Lang);
 
 /** Dictionary */
 $GLOBALS['_Dictionary'] = new \Properties($_Lang);
+
+// $INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/apac/admin/includes/"; //Local
+$INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/"; //Live
