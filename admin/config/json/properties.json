@@ -29,6 +29,14 @@
 					},
 					{
 						"content-event-title": {
+							"fr-lang": "Apprendre, partager, réseauter, influencer. Rejoignez-nous à Kigali. Obtenez toutes les informations nécessaires que vous devez savoir sur cette page pour faciliter votre inscription aujourd'hui.",
+							"eng-lang": "Learn, share, network, influence. Join us in Kigali. <br>Get all the necessary information you need to know on this page to facilitate your registration today.",
+							"ar-lang": "مؤتمر المناطق المحمية في إفريقيا IUCN (APAC)",
+							"pt-lang": "Congresso de Áreas Protegidas da IUCN África (APAC)"
+						}
+					},
+					{
+						"footer-content-event-title": {
 							"fr-lang": "Congrès des aires protégées de l'UICN en Afrique (APAC)",
 							"eng-lang": "IUCN Africa Protected Areas Congress (APAC)",
 							"ar-lang": "مؤتمر المناطق المحمية في إفريقيا IUCN (APAC)",
@@ -44,25 +52,43 @@
 						}
 					},
 					{
+						"in-person-section-title": {
+							"fr-lang": "Le Congrès inaugural de l'UICN APAC sera un événement hybride comme suit :",
+							"eng-lang": "The Inaugural IUCN APAC Congress will be a hybrid event as follows:",
+							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 450 دولارًا أمريكيًا من 1 يناير 2022 - 5 مارس 2022",
+							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 450 de 1º de janeiro de 2022 a 5 de março de 2022"
+						}
+					},
+
+					{
+						"in-person-section-description": {
+							"fr-lang": "Cela fournit l'expérience complète du Congrès, des échanges directs avec les meilleurs experts de la conservation aux débats et sessions de haut niveau en direct et en personne. Tout en maintenant des protocoles de santé et de sécurité dans tout le site, la participation en personne aidera à élargir votre réseau, à obtenir des informations de première main et à vous permettre de peser sur les problèmes les plus urgents auxquels notre planète est confrontée.",
+							"eng-lang": "This provides the complete Congress experience, from direct exchanges with top conservation experts to high-level live and in-person debates and sessions. While maintaining health and safety protocols throughout the venue, in-person participation will help to broaden your network, get first-hand information and allow you to weigh in on the most pressing issues facing our planet.",
+							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 450 دولارًا أمريكيًا من 1 يناير 2022 - 5 مارس 2022",
+							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 450 de 1º de janeiro de 2022 a 5 de março de 2022"
+						}
+					},
+
+					{
 						"content-discount-inperson-1": {
-							"fr-lang": "Tarif réduit lève-tôt valable jusqu'au 31 décembre 2021 450 $ du 1er janvier 2022 au 5 mars 2022",
-							"eng-lang": "Early bird discounted rate valid till 31st December 2021 <br> $450 from 1st January 2022 - 5th March 2022",
+							"fr-lang": "Tarif réduit lève-tôt valable jusqu'au 31 décembre 2021 450 $ du 1er janvier au 5 mars 2022",
+							"eng-lang": "Early bird discounted rate valid till 31st December 2021 <br> $450 from 1st January - 5th March 2022",
 							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 450 دولارًا أمريكيًا من 1 يناير 2022 - 5 مارس 2022",
 							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 450 de 1º de janeiro de 2022 a 5 de março de 2022"
 						}
 					},
 					{
 						"content-discount-inperson-2": {
-							"fr-lang": "Tarif réduit Early Bird valable jusqu'au 31 décembre 2021 <br> 600 $ du 1er janvier 2022 au 5 mars 2022",
-							"eng-lang": "Early bird discounted rate valid till 31st December 2021 <br> $600 from 1st January 2022 - 5th March 2022",
+							"fr-lang": "Tarif réduit Early Bird valable jusqu'au 31 décembre 2021 <br> 600 $ du 1er janvier au 5 mars 2022",
+							"eng-lang": "Early bird discounted rate valid till 31st December 2021 <br> $600 from 1st January - 5th March 2022",
 							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 - 600 دولار أمريكي من 1 يناير 2022 - 5 مارس 2022",
 							"pt-lang": "Taxa de desconto antecipada válida até 31 de dezembro de 2021 <br> US $ 600 de 1º de janeiro de 2022 a 5 de março de 2022"
 						}
 					},
 					{
 						"content-discount-inperson-3": {
-							"fr-lang": "Tarif réduit Early Bird valable jusqu'au 31 décembre 2021 <br> 200 $ du 1er janvier 2022 au 5 mars 2022",
-							"eng-lang": "Early bird discounted rate valid till 31st December 2021 <br> $200 from 1st January 2022 - 5th March 2022",
+							"fr-lang": "Tarif réduit Early Bird valable jusqu'au 31 décembre 2021 <br> 200 $ du 1er janvier au 5 mars 2022",
+							"eng-lang": "Early bird discounted rate valid till 31st December 2021 <br> $200 from 1st January - 5th March 2022",
 							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 200 دولار أمريكي من 1 يناير 2022 - 5 مارس 2022",
 							"pt-lang": "Taxa de desconto antecipada válida até 31 de dezembro de 2021 <br> US $ 200 de 1º de janeiro de 2022 a 5 de março de 2022"
 						}
@@ -101,24 +127,24 @@
 					},
 					{
 						"content-discount-virtual-1": {
-							"fr-lang": "Tarif réduit lève-tôt valable jusqu'au 31 décembre 2021 <br> 150 $ du 1er janvier 2022 au 5 mars 2022",
-							"eng-lang": "Early bird discounted rate valid till 31st December 2021 <br> $150 from 1st January 2022 - 5th March 2022",
+							"fr-lang": "Tarif réduit lève-tôt valable jusqu'au 31 décembre 2021 <br> 150 $ du 1er janvier au 5 mars 2022",
+							"eng-lang": "Early bird discounted rate valid till 31st December 2021 <br> $150 from 1st January - 5th March 2022",
 							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 150 دولارًا أمريكيًا من 1 يناير 2022 - 5 مارس 2022",
 							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 150 de 1º de janeiro de 2022 a 5 de março de 2022"
 						}
 					},
 					{
 						"content-discount-virtual-2": {
-							"fr-lang": "Tarif réduit Early Bird valable jusqu'au 31 décembre 2021 <br> 150 $ du 1er janvier 2022 au 5 mars 2022",
-							"eng-lang": "Early bird discounted rate valid till 31st December 2021 <br> $150 from 1st January 2022 - 5th March 2022",
+							"fr-lang": "Tarif réduit Early Bird valable jusqu'au 31 décembre 2021 <br> 150 $ du 1er janvier au 5 mars 2022",
+							"eng-lang": "Early bird discounted rate valid till 31st December 2021 <br> $150 from 1st January - 5th March 2022",
 							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 - 150 دولار أمريكي من 1 يناير 2022 - 5 مارس 2022",
 							"pt-lang": "Taxa de desconto antecipada válida até 31 de dezembro de 2021 <br> US $ 150 de 1º de janeiro de 2022 a 5 de março de 2022"
 						}
 					},
 					{
 						"content-discount-virtual-3": {
-							"fr-lang": "Tarif réduit Early Bird valable jusqu'au 31 décembre 2021 <br> 150 $ du 1er janvier 2022 au 5 mars 2022",
-							"eng-lang": "Early bird discounted rate valid till 31st December 2021 <br> $150 from 1st January 2022 - 5th March 2022",
+							"fr-lang": "Tarif réduit Early Bird valable jusqu'au 31 décembre 2021 <br> 150 $ du 1er janvier au 5 mars 2022",
+							"eng-lang": "Early bird discounted rate valid till 31st December 2021 <br> $150 from 1st January - 5th March 2022",
 							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 150 دولار أمريكي من 1 يناير 2022 - 5 مارس 2022",
 							"pt-lang": "Taxa de desconto antecipada válida até 31 de dezembro de 2021 <br> US $ 150 de 1º de janeiro de 2022 a 5 de março de 2022"
 						}
@@ -325,8 +351,8 @@
 					},
 					{
 						"content-in-person-attendance-registration": {
-							"fr-lang": "Veuillez sélectionner la catégorie appropriée pour assister en personne",
-							"eng-lang": "Please select the appropriate category to attend in person",
+							"fr-lang": "Participation en personne",
+							"eng-lang": "In person participation",
 							"ar-lang": "يرجى تحديد الفئة المناسبة للحضور شخصيًا",
 							"pt-lang": "Selecione a categoria apropriada para participar pessoalmente"
 						}
@@ -334,7 +360,7 @@
 					{
 						"content-virtual-attendance-registration": {
 							"fr-lang": "Veuillez sélectionner la catégorie appropriée pour participer virtuellement",
-							"eng-lang": "Please select the appropriate category to participate virtually",
+							"eng-lang": "Virtual participation",
 							"ar-lang": "الرجاء تحديد الفئة المناسبة للمشاركة افتراضيًا",
 							"pt-lang": "Selecione a categoria apropriada para participar virtualmente"
 						}
