@@ -120,7 +120,6 @@ class PaymentController
 				endif;
 				$PAYMENT_REQ 	= (Object) $PAYMENT_REQ;
                 
-
 				$external_transaction_id     = '';
 				$external_transaction_token  = '';
 

@@ -33,6 +33,10 @@ class FutureEventController
 			$_participation_sub_type_data_ = self::getPacipationSubCategoryByID($eventParticipationSubTypeID);
 			$eventParticipationTypeID	   = $_participation_sub_type_data_->id;
 			$_PARTICIPATION_PAYMENT_TYPE_  = $_participation_sub_type_data_->sub_type_payment_state;
+			$_PARTICIPATION_TYPE_CODE_     = $_participation_sub_type_data_->code;
+
+			$_MEDIA_CODE_  = 'C004';
+			$_CBO_CODE_    = 'C0015';
 
 			/** Event */
 			$eventID = $str->data_in(Hash::decryptToken($_EDIT['eventId']));
@@ -259,22 +263,22 @@ class FutureEventController
             
 				try{
 					$FutureEventParticipantTable->insertParticipant($_fields);
-					/** Get Last Participant ID  */
+					/** Get Last Participant ID - Generate Auth Token */
 					$_PID_ 		 = self::getLastPacipatantID();
-					/** Generate Auth Token */
 					$_AUTH_TOKEN = Hash::encryptAuthToken($_PID_);
 
 					/** Update Private Link Data After Registration */
 					if($_REGISTRATION_STATE_ == 'PRIVATE' && $_private_link_ID != ''):
-						$_data_fields_ = array(
-							'link_used_time' 	=> time(),
-							'link_used_status'  => 1,
-							'status' 			=> 'USED'
-						);	
-						self::updatePrivateLinkData($_data_fields_, $_private_link_ID);
+						self::updatePrivateLinkDataAfterRegistration($_private_link_ID);
 					endif;
 
 					/** Send Email To Participant */
+					$_data_ = array(
+						'email' => $email,
+						'firstname' => $firstname,
+					);
+					self::autoSentEmailOnAction($_data_, $_PARTICIPATION_PAYMENT_TYPE_ = 'FREE', $_PARTICIPATION_TYPE_CODE_ = 'C004', $_CBO_CODE_ = 'C004');
+					
 
 					
 				}catch(Exeption $e){
@@ -302,6 +306,35 @@ class FutureEventController
 				'ERRORS_STRING' => ""
 			];
 		}
+	}
+
+	public static function autoSentEmailOnAction($_data_, $_PARTICIPATION_PAYMENT_TYPE_ = 'FREE', $_PARTICIPATION_TYPE_CODE_ = 'C004', $_CBO_CODE_ = 'C004'){
+		/** FREE Application */
+		if($_PARTICIPATION_PAYMENT_TYPE_ == 'FREE'):
+			/** Check If It Media */
+			if($_PARTICIPATION_TYPE_CODE_ == $_MEDIA_CODE_)
+				EmailController::sendEmailToParticipantAfterMediaApplication($_data_);
+
+			/** Free Application */
+			else
+				EmailController::sendEmailToParticipantAfterSuccessfulRegistrationFree($_data_);
+
+		/** Paybale Registration */
+		elseif($_PARTICIPATION_PAYMENT_TYPE_ == 'PAYABLE'):
+			/** Local CBO  */
+			if($_PARTICIPATION_TYPE_CODE_ == $_CBO_CODE_)
+				EmailController::sendEmailToParticipantAfterCBOApllication($_data_);
+
+		endif;
+	}
+
+	public static function updatePrivateLinkDataAfterRegistration($_private_link_ID){
+		$_data_fields_ = array(
+			'link_used_time' 	=> time(),
+			'link_used_status'  => 1,
+			'status' 			=> 'USED'
+		);	
+		self::updatePrivateLinkData($_data_fields_, $_private_link_ID);
 	}
 
 	

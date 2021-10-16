@@ -45,13 +45,13 @@
 
 
 
-
+        <!-- 1 -->
         
-        <body yahoo bgcolor='#f4f4f4'>
+        <!-- <body yahoo bgcolor='#f4f4f4'> -->
           <!-- Delegate registration for those that need to pay [Email received after CBO application ] -->
           <!-- Subject : IUCN Africa Protected Areas Congress (APAC) CBO Application  -->
         
-          <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
+          <!-- <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
             <tr>
               <td>
                 <table bgcolor='#ffffff' class='content' align='center' cellpadding='0' cellspacing='0' border='0'>
@@ -63,7 +63,7 @@
                             <img class='fix' src='http://apacongress.torusguru.com/img/apac-web-logo.png' width='120' height='60' border='0' alt='' />
                           </td>
                         </tr>
-                      </table>
+                      </table> 
                     </td>
                   </tr>
                   <tr>
@@ -107,13 +107,44 @@
               </td>
             </tr>
           </table>
-        </body>
+        </body> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- 2 -->
         
-        <body yahoo bgcolor='#f4f4f4'>
+        <!-- <body yahoo bgcolor='#f4f4f4'> -->
             <!-- Email received after CBO acceptance with request for payment  -->
           <!-- Subject:  Payment information - IUCN Africa Protected Areas Congress (APAC) CBO Application  -->
 
-          <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
+          <!-- <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
             <tr>
               <td>
                 <table bgcolor='#ffffff' class='content' align='center' cellpadding='0' cellspacing='0' border='0'>
@@ -177,13 +208,32 @@
               </td>
             </tr>
           </table>
-        </body>
+        </body> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- 3 -->
         
-        <body yahoo bgcolor='#f4f4f4'>
+        <!-- <body yahoo bgcolor='#f4f4f4'> -->
             <!-- Email received after fully completed registration and successful payment by Credit Card or Mobile Money    -->
             <!-- Subject:  Confirmation - IUCN Africa Protected Areas Congress (APAC) Registration  -->
 
-          <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
+          <!-- <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
             <tr>
               <td>
                 <table bgcolor='#ffffff' class='content' align='center' cellpadding='0' cellspacing='0' border='0'>
@@ -207,7 +257,16 @@
                         <tr>
                           <td class='bodycopy' style='font-family: sans-serif;'>
                           Thank you for registering to attend the IUCN Africa Protected Areas Congress (APAC) that will be held in Kigali from 7 – 12 March 2022.</td>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Your receipt is attached to this email.</td></tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Your receipt is attached to this email.</td>
+                          <tr>
+                          <td class='h2' style='font-family: sans-serif;'>
+                              <ul>
+                                <li><a href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_bank'>Click here</a> to download your receipt.  </li>
+                              </ul>
+                              
+                            </td>
+                          </tr>
+                        </tr>
                           <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Badge collection</b> </td></tr>
                           <tr><td class='h2' style='font-family: sans-serif;'>You will receive information on how and when to collect your badge before the event. We kindly require that you bring the identification document you used in your registration process when collecting your badge.  </td></tr>
                           <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Programme </b> </td></tr>
@@ -275,11 +334,35 @@
             </tr>
           </table>
         </body>
-        <body yahoo bgcolor='#f4f4f4'>
+
+
+
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- 4 -->
+        <!-- <body yahoo bgcolor='#f4f4f4'> -->
           <!-- Email received for those who successfully complete registration and choose to pay by bank transfer or direct deposit -->
           <!-- Subject:  Payment details - IUCN Africa Protected Areas Congress (APAC) Registration -->
 
-          <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
+          <!-- <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
             <tr>
               <td>
                 <table bgcolor='#ffffff' class='content' align='center' cellpadding='0' cellspacing='0' border='0'>
@@ -345,13 +428,40 @@
               </td>
             </tr>
           </table>
-        </body>
+        </body> -->
 
-        <body yahoo bgcolor='#f4f4f4'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- 5 -->
+
+        <!-- <body yahoo bgcolor='#f4f4f4'> -->
           <!-- Email received after bank transfer or direct deposit is received  -->
           <!-- Payment confirmation - IUCN Africa Protected Areas Congress (APAC) Registration -->
 
-          <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
+          <!-- <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
             <tr>
               <td>
                 <table bgcolor='#ffffff' class='content' align='center' cellpadding='0' cellspacing='0' border='0'>
@@ -441,13 +551,29 @@
               </td>
             </tr>
           </table>
-        </body>
+        </body> -->
 
-        <body yahoo bgcolor='#f4f4f4'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- 6 -->
+
+        <!-- <body yahoo bgcolor='#f4f4f4'> -->
           <!-- Email received when credit card payment fails  ] -->
           <!-- Subject : Payment error - IUCN Africa Protected Areas Congress (APAC) Registration  -->
         
-          <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
+          <!-- <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
             <tr>
               <td>
                 <table bgcolor='#ffffff' class='content' align='center' cellpadding='0' cellspacing='0' border='0'>
@@ -492,13 +618,32 @@
               </td>
             </tr>
           </table>
-        </body>
+        </body> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- 7 -->
         
-        <body yahoo bgcolor='#f4f4f4'>
+        <!-- <body yahoo bgcolor='#f4f4f4'> -->
           <!-- Email received when bank transfer has not appeared in the IUCN account 7 days after registration   -->
           <!-- Subject:  Payment query - IUCN Africa Protected Areas Congress (APAC) Registration  -->
         
-          <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
+          <!-- <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
             <tr>
               <td>
                 <table bgcolor='#ffffff' class='content' align='center' cellpadding='0' cellspacing='0' border='0'>
@@ -547,20 +692,35 @@
               </td>
             </tr>
           </table>
-        </body>
+        </body> -->
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- 8 -->
 
         <!-- Delegate registration for those DO NOT need to pay    -->
 
 
          
-        <body yahoo bgcolor='#f4f4f4'>
+        <!-- <body yahoo bgcolor='#f4f4f4'> -->
           <!-- Email received after successful registration for those that do not pay (Speakers, Invited guests, Secratariat, Staff etc)   -->
-          <!-- Subject:  Confirmation - IUCN Africa Protected Areas Congress (APAC) Registration-->
+          <!-- Subject:  Confirmation - IUCN Africa Protected Areas Congress (APAC) Registration -->
 
-          <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
+          <!-- <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
             <tr>
               <td>
                 <table bgcolor='#ffffff' class='content' align='center' cellpadding='0' cellspacing='0' border='0'>
@@ -650,10 +810,39 @@
               </td>
             </tr>
           </table>
-        </body>
+        </body> -->
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- 9 -->
         
-        <body yahoo bgcolor='#f4f4f4'>
+        <body yahoo bgcolor='#fffff'>
           <!-- Email received after media application    -->
           <!-- Subject:  Confirmation - IUCN Africa Protected Areas Congress (APAC) Registrations-->
         
