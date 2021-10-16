@@ -1,5 +1,5 @@
 <?php
-require_once "core/init.php"; 
+//require_once "core/init.php"; 
 
 // function regroupRecognizedWords($map_word){
 // 	$array_rec = array(
@@ -45,20 +45,34 @@ require_once "core/init.php";
 
 // print('<script>window.location.href = "http://google.com";</script>');
 
-
+//
 // $_POST = array(
 // 	'request' => 'submit-payment-request',
 // 	'eventId' => Hash::encryptToken(8),
-// 	'authtoken' => Hash::encryptAuthToken(27),
-// 	'defaultMethod' => 'MOBILE'
+// 	'authtoken' => Hash::encryptAuthToken(28),
+// 	'defaultMethod' => 'CC'
 // );
-
+//
 // $_REQ_ = PaymentController::paymentTransactionRequest();
-
+//
 // 		echo '<pre>';
 // 		print_r($_REQ_);
 // 		echo '</pre>';
-		
+//		
 // 		echo '<br><hr>';
 
-echo PaymentController::getIncrCountEntries(8);
+//echo PaymentController::getIncrCountEntries(8);
+
+
+/** Send Email */
+//echo '__';
+//
+//$email = 'ezechielkalengya@gmail.com';
+//$messa = 'This is the success test email';
+//$subje = 'Email Test Server';
+//
+//$user = new \User;
+//$user->send_mail($email,$messa,$subje);
+
+
+echo $_SERVER['DOCUMENT_ROOT']."/apac/admin/config/json/properties.json";
