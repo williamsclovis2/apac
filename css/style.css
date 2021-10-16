@@ -98,7 +98,7 @@ li {
 }
 
 p {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 28px;
   color: #7A838B;
@@ -551,7 +551,7 @@ h3 {
   }
 }
 .section_title p {
-  font-size: 16px;
+  font-size: 14px;
   color: #7A838B;
   margin-bottom: 0;
   font-weight: 400;
@@ -1166,7 +1166,7 @@ h3 {
 }
 
 .slider_area .single_slider .slider_text_register h3,
-.slider_area .single_slider .slider_text_register_btn h3 {font-size: 38px; margin-bottom: 10px; font-weight: 700;}
+.slider_area .single_slider .slider_text_register_btn h3 {font-size: 25px; margin-bottom: 10px; font-weight: 700; line-height: 1.6;}
 .slider_area .single_slider .slider_text_register h5,
 .slider_area .single_slider .slider_text_register_btn h5 {font-size: 18px; margin-bottom: 10px; color: #37af47; font-weight: 600;}
 .slider_area .single_slider .slider_text_register_btn .btn {
@@ -1469,6 +1469,10 @@ h3 {
 .about_area {
   margin-bottom: 150px;
 }
+.about_list{
+  width: 100%;
+  margin: 0px 0 20px 0px;
+}
 .about_area.plus_padding {
   padding-top: 150px;
 }
@@ -1523,7 +1527,7 @@ h3 {
   margin-top: 10px;
 }
 .about_area .about_info .about_list ul li, .outcomes .about_list ul li {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 32px;
   color: #040E27;
   font-weight: 400;
@@ -1545,13 +1549,18 @@ h3 {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  background: #f47e20;
+  background: #37af47;
   content: '';
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+.vitual-section ul li::before, .outcomes .vitual-section ul li::before, .vitual-section ul li::before {
+  
+  background: #a42f1d  !important;
+ 
 }
 .speakers_area {
   background-image: url(../img/banner/speakers.png);
@@ -2840,7 +2849,7 @@ h3 {
 .form-contact h4 {margin-top: 5px; font-weight: 600; font-size: 16px;}
 
 .form-contact label {
-  font-size: 14px;
+  font-size: 13px;
   margin: .6em 0 0;
   color: #333;
 }
@@ -3473,7 +3482,7 @@ h1,h2,h3,h4,h5,h6 {line-height: 1.2em;}
   line-height: 20px;
 }
 .pricing ul li {
-  padding: 10px 0 10px 30px;
+  /* padding: 10px 0 10px 30px; */
   position: relative;
   color: #7A838B !important;
 }

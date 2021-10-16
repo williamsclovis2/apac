@@ -302,7 +302,7 @@
   color: #f47e20;
 }
 #card-profile  .card h6{
-  font-size: 14px !important;
+  font-size: 12px !important;
   font-weight: 600;
 }
 .text-secondary h6{
@@ -439,8 +439,11 @@
   font-size: 12px;
   line-height: 22px;
 }
-
-
+.dropdown .dropdown-menu{
+  position: absolute;
+  left:-20px !important;
+  will-change: unset !important;
+}
 
 
 
