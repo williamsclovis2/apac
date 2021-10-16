@@ -30,6 +30,7 @@ function def(){
     define("DN_IMG_PROFILE", Config::get('filepath/image').'profile/');
     define("VIEW_QR", DN.'/img/qr/');
     define("DN_IMG_QR", Config::get('filepath/image').'qr/');
+    define("VIEW_LOGO_APAC", DN.'/img/apac-web-logo.png');
 }
 
 
@@ -57,8 +58,8 @@ $GLOBALS['config'] = array(
         'token_name' => 'token'
     ),
     'server' => array(
-        // 'name' => "http://{$_SERVER['HTTP_HOST']}/apac",
-        'name' => "http://{$_SERVER['HTTP_HOST']}",
+        'name' => "http://{$_SERVER['HTTP_HOST']}/apac",
+        // 'name' => "http://{$_SERVER['HTTP_HOST']}",
     ),
     'root' => array(
         'json_properties' => $_SERVER['DOCUMENT_ROOT']."/apac/admin/config/json/properties.json"
@@ -66,21 +67,21 @@ $GLOBALS['config'] = array(
 
     'url' => array(
         
-		// 'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp", // Local
-		'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp", // Live
+		'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp", // Local
+		// 'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp", // Live
 
-		// 'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp_noreply", // Local
-		'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp_noreply", // Live
+		'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp_noreply", // Local
+		// 'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp_noreply", // Live
     ),
     'filepath' => array(
-		// 'image' => $_SERVER['DOCUMENT_ROOT'].'/apac/img/',  // Local
-		'image' => $_SERVER['DOCUMENT_ROOT'].'/img/',  //Live 
+		'image' => $_SERVER['DOCUMENT_ROOT'].'/apac/img/',  // Local
+		// 'image' => $_SERVER['DOCUMENT_ROOT'].'/img/',  //Live 
 	)
     
 );
 
  require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/functions/functions.php'; // Local
-//require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/functions/functions.php'; // Live
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/functions/functions.php'; // Live
 
 spl_autoload_register(function($class) {
      require_once $_SERVER['DOCUMENT_ROOT'] . '/apac/admin/classes/' . $class . '.php'; // Local

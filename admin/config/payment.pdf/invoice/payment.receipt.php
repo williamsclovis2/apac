@@ -6,7 +6,7 @@ class myPDF extends FPDF
 {
 
   function header() {
-//    $this->Image(LOGO_HA, 130,6,50);
+   $this->Image(VIEW_LOGO_APAC, 130,6,50);
   }
 
   function footer() {
