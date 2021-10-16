@@ -60,6 +60,9 @@ $GLOBALS['config'] = array(
         'name' => "http://{$_SERVER['HTTP_HOST']}/apac",
         // 'name' => "http://{$_SERVER['HTTP_HOST']}",
     ),
+    'root' => array(
+        'json_properties' => $_SERVER['DOCUMENT_ROOT']."/apac/admin/config/json/properties.json"
+    ),
 
     'url' => array(
         

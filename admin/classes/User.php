@@ -157,19 +157,32 @@ class User {
         require_once('mailer/class.phpmailer.php');
         $mail = new PHPMailer();
         $mail->IsSMTP(); 
-        $mail->SMTPDebug  = 0;                     
+//        $mail->SMTPDebug  = 0;                     
         $mail->SMTPAuth   = true;                  
-        $mail->SMTPSecure = "ssl";                 
+        $mail->SMTPSecure = "tls";                 
         $mail->Host       = "smtp.gmail.com";
-        $mail->Port       = 465;             
+        $mail->Port       = 587;       
+        
+        $mail->SMTPOptions = array(
+      'ssl' => array(
+      'verify_peer' => false,
+      'verify_peer_name' => false,
+      'allow_self_signed' => true
+      )
+   );
+        
         $mail->AddAddress($email);
-        $mail->Username="cubedigitalteamtest@gmail.com";
-        $mail->Password="digitalteamtest12345";
-        $mail->SetFrom('cubedigitalteamtest@gmail.com','The Future Summit');
-        $mail->AddReplyTo("cubedigitalteamtest@gmail.com","The Future Summit");
+        $mail->Username="ezechielkalengya@gmail.com";
+        $mail->Password="0973583598";
+        $mail->SetFrom('ezechielkalengya@gmail.com','The Future Summit');
+//        $mail->AddReplyTo("cubedigitalteamtest@gmail.com","The Future Summit");
         $mail->Subject    = $subject;
         $mail->MsgHTML($message);
-        // $mail->Send();
+    echo $mail->Username;
+        if( $mail->Send() ) 
+            echo 'Sent';
+        else
+            echo 'Not';
     }
 
     // Torusguru
@@ -218,32 +231,32 @@ class User {
     // }
 
     /** Email Apac Info */
-    // function send_mail($email,$message,$subject)
-    // {    
-    //     $from             = "info@apacongress.torusguru.com"; 
-    //     $namefrom         = "The Future Summit";
-    //     $mail = new  PHPMailer();
-    //     $mail->SMTPDebug  = 0;
-    //     $mail->CharSet    = 'UTF-8';
-    //     $mail->isSMTP();
-    //     $mail->SMTPAuth   = true;
-    //     $mail->Host       = "n3plcpnl0129.prod.ams3.secureserver.net";
-    //     $mail->Port       = 2096;
-    //     $mail->Username   = $from;
-    //     $mail->Password   = "6oltI*fk@ntj";
-    //     $mail->SMTPSecure = "tls";
-    //     $mail->setFrom($from,$namefrom);
-    //     $mail->addCC($from,$namefrom);
-    //     $mail->Subject    = $subject;
-    //     $mail->isHTML();
-    //     $mail->Body       = $message;
-    //     $mail->addAddress($email);
-    //     // $mail->send();
-    //     if($mail->send())
-    //         echo 'Yes. Sent';
-    //     else
-    //         echo "No. error";
-    // }
+//     function send_mail($email,$message,$subject)
+//     {    
+//         $from             = "info@apacongress.torusguru.com"; 
+//         $namefrom         = "The Future Summit";
+//         $mail = new  PHPMailer();
+//         $mail->SMTPDebug  = 0;
+//         $mail->CharSet    = 'UTF-8';
+//         $mail->isSMTP();
+//         $mail->SMTPAuth   = true;
+//         $mail->Host       = "n3plcpnl0129.prod.ams3.secureserver.net";
+//         $mail->Port       = 2096;
+//         $mail->Username   = $from;
+//         $mail->Password   = "6oltI*fk@ntj";
+//         $mail->SMTPSecure = "tls";
+//         $mail->setFrom($from,$namefrom);
+//         $mail->addCC($from,$namefrom);
+//         $mail->Subject    = $subject;
+//         $mail->isHTML();
+//         $mail->Body       = $message;
+//         $mail->addAddress($email);
+//         // $mail->send();
+//         if($mail->send())
+//             echo 'Yes. Sent';
+//         else
+//             echo "No. error";
+//     }
 
     // job titles//
 

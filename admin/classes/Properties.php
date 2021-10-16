@@ -13,7 +13,7 @@ class Properties
 	private $Software_Language;
 	function __construct($lang='')
 	{
-		$this->readJson = Config::get('server/name').'/admin/config/json/properties.json';
+		$this->readJson = Config::get('root/json_properties');
 		$this->Prop=$this->parseJson();
 		$lang=$lang?$lang:$this->selectedLang();
 		$this->Software_Language=$lang;

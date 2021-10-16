@@ -24,12 +24,12 @@ class PaymentController
 			$eventtoken 	= $str->data_in($_PAY['eventId']);
 			$authtoken 		= $str->data_in($_PAY['authtoken']);
 			$DefaultPayment = strtoupper($str->data_in($_PAY['defaultMethod']));
-
+            
 			if($DefaultPayment != 'CC' && $DefaultPayment != 'BT'):
 				return (object)[
 					'ERRORS'		=> true,
-					'ERRORS_SCRIPT' => "Invalid Data",
-					'ERRORS_STRING' => "Invalid Data"
+					'ERRORS_SCRIPT' => "Invalid Data 1",
+					'ERRORS_STRING' => "Invalid Data 1"
 				];
 			endif;
 
@@ -40,8 +40,8 @@ class PaymentController
 			if(!is_integer($participation_id)):
 				return (object)[
 					'ERRORS'		=> true,
-					'ERRORS_SCRIPT' => "Invalid Data",
-					'ERRORS_STRING' => "Invalid Data"
+					'ERRORS_SCRIPT' => "Invalid Data 22",
+					'ERRORS_STRING' => "Invalid Data 22"
 				];
 			endif;
 
@@ -49,16 +49,16 @@ class PaymentController
 			if(!($_participant_data_ = FutureEventController::getEventParticipantDataByID($participation_id))):
 				return (object)[
 					'ERRORS'		=> true,
-					'ERRORS_SCRIPT' => "Invalid data",
-					'ERRORS_STRING' => "Invalid data"
+					'ERRORS_SCRIPT' => "Invalid data 333",
+					'ERRORS_STRING' => "Invalid data 333"
 				];
 			endif;
 
 			if(($event_id != $_participant_data_->event_id)):
 				return (object)[
 					'ERRORS'		=> true,
-					'ERRORS_SCRIPT' => "Invalid data",
-					'ERRORS_STRING' => "Invalid data"
+					'ERRORS_SCRIPT' => "Invalid data 4444",
+					'ERRORS_STRING' => "Invalid data 4444"
 				];
 			endif;
 
@@ -108,8 +108,6 @@ class PaymentController
 					'service_date'		 => date('Y/m/d h:i', time()), 
 				);
 
-				
-				
 				$PaymentHandler = new \PaymentHandler(); 
 				$PAYMENT_REQ 	= $PaymentHandler->createToken($PAY_REQ_DATA, $DefaultPayment);
 
@@ -121,6 +119,7 @@ class PaymentController
 					];
 				endif;
 				$PAYMENT_REQ 	= (Object) $PAYMENT_REQ;
+                
 
 				$external_transaction_id     = '';
 				$external_transaction_token  = '';
@@ -137,7 +136,7 @@ class PaymentController
 
 				$payment_id           = '';
 				$callback_cmd  		  = '';
-				$callback_time        = 0;
+				$callback_time        = '';
 				
 				$_fields = array(
 					'event_id'            		  => $event_id,
@@ -170,6 +169,12 @@ class PaymentController
 
 					'c_date'                      => time(),
 				);
+                
+                 echo '<pre>';
+ 		print_r($PAYMENT_REQ);
+ 		echo '</pre>';
+		
+ 		echo '<br><hr>';
 
 				$_payURL_  = NULL;
 				try{
