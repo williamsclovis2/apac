@@ -9,6 +9,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(css|js|fonts|images|plugins)($|/) - [L]
 
 
+# Set The pdf page
+RewriteRule ^pdf/payment/invoice/([0-9a-zA-Z]+)$ admin/app/controller_pdf.php?form=$1 [L]
 
 # Set The form page
 RewriteRule ^register/invitation/([0-9a-zA-Z]+)$	private_registration.php?form=$1 [L]
