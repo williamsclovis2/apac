@@ -8,7 +8,7 @@
 class myPDF extends FPDF
 {
   function header() {
-   $this->Image( VIEW_LOGO_APAC, 130,6,50);
+   $this->Image( VIEW_LOGO_APAC, 80,6,60);
   }
 
   function footer() {
@@ -21,30 +21,44 @@ class myPDF extends FPDF
   function viewTable() {
 
 #Repport Divulgation
-    $this->Cell(280,5,'',0,3,'C');
+    $this->Cell(190,5,'',0,3,'C');
     $this->SetFont('arial','B',12);
-    $this->Cell(280,6,'',0,4,'C');
-    $this->Cell(280,6,'',0,4,'C');
-    $this->Cell(290,2,'Liste des Agents',0,1,'C');
+    $this->Cell(190,6,'',0,4,'C');
+    $this->Cell(190,16,'',0,4,'C');
+    $this->Cell(190,5,'IUCN Africa Protected Areas Congress',0,1,'C');
+    $this->SetFont('arial','',12);
+    $this->Cell(190,5,'March 7th to 12th 2021, Kigali, Rwanda',0,1,'C');
+    $this->SetFont('arial','',11);
+    $this->Cell(190,5,'Email: info@apacongress.africa',0,1,'C');
     $this->Ln();
-    $this->SetFont('Times','',12);
+    $this->SetFont('arial','B',25);
+    $this->Cell(190,5,'Invoice',0,1,'C');
     $this->Ln();
-
-    $this->cell(285,5,'',0,1,'C');
+    $this->cell(190,0,'',1,1,'L');
+    $this->Ln();
+    $this->SetFont('arial','',12);
+    $this->Cell(190,11,'Kambale Mulwahali Clovis',0,1,'L');
+    $this->Cell(190,1,'Cube communications Ltd',0,1,'L');
+    $this->Cell(190,11,'Kigali',0,1,'L');
+    $this->Cell(190,1,'Rwanda',0,1,'L');
+    $this->Cell(190,11,'+190784701793',0,1,'L');
+    $this->Cell(190,1,'clovismul@gmail.com',0,1,'L');
     $this->SetFont('arial','B',12);
-    $this->Cell(20,7,'No',1,0,'C');
-    $this->Cell(60,7,' Matricule',1,0,'C');
-    $this->Cell(60,7,'Noms',1,0,'C');
-    $this->Cell(50,7,'Email',1,0,'C');
-    $this->Cell(50,7,'Telephone',1,0,'C');
-    $this->Cell(40,7,'Service',1,1,'C');
+    $this->Cell(190,15,'Registration number : 14578562',0,1,'L');
+    $this->SetFont('arial','',12);
+    $this->Cell(135,5,'Invoice number: [BTAPAC0001]',0,0,'L');
+    $this->Cell(0,5,'Invoice Date: [BTAPAC0001]',0,1,'C');
+    $this->cell(100,5,'',0,1,'L');
+    $this->SetFont('arial','B',12);
+    $this->Cell(100,7,'Description ',1,0,'L');
+    $this->Cell(90,7,'Amount ',1,1,'R');
 
-    $this->Cell(20,7,'',1,0,'C');
-    $this->Cell(60,7,'',1,0,'C');
-    $this->Cell(60,7,'',1,0,'C');
-    $this->Cell(50,7,'',1,0,'C');
-    $this->Cell(50,7,'',1,0,'C');
-    $this->Cell(40,7,'',1,1,'C');
+    $this->Cell(100,40,'',1,0,'L');
+    $this->Cell(90,40,'',1,1,'L');
+
+    $this->Cell(100,7,'Total ',1,0,'R');
+    $this->Cell(90,7,'$190 ',1,0,'L');
+    
 
   }
 
@@ -53,7 +67,7 @@ class myPDF extends FPDF
 }
   $pdf=new myPDF();
   $pdf->AliasNbPages();
-  $pdf->AddPage('L','A4',0);
+  $pdf->AddPage('P','A4',0);
   $pdf->viewTable();
   $pdf->Output();
 
