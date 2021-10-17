@@ -1,5 +1,20 @@
 <?php
-//require_once "core/init.php"; 
+require_once "core/init.php"; 
+
+
+// $FutureEventTable = new \FutureEvent();
+// $FutureEventTable->selectQuery("SELECT id FROM future_participation_sub_type ");
+// foreach($FutureEventTable->data() As $type_):
+//     $code = 'CS00'.$type_->id;
+//     $FutureEventTable->selectQuery("UPDATE `future_participation_sub_type` SET `code` = '$code' WHERE `future_participation_sub_type`.`id` = $type_->id");
+// endforeach;
+
+$_data_ = array(
+    'email' => 'ezechielkalengya@gmail.com',
+    'firstname' => 'Kalengya',
+);
+
+EmailController::sendEmailToParticipantAfterMediaApplication($_data_);
 
 // function regroupRecognizedWords($map_word){
 // 	$array_rec = array(
@@ -74,5 +89,3 @@
 //$user = new \User;
 //$user->send_mail($email,$messa,$subje);
 
-
-echo $_SERVER['DOCUMENT_ROOT']."/apac/admin/config/json/properties.json";

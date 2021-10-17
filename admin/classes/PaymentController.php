@@ -28,42 +28,42 @@ class PaymentController
 			if($DefaultPayment != 'CC' && $DefaultPayment != 'BT'):
 				return (object)[
 					'ERRORS'		=> true,
-					'ERRORS_SCRIPT' => "Invalid Data 1",
-					'ERRORS_STRING' => "Invalid Data 1"
+					'ERRORS_SCRIPT' => "Invalid Data",
+					'ERRORS_STRING' => "Invalid Data"
 				];
 			endif;
 
-			$participation_id   = Hash::decryptAuthToken($authtoken);
+			$participant_id     = Hash::decryptAuthToken($authtoken);
 			$event_id 			= Hash::decryptToken($eventtoken);
 
-			/** Check If Valid $participation_id And Exists In Participant Table */
-			if(!is_integer($participation_id)):
+			/** Check If Valid $participant_id And Exists In Participant Table */
+			if(!is_integer($participant_id)):
 				return (object)[
 					'ERRORS'		=> true,
-					'ERRORS_SCRIPT' => "Invalid Data 22",
-					'ERRORS_STRING' => "Invalid Data 22"
+					'ERRORS_SCRIPT' => "Invalid Data",
+					'ERRORS_STRING' => "Invalid Data"
 				];
 			endif;
 
 			/** Get Participant Details */
-			if(!($_participant_data_ = FutureEventController::getEventParticipantDataByID($participation_id))):
+			if(!($_participant_data_ = FutureEventController::getEventParticipantDataByID($participant_id))):
 				return (object)[
 					'ERRORS'		=> true,
-					'ERRORS_SCRIPT' => "Invalid data 333",
-					'ERRORS_STRING' => "Invalid data 333"
+					'ERRORS_SCRIPT' => "Invalid data",
+					'ERRORS_STRING' => "Invalid data"
 				];
 			endif;
 
 			if(($event_id != $_participant_data_->event_id)):
 				return (object)[
 					'ERRORS'		=> true,
-					'ERRORS_SCRIPT' => "Invalid data 4444",
-					'ERRORS_STRING' => "Invalid data 4444"
+					'ERRORS_SCRIPT' => "Invalid data",
+					'ERRORS_STRING' => "Invalid data"
 				];
 			endif;
 
 			/** Get Participant Details */
-			if(!(self::checkIfEventParticipantHasAlreadySuccessfullyPaid($event_id, $participation_id))):
+			if((self::checkIfEventParticipantHasAlreadySuccessfullyPaid($event_id, $participant_id))):
 				return (object)[
 					'ERRORS'		=> true,
 					'ERRORS_SCRIPT' => "You have already paid",
@@ -82,7 +82,7 @@ class PaymentController
 			$amount 			= $_participant_data_->participation_subtype_price;
 			$currency 			= $_participant_data_->participation_subtype_currency;
 
-			$transaction_id 	= self::generateTransactionID($event_id, $participation_id, $participation_type_id, $participation_sub_type_id);
+			$transaction_id 	= self::generateTransactionID($event_id, $participant_id, $participation_type_id, $participation_sub_type_id);
 			$transaction_source = 'WEB';
 			$transaction_type   = 'PAY_EVENT';
 			$transaction_time   = time();
@@ -90,46 +90,78 @@ class PaymentController
 			$transaction_status = 'PENDING';
 
 			if($diagnoArray[0] == 'NO_ERRORS'){
-
-				/** Initiate Payment Request - Create Payment Token */
-				$PAY_REQ_DATA = array(
-					'pay_amount'      	 => $amount,
-					'pay_currency'		 => $currency,
-					'pay_transactionID'	 => $transaction_id,
-							
-					'customer_token'	 => $participant_token,
-
-					'customer_token'	 => $participant_token,
-					'customer_email'	 => $_participant_data_->participant_email,
-					'customer_firstname' => $_participant_data_->participant_firstname,
-					'customer_lastname'  => $_participant_data_->participant_lastname,
-				
-					'service_description'=> 'Payment to participate to IUCN Africa Protected Areas Congress (APAC) Event.',  
-					'service_date'		 => date('Y/m/d h:i', time()), 
-				);
-
 				$PaymentHandler = new \PaymentHandler(); 
-				$PAYMENT_REQ 	= $PaymentHandler->createToken($PAY_REQ_DATA, $DefaultPayment);
-
-				if(!$PAYMENT_REQ):
-					return (object)[
-						'ERRORS'		=> true,
-						'ERRORS_SCRIPT' => "Failed to initiate your payment request",
-						'ERRORS_STRING' => "Failed to initiate your payment request"
-					];
-				endif;
-				$PAYMENT_REQ 	= (Object) $PAYMENT_REQ;
-                
 
 				$external_transaction_id     = '';
 				$external_transaction_token  = '';
+				$external_transaction_status = '';
 
-				if($PAYMENT_REQ->Success):
-					$external_transaction_id     = $PAYMENT_REQ->TransRef;
-					$external_transaction_token  = $PAYMENT_REQ->TransToken;
+				
+
+				/** Payment Integration - Creeate Token */
+				if($DefaultPayment == 'CC'):
+					/** Code For Test  Env Payment Integration */
+					if($amount >= 300 && $currency == 'USD'):
+						return (object)[
+							'ERRORS'		=> true,
+							'ERRORS_SCRIPT' => "Limit Amount USD 200 On Test Env",
+							'ERRORS_STRING' => "Limit Amount USD 200 On Test Env"
+						];
+					endif;
+
+					/** Initiate Payment Request - Create Payment Token */
+					$PAY_REQ_DATA = array(
+						'pay_amount'      	 => $amount,
+						'pay_currency'		 => $currency,
+						'pay_transactionID'	 => $transaction_id,
+								
+						'customer_token'	 => $participant_token,
+
+						'customer_token'	 => $participant_token,
+						'customer_email'	 => $_participant_data_->participant_email,
+						'customer_firstname' => $_participant_data_->participant_firstname,
+						'customer_lastname'  => $_participant_data_->participant_lastname,
+					
+						'service_description'=> 'Payment to participate to IUCN Africa Protected Areas Congress (APAC) Event.',  
+						'service_date'		 => date('Y/m/d h:i', time()), 
+					);
+
+					$PaymentHandler = new \PaymentHandler(); 
+					$PAYMENT_REQ 	= $PaymentHandler->createToken($PAY_REQ_DATA);
+
+					// echo "__________";
+					// var_dump($PAYMENT_REQ);
+					// echo '<pre>';
+					// print_r($PAYMENT_REQ);
+					// echo '</pre>';
+				   
+					// echo '<br><hr>';
+
+					if($PAYMENT_REQ == false):
+						return (object)[
+							'ERRORS'		=> true,
+							'ERRORS_SCRIPT' => "Failed to initiate your payment request",
+							'ERRORS_STRING' => "Failed to initiate your payment request"
+						];
+					endif;
+					$PAYMENT_REQ 	= (Object) $PAYMENT_REQ;
+                
+					if($PAYMENT_REQ->Success):
+						$external_transaction_id     = $PAYMENT_REQ->TransRef;
+						$external_transaction_token  = $PAYMENT_REQ->TransToken;
+					endif;
+
+					$external_transaction_status = $PAYMENT_REQ->Result;
+
+
+
+				/** BANK TRANSFER */
+				elseif($DefaultPayment == 'BT'):
+					$transaction_id 	= self::generateBTTransactionID($event_id, $participant_id, $participation_type_id, $participation_sub_type_id);
+					$transaction_token  = self::generateTransationToken($transaction_id);
+
+					$payment_method     = 'BANK_TRANSFER';
 				endif;
-
-				$external_transaction_status = $PAYMENT_REQ->Result;
 
 				$payment_request_cmd  		 = '';
 				$payment_request_time        = time();
@@ -140,7 +172,7 @@ class PaymentController
 				
 				$_fields = array(
 					'event_id'            		  => $event_id,
-					'participation_id'     		  => $participation_id,
+					'participant_id'     		  => $participant_id,
 					'participant_token'  		  => $participant_token,
 					'participation_type_id'       => $participation_type_id,
 					'participation_sub_type_id'   => $participation_sub_type_id,
@@ -170,18 +202,31 @@ class PaymentController
 					'c_date'                      => time(),
 				);
                 
-                 echo '<pre>';
- 		print_r($PAYMENT_REQ);
- 		echo '</pre>';
+        //          echo '<pre>';
+ 		// print_r($PAYMENT_REQ);
+ 		// echo '</pre>';
 		
- 		echo '<br><hr>';
+ 		// echo '<br><hr>';
 
 				$_payURL_  = NULL;
 				try{
 					$PaymentTable->insert($_fields);
+					$_ID_ = self::getLastID();
 					
-					if($PAYMENT_REQ->Success)
-						$_payURL_  = $PaymentHandler->getInitiatedPaymentRequestUrl();
+					if($DefaultPayment == 'CC')
+						if($PAYMENT_REQ->Success)
+							$_payURL_  = $PaymentHandler->getInitiatedPaymentRequestUrl();
+
+					/** Payment Invoice Link */
+					$payment_invoice_link = Config::get('url/invoice').Hash::encryptAuthToken($_ID_);
+           
+					/** Send Email */
+					$_data_ = array(
+						'email' 			   => $_participant_data_->participant_email,
+						'firstname' 		   => $_participant_data_->participant_firstname,
+						'payment_invoice_link' => $payment_invoice_link
+					);
+					EmailController::sendEmailToParticipantOnRequestToPayByBankTransferOrDirectDeposit($_data_);
 
 				}catch(Exeption $e){
 					$diagnoArray[0] = "ERRORS_FOUND";
@@ -205,6 +250,7 @@ class PaymentController
 				'ERRORS_SCRIPT' => "",
 				'AUTHTOKEN'     => $authtoken,
 				'PAYURL'		=> $_payURL_,
+				'PAYMENTMETHOD'	=> $DefaultPayment,
 				'ERRORS_STRING' => ""
 			];
 		}
@@ -214,14 +260,20 @@ class PaymentController
 
     public static function checkIfEventParticipantHasAlreadySuccessfullyPaid($eventID, $participantID){
         $PaymentTable = new Payment();
-        $PaymentTable->selectQuery("SELECT * FROM future_payment_transaction_entry WHERE event_id = {$eventID} AND  participant_id = {$participantID} AND transaction_status = 'COMPLETED' ORDER BY id DESC ");
+		$SQL = "SELECT id FROM future_payment_transaction_entry WHERE event_id = {$eventID} AND  participant_id = {$participantID} AND transaction_status = 'COMPLETED' ORDER BY id DESC ";
+		// echo $SQL;
+        $PaymentTable->selectQuery($SQL);
         if($PaymentTable->count())
-          return  true;
+          return  $PaymentTable->first()->id?true:false;
         return  false;
     }
 
-	public static function generateTransactionID($event_id, $participation_id, $participation_type_id, $participation_sub_type_id){
-		return "FS".$event_id."00-".date("y").$participation_id.$participation_type_id.$participation_sub_type_id.self::getIncrCountEntries($event_id).date("m").date("d").date("H").date("i");
+	public static function generateTransactionID($event_id, $participant_id, $participation_type_id, $participation_sub_type_id){
+		return "APAC".$event_id."00-".date("y").$participant_id.self::getIncrCountEntries($event_id).date("m").date("d");
+	}
+
+	public static function generateBTTransactionID($event_id, $participant_id, $participation_type_id, $participation_sub_type_id){
+		return "BTAPAC".$event_id."00-".date("y").$participant_id.self::getIncrCountEntries($event_id).date("m").date("d");
 	}
 
 	public static function generateTransationToken($transaction_id){
@@ -234,6 +286,14 @@ class PaymentController
         if($PaymentTable->count())
           return $PaymentTable->first()->count_total + 1;
         return 1;
+    }
+	
+	public static function getLastID(){
+        $PaymentTable = new Payment();
+        $PaymentTable->selectQuery("SELECT id FROM future_payment_transaction_entry  ORDER BY id DESC limit 1 ");
+        if($PaymentTable->count())
+          return $PaymentTable->first()->id;
+        return 0;
     }
 
 }

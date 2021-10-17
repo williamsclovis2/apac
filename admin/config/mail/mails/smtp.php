@@ -1,8 +1,8 @@
 <?php
 
-    $message= $_POST['message']  = 'Test 1 live email';
-    $email= $_POST['email']      = 'ezechielkalengya@gmail.com';
-    $subject= $_POST['subject']  = 'Email Live 1';
+    $message= $_POST['message'];
+    $email= $_POST['email'];
+    $subject= $_POST['subject'];
 /**
  * This example shows making an SMTP connection with authentication.
  */

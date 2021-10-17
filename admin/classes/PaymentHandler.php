@@ -36,9 +36,9 @@ class PaymentHandler
 		$ServiceDescription	= $_DATA->service_description; # Ex. Pay My Event Entracy 
 		$ServiceDate        = $_DATA->service_date; # Ex. 2020/12/27 19:00
 
-		$RedirectURL     	= Config::get('server/name')."/pay/callback";
-		$BackURL         	= Config::get('server/name')."/pay/callback/called";
-		$DeclinedURL     	= Config::get('server/name')."/pay/callback";
+		$RedirectURL     	= Config::get('api/payment_callback')."response";
+		$BackURL         	= Config::get('api/payment_callback')."cancelled";
+		$DeclinedURL     	= Config::get('api/payment_callback')."declined";
                 
         $_CURL_ = curl_init();
         curl_setopt( $_CURL_, CURLOPT_URL, $this->_url );
@@ -64,7 +64,6 @@ class PaymentHandler
 			<customerEmail>'. $customerEmail .'</customerEmail>
 			<customerFirstName>'. $customerFirstName .'</customerFirstName>
 			<customerLastName>'. $customerLastName .'</customerLastName>
-			<DefaultPayment>'.$DefaultPayment.'</DefaultPayment>
 		</Transaction>
 		<Services>
 		  <Service>
@@ -83,15 +82,18 @@ class PaymentHandler
 		$responseData     = array();
         if(($responseData = json_decode(json_encode((array) @simplexml_load_string($result)), 1))):
 			$responseData 		   = (Object) $responseData;
-			$responseData->Success = false;
-			if(array_key_exists("Result", $responseData))
-				if($responseData->Result  == 000):
-					$responseData->Success = true;
-					$this->_PAYTOKEN_      = $responseData->TransToken;
-					$this->_urlPayment 	   = "https://secure.3gdirectpay.com/payv2.php?ID=".$this->_PAYTOKEN_;
+			if($responseData):
+				$responseData->Success = false;
+				if(array_key_exists("Result", $responseData)):
+					if($responseData->Result  == 000):
+						$responseData->Success = true;
+						$this->_PAYTOKEN_      = $responseData->TransToken;
+						$this->_urlPayment 	   = "https://secure.3gdirectpay.com/payv2.php?ID=".$this->_PAYTOKEN_;
+					endif;
 				endif;
+			endif;
 		endif;
-		return empty($responseData)?false:$responseData;        
+		return empty($responseData)?"1234567890":$responseData;        
     }
 
 	public function initiatePaymentRequest(){

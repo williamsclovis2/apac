@@ -1,12 +1,14 @@
 <?php
+// require 'core/init.php';
+// require 'core/FPDF/fpdf.php';
+
 /**
  *
  */
 class myPDF extends FPDF
 {
-
   function header() {
-   $this->Image(VIEW_LOGO_APAC, 130,6,50);
+   $this->Image( VIEW_LOGO_APAC, 80,6,60);
   }
 
   function footer() {
@@ -17,134 +19,55 @@ class myPDF extends FPDF
   }
 
   function viewTable() {
-    $UserTable              = new \User;
-    $session_user           = new \User;
-    $App                    = new \App;
-    $CDVServiceTable        = new \CDVServices;
 
-    if($session_user->isLoggedIn()){
-    	$session_user_data = $session_user->data();
-    	$session_user_ID   = $session_user_data->id;
-
-      $_Dictionary       = new \Properties($session_user_data->language);
-    }
-
-    if(!Input::checkInput('_id', 'get', 1) || !is_numeric(Input::get('_id', 'get'))):
-      Redirect::to(404);
-    endif;
-
-    $_encryptedID_       = Input::get('_id', 'get');
-    $_ID                 = (int)Hash::decryptToken($_encryptedID_);
-
-    $UserTable->select("WHERE id =? LIMIT 1", array($_ID));
-    if($UserTable->count()):
-      foreach($UserTable->data() as $user_):
-      endforeach;
-    else:
-      Redirect::to(404);
-    endif;
-
-#Report Agent Information
-    $this->Cell(280,5,'',0,3,'C');
+#Repport Divulgation
+    $this->Cell(190,5,'',0,3,'C');
     $this->SetFont('arial','B',12);
-    $this->Cell(280,6,'',0,4,'C');
-    $this->Cell(280,6,'',0,4,'C');
-    $this->Cell(290,2,'INFORMATION ABOUT AGENT',0,1,'C');
+    $this->Cell(190,6,'',0,4,'C');
+    $this->Cell(190,16,'',0,4,'C');
+    $this->Cell(190,5,'IUCN Africa Protected Areas Congress',0,1,'C');
+    $this->SetFont('arial','',12);
+    $this->Cell(190,5,'March 7th to 12th 2021, Kigali, Rwanda',0,1,'C');
+    $this->SetFont('arial','',11);
+    $this->Cell(190,5,'Email: info@apacongress.africa',0,1,'C');
     $this->Ln();
-    $this->SetFont('arial','B',12);
+    $this->SetFont('arial','B',25);
+    $this->Cell(190,5,'Invoice',0,1,'C');
     $this->Ln();
-
-    $this->Cell(280,5,'',0,4,'C');
-    $this->Cell(50,2,'ABOUT AGENT',0,1,'L');
-    $this->cell(285,5,'',0,1,'C');
+    $this->cell(190,0,'',1,1,'L');
+    $this->Ln();
     $this->SetFont('arial','',12);
-    // $this->Cell(140,7,' Matricule',1,0,'C');
-    // $this->Cell(140,7,'',1,1,'C');
-
-    $this->SetFont('arial','',12);
-    $this->Cell(140,7, ' '. $_Dictionary->string('names'),1,0,'L');
+    $this->Cell(190,11,'Kambale Mulwahali Clovis',0,1,'L');
+    $this->Cell(190,1,'Cube communications Ltd',0,1,'L');
+    $this->Cell(190,11,'Kigali',0,1,'L');
+    $this->Cell(190,1,'Rwanda',0,1,'L');
+    $this->Cell(190,11,'+190784701793',0,1,'L');
+    $this->Cell(190,1,'clovismul@gmail.com',0,1,'L');
     $this->SetFont('arial','B',12);
-    $this->Cell(140,7, $user_->firstname.' '.$user_->lastname.' '.$user_->surname ,1,1,'L');
-
+    $this->Cell(190,15,'Registration number : 14578562',0,1,'L');
     $this->SetFont('arial','',12);
-    $this->Cell(140,7,' Sex',1,0,'L');
+    $this->Cell(135,5,'Invoice number: [BTAPAC0001]',0,0,'L');
+    $this->Cell(0,5,'Invoice Date: [BTAPAC0001]',0,1,'C');
+    $this->cell(100,5,'',0,1,'L');
     $this->SetFont('arial','B',12);
-    $this->Cell(140,7, $user_->gender,1,1,'L');
+    $this->Cell(100,7,'Description ',1,0,'L');
+    $this->Cell(90,7,'Amount ',1,1,'R');
 
-    $this->SetFont('arial','',12);
-    $this->Cell(140,7,' '. $_Dictionary->words('date of birth'),1,0,'L');
-    $this->SetFont('arial','B',12);
-    $this->Cell(140,7, date_format(date_create($user_->date_of_birth), 'd/m/Y'),1,1,'L');
+    $this->Cell(100,40,'',1,0,'L');
+    $this->Cell(90,40,'',1,1,'L');
 
-    $this->SetFont('arial','',12);
-    $this->Cell(140,7,' '. $_Dictionary->string('marital-status'),1,0,'L');
-    $this->SetFont('arial','B',12);
-    $this->Cell(140,7, $_Dictionary->words($App->findMaritalStatus($user_->marital_status_id, 'name')),1,1,'L');
-
-    $this->SetFont('arial','',12);
-    $this->Cell(140,7,' '. $_Dictionary->string('nationality'),1,0,'L');
-    $this->SetFont('arial','B',12);
-    $this->Cell(140,7,'Congolese',1,1,'L');
-
-    $this->SetFont('arial','',12);
-    $this->Cell(140,7,' Niveau d\'Etude',1,0,'L');
-    $this->SetFont('arial','B',12);
-    $this->Cell(140,7,'',1,1,'L');
-
-    $this->SetFont('arial','',12);
-    $this->Cell(140,7,' '. $_Dictionary->string('id-number'),1,0,'L');
-    $this->SetFont('arial','B',12);
-    $this->Cell(140,7, $user_->id_number,1,1,'L');
-
-    $this->SetFont('arial','',12);
-    $this->Cell(140,7,' '.$_Dictionary->string('services'),1,0,'L');
-    $this->SetFont('arial','B',12);
-    $this->Cell(140,7, $CDVServiceTable->find($user_->service_id, 'name'),1,1,'L');
-
-    // $this->SetFont('arial','',12);
-    // $this->Cell(140,7,'Bureau',1,0,'L');
-    // $this->SetFont('arial','B',12);
-    // $this->Cell(140,7,'',1,1,'L');
-    //
-    // $this->SetFont('arial','',12);
-    // $this->Cell(140,7,'Fonction',1,0,'L');
-    // $this->SetFont('arial','B',12);
-    // $this->Cell(140,7,'',1,1,'L');
-
-    $this->Cell(280,9,'',0,4,'C');
-    $this->Cell(80,2,'CONTACT AND ADDRESS OF THE AGENT',0,1,'L');
-    $this->cell(285,5,'',0,1,'L');
-    $this->SetFont('arial','',12);
-    $this->Cell(140,7,' '. $_Dictionary->words('email'),1,0,'L');
-    $this->SetFont('arial','B',12);
-    $this->Cell(140,7, $user_->email,1,1,'L');
-
-    $this->SetFont('arial','',12);
-    $this->Cell(140,7,' '.$_Dictionary->words('telephone 1/ 2'),1,0,'L');
-    $this->SetFont('arial','B',12);
-    $this->Cell(140,7,$user_->telephone_1.'/ '.$user_->telephone_1,1,1,'L');
-
-    $this->SetFont('arial','',12);
-    $this->Cell(140,7,' '.$_Dictionary->words('province/ city'),1,0,'L');
-    $this->SetFont('arial','B',12);
-    $this->Cell(140,7,'',1,1,'L');
-
-    $this->SetFont('arial','',12);
-    $this->Cell(140,7,' '.$_Dictionary->words('commune'),1,0,'L');
-    $this->SetFont('arial','B',12);
-    $this->Cell(140,7,'',1,1,'L');
-
-    $this->SetFont('arial','',12);
-    $this->Cell(140,7,' '.$_Dictionary->words('district/ avenue/ No.'),1,0,'L');
-    $this->SetFont('arial','B',12);
-    $this->Cell(140,7, $user_->district.'/ '.$user_->avenue.'/ '.$user_->house_number,1,1,'L');
+    $this->Cell(100,7,'Total ',1,0,'R');
+    $this->Cell(90,7,'$190 ',1,0,'L');
+    
 
   }
 
+
+
 }
-  $pdf = new \myPDF();
+  $pdf=new myPDF();
   $pdf->AliasNbPages();
-  $pdf->AddPage('L','A4',0);
+  $pdf->AddPage('P','A4',0);
   $pdf->viewTable();
   $pdf->Output();
 
