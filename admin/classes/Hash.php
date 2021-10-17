@@ -84,7 +84,7 @@ class Hash {
         public static function decryptAuthToken($ctx){
             $Hash   = new \Hash();
             $result = $ctx;
-            $result = Hash::decryptToken($Hash->decryptAES(hex2bin($ctx)));
+            $result = @Hash::decryptToken($Hash->decryptAES(hex2bin($ctx)));
             return $result;
         }
     

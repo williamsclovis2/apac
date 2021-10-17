@@ -10,8 +10,8 @@ RewriteRule ^(css|js|fonts|images|plugins)($|/) - [L]
 
 
 # Set The pdf page
-RewriteRule ^pdf/payment/invoice/([0-9a-zA-Z]+)$ admin/app/controller_pdf.php?request=print_payment_invoice&form=$1 [L]
-RewriteRule ^pdf/payment/receipt/([0-9a-zA-Z]+)$ admin/app/controller_pdf.php?request=print_payment_receipt&form=$1 [L]
+RewriteRule ^pdf/payment/invoice/([0-9a-zA-Z]+)$ admin/app/controller_pdf.php?request=print_payment_invoice&authtoken_=$1 [L]
+RewriteRule ^pdf/payment/receipt/([0-9a-zA-Z]+)$ admin/app/controller_pdf.php?request=print_payment_receipt&authtoken_=$1 [L]
 
 # Set The Bank Transfer page
 RewriteRule ^bank/transfert/success/notification/([0-9a-zA-Z]+)$	notification.php?code=BANK_TRANSFER_SUCCESSFULLY_GENERATED [L]
