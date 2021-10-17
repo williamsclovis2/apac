@@ -1,6 +1,6 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?=$_Dictionary->words('content-event-title')?></title>
+    <title><?=$_Dictionary->words('footer-content-event-title')?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

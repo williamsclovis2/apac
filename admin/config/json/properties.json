@@ -59,7 +59,6 @@
 							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 450 de 1º de janeiro de 2022 a 5 de março de 2022"
 						}
 					},
-
 					{
 						"in-person-section-description": {
 							"fr-lang": "Cela fournit l'expérience complète du Congrès, des échanges directs avec les meilleurs experts de la conservation aux débats et sessions de haut niveau en direct et en personne. Tout en maintenant des protocoles de santé et de sécurité dans tout le site, la participation en personne aidera à élargir votre réseau, à obtenir des informations de première main et à vous permettre de peser sur les problèmes les plus urgents auxquels notre planète est confrontée.",
@@ -68,7 +67,6 @@
 							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 450 de 1º de janeiro de 2022 a 5 de março de 2022"
 						}
 					},
-
 					{
 						"content-discount-inperson-1": {
 							"fr-lang": "Tarif réduit lève-tôt valable jusqu'au 31 décembre 2021 450 $ du 1er janvier au 5 mars 2022",
@@ -395,6 +393,38 @@
 							"eng-lang": "Students / Youth participants",
 							"ar-lang": "الطلاب / الشباب المشاركين",
 							"pt-lang": "Alunos / jovens participantes"
+						}
+					},
+					{
+						"content-crew-/-contractor": {
+							"fr-lang": "Équipage / Entrepreneur",
+							"eng-lang": "Crew / Contractor",
+							"ar-lang": "الطاقم / المقاول",
+							"pt-lang": "Tripulação / Empreiteiro"
+						}
+					},
+					{
+						"content-crew-contractor": {
+							"fr-lang": "Équipage / Entrepreneur",
+							"eng-lang": "Crew / Contractor",
+							"ar-lang": "الطاقم / المقاول",
+							"pt-lang": "Tripulação / Empreiteiro"
+						}
+					},
+					{
+						"content-complimentary-/-invited-guests": {
+							"fr-lang": "Invités",
+							"eng-lang": "Complimentary / Invited guests",
+							"ar-lang": "ضيوف مجانيون / مدعوون",
+							"pt-lang": "Convidados / cortesia"
+						}
+					},
+					{
+						"content-complimentary-invited-guests": {
+							"fr-lang": "Invités",
+							"eng-lang": "Complimentary / Invited guests",
+							"ar-lang": "ضيوف مجانيون / مدعوون",
+							"pt-lang": "Convidados / cortesia"
 						}
 					},
 					{

@@ -107,8 +107,8 @@
         $_form_ = FutureEventController::registerEventParticipant('PRIVATE');
         if($_form_->ERRORS == false):
 
-            $response['status']    = 100;
-            $response['message']   = 'REDIRECT_TO_PASSWORD_SETTINGS';
+            $response['status']    = 101;
+            $response['message']   = 'REDIRECT_TO_NOTIFICATION';
             $response['authToken'] = $_form_->AUTHTOKEN;
 
         else:

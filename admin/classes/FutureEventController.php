@@ -53,11 +53,11 @@ class FutureEventController
 
 				/** Check If Private Link Exists And still valid */
 				if(!self::checkValidityEventPrivateInvitationLink($_private_link_ID)):
-					return (object)[
-						'ERRORS'		=> true,
-						'ERRORS_SCRIPT' => "Your invitation token is no longer valid",
-						'ERRORS_STRING' => "Your invitation token is no longer valid"
-					];
+					// return (object)[
+					// 	'ERRORS'		=> true,
+					// 	'ERRORS_SCRIPT' => "Your invitation token is no longer valid",
+					// 	'ERRORS_STRING' => "Your invitation token is no longer valid"
+					// ];
 				endif;
 
 				$_private_link_data_ = self::getEventPrivateInvitationLinkDataByID($_private_link_ID);

@@ -14,7 +14,7 @@ RewriteRule ^pdf/payment/invoice/([0-9a-zA-Z]+)$ admin/app/controller_pdf.php?re
 RewriteRule ^pdf/payment/receipt/([0-9a-zA-Z]+)$ admin/app/controller_pdf.php?request=print_payment_receipt&form=$1 [L]
 
 # Set The Bank Transfer page
-RewriteRule ^bank/transfert/success/notification/([0-9a-zA-Z]+)$	notification.php?code=BANK_TRANSFER_SUCCESSFUL_GENERATED [L]
+RewriteRule ^bank/transfert/success/notification/([0-9a-zA-Z]+)$	notification.php?code=BANK_TRANSFER_SUCCESSFULLY_GENERATED [L]
 
 # Set The form page
 RewriteRule ^register/invitation/([0-9a-zA-Z]+)$	private_registration.php?form=$1 [L]

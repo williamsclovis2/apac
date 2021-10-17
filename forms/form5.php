@@ -7,7 +7,7 @@
                     <div class="slider_text slider_text_register">
                         <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?=$_Dictionary->content($_EVENT_PARTICIPATION_TYPE_NAME_)?> <?=$_Dictionary->words('registration-form')?> </h3>
                         <span class="separator-line wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s"></span>
-                        <h5 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"><?= $_Dictionary->translate(ucfirst($_EVENT_SUB_TYPE_NAME_)) ?> | <?= $_Dictionary->translate(ucfirst($_EVENT_TYPE_NAME_)) ?>  | <sup>$</sup> <?=$_EVENT_SUB_TYPE_PRICE_?></h5>
+                        <h5 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="text-transform: none;"> <?= $_Dictionary->translate(ucfirst($_EVENT_TYPE_NAME_)) ?> </h5>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                             <div class="row">
                                 <label for="firstname" class="col-sm-3"><?=$_Dictionary->translate('First name')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="firstname" oninput="validate(this)" id="firstname" type="text" placeholder="<?=$_Dictionary->translate('First name')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your first name')?>"/>
+                                    <input class="form-control" value="<?=$_PRIVATE_LINK_DATA_->participant_firstname?>" name="firstname" oninput="validate(this)" id="firstname" type="text" placeholder="<?=$_Dictionary->translate('First name')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your first name')?>"/>
                                     <div class="validate" id="firstname_error"></div>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                             <div class="row">
                                 <label for="lastname" class="col-sm-3"><?=$_Dictionary->translate('last name')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="lastname" oninput="validate(this)"  id="lastname" type="text" placeholder="<?=$_Dictionary->translate('Last name')?>" data-rule="required"  data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your last name')?>"/>
+                                    <input class="form-control" value="<?=$_PRIVATE_LINK_DATA_->participant_lastname?>" name="lastname" oninput="validate(this)"  id="lastname" type="text" placeholder="<?=$_Dictionary->translate('Last name')?>" data-rule="required"  data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your last name')?>"/>
                                     <div class="validate" id="lastname_error"></div> 
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                             <div class="row">
                                 <label for="email" class="col-sm-3"><?=$_Dictionary->translate('Email')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                  <input class="form-control" name="email" oninput="validate(this)"  id="email" type="text" placeholder="<?=$_Dictionary->translate('Email')?>" data-rule="email"  data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your email')?>" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
+                                  <input class="form-control" value="<?=$_PRIVATE_LINK_DATA_->participant_email?>" name="email" oninput="validate(this)"  id="email" type="text" placeholder="<?=$_Dictionary->translate('Email')?>" data-rule="email"  data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your email')?>" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
                                     <div class="validate" id="email_error"></div>
                                 </div>
                             </div>
