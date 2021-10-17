@@ -38,6 +38,8 @@ class FutureEventController
 			$_MEDIA_CODE_  = 'C004';
 			$_CBO_CODE_    = 'C0015';
 
+			$_PARTICIPATION_TYPE_CODEANAME_ = $_PARTICIPATION_TYPE_CODE_ == $_CBO_CODE_?'CBO':'';
+
 			/** Event */
 			$eventID = $str->data_in(Hash::decryptToken($_EDIT['eventId']));
 
@@ -157,11 +159,11 @@ class FutureEventController
 
 			/** Check If Email Address not yet used */
 			if(self::checkEmailAlreadyUsed($eventID, $email)):
-				return (object)[
-					'ERRORS'		=> true,
-					'ERRORS_SCRIPT' => "This email address has already been used!",
-					'ERRORS_STRING' => "This email address has already been used!"
-				];
+				// return (object)[
+				// 	'ERRORS'		=> true,
+				// 	'ERRORS_SCRIPT' => "This email address has already been used!",
+				// 	'ERRORS_STRING' => "This email address has already been used!"
+				// ];
 			endif;
 
 			/** Check If Password Match */
@@ -274,10 +276,10 @@ class FutureEventController
 
 					/** Send Email To Participant */
 					$_data_ = array(
-						'email' => $email,
+						'email' 	=> $email,
 						'firstname' => $firstname,
 					);
-					self::autoSentEmailOnAction($_data_, $_PARTICIPATION_PAYMENT_TYPE_ = 'FREE', $_PARTICIPATION_TYPE_CODE_ = 'C004', $_CBO_CODE_ = 'C004');
+					self::autoSentEmailOnAction($_data_, $_PARTICIPATION_PAYMENT_TYPE_, $_PARTICIPATION_TYPE_CODE_, $_CBO_CODE_, $_MEDIA_CODE_);
 					
 
 					
@@ -297,18 +299,20 @@ class FutureEventController
 				'ERRORS_STRING' => ""
 			];
 		}else{
+			
 			return (object)[
 				'ERRORS'	    => false,
 				'SUCCESS'	    => true,
 				'ERRORS_SCRIPT' => "",
 				'AUTHTOKEN'     => $_AUTH_TOKEN,
 				'PARTICIPATIONPAYMENTTYPE'=> $_PARTICIPATION_PAYMENT_TYPE_,
+				'PARTICIPATIONTYPE' => $_PARTICIPATION_TYPE_CODEANAME_,
 				'ERRORS_STRING' => ""
 			];
 		}
 	}
 
-	public static function autoSentEmailOnAction($_data_, $_PARTICIPATION_PAYMENT_TYPE_ = 'FREE', $_PARTICIPATION_TYPE_CODE_ = 'C004', $_CBO_CODE_ = 'C004'){
+	public static function autoSentEmailOnAction($_data_, $_PARTICIPATION_PAYMENT_TYPE_ = 'FREE', $_PARTICIPATION_TYPE_CODE_ = 'C004', $_CBO_CODE_ = 'C004', $_MEDIA_CODE_ = 'C004'){
 		/** FREE Application */
 		if($_PARTICIPATION_PAYMENT_TYPE_ == 'FREE'):
 			/** Check If It Media */

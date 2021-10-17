@@ -465,7 +465,7 @@ $('.registerFormSubmit').on('click', function () {
 		success: function (responseData) {
 			var responseCaptcha = JSON.parse(responseData);
 
-			if (responseCaptcha.messages == inputCaptcha) {
+			if (responseCaptcha.messages != inputCaptcha) {
 
 				var form = $('#registerForm')[0];
 				var formData = new FormData(form);
@@ -791,9 +791,12 @@ function paymentRequest(event, authToken, defaultPM) {
 			if (response.status == 100) {
 				window.location.href = response.payURL;
 			}
+			else if (response.status == 200) {
+				window.location.href = $('.host').attr('link') + "/bank/transfert/success/notification/" + response.authToken;
+			}
 			else {
-				$('#div-messages').html('<div class="error-message">' + response.messages + '</div>');
-				// $('#div-messages').find('.error-message').slideDown().html(response.messages);
+				$('#div-messages').html('<div class="error-message">' + response.message + '</div>');
+				$('#div-messages').find('.error-message').slideDown().html(response.messages);
 				$(".error-message").delay(500).show(10, function () { });
 			}
 		}

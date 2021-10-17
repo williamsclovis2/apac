@@ -12,6 +12,9 @@ RewriteRule ^(css|js|fonts|images|plugins)($|/) - [L]
 # Set The pdf page
 RewriteRule ^pdf/payment/invoice/([0-9a-zA-Z]+)$ admin/app/controller_pdf.php?request=print_payment_invoice&form=$1 [L]
 
+# Set The Bank Transfer page
+RewriteRule ^bank/transfert/success/notification/([0-9a-zA-Z]+)$	notification.php?code=BANK_TRANSFER_SUCCESSFUL_GENERATED [L]
+
 # Set The form page
 RewriteRule ^register/invitation/([0-9a-zA-Z]+)$	private_registration.php?form=$1 [L]
 RewriteRule ^register/([0-9a-zA-Z]+)$	register.php?form=$1 [L]

@@ -105,7 +105,7 @@ class EmailController
                           <tr>
                             <td class='h2' style='font-family: sans-serif;'>
                                 <ul>
-                                  <li><a href='$payment_receipt_link' target='_bank'>Click here</a> to download your receipt.  </li>
+                                  <li><a href='$payment_receipt_link' target='_blank'>Click here</a> to download your receipt.  </li>
                                 </ul>
                               </td>
                             </tr>

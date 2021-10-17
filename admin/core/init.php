@@ -31,6 +31,7 @@ function def(){
     define("VIEW_QR", DN.'/img/qr/');
     define("DN_IMG_QR", Config::get('filepath/image').'qr/');
     define("VIEW_LOGO_APAC", DN.'/img/apac-web-logo.png');
+    define("LINK_INVOICE", DN.'/pdf/payment/invoice/');
 }
 
 
@@ -65,7 +66,18 @@ $GLOBALS['config'] = array(
         'json_properties' => $_SERVER['DOCUMENT_ROOT']."/apac/admin/config/json/properties.json"
     ),
 
+    'api' => array(
+        'payment_callback' => "http://197.243.23.101/apac/pay/callback/",
+        // 'payment_callback' => "http://{$_SERVER['HTTP_HOST']}/pay/callback/",
+    ),
+
     'url' => array(
+
+        'invoice' => "http://{$_SERVER['HTTP_HOST']}/apac/pdf/payment/invoice/",
+        // 'invoice' => "http://{$_SERVER['HTTP_HOST']}/pdf/payment/invoice/",
+        
+        'receipt' => "http://{$_SERVER['HTTP_HOST']}/apac/pdf/payment/receipt/",
+        // 'receipt' => "http://{$_SERVER['HTTP_HOST']}/pdf/payment/receipt/",
         
 		'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/apac/mail_smtp", // Local
 		// 'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp", // Live
