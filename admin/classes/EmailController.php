@@ -38,8 +38,6 @@ class EmailController
   }
 
 
-
-
  /** - 2 - Send Email - Participant - After CBO Acceptance with Request for Payment - NEED TO PAY -  */
   public static function sendEmailToParticipantAfterCBOAcceptanceWithRequestForPayment($_data_){
         $_data_          = (Object) $_data_;
@@ -79,7 +77,6 @@ class EmailController
 
         Email::send($_Email_, $_Subject_, $_Message_);
   }
-
 
 
  /** - 3 - Send Email - Participant - After Fully Completed Registration And Successful Payment - NEED TO PAY -  */
@@ -158,10 +155,6 @@ class EmailController
   }
 
 
-
-
-
-
   /** - 4 - Send Email - Participant - Email received for those who successfully complete registration and choose to pay by bank transfer or direct deposit - NEED TO PAY -  */
   public static function sendEmailToParticipantOnRequestToPayByBankTransferOrDirectDeposit($_data_){
         $_data_                  = (Object) $_data_;
@@ -203,9 +196,6 @@ class EmailController
 
         Email::send($_Email_, $_Subject_, $_Message_);
   }
-
-
-
 
 
   /** - 5 - Send Email - Participant - Email received after bank transfer or direct deposit is received - NEED TO PAY -  */
@@ -283,16 +273,6 @@ class EmailController
   }
 
 
-
-
-
-
-
-
-
-
-
-
   /** - 6 - Send Email - Participant - Email received when credit card payment fails  - NEED TO PAY -  */
   public static function sendEmailToParticipantWhenCreditCardPaymentFails($_data_){
     $_data_                  = (Object) $_data_;
@@ -320,11 +300,6 @@ class EmailController
 
     Email::send($_Email_, $_Subject_, $_Message_);
 }
-
-
-
-
-
 
 
   /** - 7 - Send Email - Participant - Email received when bank transfer has not appeared in the IUCN account 7 days after registration -  */
@@ -358,9 +333,6 @@ class EmailController
 
       Email::send($_Email_, $_Subject_, $_Message_);
   }
-
-
-
 
 
 
@@ -428,13 +400,6 @@ class EmailController
 
       Email::send($_Email_, $_Subject_, $_Message_);
   }
-
-
-
-
-
-
-
 
 
 
@@ -520,159 +485,6 @@ class EmailController
 
 
 
-
-
-  /** Send Email - Participant - When register Participant  */
-  public static function sendEmailToParticipantOnRegistrationPayable($_data_){
-        $_data_            = (Object) $_data_;
-        $email 		         = $_data_->email;
-        $firstname         = $_data_->firstname;
-        $fullname          = $_data_->fullname;
-        
-        $event		                = $_data_->event;
-        $event_type               = $_data_->event_type;
-        $participation_type       = $_data_->participation_type;
-        $participation_subtype    = $_data_->participation_subtype;
-        $price                    = $_data_->price;
-        $currency                 = $_data_->currency;
-
-		    $_Email_    = $email;
-        $_Subject_  = 'Event Registration';
-        $_Message_  = self::emailSectionHeaderLayout()."
-                  <tr>
-                    <td class='innerpadding borderbottom'>
-                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                        <tr>
-                          <td class='h2' style='font-family: sans-serif;'>Dear $fullname</td>
-                        </tr>
-                        <tr>
-                          <td class='bodycopy' style='font-family: sans-serif;'>
-                            Thank you for registering for our $event_type event:   $event.
-                            Participation category: $participation_type,  $participation_subtype: $price $currency. <br><br>
-                            Please find below the link to proceed to payment, your registration will be completed and activated after this step.
-                          </td>
-                        </tr>
-                        <tr>
-                          <td style='padding: 20px 0 0 0;' align='center'>
-                          
-                            <table class='buttonwrapper' bgcolor='#f47e20' border='0' cellspacing='0' cellpadding='0'>
-                              <tr>
-                                <td class='button' height='45'>
-                                  <a href='http://torusguru.com/thefuture' target='_blank'>Click on this link to go to the payment step</a>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                     
-                      </table>
-                    </td>
-                  </tr>
-                  
-        ".self::emailLayoutSectionFooter();
-
-        $User = new \User();
-        $User->send_mail($_Email_, $_Message_, $_Subject_);
-      
-  }
-
-  /** Send Email - Participant - When register Participant  */
-  public static function sendEmailToParticipantOnRegistrationFree($_data_){
-      $_data_            = (Object) $_data_;
-      $email 		         = $_data_->email;
-      $firstname         = $_data_->firstname;
-      $fullname          = $_data_->fullname;
-      
-      $event		                = $_data_->event;
-      $event_type               = $_data_->event_type;
-      $participation_type       = $_data_->participation_type;
-      $participation_subtype    = $_data_->participation_subtype;
-      $price                    = $_data_->price;
-      $currency                 = $_data_->currency;
-
-      $_Email_    = $email;
-      $_Subject_  = 'Event Registration';
-      $_Message_  = self::emailSectionHeaderLayout()."
-                <tr>
-                  <td class='innerpadding borderbottom'>
-                    <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                      <tr>
-                        <td class='h2' style='font-family: sans-serif;'>Dear $fullname</td>
-                      </tr>
-                      <tr>
-                        <td class='bodycopy' style='font-family: sans-serif;'>
-                          Thank you for registering for our $event_type event: $event. We will process your application and get back to you very soon.<br><br>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class='bodycopy' style='font-family: sans-serif;'>
-                          Also, kindly take a minute to browse our website for latest updates and follow us on our social media accounts.
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style='padding: 20px 0 0 0;' align='center'>
-                          <table class='buttonwrapper' bgcolor='#f47e20' border='0' cellspacing='0' cellpadding='0'>
-                            <tr>
-                              <td class='button' height='45'>
-                                <a href='http://torusguru.com/thefuture' target='_blank'>Visit our website</a>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-                
-      ".self::emailLayoutSectionFooter();
-
-      $User = new \User();
-      $User->send_mail($_Email_, $_Message_, $_Subject_);
-    
-  }
-
-     
-  /** Send Email - Participant - When register Participant  */
-  public static function sendEmailToParticipantOnStatusChanged($_data_){
-    $_data_            = (Object) $_data_;
-    $email 		         = $_data_->email;
-    $firstname         = $_data_->firstname;
-    $fullname          = $_data_->fullname;
-    
-    $event		                = $_data_->event;
-    $event_type               = $_data_->event_type;
-    $participation_type       = $_data_->participation_type;
-    $participation_subtype    = $_data_->participation_subtype;
-    $price                    = $_data_->price;
-    $currency                 = $_data_->currency;
-
-    $status                   = $_data_->status;
-
-    $_Email_    = $email;
-    $_Subject_  = 'Registration Status '.$status;
-    $_Message_  = self::emailSectionHeaderLayout()."
-              <tr>
-                <td class='innerpadding borderbottom'>
-                  <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                    <tr>
-                      <td class='h2' style='font-family: sans-serif;'>Dear $fullname</td>
-                    </tr>
-                    <tr>
-                      <td class='bodycopy' style='font-family: sans-serif;'>
-                      Hope this email finds you well, this is to inform you that your registration for our  $event_type event: $event, has  been $status.<br><br>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              
-    ".self::emailLayoutSectionFooter();
-
-    $User = new \User();
-    $User->send_mail($_Email_, $_Message_, $_Subject_);
-  
-  }
-  
   /** Send Email - Participant - When register Participant Registration Link  */
   public static function sendEmailToParticipantOnLinkGenerated($_data_){
       $_data_            = (Object) $_data_;
