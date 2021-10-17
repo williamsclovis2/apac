@@ -22,11 +22,11 @@ class myPDF extends FPDF
 
 #Repport Divulgation
     $this->Cell(190,5,'',0,3,'C');
-    $this->SetFont('arial','B',12);
+    $this->SetFont('arial','B',11);
     $this->Cell(190,6,'',0,4,'C');
     $this->Cell(190,16,'',0,4,'C');
     $this->Cell(190,5,'IUCN Africa Protected Areas Congress',0,1,'C');
-    $this->SetFont('arial','',12);
+    $this->SetFont('arial','',11);
     $this->Cell(190,5,'March 7th to 12th 2021, Kigali, Rwanda',0,1,'C');
     $this->SetFont('arial','',11);
     $this->Cell(190,5,'Email: info@apacongress.africa',0,1,'C');
@@ -36,20 +36,20 @@ class myPDF extends FPDF
     $this->Ln();
     $this->cell(190,0,'',1,1,'L');
     $this->Ln();
-    $this->SetFont('arial','',12);
+    $this->SetFont('arial','',11);
     $this->Cell(190,11,'Kambale Mulwahali Clovis',0,1,'L');
     $this->Cell(190,1,'Cube communications Ltd',0,1,'L');
     $this->Cell(190,11,'Kigali',0,1,'L');
     $this->Cell(190,1,'Rwanda',0,1,'L');
     $this->Cell(190,11,'+190784701793',0,1,'L');
     $this->Cell(190,1,'clovismul@gmail.com',0,1,'L');
-    $this->SetFont('arial','B',12);
+    $this->SetFont('arial','B',11);
     $this->Cell(190,15,'Registration number : 14578562',0,1,'L');
-    $this->SetFont('arial','',12);
+    $this->SetFont('arial','',11);
     $this->Cell(135,5,'Invoice number: [BTAPAC0001]',0,0,'L');
     $this->Cell(0,5,'Invoice Date: [BTAPAC0001]',0,1,'C');
     $this->cell(100,5,'',0,1,'L');
-    $this->SetFont('arial','B',12);
+    $this->SetFont('arial','B',11);
     $this->Cell(100,7,'Description ',1,0,'L');
     $this->Cell(90,7,'Amount ',1,1,'R');
 
@@ -57,7 +57,18 @@ class myPDF extends FPDF
     $this->Cell(90,40,'',1,1,'L');
 
     $this->Cell(100,7,'Total ',1,0,'R');
-    $this->Cell(90,7,'$190 ',1,0,'L');
+    $this->Cell(90,7,'$190 ',1,1,'L');
+
+    $this->SetFont('arial','B',12);
+    $this->Cell(190,12,'BANK TRANSFER DETAILS:',0,1,'L');
+    $this->SetFont('arial','',10);
+    $this->Cell(190,1,'Bank Name: ECOBANK RWANDA PLC ',0,1,'L');
+    $this->Cell(190,11,'Bank Address: KN# AV4, AVENUE DE LA PAIX, P.O. BOX 3268, KIGALI, RWANDA ',0,1,'L');
+    $this->Cell(190,1,'Swift Code: ECOCRWRW ',0,1,'L');
+    $this->Cell(190,11,'Branch name: Main Branch (Headquarters)',0,1,'L');
+    $this->Cell(190,1,'Beneficiary Name (on account): IUCN  APAC ',0,1,'L');
+    $this->Cell(190,11,'Account number (USD): 6775017613',0,1,'L');
+    $this->Cell(190,1,'Transfer reference: [Name and Invoice Number]',0,1,'L');
     
 
   }
