@@ -1,4 +1,11 @@
 <?php
+/**
+ * @author Ezechiel Kalengya [ezechielkalengya@gmail.com | +250784700764 | Software Developer]
+ * @package Payment Controller
+ * @method paymentTransactionRequest - Parse $_POST Data Array - Insert in the database - Initiate Payment - Create Payment Token
+ * @method updatePaymentTransactionEntry - @param Array $_PAY  - Update Payment Entry Data
+ * @method 
+ */
 class PaymentController
 {
 	public static function paymentTransactionRequest(){
@@ -131,14 +138,6 @@ class PaymentController
 					$PaymentHandler = new \PaymentHandler(); 
 					$PAYMENT_REQ 	= $PaymentHandler->createToken($PAY_REQ_DATA);
 
-					// echo "__________";
-					// var_dump($PAYMENT_REQ);
-					// echo '<pre>';
-					// print_r($PAYMENT_REQ);
-					// echo '</pre>';
-				   
-					// echo '<br><hr>';
-
 					if($PAYMENT_REQ == false):
 						return (object)[
 							'ERRORS'		=> true,
@@ -155,8 +154,6 @@ class PaymentController
 
 					$external_transaction_status = $PAYMENT_REQ->Result;
 
-
-
 				/** BANK TRANSFER */
 				elseif($DefaultPayment == 'BT'):
 					$transaction_id 	= self::generateBTTransactionID($event_id, $participant_id, $participation_type_id, $participation_sub_type_id);
@@ -172,8 +169,6 @@ class PaymentController
 				$callback_cmd  		  = '';
 				$callback_time        = 0;
                 
-                
-				
 				$_fields = array(
 					'event_id'            		  => $event_id,
 					'participant_id'     		  => $participant_id,
@@ -205,12 +200,6 @@ class PaymentController
 
 					'c_date'                      => time(),
 				);
-                
-        //          echo '<pre>';
- 		// print_r($PAYMENT_REQ);
- 		// echo '</pre>';
-		
- 		// echo '<br><hr>';
 
 				$_payURL_  = NULL;
 				try{
@@ -260,16 +249,114 @@ class PaymentController
 		}
 	}
 
+	public static function updatePaymentTransactionEntry($_PAY){
+		$diagnoArray[0] = 'NO_ERRORS';
+		$validate 	= new \Validate();
+		$validation = $validate->check($_PAY, array(
+		));
+		
+		if($validate->passed()){
+			$PaymentTable = new \Payment();
+			$str 		  = new \Str();
 
+			/** Information */
+			$participant_id     = $str->data_in($_PAY['participant_id']);
+			$payment_entry_id	= $str->data_in($_PAY['payment_entry_id']);
+
+			$payment_method      = $str->data_in($_PAY['payment_method']);
+			$payment_operator    = $str->data_in($_PAY['payment_operator']);
+			$payment_id          = $str->data_in($_PAY['payment_id']);
+			$transaction_status  = $str->data_in($_PAY['transaction_status']);
+			$callback_status     = $str->data_in($_PAY['callback_status']);
+			
+			$callback_cmd 		 = $str->data_in($_PAY['callback_cmd']);
+			$callback_time 		 = time();
+
+			/** Get Participant Details */
+			if(!($_participant_data_ = FutureEventController::getEventParticipantDataByID($participant_id))):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "Invalid data",
+					'ERRORS_STRING' => "Invalid data"
+				];
+			endif;
+
+			$participant_token  		= Hash::encryptAuthToken($_participant_data_->participant_id);
+			$participation_type_id 		= $_participant_data_->participation_type_id;
+			$participation_sub_type_id  = $_participant_data_->participation_sub_type_id;
+			
+			if($diagnoArray[0] == 'NO_ERRORS'){
+				$PaymentHandler = new \PaymentHandler(); 
+
+				$_fields = array(
+					'payment_method'     		  => $payment_method,
+					'payment_operator'     		  => $payment_operator,
+					'payment_id'     			  => $payment_id,
+					'transaction_status'		  => $transaction_status,
+					'callback_status'		  	  => $callback_status,
+
+					'callback_cmd'                => $callback_cmd,
+					'callback_time'               => $callback_time,
+				);
+
+				try{
+					$PaymentTable->update($_fields, $payment_entry_id);
+
+					/** Payment Invoice Link */
+					$payment_receipt_link = Config::get('url/receipt').Hash::encryptAuthToken($payment_entry_id);
+           
+					/** Send Email */
+					$_data_ = array(
+						'email' 			   => $_participant_data_->participant_email,
+						'firstname' 		   => $_participant_data_->participant_firstname,
+						'payment_receipt_link' => $payment_receipt_link
+					);
+					if($transaction_status == 'COMPLETED')
+					EmailController::sendEmailToParticipantAfterFullyCompletedRegistrationAndSuccessfulPayment($_data_);
+
+				}catch(Exeption $e){
+					$diagnoArray[0] = "ERRORS_FOUND";
+					$diagnoArray[]  = $e->getMessage();
+				}
+			}
+		}else{
+			$diagnoArray[0] = 'ERRORS_FOUND';
+			$error_msg 	    = ul_array($validation->errors());
+		}
+		if($diagnoArray[0] == 'ERRORS_FOUND'){
+			return (object)[
+				'ERRORS'		=> true,
+				'ERRORS_SCRIPT' => $validate->getErrorLocation(),
+				'ERRORS_STRING' => ""
+			];
+		}else{
+			return (object)[
+				'ERRORS'	    => false,
+				'SUCCESS'	    => true,
+				'ERRORS_SCRIPT' => "",
+				'AUTHTOKEN'     => $authtoken,
+				'PAYURL'		=> $_payURL_,
+				'PAYMENTMETHOD'	=> $DefaultPayment,
+				'ERRORS_STRING' => ""
+			];
+		}
+	}
 
     public static function checkIfEventParticipantHasAlreadySuccessfullyPaid($eventID, $participantID){
         $PaymentTable = new Payment();
 		$SQL = "SELECT id FROM future_payment_transaction_entry WHERE event_id = {$eventID} AND  participant_id = {$participantID} AND transaction_status = 'COMPLETED' ORDER BY id DESC ";
-		// echo $SQL;
         $PaymentTable->selectQuery($SQL);
         if($PaymentTable->count())
           return  $PaymentTable->first()->id?true:false;
         return  false;
+    }
+
+	public static function checkIfPaymentTransactionIDExists($transID, $extTransID){
+        $PaymentTable = new Payment();
+        $PaymentTable->selectQuery("SELECT id, event_id, participant_id, participation_type_id, participation_sub_type_id, payment_method, transaction_status  FROM future_payment_transaction_entry WHERE transaction_id = ? AND external_transaction_token = ?  ORDER BY id DESC LIMIT 1 ", array($transID, $extTransID));
+        if($PaymentTable->count())
+          return  $PaymentTable->first();
+        return false;
     }
 
 	public static function generateTransactionID($event_id, $participant_id, $participation_type_id, $participation_sub_type_id){

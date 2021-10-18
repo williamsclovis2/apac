@@ -6,17 +6,17 @@ function escape($string) {
 
 // Include Scripts From Root Path
 function includeScript($path) {
-	return include $_SERVER['DOCUMENT_ROOT'] . "/apac/{$path}";
+	return include $_SERVER['DOCUMENT_ROOT'] . "/thefuture/apac/{$path}";
 }
 
 // Path To Root Directory
 function root($path) {
-	return $_SERVER['DOCUMENT_ROOT'] . "/apac/{$path}";
+	return $_SERVER['DOCUMENT_ROOT'] . "/thefuture/apac/{$path}";
 }
 
 // absulot path used in links
 function linkto($path) {
-//	echo "/apac/{$path}"; //Local
+	// echo "/thefuture/apac/{$path}"; //Local
      echo "/{$path}"; //Live
 }
 
@@ -686,5 +686,5 @@ function html_cut($text, $max_length)
     return $result;
 }    
 
-//$INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/apac/admin/includes/"; //Local
+// $INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/thefuture/apac/admin/includes/"; //Local
  $INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/"; //Live

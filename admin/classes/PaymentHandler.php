@@ -1,4 +1,11 @@
 <?php
+/**
+ * @author Ezechiel Kalengya [ezechielkalengya@gmail.com | +250784700764 | Software Developer]
+ * @package Payment Handler
+ * @method createToken - @param Array $_DATA - Create Payment Token 
+ * @method verifyPaymentToken - @param String $_PAYTOKEN_ - Verify The Payment Transaction Status - Return Data 
+ * @method 
+ */
 class PaymentHandler
 {
 	private $_PAYTOKEN_;
@@ -93,8 +100,50 @@ class PaymentHandler
 				endif;
 			endif;
 		endif;
-		return empty($responseData)?"1234567890":$responseData;        
+		return empty($responseData)?false:$responseData;        
     }
+
+	public function verifyPaymentToken($_PAYTOKEN_){
+		$_REQUEST_ 		 	= 'verifyToken';
+                
+        $_CURL_ = curl_init();
+        curl_setopt( $_CURL_, CURLOPT_URL, $this->_url );
+        curl_setopt( $_CURL_, CURLOPT_POST, true );
+        curl_setopt( $_CURL_, CURLOPT_HTTPHEADER, array('Content-Type: text/xml'));
+        curl_setopt( $_CURL_, CURLOPT_RETURNTRANSFER, true );
+
+        $xml_data= '
+		<?xml version="1.0" encoding="utf-8"?>
+		<API3G>
+			<CompanyToken>'.$this->_COMPANY_ID_.'</CompanyToken>
+			<Request>'.$_REQUEST_.'</Request>
+			<TransactionToken>'.$_PAYTOKEN_.'</TransactionToken>
+		</API3G>
+		';
+
+        @curl_setopt( $_CURL_, CURLOPT_POSTFIELDS, $xml_data);
+        $result = @curl_exec($_CURL_);
+        @curl_close($_CURL_); 
+       
+		$responseData     = array();
+        if(($responseData = json_decode(json_encode((array) @simplexml_load_string($result)), 1))):
+			$responseData 		   = (Object) $responseData;
+			if($responseData):
+				$responseData->callback_cmd =  json_encode((array) @simplexml_load_string($result));
+				echo '<pre>';
+				print_r($responseData);
+				echo '</pre>';
+				// if(array_key_exists("Result", $responseData)):
+				// 	if($responseData->Result  == 000):
+				// 		$responseData->Success = true;
+				// 		$this->_PAYTOKEN_      = $responseData->TransToken;
+				// 		$this->_urlPayment 	   = "https://secure.3gdirectpay.com/payv2.php?ID=".$this->_PAYTOKEN_;
+				// 	endif;
+				// endif;
+			endif;
+		endif;
+		return empty($responseData)?false:$responseData;    
+	}
 
 	public function initiatePaymentRequest(){
 		if($this->_PAYTOKEN_ != NULL)

@@ -19,9 +19,16 @@ if(Input::checkInput('code', 'get', 1)):
             $_NOTIFICATION_CONTENT_ = "Thank you for your registration. An email has been sent to you with the details of the payment by bank transfer. Open your inbox and proceed to payment by bank transfer. Your registration will be activated once you have completed your payment.";
             break;
 
+        case 'PAYMENT_CALLBACK_ERROR':
+            $_NOTIFICATION_TITLE_   = "Payment interrupted";
+            $_NOTIFICATION_CONTENT_ = "Thank you for your registration. Your payment has been interrupted. Your registration will be activated once you have completed your payment.";
+            break;
 
+        case 'PAYMENT_CALLBACK_SUCCESS':
+            $_NOTIFICATION_TITLE_   = "Payment successfully completed";
+            $_NOTIFICATION_CONTENT_ = "Thank you for your registration. Your payment has been successfully completed. An email has been sent to you with the receipt of your payment and event details.";
+            break;
     endswitch;
-
 endif;
 
 
