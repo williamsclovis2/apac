@@ -56,13 +56,13 @@ if( Input::checkInput('TransID', 'get', 1) ||
                                 'payment_entry_id'  => $_payment_entry_data_->id,
                                 'transaction_status'=> 'COMPLETED',
                                 'callback_cmd'      => $PAYMENT_REQ->callback_cmd,
-                                'callback_status'   => $PAYMENT_REQ->callback_status,
+                                'callback_status'   => $PAYMENT_REQ->Result,
 
                                 'payment_method'    => $payment_method,
                                 'payment_operator'  => '',
                                 'payment_id'        => $payment_id
                             );
-                            PaymentController::updatePaymentTransactionEntry($_data_);
+                            PaymentController::updatePaymentTransactionEntry($_UPDATE_PAYMENT_ENTRY_);
                             Redirect::to('payment/success/notification/'.sha1(time()));
                             break;
 
