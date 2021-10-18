@@ -130,9 +130,6 @@ class PaymentHandler
 			$responseData 		   = (Object) $responseData;
 			if($responseData):
 				$responseData->callback_cmd =  json_encode((array) @simplexml_load_string($result));
-				echo '<pre>';
-				print_r($responseData);
-				echo '</pre>';
 				// if(array_key_exists("Result", $responseData)):
 				// 	if($responseData->Result  == 000):
 				// 		$responseData->Success = true;
