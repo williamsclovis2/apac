@@ -43,9 +43,9 @@ class PaymentHandler
 		$ServiceDescription	= $_DATA->service_description; # Ex. Pay My Event Entracy 
 		$ServiceDate        = $_DATA->service_date; # Ex. 2020/12/27 19:00
 
-		$RedirectURL     	= Config::get('api/payment_callback')."response";
-		$BackURL         	= Config::get('api/payment_callback')."cancelled";
-		$DeclinedURL     	= Config::get('api/payment_callback')."declined";
+		$RedirectURL     	= Config::get('api/payment_callback')."response/";
+		$BackURL         	= Config::get('api/payment_callback')."cancelled/";
+		$DeclinedURL     	= Config::get('api/payment_callback')."declined/";
                 
         $_CURL_ = curl_init();
         curl_setopt( $_CURL_, CURLOPT_URL, $this->_url );

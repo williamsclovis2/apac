@@ -20,6 +20,7 @@ RewriteRule ^bank/transfert/success/notification/([0-9a-zA-Z]+)$	notification.ph
 # Set The Payment Callback page
 RewriteRule ^pay/callback/response/$	admin/config/callback_payment/callback_payment_api.php [L]
 RewriteRule ^pay/callback/cancelled/$	admin/config/callback_payment/callback_payment_api.php [L]
+RewriteRule ^pay/callback/declined/$	admin/config/callback_payment/callback_payment_api.php [L]
 RewriteRule ^payment/error/notification/([0-9a-zA-Z]+)$	notification.php?code=PAYMENT_CALLBACK_ERROR [L]
 RewriteRule ^payment/success/notification/([0-9a-zA-Z]+)$	notification.php?code=PAYMENT_CALLBACK_SUCCESS [L]
 
