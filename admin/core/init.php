@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 // $_SESSION['user'] = 16;
 
 function def(){
@@ -63,7 +63,8 @@ $GLOBALS['config'] = array(
          'name' => "http://{$_SERVER['HTTP_HOST']}",
     ),
     'root' => array(
-        'json_properties' => $_SERVER['DOCUMENT_ROOT']."/apac/admin/config/json/properties.json"
+//        'json_properties' => $_SERVER['DOCUMENT_ROOT']."/apac/admin/config/json/properties.json", // Lccal
+        'json_properties' => $_SERVER['DOCUMENT_ROOT']."/admin/config/json/properties.json" // Live
     ),
 
     'api' => array(
@@ -86,8 +87,8 @@ $GLOBALS['config'] = array(
 		 'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp_noreply", // Live
     ),
     'filepath' => array(
-		'image' => $_SERVER['DOCUMENT_ROOT'].'/apac/img/',  // Local
-		// 'image' => $_SERVER['DOCUMENT_ROOT'].'/img/',  //Live 
+//		'image' => $_SERVER['DOCUMENT_ROOT'].'/apac/img/',  // Local
+		 'image' => $_SERVER['DOCUMENT_ROOT'].'/img/',  //Live 
 	)
     
 );
@@ -132,5 +133,5 @@ $GLOBALS['_LangName'] = Functions::getLanguageName($_Lang);
 /** Dictionary */
 $GLOBALS['_Dictionary'] = new \Properties($_Lang);
 
- $INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/apac/admin/includes/"; //Local
-//$INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/"; //Live
+// $INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/apac/admin/includes/"; //Local
+$INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/"; //Live

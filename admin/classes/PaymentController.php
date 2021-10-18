@@ -95,6 +95,8 @@ class PaymentController
 				$external_transaction_id     = '';
 				$external_transaction_token  = '';
 				$external_transaction_status = '';
+                
+                $currency = 'RWF'; // fOR tEST
 
 				
 
@@ -168,7 +170,9 @@ class PaymentController
 
 				$payment_id           = '';
 				$callback_cmd  		  = '';
-				$callback_time        = '';
+				$callback_time        = 0;
+                
+                
 				
 				$_fields = array(
 					'event_id'            		  => $event_id,

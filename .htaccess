@@ -16,6 +16,11 @@ RewriteRule ^pdf/payment/receipt/([0-9a-zA-Z]+)$ admin/app/controller_pdf.php?re
 # Set The Bank Transfer page
 RewriteRule ^bank/transfert/success/notification/([0-9a-zA-Z]+)$	notification.php?code=BANK_TRANSFER_SUCCESSFULLY_GENERATED [L]
 
+
+# Set The Payment Callback page
+RewriteRule ^pay/callback/cancelled$	admin/config/callback_payment/callback_payment_api.php?state=ON_CALLED [L]
+RewriteRule ^payment/called/notification/([0-9a-zA-Z]+)$	notification.php?code=PAYMENT_CALLBACK_CANCELLED [L]
+
 # Set The form page
 RewriteRule ^register/invitation/([0-9a-zA-Z]+)$	private_registration.php?form=$1 [L]
 RewriteRule ^register/([0-9a-zA-Z]+)$	register.php?form=$1 [L]

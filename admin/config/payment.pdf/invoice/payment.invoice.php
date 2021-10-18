@@ -1,6 +1,4 @@
 <?php
-// require 'core/init.php';
-// require 'core/FPDF/fpdf.php';
 
 /**
  *

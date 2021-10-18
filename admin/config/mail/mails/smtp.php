@@ -1,8 +1,8 @@
 <?php
 
-    $message= $_POST['message'];
-    $email= $_POST['email'];
-    $subject= $_POST['subject'];
+    $message= $_POST['message'] = 'Test 1 Email Live server';
+    $email= $_POST['email'] = 'ezechielkalengya@gmail.com';
+    $subject= $_POST['subject'] = 'Test Email';
 /**
  * This example shows making an SMTP connection with authentication.
  */
@@ -57,9 +57,9 @@ $mail->AltBody = 'This is a plain-text message body';
 
 //send the message, check for errors
 if (!$mail->send()) {
-    // echo 'Mailer Error: ' . $mail->ErrorInfo;
+     echo 'Mailer Error: ' . $mail->ErrorInfo;
     return false;
 } else {
-    // echo 'Message sent!';
+     echo 'Message sent!';
     return true;
 }

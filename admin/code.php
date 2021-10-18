@@ -1,15 +1,23 @@
 <?php
 require_once "core/init.php"; 
 
-if(!($_PARTICIPANT_DATA_ = FutureEventController::getEventParticipantPaymentDataByID(18)))
-    Redirect::to('');
-
-echo '<pre>';
-print_r($_PARTICIPANT_DATA_);
-echo '</pre>';
+//if(!($_PARTICIPANT_DATA_ = FutureEventController::getEventParticipantPaymentDataByID(18)))
+//    Redirect::to('');
+//
+//echo '<pre>';
+//print_r($_PARTICIPANT_DATA_);
+//echo '</pre>';
 
 // echo Hash::encryptAuthToken(18);
 
+// $FutureEventTable = new \FutureEvent();
+// $FutureEventTable->selectQuery("SELECT id FROM future_participation_type ");
+// foreach($FutureEventTable->data() As $type_):
+//     $code = 'C00'.$type_->id;
+//     echo $code." --";
+//     $FutureEventTable->selectQuery("UPDATE `future_participation_type` SET `code` = '$code' WHERE `future_participation_type`.`id` = $type_->id");
+// endforeach;
+//
 // $FutureEventTable = new \FutureEvent();
 // $FutureEventTable->selectQuery("SELECT id FROM future_participation_sub_type ");
 // foreach($FutureEventTable->data() As $type_):
@@ -96,4 +104,3 @@ echo '</pre>';
 //
 //$user = new \User;
 //$user->send_mail($email,$messa,$subje);
-

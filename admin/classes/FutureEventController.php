@@ -1842,5 +1842,4 @@ class FutureEventController
 			Apply for media accreditation here.";
 		endif;
 	}
-
 }
