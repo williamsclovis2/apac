@@ -23,7 +23,7 @@
                                             <li><a href="https://apacongress.africa/"><?=$_Dictionary->words('Home')?></a></li>
                                             <li><a href="https://apacongress.africa/about/"><?=$_Dictionary->words('About')?></a></li>
                                             <li><a href="https://apacongress.africa/programme/"><?=$_Dictionary->words('Program')?></a></li>
-                                            <li><a href="https://apacongress.africa/registration/"><?=$_Dictionary->words('Registration')?></a></li>
+                                            <li><a href="<?php linkto("index")?>"><?=$_Dictionary->words('Registration')?></a></li>
                                             <li><a href="https://apacongress.africa/call-for-proposals/"><?=$_Dictionary->translate('Call for proposals')?></a></li>
                                             <li><a href="#"><?=$_Dictionary->translate('Media')?></a></li>
                                             <li><a href="https://apacongress.africa/contact/"><?=$_Dictionary->translate('Contact Us')?></a></li>

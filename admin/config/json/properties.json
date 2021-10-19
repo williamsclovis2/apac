@@ -70,6 +70,87 @@
 					},
 
 					{
+						"in-person-participation-offers": {
+							"fr-lang": "La participation en personne offre une expérience complète du congrès. Les délégués auront :",
+							"eng-lang": "In Person Participation offers complete congress experience. Delegates will have:",
+							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 450 دولارًا أمريكيًا من 1 يناير 2022 - 5 مارس 2022",
+							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 450 de 1º de janeiro de 2022 a 5 de março de 2022"
+						}
+					},
+
+					{
+						"opening-and-closing": {
+							"fr-lang": "Accès aux cérémonies d'ouverture et de clôture.",
+							"eng-lang": "IAccess to the opening and closing ceremonies.",
+							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 450 دولارًا أمريكيًا من 1 يناير 2022 - 5 مارس 2022",
+							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 450 de 1º de janeiro de 2022 a 5 de março de 2022"
+						}
+					},
+
+					{
+						"all-congress-sessions": {
+							"fr-lang": "Accédez à toutes les sessions du congrès.",
+							"eng-lang": "Access all congress sessions.",
+							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 450 دولارًا أمريكيًا من 1 يناير 2022 - 5 مارس 2022",
+							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 450 de 1º de janeiro de 2022 a 5 de março de 2022"
+						}
+					},
+
+					{
+						"the-exhibition": {
+							"fr-lang": "Accès à l'exposition",
+							"eng-lang": "Access to the exhibition.",
+							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 450 دولارًا أمريكيًا من 1 يناير 2022 - 5 مارس 2022",
+							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 450 de 1º de janeiro de 2022 a 5 de março de 2022"
+						}
+					},
+
+					{
+						"to-congress-material": {
+							"fr-lang": "Accès au matériel du congrès.",
+							"eng-lang": "Access to congress material.",
+							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 450 دولارًا أمريكيًا من 1 يناير 2022 - 5 مارس 2022",
+							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 450 de 1º de janeiro de 2022 a 5 de março de 2022"
+						}
+					},
+
+					{
+						"in-person-and-virtual-networking": {
+							"fr-lang": "Accès à des sessions de réseautage en personne et virtuelles.",
+							"eng-lang": "in-person-and-virtual-networking",
+							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 450 دولارًا أمريكيًا من 1 يناير 2022 - 5 مارس 2022",
+							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 450 de 1º de janeiro de 2022 a 5 de março de 2022"
+						}
+					},
+
+					{
+						"cultural-events": {
+							"fr-lang": "Accès aux événements sociaux et culturels.",
+							"eng-lang": "Access to social and cultural events.",
+							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 450 دولارًا أمريكيًا من 1 يناير 2022 - 5 مارس 2022",
+							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 450 de 1º de janeiro de 2022 a 5 de março de 2022"
+						}
+					},
+
+					{
+						"virtual-platform": {
+							"fr-lang": "Accès à la plateforme virtuelle pendant et après l'événement.",
+							"eng-lang": "Access to the virtual platform during and after the event.",
+							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 450 دولارًا أمريكيًا من 1 يناير 2022 - 5 مارس 2022",
+							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 450 de 1º de janeiro de 2022 a 5 de março de 2022"
+						}
+					},
+
+					{
+						"virtual-sessions-for-12-months": {
+							"fr-lang": "Accès à la demande à toutes les sessions virtuelles enregistrées pendant 12 mois.",
+							"eng-lang": "On-demand-access to all recorded virtual sessions for 12 months.",
+							"ar-lang": "سعر مخفض للطيور المبكرة صالح حتى 31 ديسمبر 2021 <br> 450 دولارًا أمريكيًا من 1 يناير 2022 - 5 مارس 2022",
+							"pt-lang": "Taxa com desconto para madrugadores válida até 31 de dezembro de 2021 <br> US $ 450 de 1º de janeiro de 2022 a 5 de março de 2022"
+						}
+					},
+
+					{
 						"content-discount-inperson-1": {
 							"fr-lang": "Tarif réduit lève-tôt valable jusqu'au 31 décembre 2021 450 $ du 1er janvier au 5 mars 2022",
 							"eng-lang": "Early bird discounted rate valid till 31st December 2021 <br> $450 from 1st January - 5th March 2022",
@@ -359,12 +440,104 @@
 					},
 					{
 						"content-virtual-attendance-registration": {
-							"fr-lang": "Veuillez sélectionner la catégorie appropriée pour participer virtuellement",
+							"fr-lang": "Participation virtuelle",
 							"eng-lang": "Virtual participation",
 							"ar-lang": "الرجاء تحديد الفئة المناسبة للمشاركة افتراضيًا",
 							"pt-lang": "Selecione a categoria apropriada para participar virtualmente"
 						}
 					},
+
+					{
+						"virtual-section-description": {
+							"fr-lang": "Cette option vous fournit tous les éléments essentiels du Congrès de n'importe où avec une connexion Internet stable. L'expérience virtuelle offre aux délégués plus de valeur et de flexibilité pour parcourir le contenu à leur propre rythme et zoomer sur les sujets de leur choix. Avec une variété de sessions sélectionnées et de qualité supérieure, des discussions de haut niveau aux discussions plus techniques, la participation virtuelle offre une expérience interactive et un accès en temps réel à l'expertise et aux idées partagées lors du Congrès. De nombreuses sessions vous permettent de partager vos réflexions et de demander l'avis des experts.",
+							"eng-lang": "This option provides you with all the Congress essentials from anywhere with a stable internet connection. The virtual experience provides delegates more value and flexibility to browse content at their own pace and zoom in on the topics of their choosing. With a variety of select, top-quality sessions, from high-level discussions to more technical ones, virtual participation offers an interactive experience and real-time access to the expertise and insights shared at the Congress. Many sessions allow you to share your thoughts and ask for feedback from the experts. ",
+							"ar-lang": "الرجاء تحديد الفئة المناسبة للمشاركة افتراضيًا",
+							"pt-lang": "Selecione a categoria apropriada para participar virtualmente"
+						}
+					},
+
+					{
+						"online-pass-offers": {
+							"fr-lang": "Le pass en ligne offre :",
+							"eng-lang": "The online pass offers:",
+							"ar-lang": "المشاركون في أفريقيا",
+							"pt-lang": "Participantes baseados na África"
+						}
+					},
+
+					{
+						"access-to-the-opening": {
+							"fr-lang": "Accès aux cérémonies d'ouverture et de clôture.",
+							"eng-lang": "Access to the opening and closing ceremonies.",
+							"ar-lang": "المشاركون في أفريقيا",
+							"pt-lang": "Participantes baseados na África"
+						}
+					},
+
+					{
+						"selected-congress-sessions": {
+							"fr-lang": "Accès à certaines sessions du congrès.",
+							"eng-lang": "Access to selected congress sessions.",
+							"ar-lang": "المشاركون في أفريقيا",
+							"pt-lang": "Participantes baseados na África"
+						}
+					},
+
+					{
+						"access-to-congress": {
+							"fr-lang": "Accès au matériel du congrès.",
+							"eng-lang": "Access to congress material.",
+							"ar-lang": "المشاركون في أفريقيا",
+							"pt-lang": "Participantes baseados na África"
+						}
+					},
+
+					{
+						"virtual-platform": {
+							"fr-lang": "Accès à la plateforme virtuelle pendant et après l'événement.",
+							"eng-lang": "Access to the virtual platform during and after the event.",
+							"ar-lang": "المشاركون في أفريقيا",
+							"pt-lang": "Participantes baseados na África"
+						}
+					},
+
+					{
+						"on-demand-access": {
+							"fr-lang": "Accès à la demande à toutes les sessions virtuelles enregistrées pendant 12 mois.",
+							"eng-lang": "On-demand access to all recorded virtual sessions for 12 months.",
+							"ar-lang": "المشاركون في أفريقيا",
+							"pt-lang": "Participantes baseados na África"
+						}
+					},
+
+					{
+						"important": {
+							"fr-lang": "Important",
+							"eng-lang": "Important",
+							"ar-lang": "المشاركون في أفريقيا",
+							"pt-lang": "Participantes baseados na África"
+						}
+					},
+
+					{
+						"registration_fees": {
+							"fr-lang": "Les frais d'inscription n'incluent pas les taxes sur la valeur ajoutée (TVA). Si le gouvernement du Rwanda facture la TVA ou d'autres taxes applicables sur les frais d'inscription, celle-ci sera ajoutée au montant final de la facture. Ceci s'applique également aux autres coûts liés aux délégués tels que les frais d'annulation d'inscription.",
+							"eng-lang": "Registration Fees does not include Value Added Taxes (VAT). Should the Government of Rwanda charge VAT or other applicable taxes on the registration fees, this will be added to the final invoice amount. This is also applicable to other delegate related costs such as registration cancellation costs.",
+							"ar-lang": "المشاركون في أفريقيا",
+							"pt-lang": "Participantes baseados na África"
+						}
+					},
+
+
+					{
+						"online-pass-offers": {
+							"fr-lang": "Le pass en ligne offre :",
+							"eng-lang": "The online pass offers:",
+							"ar-lang": "المشاركون في أفريقيا",
+							"pt-lang": "Participantes baseados na África"
+						}
+					},
+
 					{
 						"content-africa-based-participants": {
 							"fr-lang": "Participants basés en Afrique",

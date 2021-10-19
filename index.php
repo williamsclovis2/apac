@@ -48,20 +48,20 @@
                         <div class="container">
                             <div class="row">
                                 <div class="about_list">
-                                    <h5 style="margin:10px 0;"><b>In Person Participation offers complete congress experience. Delegates will have:</b></h5>
+                                    <h5 style="margin:10px 0;"><b><?=$_Dictionary->translate('in-person-participation-offers')?></b></h5>
                                     <ul>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <li>Access to the opening and closing ceremonies.</li>
-                                                <li>Access all congress sessions.</li>
-                                                <li>Access to the exhibition. </li>
-                                                <li>Access to congress material. </li>
+                                                <li><?=$_Dictionary->translate('opening-and-closing')?></li>
+                                                <li><?=$_Dictionary->translate('all-congress-sessions')?></li>
+                                                <li><?=$_Dictionary->translate('the-exhibition')?></li>
+                                                <li><?=$_Dictionary->translate('to-congress-material')?></li>
                                             </div>
                                             <div class="col-md-6">
-                                                <li>Access to in person and virtual networking sessions.</li>
-                                                <li>Access to social and cultural events. </li>
-                                                <li>Access to the virtual platform during and after the event.</li>
-                                                <li>On-demand access to all recorded virtual sessions for 12 months.</li>
+                                                <li><?=$_Dictionary->translate('to-congress-material')?></li>
+                                                <li><?=$_Dictionary->translate('cultural-events')?></li>
+                                                <li><?=$_Dictionary->translate('virtual-platform')?></li>
+                                                <li><?=$_Dictionary->translate('virtual-sessions-for-12-months')?></li>
                                             </div>
                                         </div>
                                     </ul>
@@ -112,21 +112,21 @@
                 <div class="col-lg-12">
                     <div class="section_title wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                       <h3 class="red-card" style="color: #a42f1d !important;"><?=$_Dictionary->content('Virtual attendance registration')?></h3>
-                      <p>This option provides you with all the Congress essentials from anywhere with a stable internet connection. The virtual experience provides delegates more value and flexibility to browse content at their own pace and zoom in on the topics of their choosing. With a variety of select, top-quality sessions, from high-level discussions to more technical ones, virtual participation offers an interactive experience and real-time access to the expertise and insights shared at the Congress. Many sessions allow you to share your thoughts and ask for feedback from the experts. </p>  
+                      <p><?=$_Dictionary->translate('virtual-section-description')?></p>  
                     </div>
                     <div class="service_area outcomes wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s" style="padding:0;">
                         <div class="container">
                             <div class="row">
                                 <div class="about_list">
-                                    <h5 style="margin:10px 0;"><b>The online pass offers:</b></h5>
+                                    <h5 style="margin:10px 0;"><b><?=$_Dictionary->translate('online-pass-offers')?></b></h5>
                                     <ul>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <li>Access to the opening and closing ceremonies.</li>
-                                                <li>Access to selected congress sessions. </li>
-                                                <li>Access to congress material. </li>
-                                                <li>Access to the virtual platform during and after the event.</li>
-                                                <li>On-demand access to all recorded virtual sessions for 12 months.</li>
+                                            <div class="col-md-8">
+                                                <li><?=$_Dictionary->translate('access-to-the-opening')?></li>
+                                                <li><?=$_Dictionary->translate('selected-congress-sessions')?></li>
+                                                <li><?=$_Dictionary->translate('access-to-congress')?></li>
+                                                <li><?=$_Dictionary->translate('virtual-platform')?></li>
+                                                <li><?=$_Dictionary->translate('on-demand-access')?></li>
                                             </div>
                                         </div>
                                     </ul>
@@ -162,8 +162,8 @@
                     <div class="col-md-12 wow fadeInLeft" data-wow-duration="1.2s" data-wow-delay=".5s" style="margin:50px 0 0 0">
                         <hr>
                         <div class="section_title">
-                        <h3 class="red-card" style="color: #a42f1d !important;">Important</h3>
-                        <p>Registration Fees does not include Value Added Taxes (VAT). Should the Government of Rwanda charge VAT or other applicable taxes on the registration fees, this will be added to the final invoice amount. This is also applicable to other delegate related costs such as registration cancellation costs. </p>  
+                        <h3 class="red-card" style="color: #a42f1d !important;"><?=$_Dictionary->translate('important')?></h3>
+                        <p><?=$_Dictionary->translate('registration_fees')?> </p>  
                         </div>
                     </div>
                     </div>
