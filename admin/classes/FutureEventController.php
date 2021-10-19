@@ -332,6 +332,14 @@ class FutureEventController
 		endif;
 	}
 
+	public static function approveParticipantRegistrationStatus($participantID){
+		$ParticipantTable = new \FutureEvent();
+		$fields = array(
+			'status' => 'APPROVED'
+		);
+		$ParticipantTable->updateParticipant($fields, $participantID);
+	}
+
 	public static function updatePrivateLinkDataAfterRegistration($_private_link_ID){
 		$_data_fields_ = array(
 			'link_used_time' 	=> time(),

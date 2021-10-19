@@ -1,6 +1,8 @@
 <?php
 require_once "core/init.php"; 
 
+
+
 //if(!($_PARTICIPANT_DATA_ = FutureEventController::getEventParticipantPaymentDataByID(18)))
 //    Redirect::to('');
 //

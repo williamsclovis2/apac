@@ -260,8 +260,8 @@ class PaymentController
 			$str 		  = new \Str();
 
 			/** Information */
-			$participant_id     = $str->data_in($_PAY['participant_id']);
-			$payment_entry_id	= $str->data_in($_PAY['payment_entry_id']);
+			$participant_id      = $str->data_in($_PAY['participant_id']);
+			$payment_entry_id	 = $str->data_in($_PAY['payment_entry_id']);
 
 			$payment_method      = $str->data_in($_PAY['payment_method']);
 			$payment_operator    = $str->data_in($_PAY['payment_operator']);
@@ -300,7 +300,11 @@ class PaymentController
 				);
 
 				try{
+					/** Update Participant Payment Transaction Entry */
 					$PaymentTable->update($_fields, $payment_entry_id);
+
+					/** Update Participant Registration Staus - Approved */
+					FutureEventController::approveParticipantRegistrationStatus($participant_id);
 
 					/** Payment Invoice Link */
 					$payment_receipt_link = Config::get('url/receipt').Hash::encryptAuthToken($payment_entry_id);

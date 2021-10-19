@@ -61,6 +61,11 @@ RewriteRule ^admin/pages/content/speakers/([^/]+)$ admin/pages/content/speakers.
 RewriteRule ^admin/pages/content/partners/([^/]+)$ admin/pages/content/partners.php?eventId=$1 [L]
 RewriteRule ^admin/pages/content/program/([^/]+)/([^/]+)$ admin/pages/content/program.php?eventId=$1&day=$2 [L]
 
+RewriteRule ^admin/pages/payments/all/([^/]+)$ admin/pages/payments/all.php?eventId=$1&participationTypeToken=all [L]
+RewriteRule ^admin/pages/payments/([0-9]+)/([^/]+)$ admin/pages/payments/all.php?eventId=$2&participationTypeToken=$1 [L]
+RewriteRule ^admin/pages/payments/([0-9]+)/([0-9]+)/([^/]+)$ admin/pages/payments/all.php?eventId=$3&participationTypeToken=$2&participationSubTypeToken=$1 [L]
+RewriteRule ^admin/pages/payments/profile/([0-9]+)$ admin/pages/payments/profile.php?participantToken=$1 [L]
+
 RewriteRule ^admin/pages/participants/all/([^/]+)$ admin/pages/participants/all.php?eventId=$1&participationTypeToken=all [L]
 RewriteRule ^admin/pages/participants/([0-9]+)/([^/]+)$ admin/pages/participants/all.php?eventId=$2&participationTypeToken=$1 [L]
 RewriteRule ^admin/pages/participants/([0-9]+)/([0-9]+)/([^/]+)$ admin/pages/participants/all.php?eventId=$3&participationTypeToken=$2&participationSubTypeToken=$1 [L]
