@@ -570,6 +570,39 @@
 							"pt-lang": "Alunos / jovens participantes"
 						}
 					},
+
+					{
+						"content-crew-/-contractor": {
+							"fr-lang": "Équipage / Entrepreneur",
+							"eng-lang": "Crew / Contractor",
+							"ar-lang": "الطاقم / المقاول",
+							"pt-lang": "Tripulação / Empreiteiro"
+						}
+					},
+					{
+						"content-crew-contractor": {
+							"fr-lang": "Équipage / Entrepreneur",
+							"eng-lang": "Crew / Contractor",
+							"ar-lang": "الطاقم / المقاول",
+							"pt-lang": "Tripulação / Empreiteiro"
+						}
+					},
+					{
+						"content-complimentary-/-invited-guests": {
+							"fr-lang": "Invités",
+							"eng-lang": "Complimentary / Invited guests",
+							"ar-lang": "ضيوف مجانيون / مدعوون",
+							"pt-lang": "Convidados / cortesia"
+						}
+					},
+					{
+						"content-complimentary-invited-guests": {
+							"fr-lang": "Invités",
+							"eng-lang": "Complimentary / Invited guests",
+							"ar-lang": "ضيوف مجانيون / مدعوون",
+							"pt-lang": "Convidados / cortesia"
+						}
+					},
 					{
 						"content-early-bird": {
 							"fr-lang": "Lève tôt",

@@ -452,10 +452,7 @@ $('.registerFormSubmit').on('click', function () {
 	var action = $('.host').attr('link') + "/registration";
 	var inputCaptcha = document.getElementById("securityCode").value.trim();
 
-
 	$('#registerButton').prop('disabled', true);
-
-
 
 	$.ajax({
 		type: "POST",
@@ -465,7 +462,7 @@ $('.registerFormSubmit').on('click', function () {
 		success: function (responseData) {
 			var responseCaptcha = JSON.parse(responseData);
 
-			if (responseCaptcha.messages != inputCaptcha) {
+			if (responseCaptcha.messages == inputCaptcha) {
 
 				var form = $('#registerForm')[0];
 				var formData = new FormData(form);

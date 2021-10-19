@@ -241,7 +241,7 @@ class User {
 //         $mail->isSMTP();
 //         $mail->SMTPAuth   = true;
 //         $mail->Host       = "n3plcpnl0129.prod.ams3.secureserver.net";
-//         $mail->Port       = 2096;
+//         $mail->Port       = 587;
 //         $mail->Username   = $from;
 //         $mail->Password   = "6oltI*fk@ntj";
 //         $mail->SMTPSecure = "tls";

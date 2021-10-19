@@ -99,14 +99,7 @@ class EmailController
                           <td class='bodycopy' style='font-family: sans-serif;'>
                           Thank you for registering to attend the IUCN Africa Protected Areas Congress (APAC) that will be held in Kigali from 7 – 12 March 2022.</td>
                           <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Your receipt is attached to this email.</td></tr>
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                                <ul>
-                                  <li><a href='$payment_receipt_link' target='_blank'>Click here</a> to download your receipt.  </li>
-                                </ul>
-                              </td>
-                            </tr>
-                          </tr>
+                          
                           <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Badge collection</b> </td></tr>
                           <tr><td class='h2' style='font-family: sans-serif;'>You will receive information on how and when to collect your badge before the event. We kindly require that you bring the identification document you used in your registration process when collecting your badge.  </td></tr>
                           <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Programme </b> </td></tr>

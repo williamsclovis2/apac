@@ -1592,13 +1592,52 @@ class FutureEventController
         return  false;
     }
 
+	
+	public static function getEventParticipantPaymentDataByID($ID){
+        $FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT
+		future_payment_transaction_entry.id As payment_id, 
+		future_payment_transaction_entry.transaction_id As payment_transaction_id, 
+		future_payment_transaction_entry.transaction_time As payment_transaction_date, 
+		future_payment_transaction_entry.receipt_id As payment_receipt_id, 
+		future_participants.id As participant_id, 
+		future_participants.qrID As participant_code, 
+		future_participants.firstname As participant_firstname, 
+		future_participants.lastname As participant_lastname, 
+		future_participants.email As participant_email, 
+		future_participants.telephone As participant_telephone, 
+		future_participants.organisation_city As participant_city, 
+		future_participants.organisation_country As participant_country, 
+		future_participation_type.name as participation_type_name, 
+		future_participation_sub_type.name As participation_subtype_name,
+		future_participation_sub_type.payment_state,
+		future_participation_sub_type.category As event_category,
+		future_participation_sub_type.price As participation_subtype_price,
+		future_participation_sub_type.currency As participation_subtype_currency,
+		future_participants.participation_type_id As participation_type_id, 
+		future_participants.participation_sub_type_id As participation_sub_type_id,
+		future_event.id As event_id, 
+		future_event.event_name As event_name
+		FROM future_payment_transaction_entry INNER JOIN  future_participants ON future_payment_transaction_entry.participant_id = future_participants.id INNER JOIN future_participation_type ON future_participants.participation_type_id = future_participation_type.id 
+		INNER JOIN future_participation_sub_type ON future_participants.participation_sub_type_id = future_participation_sub_type.id 
+		INNER JOIN future_event ON future_participants.event_id = future_event.id 
+		WHERE future_payment_transaction_entry.id = {$ID} ORDER BY future_payment_transaction_entry.id DESC LIMIT 1");
+        if($FutureEventTable->count())
+          return  $FutureEventTable->first();
+        return  false;
+    }
+
 	public static function getEventParticipantDataByID($ID){
         $FutureEventTable = new FutureEvent();
         $FutureEventTable->selectQuery("SELECT 
 		future_participants.id As participant_id, 
+		future_participants.qrID As participant_code, 
 		future_participants.firstname As participant_firstname, 
 		future_participants.lastname As participant_lastname, 
 		future_participants.email As participant_email, 
+		future_participants.telephone As participant_telephone, 
+		future_participants.organisation_city As participant_city, 
+		future_participants.organisation_country As participant_country, 
 		future_participation_type.name as participation_type_name, 
 		future_participation_sub_type.name As participation_subtype_name,
 		future_participation_sub_type.payment_state,
@@ -1803,5 +1842,4 @@ class FutureEventController
 			Apply for media accreditation here.";
 		endif;
 	}
-
 }
