@@ -103,10 +103,6 @@ class PaymentController
 				$external_transaction_token  = '';
 				$external_transaction_status = '';
                 
-                $currency = 'RWF'; // fOR tEST
-
-				
-
 				/** Payment Integration - Creeate Token */
 				if($DefaultPayment == 'CC'):
 					/** Code For Test  Env Payment Integration */
