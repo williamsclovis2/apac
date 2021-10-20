@@ -287,6 +287,7 @@ class PaymentController
 				$_fields = array(
 					'payment_method'     		  => $payment_method,
 					'payment_operator'     		  => $payment_operator,
+					'receipt_id'     			  => $payment_id,
 					'payment_id'     			  => $payment_id,
 					'transaction_status'		  => $transaction_status,
 					'callback_status'		  	  => $callback_status,
@@ -309,10 +310,16 @@ class PaymentController
 					$_data_ = array(
 						'email' 			   => $_participant_data_->participant_email,
 						'firstname' 		   => $_participant_data_->participant_firstname,
-						'payment_receipt_link' => $payment_receipt_link
+						'payment_receipt_link' => $payment_receipt_link,
+						'payment_link' 		   => Config::get('server/name').'/payment/'.Hash::encryptAuthToken($participant_id)
 					);
-					if($transaction_status == 'COMPLETED')
-					EmailController::sendEmailToParticipantAfterFullyCompletedRegistrationAndSuccessfulPayment($_data_);
+					if($transaction_status == 'COMPLETED'):
+						EmailController::sendEmailToParticipantAfterFullyCompletedRegistrationAndSuccessfulPayment($_data_);
+					else:
+						if($payment_method != 'Mobile'):
+							EmailController::sendEmailToParticipantWhenCreditCardPaymentFails($_data_);
+						endif;
+					endif;
 
 				}catch(Exeption $e){
 					$diagnoArray[0] = "ERRORS_FOUND";
@@ -385,6 +392,55 @@ class PaymentController
         if($PaymentTable->count())
           return $PaymentTable->first()->id;
         return 0;
+    }
+
+		
+	public static function getPaymentStatsRegistrationByPaymentChannelCount($eventID, $payment_channel = '', $transaction_status = '', $condition = ''){
+		$SQL_CONDITION_ = " event_id = {$eventID} ";
+		if($payment_channel == 'BANK_TRANSFER')
+			$SQL_CONDITION_ .= " AND payment_method = '$payment_method' ";
+		if($payment_channel == 'ONLINE_PAYMENT')
+			$SQL_CONDITION_ .= " AND payment_method != 'BANK_TRANSFER' ";
+		if($transaction_status != '')
+			$SQL_CONDITION_ .= " AND transaction_status = '$transaction_status' ";
+		if($condition != '')
+			$SQL_CONDITION_ .= " $condition ";
+			
+
+		// echo $SQL_CONDITION_;
+        $PaymentTable   = new Payment();
+        $PaymentTable->selectQuery("SELECT COUNT(id) as total_count FROM future_payment_transaction_entry WHERE $SQL_CONDITION_ GROUP BY participant_id DESC ORDER BY id DESC ");
+		if($PaymentTable->count())
+          return $PaymentTable->count();
+        return 0;
+    }
+
+	public static function getPaymentStatsRegistrationByPaymentChannelAmount($eventID, $payment_channel = '', $transaction_status = '', $condition = ''){
+		$SQL_CONDITION_ = " event_id = {$eventID} ";
+		$SQL_CONDITION_.= " AND transaction_status = 'COMPLETED' ";
+		if($payment_channel == 'BANK_TRANSFER')
+			$SQL_CONDITION_ .= " AND payment_method = 'BANK_TRANSFER' ";
+		if($payment_channel == 'ONLINE_PAYMENT')
+			$SQL_CONDITION_ .= " AND payment_method != 'BANK_TRANSFER' ";
+		if($transaction_status != '')
+			$SQL_CONDITION_ .= " AND transaction_status = '$transaction_status' ";
+		if($condition != '')
+			$SQL_CONDITION_ .= " $condition ";
+
+		// echo $SQL_CONDITION_;
+        $PaymentTable   = new Payment();
+        $PaymentTable->selectQuery("SELECT SUM(amount) as total_amount FROM future_payment_transaction_entry WHERE $SQL_CONDITION_ GROUP BY participant_id DESC ORDER BY id DESC ");
+		if($PaymentTable->count())
+          return $PaymentTable->first()->total_amount;
+        return 0;
+    }
+
+	public static function getEventPaymentCurrency($eventID){
+        $PaymentTable = new Payment();
+        $PaymentTable->selectQuery("SELECT future_participation_sub_type.currency FROM `future_participation_sub_type` INNER JOIN future_participation_type ON future_participation_sub_type.participation_type_id = future_participation_type.id WHERE future_participation_sub_type.payment_state = 'PAYABLE' AND future_participation_type.event_id = {$eventID} ORDER BY `future_participation_sub_type`.`id` ASC LIMIT 1");
+        if($PaymentTable->count())
+          return $PaymentTable->first()->currency;
+        return 'USD';
     }
 
 }
