@@ -270,7 +270,7 @@ $(document).ready(function () {
 					// 				$(".sent-message").delay(500).show(10, function() {
 
 					// });
-					window.location.replace("live");
+					window.location.replace("profile");
 				} else {
 					$("#loginButton").prop('disabled', false);
 					$('#login-messages').html('<div class="error-message">' + response.messages + '</div>');

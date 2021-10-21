@@ -1,3 +1,4 @@
+
 <?php
 require_once 'admin/core/init.php';
 if(!Session::exists('username') AND !Session::exists('userToken'))
@@ -14,6 +15,8 @@ if(!($_session_user_data_ = FutureEventController::getParticipantByID($_session_
     Redirect::to('login');
 
 $_participant_data_ = $_session_user_data_;
+$_event_id          = $_participant_data_->event_id;
+$_participant_id_   = $_participant_data_->id;
 
 $_status_ = $_participant_data_->status;
 $_status_color_ = 'label-warning';
@@ -26,6 +29,42 @@ if($_status_ == 'DENIED')
     $_status_color_ = '#c13c5a';
 if($_status_ == 'EXPIRED')
     $_status_color_ = '#9f9597';
+
+/** Local CBO Code  */
+$_CBO_CODE_ = 'C0015';
+    
+/** Payment Information */
+$_payment_entry_data_ = PaymentController::getPaymentTransactionEntryDataByParticipantID($_event_id, $_participant_id_);
+
+$_PAYMENT_METHOD_                      = '';
+$_PAYMENT_TRANSACTION_AMOUNT_CURRENCY_ = '';
+$_PAYMENT_STATUS_                      = '';
+$_PAYMENT_RECEIPT_                     = '';
+$_PAYMENT_TRANSACTION_ID_              = '';
+$_EXTERNAL_TRANSACTION_ID_             = '';
+$_PAYMENT_TRANSACTION_TIME_            = '';
+$_PAYMENT_APPROVAL_TIME_               = '';
+$_PAYMENT_APPROVAL_COMMENT_            = '';
+
+/** Get Participant Last Transaction   */
+if($_payment_entry_data_):
+    $_PAYMENT_METHOD_                      = $_payment_entry_data_->payment_method;
+    $_PAYMENT_TRANSACTION_AMOUNT_CURRENCY_ = $_payment_entry_data_->amount.' '.$_payment_entry_data_->currency;
+    $_PAYMENT_STATUS_                      = $_payment_entry_data_->transaction_status;
+    $_PAYMENT_RECEIPT_                     = $_payment_entry_data_->receipt_id == ''?'-':$_payment_entry_data_->receipt_id;
+    $_PAYMENT_TRANSACTION_ID_              = $_payment_entry_data_->transaction_id;
+    $_EXTERNAL_TRANSACTION_ID_             = $_payment_entry_data_->external_transaction_id;
+    $_PAYMENT_TRANSACTION_TIME_            = (strlen($_payment_entry_data_->transaction_time) > 1)?'-':date('D d-M-Y h:i:a', $_payment_entry_data_->transaction_time);
+    $_PAYMENT_APPROVAL_TIME_               = (strlen($_payment_entry_data_->approval_time) > 1)?'-':date('D d-M-Y h:i:a', $_payment_entry_data_->approval_time);
+    $_PAYMENT_APPROVAL_COMMENT_            = $_payment_entry_data_->approval_comment;
+
+    if($_payment_entry_data_->payment_method != 'BANK_TRANSFER')
+        $_PAYMENT_APPROVAL_TIME_              = date('D d-M-Y h:i:a', $_payment_entry_data_->callback_time);
+
+    if($_payment_entry_data_->payment_method == '')
+        $_PAYMENT_METHOD_ = 'ONLINE_PAYMENT';
+
+endif;
 
 ?>
 
@@ -144,43 +183,95 @@ endif;
 <?php
 if($_participant_data_->payment_state == 'PAYABLE'):
     ?>
-                    <h3 class="card-sect-title">Payment </h3>
-                    <div class="card mt-3">
-                        <div class="card-body side-card">
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0">Payment Status</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary">
-                                    <!-- <h6>Pending</h6> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mt-3">
-                        <div class="card-body side-card">
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0">Payment method</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary">
-                                    <!-- <h6>Visa Card</h6> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mt-3">
-                        <div class="card-body side-card">
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0">Amount paid</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary">
-                                    <!-- <h6>$200</h6> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                                    <h3 class="card-sect-title">Payment </h3>
+                                    <div class="card mt-3">
+                                        <div class="card-body side-card">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <h6 class="mb-0">Payment Method</h6>
+                                                </div>
+                                                <div class="col-sm-7 text-secondary">
+                                                    <h6><?=$_PAYMENT_METHOD_?></h6>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <h6 class="mb-0">Amount paid</h6>
+                                                </div>
+                                                <div class="col-sm-7 text-secondary">
+                                                    <h6><?=$_PAYMENT_TRANSACTION_AMOUNT_CURRENCY_?></h6>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <h6 class="mb-0">Transaction Status</h6>
+                                                </div>
+                                                <div class="col-sm-6 text-secondary">
+                                                    <h6><?=$_PAYMENT_STATUS_?></h6>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <h6 class="mb-0">Payment Receipt</h6>
+                                                </div>
+                                                <div class="col-sm-7 text-secondary">
+                                                    <h6><?=$_PAYMENT_RECEIPT_?></h6>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <h6 class="mb-0">Transaction ID</h6>
+                                                </div>
+                                                <div class="col-sm-6 text-secondary">
+                                                    <h6><?=$_PAYMENT_TRANSACTION_ID_?></h6>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-7">
+                                                    <h6 class="mb-0">External Transaction ID</h6>
+                                                </div>
+                                                <div class="col-sm-5 text-secondary">
+                                                    <h6><?=$_EXTERNAL_TRANSACTION_ID_?></h6>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-7">
+                                                    <h6 class="mb-0">Payment Transaction Time</h6>
+                                                </div>
+                                                <div class="col-sm-5 text-secondary">
+                                                    <h6><?=$_PAYMENT_TRANSACTION_TIME_?></h6>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-7">
+                                                    <h6 class="mb-0">Payment Approval Time</h6>
+                                                </div>
+                                                <div class="col-sm-5 text-secondary">
+                                                    <h6><?=$_PAYMENT_APPROVAL_TIME_?></h6>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                            <div class="col-sm-12">
+                                                    <h6 class="mb-0">Payment Approval Comment</h6>
+                                                </div>
+                                                <div class="col-sm-12 text-secondary">
+                                                    <h6><?=$_PAYMENT_APPROVAL_COMMENT_?></h6>
+                                                </div>
+                                            </div>
+                                            <!-- <hr> -->
+                                        </div>
+                                    </div>
+
+                                  
 <?php
 endif;
     ?>
@@ -276,7 +367,7 @@ endif;
 /** Display Organization Section - When Not Media - */
 if( $_participant_data_->participation_type_name != 'Media' && $_participant_data_->student_state == 0  ):
 ?>
-                    <h3 class="card-sect-title">ORGANIZATION</h3>
+                    <h3 class="card-sect-title">ORGANIZATION </h3>
                     <div class="card mb-3" >
                         <div class="card-body">
                             <div class="row">
@@ -297,6 +388,58 @@ if( $_participant_data_->participation_type_name != 'Media' && $_participant_dat
                                 </div>
                             </div>
                             <hr>
+<?php
+    if($_participant_data_->participation_type_code == $_CBO_CODE_): 
+?>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h6 class="mb-0">Date and year of registration</h6>
+                                </div>
+                                <div class="col-sm-6 text-secondary">
+                                    <h6><?= $_participant_data_->organization_registration_date_year ?></h6>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Number of employees</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <h6><?= $_participant_data_->organization_annual_turnover ?></h6>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h6 class="mb-0">What is your annual turnover</h6>
+                                </div>
+                                <div class="col-sm-6 text-secondary">
+                                    <h6><?= $_participant_data_->organization_annual_turnover ?></h6>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">CBO Project Objectives</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <h6><?= $_participant_data_->cbo_project_objectives ?></h6>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">CBO activities</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <h6><?= $_participant_data_->cbo_activities ?></h6>
+                                </div>
+                            </div>
+                            <hr>
+
+<?php
+    endif;
+?>
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Industry</h6>
@@ -311,7 +454,7 @@ if( $_participant_data_->participation_type_name != 'Media' && $_participant_dat
                                     <h6 class="mb-0">Organization Website</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                <h6><a href="<?= $_participant_data_->website == ''?'#': $_participant_data_->website  ?>"><?= $_participant_data_->website ?></a></h6>
+                                <h6><a href="<?= $_participant_data_->website == ''?'#': str_replace('http:// http://', 'http://', 'http://'.$_participant_data_->website)  ?>"><?= $_participant_data_->website ?></a></h6>
                                 </div>
                             </div>
                             <hr>
@@ -468,14 +611,14 @@ elseif( $_participant_data_->participation_type_name == 'Media'):
                         <div  class="card-body">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">first objective</h6>
+                                    <h6 class="mb-0"> objectives</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <h6 style="text-align:left;"><?= $_participant_data_->attending_objective_1 ?></h6>
                                 </div>
                             </div>
                             <hr>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Second objective </h6>
                                 </div>
@@ -492,7 +635,7 @@ elseif( $_participant_data_->participation_type_name == 'Media'):
                                     <h6 style="text-align:left;"><?= $_participant_data_->attending_objective_3 ?> </h6>
                                 </div>
                             </div>
-                            <hr>
+                            <hr> -->
                             <div class="row">
                                 <div class="col-sm-6">
                                     <h6 class="mb-0">Where did you hear about us ? </h6>
