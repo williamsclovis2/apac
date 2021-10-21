@@ -54,6 +54,7 @@ class Email
 				'mailReplyToEmail' => Email::$replyToEmail,
 				'mailReplyToName'  => Email::$replyToName,
 			);
+			// var_dump($params_);
 			return (Array) $params_;
 		}
 
