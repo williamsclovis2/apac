@@ -276,14 +276,14 @@
                     <div class="row">
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('first objective')?> <span>*</span></label>
+                                <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Type objectives')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <textarea name="firt_objective" id="firt_objective" class="form-control" oninput="validate(this)"  placeholder="<?=$_Dictionary->translate('enter your objective')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please only 500 characters')?>" style="height: 70px;"></textarea>
-                                    <div class="validate" id="firt_objective_error"></div>
+                                    <textarea name="objectives" id="objectives" class="form-control" oninput="validate(this)"  placeholder="<?=$_Dictionary->translate('enter your objective')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please only 500 characters')?>" style="height: 70px;"></textarea>
+                                    <div class="validate" id="objectives_error"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-sm-12">
+                        <!-- <div class="form-group col-sm-12">
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Second objective')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
@@ -300,7 +300,7 @@
                                     <div class="validate" id="third_objective_error"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <h4><?=$_Dictionary->translate('WHERE DID YOU HEAR ABOUT APAC?')?> </h4>
                     <hr class="separator-line"> 

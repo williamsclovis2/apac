@@ -21,7 +21,10 @@ if(Input::checkInput('code', 'get', 1)):
 
         case 'PAYMENT_CALLBACK_ERROR':
             $_NOTIFICATION_TITLE_   = "Payment interrupted";
-            $_NOTIFICATION_CONTENT_ = "Thank you for your registration. Your payment has been interrupted. Your registration will be activated once you have completed your payment.";
+            $_NOTIFICATION_CONTENT_ = "<p style='text-align:left !important;'>Thank you for your interest in participating in the inaugural Africa Protected Areas Congress. We regret to inform you that your payment has been declined.<br><b>This frequently occurs when:</b></p>
+            <p style='text-align:left !important;'>-	There is a change in your billing address<br>-	A billing error has occurred with your bank<br>-	The bank not recognizing the payment and taking action to prevent it<br>-	Your account has insufficient funds<br>-	If using card, it has expired</p>
+            <p style='text-align:left !important;'>Please check your details and try again. Your registration will be activated once you have completed your payment. Should you have any further questions on registration and payment, please contact our Registration Manager on <a href='mailto: registration@apacongress.africa' style='color:blue !important;'> registration@apacongress.africa</a> </p>
+            <p style='text-align:left !important;'>For more information on APAC, visit our  <a href='https://apacongress.africa/' target='bank_' style='color:blue !important;'>website</a></p>";
             break;
 
         case 'PAYMENT_CALLBACK_SUCCESS':

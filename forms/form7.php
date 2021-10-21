@@ -14,10 +14,25 @@
         </div>
     </div>
 </div>
-    
+
 <div class="service_area about_event"  id="register_area">
+    <div class="instruction-section text-center ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section_title">
+                        <h3><?=$_Dictionary->translate('APAC Local CBO Subsidised Fee Disclosure')?></h3>
+                    </div>
+                    <p><?=$_Dictionary->translate('cbo-first-p')?></p>
+                    <p><?=$_Dictionary->translate('cbo-second-p')?></p>
+                    <p><?=$_Dictionary->translate('cbo-third-p')?></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
+            
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <form  class="form-contact" id="registerForm" method="post">
@@ -165,7 +180,81 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Date and year of registration')?><span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <input class="form-control" oninput="validate(this)"  name="organisation_date" id="organisation_date" type="text" placeholder="<?=$_Dictionary->translate('Date and year of registration')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your organisation name')?>"/>
+                                    <div class="validate" id="organisation_date_error"></div> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="gender" class="col-sm-3"><?=$_Dictionary->translate('Number of employees')?><span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <select id="gender" name="number_of_employees" onchange="validate(this)"  class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please select')?>">
+                                        <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
+                                        <option value="Less than 50">Less than 50</option>
+                                        <option value="Between 51 - 150">Between 51 - 150</option>
+                                        <option value="Between 151 - 250">Between 151 - 250</option>
+                                        <option value="Over 250">Over 250</option>
+                                    </select>
+                                    <div class="validate" id="number_of_employees_error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="gender" class="col-sm-3"><?=$_Dictionary->translate('What is your annual turnover')?><span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <select id="turnover" name="turnover" onchange="validate(this)"  class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please select')?>">
+                                        <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
+                                        <option value="Less than $10,000">Less than $10,000</option>
+                                        <option value="Between $10,000 - $50,000">Between $10,000 - $50,000</option>
+                                        <option value="Between $50,001 - $75,000">Between $50,001 - $75,000</option>
+                                        <option value="Between $75,001 - $100,000">Between $75,001 - $100,000</option>
+                                        <option value="Over $100,000">Over $100,000</option>
+                                    </select>
+                                    <div class="validate" id="turnover_error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('CBO Project Objectives ')?> <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <textarea name="project_objective" id="project_objective" class="form-control" oninput="validate(this)"  placeholder="<?=$_Dictionary->translate('Please enter CBO project objective')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please only 500 characters')?>" style="height: 70px;"></textarea>
+                                    <div class="validate" id="project_objective_error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="gender" class="col-sm-3"><?=$_Dictionary->translate('CBO activities')?> <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <select id="cbo_activities" name="cbo_activities" onchange="validate(this)"  class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please select')?>">
+                                        <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
+                                        <option value="Business">Business </option>
+                                        <option value="Community project">Community project </option>
+                                        <option value="Crop farming ">Crop farming </option>
+                                        <option value="Cultural/traditional activities">Cultural/traditional activities </option>
+                                        <option value="Environment Conservation ">Environment Conservation </option>
+                                        <option value="Financial services ">Financial services </option>
+                                        <option value="Fishery ">Fishery </option>
+                                        <option value="Health care ">Health care </option>
+                                        <option value="Livestock rearing">Livestock rearing </option>
+                                        <option value="Poultry keeping">Poultry keeping </option>
+                                        <option value="Skills development">Skills development </option>
+                                        <option value="Tourism">Tourism </option>
+                                        <option value="Youth empowerment">Youth empowerment</option>
+                                        <option value="Merry-go-round ">Merry-go-round </option>
+                                        <option value="Table banking">Table banking </option>
+                                    </select>
+                                    <div class="validate" id="cbo_activities_error"></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group col-sm-12">
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Organization type')?> <span>*</span></label>
@@ -276,14 +365,14 @@
                     <div class="row">
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('first objective')?> <span>*</span></label>
+                                <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Type objectives')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <textarea name="firt_objective" id="firt_objective" class="form-control" oninput="validate(this)"  placeholder="<?=$_Dictionary->translate('enter your objective')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please only 500 characters')?>" style="height: 70px;"></textarea>
-                                    <div class="validate" id="firt_objective_error"></div>
+                                    <textarea name="objectives" id="objectives" class="form-control" oninput="validate(this)"  placeholder="<?=$_Dictionary->translate('enter your objective')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please only 500 characters')?>" style="height: 70px;"></textarea>
+                                    <div class="validate" id="objectives_error"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-sm-12">
+                        <!-- <div class="form-group col-sm-12">
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Second objective')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
@@ -300,7 +389,7 @@
                                     <div class="validate" id="third_objective_error"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <h4><?=$_Dictionary->translate('WHERE DID YOU HEAR ABOUT APAC?')?> </h4>
                     <hr class="separator-line"> 
