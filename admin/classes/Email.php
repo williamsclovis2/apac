@@ -10,15 +10,23 @@ class Email
 		private static $mailUrl;
 		private static $email, $subject, $message;
 
-		public static function send($email, $subject, $message){
+		private static $sendFromEmail = 'info@apacongress.torusguru.com';
+		private static $sendFromName  = 'The Future Summit';
+
+		private static $replyToEmail = 'info@apacongress.torusguru.com';
+		private static $replyToName  = 'The Future Summit';
+
+		public static function send($email, $subject, $message, $KeyID = 8){
 			Email::$mailUrl  =  Config::get("url/mail_smtp"); 
 			Email::setEmailParams($email, $message, $subject);
+			Email::getEmailSetingsByKeyID($KeyID);
 			Email::curl_post_async(Email::$mailUrl, Email::getEmailParamsArray());
 		}
 
-		public static function sendNoReply($email, $subject, $message){
+		public static function sendNoReply($email, $subject, $message, $KeyID = 8){
 			Email::$mailUrl  =  Config::get("url/mail_smtp_noreply"); 
 			Email::setEmailParams($email, $message, $subject);
+			Email::getEmailSetingsByKeyID($KeyID);
 			Email::curl_post_async(Email::$mailUrl, Email::getEmailParamsArray());
 		}
 
@@ -41,8 +49,33 @@ class Email
 				'email'   => Email::$email,
 				'subject' => Email::$subject,
 				'message' => Email::$message,
+				'mailFromEmail' => Email::$sendFromEmail,
+				'mailFromName'  => Email::$sendFromName,
+				'mailReplyToEmail' => Email::$replyToEmail,
+				'mailReplyToName'  => Email::$replyToName,
 			);
 			return (Array) $params_;
+		}
+
+		public static function getEmailSetingsByKeyID($KeyID){
+			switch($KeyID):
+				case 8;
+					Email::$sendFromEmail   = 'info@apacongress.torusguru.com';
+					Email::$sendFromName 	= 'The Future Summit';
+
+					Email::$replyToEmail 	= 'info@apacongress.torusguru.com';;
+					Email::$replyToName 	= 'The Future Summit';
+					break;
+
+				case 9;
+					Email::$sendFromEmail   = 'forum@thecoalitionafrica.com';
+					Email::$sendFromName 	= 'The Amahoro Coalition';
+
+					Email::$replyToEmail 	= 'forum@thecoalitionafrica.com';
+					Email::$replyToName 	= 'The Amahoro Coalition';
+					break;
+
+			endswitch;
 		}
 
         public static function curl_post_async($url, $params){
@@ -64,13 +97,12 @@ class Email
 
             fwrite($fp, $out);
             fclose($fp);
-
         }
 
 		public static function sendEmail($email,$subject, $message){
 			$url    =  Config::get("url/mail_smtp");
 			$myvars = 'email=' . $email . '&message=' . $message . '&subject=' . $subject;
-			$ch =   curl_init( $url );
+			$ch 	=  curl_init( $url );
 					curl_setopt( $ch, CURLOPT_POST, 1);
 					curl_setopt( $ch, CURLOPT_POSTFIELDS, $myvars);
 					curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
