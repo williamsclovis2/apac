@@ -3653,6 +3653,7 @@ h1,h2,h3,h4,h5,h6 {line-height: 1.2em;}
   .form-contact .form-group {margin-bottom: 6px;}
   .testimonial_area .single_testmonial .info p {font-size: 20px; line-height: 25px;}
 }
+.instruction-section{margin-bottom: 20px;}
 @media (max-width:767px) {}
 @media (max-width:667px) {}
 @media (max-width:640px) {}

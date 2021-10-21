@@ -651,6 +651,42 @@
 							"pt-lang": "Padrão"
 						}
 					},
+
+					{
+						"apac-local-cbo-subsidised-fee-disclosure": {
+							"fr-lang": "Divulgation des frais subventionnés par les CBO locaux de l'APAC",
+							"eng-lang": "APAC Local CBO Subsidised Fee Disclosure",
+							"ar-lang": "اساسي",
+							"pt-lang": "Padrão"
+						}
+					},
+
+					{
+						"cbo-first-p": {
+							"fr-lang": "Merci de l'intérêt que vous portez à l'APAC. Pour soutenir la participation de la communauté locale, l'APAC a mis de côté un nombre limité de billets subventionnés correspondant à 10 % de la participation totale des délégués pour les organisations et groupes communautaires basés au Rwanda à 150 USD par personne pour l'inscription anticipée et 200 USD par délégué pour l'inscription standard.",
+							"eng-lang": "Thank you for your interest in APAC. To support local community participation, APAC has set aside a limited number of subsidised tickets translating to 10% of total delegate attendance for Rwanda based community organisations and groups at US$150 per person for early bird registration and US$200 per delegate for standard registration.",
+							"ar-lang": "اساسي",
+							"pt-lang": "Padrão"
+						}
+					},
+
+					{
+						"cbo-second-p": {
+							"fr-lang": "Pour être éligibles, les délégués doivent remplir un certain nombre de conditions et lors de leur sélection, le comité d'organisation du congrès de l'APAC vise à satisfaire les exigences d'équilibre géographique à travers le pays ainsi qu'à assurer la représentation des jeunes délégués et la parité des sexes.",
+							"eng-lang": "To be eligible, delegates must fulfil a number of conditions and in making their selection, the APAC Congress Organising Committee aims to satisfy the geographic balance requirements across the country as well as ensure representation of young delegates and gender parity.",
+							"ar-lang": "اساسي",
+							"pt-lang": "Padrão"
+						}
+					},
+					{
+						"cbo-third-p": {
+							"fr-lang": "Une fois les créneaux occupés, l'APAC n'est pas obligée d'émettre davantage de billets subventionnés, à moins que les restrictions sanitaires liées au COVID19 ne permettent une participation générale accrue. Un avis public sera émis dès que les créneaux seront complets. Votre demande d'inscription sera examinée dans les 5 jours ouvrables.",
+							"eng-lang": "Once the slots are filled, APAC is not obligated to issue more subsidised tickets unless the COVID19 health health restrictions allow for general increased participation. A public notice shall be issued once the slots are fully booked. Your registration application will be reviewed within 5 working days.",
+							"ar-lang": "اساسي",
+							"pt-lang": "Padrão"
+						}
+					},
+
 					{
 						"apply": {
 							"fr-lang": "Appliquer",
@@ -807,6 +843,46 @@
 						"organization-name": {
 							"fr-lang": "Nom de l'organisation",
 							"eng-lang": "Organization name",
+							"ar-lang": "اسم المنظمة",
+							"pt-lang": "Nome da organização"
+						}
+					},
+					{
+						"date-and-year-of-registration": {
+							"fr-lang": "Date et année d'inscription",
+							"eng-lang": "Date and year of registration ",
+							"ar-lang": "اسم المنظمة",
+							"pt-lang": "Nome da organização"
+						}
+					},
+					{
+						"number-of-employees": {
+							"fr-lang": "Nombre d'employés",
+							"eng-lang": "Number of employees",
+							"ar-lang": "اسم المنظمة",
+							"pt-lang": "Nome da organização"
+						}
+					},
+					{
+						"what-is-your-annual-turnover": {
+							"fr-lang": "Quel est votre chiffre d'affaires annuel",
+							"eng-lang": "What is your annual turnover ?",
+							"ar-lang": "اسم المنظمة",
+							"pt-lang": "Nome da organização"
+						}
+					},
+					{
+						"cbo-project-objectives": {
+							"fr-lang": "Objectifs du projet CBO",
+							"eng-lang": "CBO Project Objectives",
+							"ar-lang": "اسم المنظمة",
+							"pt-lang": "Nome da organização"
+						}
+					},
+					{
+						"cbo-activities": {
+							"fr-lang": "Les activités de CBO",
+							"eng-lang": "CBO activities",
 							"ar-lang": "اسم المنظمة",
 							"pt-lang": "Nome da organização"
 						}
@@ -1077,8 +1153,8 @@
 					},
 					{
 						"enter-your-objective": {
-							"fr-lang": "Entrez votre objectif",
-							"eng-lang": "Enter your objective",
+							"fr-lang": "Entrez vos objectifs",
+							"eng-lang": "Enter your objectives",
 							"ar-lang": "أدخل هدفك",
 							"pt-lang": "Entrez votre objectif"
 						}

@@ -82,17 +82,17 @@
                           <h3> <?= $_Dictionary->content($_event_participation_category_->participation_type_name)?> </h3>
                           <h4>
                           <?php
-                               if($_event_participation_category_->participation_sub_type_price > 0):
+                            //    if($_event_participation_category_->participation_sub_type_price > 0):
                           ?>
                             <sup> <?= $currency_?> </sup> <?= $_event_participation_category_->participation_sub_type_price?>
                             <?php
-                            endif;
+                            // endif;
                             ?>
                            <span><?= $_event_participation_category_->participation_sub_type_name == ''?'':$_Dictionary->content($_event_participation_category_->participation_sub_type_name) ?> </span></h4>
                            <div class="div-inst">
                                 <p class=><?= $_event_participation_category_->participation_type_form_order == ''?'111':$_Dictionary->content('discount-inperson-'.$_event_participation_category_->participation_type_form_order)?></p>
                            </div>
-                          <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn"> <?= $_Dictionary->words('Register')?></a>
+                          <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn"> <?= $_Dictionary->words('apply')?></a>
                         </div>
                       </div>
                       <?php
@@ -152,7 +152,7 @@
                             <div class="div-inst">
                                 <p class=><?= $_Dictionary->content('discount-virtual-'.$_event_participation_category_->participation_type_form_order)?></p>
                             </div>
-                          <a href="registration/event/virtual/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn"><?= $_Dictionary->words('Register')?></a>
+                          <a href="registration/event/virtual/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn"><?= $_Dictionary->words('apply')?></a>
                         </div>
                       </div>
                     <?php
