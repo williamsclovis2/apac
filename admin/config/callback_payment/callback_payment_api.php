@@ -82,17 +82,65 @@ if( Input::checkInput('TransID', 'get', 1) ||
                             break;
 
                         case 901:
-                            // echo 'Transaction declined';
+                            // echo 'Transaction declined'; 
+                            # Update Database And Send Confirmation Email
+                            $payment_method = $PAYMENT_REQ->CustomerCreditType;
+                            $payment_id     = '';
+
+                            $_UPDATE_PAYMENT_ENTRY_ = array(
+                                'participant_id'    => $_payment_entry_data_->participant_id,
+                                'payment_entry_id'  => $_payment_entry_data_->id,
+                                'transaction_status'=> 'DECLINED',
+                                'callback_cmd'      => $PAYMENT_REQ->callback_cmd,
+                                'callback_status'   => $PAYMENT_REQ->Result,
+
+                                'payment_method'    => $payment_method,
+                                'payment_operator'  => '',
+                                'payment_id'        => $payment_id
+                            );
+                            PaymentController::updatePaymentTransactionEntry($_UPDATE_PAYMENT_ENTRY_);
                             Redirect::to('payment/error/notification/5'.sha1(time()));
                             break;
 
                         case 903:
                             // echo 'The transaction passed the Payment Time Limit';
+                            # Update Database And Send Confirmation Email
+                            $payment_method = isset($PAYMENT_REQ->CustomerCreditType)?$PAYMENT_REQ->CustomerCreditType:'';
+                            $payment_id     = '';
+
+                            $_UPDATE_PAYMENT_ENTRY_ = array(
+                                'participant_id'    => $_payment_entry_data_->participant_id,
+                                'payment_entry_id'  => $_payment_entry_data_->id,
+                                'transaction_status'=> 'TIMED_OUT',
+                                'callback_cmd'      => $PAYMENT_REQ->callback_cmd,
+                                'callback_status'   => $PAYMENT_REQ->Result,
+
+                                'payment_method'    => $payment_method,
+                                'payment_operator'  => '',
+                                'payment_id'        => $payment_id
+                            );
+                            PaymentController::updatePaymentTransactionEntry($_UPDATE_PAYMENT_ENTRY_);
                             Redirect::to('payment/error/notification/6'.sha1(time()));
                             break;
 
                         case 904:
                             // echo 'Transaction cancelled';
+                            # Update Database And Send Confirmation Email
+                            $payment_method = isset($PAYMENT_REQ->CustomerCreditType)?$PAYMENT_REQ->CustomerCreditType:'';
+                            $payment_id     = '';
+
+                            $_UPDATE_PAYMENT_ENTRY_ = array(
+                                'participant_id'    => $_payment_entry_data_->participant_id,
+                                'payment_entry_id'  => $_payment_entry_data_->id,
+                                'transaction_status'=> 'CANCELLED',
+                                'callback_cmd'      => $PAYMENT_REQ->callback_cmd,
+                                'callback_status'   => $PAYMENT_REQ->Result,
+
+                                'payment_method'    => $payment_method,
+                                'payment_operator'  => '',
+                                'payment_id'        => $payment_id
+                            );
+                            PaymentController::updatePaymentTransactionEntry($_UPDATE_PAYMENT_ENTRY_);
                             Redirect::to('payment/error/notification/7'.sha1(time()));
                             break;
                     

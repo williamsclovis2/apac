@@ -271,7 +271,7 @@ class EmailController
     $_data_                  = (Object) $_data_;
     $email 		               = $_data_->email;
     $firstname               = $_data_->firstname;
-    $payment_receipt_link    = $_data_->payment_receipt_link;
+    $payment_link            = $_data_->payment_link;
 
     $_Email_    = $email;
     $_Subject_  = 'Payment error - IUCN Africa Protected Areas Congress (APAC) Registration';

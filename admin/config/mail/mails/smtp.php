@@ -1,8 +1,9 @@
 <?php
 
-    $message= $_POST['message'] = 'Test 1 Email Live server';
-    $email= $_POST['email'] = 'ezechielkalengya@gmail.com';
-    $subject= $_POST['subject'] = 'Test Email';
+
+$message= $_POST['message'] ;
+$email= $_POST['email']  ;
+$subject= $_POST['subject']  ;
 /**
  * This example shows making an SMTP connection with authentication.
  */
@@ -29,16 +30,16 @@ $mail->isSMTP();
 // SMTP::DEBUG_SERVER = client and server messages
 // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 //Set the hostname of the mail server
-$mail->Host = "n3plcpnl0129.prod.ams3.secureserver.net";
+$mail->Host = 'a2plcpnl0428.prod.iad2.secureserver.net';
 //Set the SMTP port number - likely to be 25, 465 or 587
 $mail->Port = 587;
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
-// $mail->SMTPSecure = "";
+// $mail->SMTPSecure = "tls";
 //Username to use for SMTP authentication
-$mail->Username = 'info@apacongress.torusguru.com';
+$mail->Username = 'support@valwallet.com';
 //Password to use for SMTP authentication
-$mail->Password = '6oltI*fk@ntj'; 
+$mail->Password = 'Val@Support';
 //Set who the message is to be sent from
 $mail->setFrom('info@apacongress.torusguru.com', 'The Future Summit');
 //Set an alternative reply-to address
@@ -57,9 +58,9 @@ $mail->AltBody = 'This is a plain-text message body';
 
 //send the message, check for errors
 if (!$mail->send()) {
-     echo 'Mailer Error: ' . $mail->ErrorInfo;
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
     return false;
 } else {
-     echo 'Message sent!';
+    echo 'Message sent!';
     return true;
 }

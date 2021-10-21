@@ -1,8 +1,9 @@
 <?php
 
-    $message= $_POST['message'];
-    $email= $_POST['email'];
-    $subject= $_POST['subject'];
+
+$message= $_POST['message']  = 'Test 2 live email';
+$email= $_POST['email']      = 'ezechielkalengya@gmail.com';
+$subject= $_POST['subject']  = 'Email Live 2';
 /**
  * This example shows making an SMTP connection with authentication.
  */
@@ -40,9 +41,9 @@ $mail->Username = 'support@valwallet.com';
 //Password to use for SMTP authentication
 $mail->Password = 'Val@Support';
 //Set who the message is to be sent from
-$mail->setFrom('noreply@valwallet.com', '');
+$mail->setFrom('forum@thecoalitionafrica.com', 'The Coalition Africa');
 //Set an alternative reply-to address
-// $mail->addReplyTo('support@valwallet.com', 'Valwallet Team');
+$mail->addReplyTo('forum@thecoalitionafrica.com', 'The Coalition Africa');
 //Set who the message is to be sent to
 $mail->addAddress($email, '');
 //Set the subject line

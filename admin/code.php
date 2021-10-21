@@ -2,6 +2,10 @@
 require_once "core/init.php"; 
 
 
+// echo '<hr>';
+// echo 'Tottal COmpleted::';
+// $eventID = 8;
+// echo number_format(PaymentController::getPaymentStatsRegistrationByPaymentChannelCount($eventId, "BANK_TRANSFER", "COMLETED"));
 
 //if(!($_PARTICIPANT_DATA_ = FutureEventController::getEventParticipantPaymentDataByID(18)))
 //    Redirect::to('');
@@ -27,12 +31,12 @@ require_once "core/init.php";
 //     $FutureEventTable->selectQuery("UPDATE `future_participation_sub_type` SET `code` = '$code' WHERE `future_participation_sub_type`.`id` = $type_->id");
 // endforeach;
 
-// $_data_ = array(
-//     'email' => 'ezechielkalengya@gmail.com',
-//     'firstname' => 'Kalengya',
-// );
+$_data_ = array(
+    'email' => 'ezechielkalengya@gmail.com',
+    'firstname' => 'Kalengya',
+);
 
-// EmailController::sendEmailToParticipantAfterMediaApplication($_data_);
+EmailController::sendEmailToParticipantAfterMediaApplication($_data_);
 
 // function regroupRecognizedWords($map_word){
 // 	$array_rec = array(
