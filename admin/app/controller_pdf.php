@@ -9,8 +9,8 @@ if(!Input::checkInput('authtoken_', 'get', 1))
   Redirect::to(4042);
 $_AUTH_TOKEN_ =   Input::get('authtoken_', 'get');
 
-if(!is_numeric('0x'.$_AUTH_TOKEN_)) 
-  Redirect::to(4043);
+// if(!is_numeric('0x'.$_AUTH_TOKEN_)) 
+//   Redirect::to(4043);
 
 if(!is_integer(($_PAYMENT_ID_   = Hash::decryptAuthToken($_AUTH_TOKEN_))))
   Redirect::to('');
