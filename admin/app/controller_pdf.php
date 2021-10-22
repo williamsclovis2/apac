@@ -1,43 +1,33 @@
 <?php
 require '../core/init.php';
 require '../config/FPDF/fpdf.php';
-//require '../'.CTRL;
 
 if(!Input::checkInput('request', 'get', 1))
-  Redirect::to(4041);
+  Redirect::to(404);
 if(!Input::checkInput('authtoken_', 'get', 1))
-  Redirect::to(4042);
+  Redirect::to(404);
+
+$mainPath_    = '../config/payment.pdf/invoice/';
 $_AUTH_TOKEN_ =   Input::get('authtoken_', 'get');
-
-// if(!is_numeric('0x'.$_AUTH_TOKEN_)) 
-//   Redirect::to(4043);
-
 if(!is_integer(($_PAYMENT_ID_   = Hash::decryptAuthToken($_AUTH_TOKEN_))))
   Redirect::to('');
 
 if(!($_PARTICIPANT_DATA_ = FutureEventController::getEventParticipantPaymentDataByID($_PAYMENT_ID_)))
   Redirect::to('');
 
-$mainPath_  = '../config/payment.pdf/invoice/';
+if(Input::checkInput('request', 'get', 1)):
+   switch(Input::get('request', 'get')):
 
-// echo '<pre>';
-// print_r($_PARTICIPANT_DATA_);
-// echo '</pre>';
+     case 'print_payment_invoice':
+       require $mainPath_.'payment.invoice'.PL;
+       break;
+     case 'print_payment_receipt':
+       require $mainPath_.'payment.receipt'.PL;
+       break;
 
-// if(Input::checkInput('request', 'get', 1)):
-//    switch(Input::get('request', 'get')):
-
-//      case 'print_payment_invoice':
-//        require $mainPath_.'payment.invoice'.PL;
-//        break;
-   
-//      case 'print_payment_receipt':
-//        require $mainPath_.'payment.receipt'.PL;
-//        break;
-
-//      default:
-//        Redirect::to(404);
-//        break;
-//    endswitch;
-// endif;
+     default:
+       Redirect::to(404);
+       break;
+   endswitch;
+endif;
 
