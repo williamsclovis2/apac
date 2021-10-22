@@ -23,7 +23,6 @@ class FutureEventController
 			
 			$str = new \Str();
 
-			
 			/**eventParticipation */
 			$eventParticipationEncrypted   = $str->data_in($_EDIT['eventParticipation']);
 			$eventParticipationSubTypeID   = Hash::decryptToken($eventParticipationEncrypted);
@@ -70,7 +69,6 @@ class FutureEventController
 						'ERRORS_STRING' => "Invalid data"
 					];
 				endif;
-
 
 			endif;
 
@@ -165,11 +163,11 @@ class FutureEventController
 
 			/** Check If Email Address not yet used */
 			if(self::checkEmailAlreadyUsed($eventID, $email)):
-				// return (object)[
-				// 	'ERRORS'		=> true,
-				// 	'ERRORS_SCRIPT' => "This email address has already been used!",
-				// 	'ERRORS_STRING' => "This email address has already been used!"
-				// ];
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "This email address has already been used!",
+					'ERRORS_STRING' => "This email address has already been used!"
+				];
 			endif;
 
 			/** Check If Password Match */
@@ -191,7 +189,6 @@ class FutureEventController
 
 			/** Need Accommodation */
 			$needAccommodation = !Input::checkInput('needAccommodation', 'post', 1)?0:$str->data_in($_EDIT['needAccommodation']);
-
 
 			/** Check Age - [ 10 - ] */
 			if($diagnoArray[0] == 'NO_ERRORS'){
@@ -292,8 +289,6 @@ class FutureEventController
 						'firstname' => $firstname,
 					);
 					self::autoSentEmailOnAction($_data_, $_PARTICIPATION_PAYMENT_TYPE_, $_PARTICIPATION_TYPE_CODE_, $_CBO_CODE_, $_MEDIA_CODE_);
-					
-
 					
 				}catch(Exeption $e){
 					$diagnoArray[0] = "ERRORS_FOUND";
@@ -519,7 +514,6 @@ class FutureEventController
 				];
 			endif;
 
-
 			if($diagnoArray[0] == 'NO_ERRORS'){
 				
 				$_fields = array(
@@ -556,8 +550,6 @@ class FutureEventController
 							EmailController::sendEmailToParticipantOnRegistrationFree($_data_);
 							break;
 					endswitch;
-					
-					
 					
 				}catch(Exeption $e){
 					$diagnoArray[0] = "ERRORS_FOUND";
@@ -780,7 +772,6 @@ class FutureEventController
 
 			$participation_sub_type_id      = Hash::decryptAuthToken($_participation_sub_type_token);
 			$event_id					    = Hash::decryptAuthToken($_event_token);
-
 
 			/** Get Particiption Type Id  */
 			if(!($participation_type_data_ = self::getPacipationSubCategoryByID($participation_sub_type_id))):
