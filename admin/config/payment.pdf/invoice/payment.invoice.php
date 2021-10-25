@@ -100,7 +100,7 @@ class myPDF extends FPDF
     $this->Cell(190,11,'Branch name: Main Branch (Headquarters)',0,1,'L');
     $this->Cell(190,1,'Beneficiary Name (on account): IUCN  APAC ',0,1,'L');
     $this->Cell(190,11,'Account number (USD): 6775017613',0,1,'L');
-    $this->Cell(190,1,'Transfer reference: [Name and Invoice Number]',0,1,'L');
+    $this->Cell(190,1,'Transfer reference: '.$_PARTICIPANT_DATA_->participant_firstname.' '.$_PARTICIPANT_DATA_->participant_lastname.' '.$_PARTICIPANT_DATA_->payment_transaction_id, 0, 1, 'L');
     $this->Cell(190,1,'',0,1,'L');
     $this->SetFont('arial','B',12);
     $this->Cell(190,13,'3.	Mobile Money Transfer',0,1,'L');
