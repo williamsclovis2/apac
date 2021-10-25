@@ -716,11 +716,11 @@
 
 
          
-        <!-- <body yahoo bgcolor='#f4f4f4'> -->
+        <body yahoo bgcolor='#f4f4f4'>
           <!-- Email received after successful registration for those that do not pay (Speakers, Invited guests, Secratariat, Staff etc)   -->
           <!-- Subject:  Confirmation - IUCN Africa Protected Areas Congress (APAC) Registration -->
 
-          <!-- <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
+          <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
             <tr>
               <td>
                 <table bgcolor='#ffffff' class='content' align='center' cellpadding='0' cellspacing='0' border='0'>
@@ -810,7 +810,7 @@
               </td>
             </tr>
           </table>
-        </body> -->
+        </body>
         
 
 
@@ -842,7 +842,7 @@
 
         <!-- 9 -->
         
-        <!-- <body yahoo bgcolor='#fffff'>
+        <body yahoo bgcolor='#fffff'>
         
           <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
             <tr>
@@ -902,7 +902,7 @@
               </td>
             </tr>
           </table>
-        </body> -->
+        </body>
 
 
 
@@ -913,11 +913,11 @@
 
 
 
-        <body yahoo bgcolor='#f4f4f4'>
+        <!-- <body yahoo bgcolor='#f4f4f4'> -->
           <!-- Email received after successful registration for those that do not pay (Speakers, Invited guests, Secratariat, Staff etc)   -->
           <!-- Subject:  Confirmation - IUCN Africa Protected Areas Congress (APAC) Registration -->
 
-          <table width='100%' bgcolor='#fff' border='0' cellpadding='0' cellspacing='0'>
+          <!-- <table width='100%' bgcolor='#fff' border='0' cellpadding='0' cellspacing='0'>
             <tr>
               <td>
                 <table bgcolor='#ffffff' class='content' align='center' cellpadding='0' cellspacing='0' border='0'>
@@ -1031,7 +1031,7 @@
               </td>
             </tr>
           </table>
-        </body>
+        </body> -->
 
 
 
