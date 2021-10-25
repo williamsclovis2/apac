@@ -16,16 +16,16 @@ require_once 'admin/core/init.php';
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section_title privacy-content mb-30">
-                        <h3>Privacy Policy</h3>
-                        <p>Cube Communications is committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us.</p>
-                        <p>Please read our Privacy Policy carefully as it will help you make informed decisions about sharing your personal information with us.</p>
-
-                        <h4>Information We Collect</h4>
-                        <p>As a Visitor, you can browse our Website to find out more about our Website. You are not required to provide us with any personal information as a Visitor.</p>
-
-                        <h4>Information You Provide to Us</h4>
-                        <p>We collect your personal information when you when you express an interest in obtaining information about us or our products and services, when you participate in activities on our Website Site or otherwise contacting us.</p>
-                        <p>Generally, you control the amount and type of information you provide to us when using our Website. The personal information that we collect depends on the context of your interaction with us and the Website, the choices you make and the products and features you use. The personal information we collect can include the following:</p>
+                        <p>This document sets out the terms and conditions between Cube Communications Ltd (CUBE)  and you when you register for any event or conference organized by CUBE on behalf of a client. By registering for an event or conference organized by CUBE you are agreeing to comply with these terms and conditions. You should read this document carefully.</p>
+                        <p>The following CUBE Registration Terms & Conditions (the “Terms & Conditions”) apply to all CUBE events. Prior to your registration, you must acknowledge and accept the Terms & Conditions contained herein. </p>
+                        <p>Should you not wish to accept the Terms & Conditions you should not register. </p>
+                        <p>Submission of a registration is regarded as affirmation of your acceptance of the Event</p>
+                        
+                        <h4>Terms & Conditions</h4>
+                        <h5>1.	How we will use your information</h5>
+                        <p style="padding:5px 0;">CUBE is committed to data privacy and protecting your personal information. Information on how CUBE collects, processes, and uses your data is included in the CUBE Privacy Policy which is hereby incorporated into these Terms & Conditions. </p>
+                        <p style="padding:5px 0;">Additionally, by submitting your email address during the event registration process, you agree that CUBE and its event partners may send you event-related information.  A valid email address is required for all registrations.</p>
+                        <p style="padding:5px 0;"></p>
                         <div class="push-20">
                             <p>• Name, Organisation details and Contact Data<br>
                             • Your interests in our services</p>

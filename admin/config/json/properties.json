@@ -1194,8 +1194,8 @@
 					},
 					{
 						"form-by-clicking-you-agree-terms-conditions": {
-							"fr-lang": "J'accepte les termes et conditions",
-							"eng-lang": "I agree to the terms and conditions",
+							"fr-lang": "J'accepte <a href='http://apacongress.torusguru.com/terms' target='_blank'>les termes et conditions</a>",
+							"eng-lang": "I agree to the <a href='http://apacongress.torusguru.com/terms' target='_blank'>terms and conditions</a>",
 							"ar-lang": "بالنقر فوق هذا الزر ، أختار إلغاء الاشتراك في مشاركة اسمي ولقبي وانتمائي مع رعاة APAC.",
 							"pt-lang": "Ao clicar neste botão, opto por não compartilhar meu nome, cargo e afiliação com os patrocinadores da APAC."
 						}
