@@ -41,9 +41,9 @@ $mail->Username = 'support@valwallet.com';
 //Password to use for SMTP authentication
 $mail->Password = 'Val@Support';
 //Set who the message is to be sent from
-$mail->setFrom('info@apacongress.torusguru.com', 'The Future Summit');
+$mail->setFrom('info@apacongress.torusguru.com', 'APAC Congress');
 //Set an alternative reply-to address
-$mail->addReplyTo('info@apacongress.torusguru.com', 'The Future Summit');
+$mail->addReplyTo('info@apacongress.torusguru.com', 'APAC Congress');
 //Set who the message is to be sent to
 $mail->addAddress($email, '');
 //Set the subject line
