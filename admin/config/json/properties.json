@@ -1050,8 +1050,8 @@
 					},
 					{
 						"password-message": {
-							"fr-lang": "Vous pourrez vous reconnecter au site Web en utilisant votre adresse e-mail et le mot de passe que vous avez défini ci-dessous.",
-							"eng-lang": "You will be able to log back in to the website using your email address and the password you set below.",
+							"fr-lang": "Veuillez créer un mot de passe afin de pouvoir vous reconnecter au site Web à l'avenir. Votre nom d'utilisateur sera votre adresse e-mail",
+							"eng-lang": "Please create a password so you may log back in to the website in future. Your username will be your email address",
 							"ar-lang": "تأكيد كلمة المرور",
 							"pt-lang": "Confirm Password"
 						}
