@@ -8,6 +8,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^(css|js|fonts|images|plugins)($|/) - [L]
 
+# Set The pdf page
+RewriteRule ^terms$ TERMS_CONDITIONS.pdf
 
 # Set The pdf page
 RewriteRule ^pdf/payment/invoice/([0-9a-zA-Z]+)$ admin/app/controller_pdf.php?request=print_payment_invoice&authtoken_=$1 [L]
