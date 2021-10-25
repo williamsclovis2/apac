@@ -533,8 +533,15 @@ h3 {
 
 @media (max-width: 767px) {
   .section_title h3 {
-    font-size: 30px;
-    line-height: 36px;
+    font-size: 25px;
+    line-height: 26px;
+  }
+  .drop-language img{
+    width: 16px;
+  }
+  .drop-language button{
+    width: 100%;
+    text-align: left;
   }
 }
 
@@ -1255,7 +1262,7 @@ h3 {
   .slider_area .single_slider .slider_text h3 {
     font-size: 30px;
     margin-bottom: 10px;
-    line-height: 45px;
+    line-height: 35px;
   }
 }
 
@@ -3654,7 +3661,7 @@ h1,h2,h3,h4,h5,h6 {line-height: 1.2em;}
   .prog-time {text-align: left;}
   .prog-title {border-left: none;}
   .bio-block .bio-img img {width: 200px;}
-  .slider_area .single_slider .slider_text_register h3 {font-size: 25px; margin-bottom: 10px;}
+  .slider_area .single_slider .slider_text_register h3 {font-size: 20px; margin-bottom: 10px;}
   .form-contact {padding: 10px;}
   .form-contact .form-group {margin-bottom: 6px;}
   .testimonial_area .single_testmonial .info p {font-size: 20px; line-height: 25px;}

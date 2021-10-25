@@ -59,35 +59,21 @@ $GLOBALS['config'] = array(
         'token_name' => 'token'
     ),
     'server' => array(
-<<<<<<< HEAD
         'name' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac",
      //    'name' => "http://{$_SERVER['HTTP_HOST']}",
     ),
     'root' => array(
        'json_properties' => $_SERVER['DOCUMENT_ROOT']."/thefuture/apac/admin/config/json/properties.json", // Lccal
       // 'json_properties' => $_SERVER['DOCUMENT_ROOT']."/admin/config/json/properties.json" // Live
-=======
-       'name' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac",
-        //  'name' => "http://{$_SERVER['HTTP_HOST']}",
-    ),
-    'root' => array(
-      'json_properties' => $_SERVER['DOCUMENT_ROOT']."/thefuture/apac/admin/config/json/properties.json", // Lccal
-    //    'json_properties' => $_SERVER['DOCUMENT_ROOT']."/admin/config/json/properties.json" // Live
->>>>>>> 864fa6681a5674516e4e3c1c3ace5294680246e0
     ),
 
     'api' => array(
        'payment_callback' => "http://197.243.23.101/thefuture/apac/pay/callback/",
-<<<<<<< HEAD
      //   'payment_callback' => "http://{$_SERVER['HTTP_HOST']}/pay/callback/",
-=======
-        // 'payment_callback' => "http://{$_SERVER['HTTP_HOST']}/pay/callback/",
->>>>>>> 864fa6681a5674516e4e3c1c3ace5294680246e0
     ),
 
     'url' => array(
 
-<<<<<<< HEAD
          'invoice' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac/pdf/payment/invoice/",
         //'invoice' => "http://{$_SERVER['HTTP_HOST']}/pdf/payment/invoice/",
         
@@ -103,42 +89,16 @@ $GLOBALS['config'] = array(
     'filepath' => array(
 		  'image' => $_SERVER['DOCUMENT_ROOT'].'/thefuture/apac/img/',  // Local
 		//'image' => $_SERVER['DOCUMENT_ROOT'].'/img/',  //Live 
-=======
-        'invoice' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac/pdf/payment/invoice/",
-        // 'invoice' => "http://{$_SERVER['HTTP_HOST']}/pdf/payment/invoice/",
-        
-        'receipt' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac/pdf/payment/receipt/",
-        // 'receipt' => "http://{$_SERVER['HTTP_HOST']}/pdf/payment/receipt/",
-        
-		 'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac/mail_smtp", // Local
-		// 'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp", // Live
-
-		 'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac/mail_smtp_noreply", // Local
-		// 'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp_noreply", // Live
-    ),
-    'filepath' => array(
-		 'image' => $_SERVER['DOCUMENT_ROOT'].'/thefuture/apac/img/',  // Local
-		// 'image' => $_SERVER['DOCUMENT_ROOT'].'/img/',  //Live 
->>>>>>> 864fa6681a5674516e4e3c1c3ace5294680246e0
 	)
     
 );
 
-<<<<<<< HEAD
   require_once $_SERVER['DOCUMENT_ROOT'] . '/thefuture/apac/admin/functions/functions.php'; // Local
  //require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/functions/functions.php'; // Live
 
 spl_autoload_register(function($class) {
       require_once $_SERVER['DOCUMENT_ROOT'] . '/thefuture/apac/admin/classes/' . $class . '.php'; // Local
    // require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/classes/' . $class . '.php'; // Live
-=======
- require_once $_SERVER['DOCUMENT_ROOT'] . '/thefuture/apac/admin/functions/functions.php'; // Local
-//  require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/functions/functions.php'; // Live
-
-spl_autoload_register(function($class) {
-     require_once $_SERVER['DOCUMENT_ROOT'] . '/thefuture/apac/admin/classes/' . $class . '.php'; // Local
-    // require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/classes/' . $class . '.php'; // Live
->>>>>>> 864fa6681a5674516e4e3c1c3ace5294680246e0
 });
 
 /** Initialize Define */
@@ -173,10 +133,5 @@ $GLOBALS['_LangName'] = Functions::getLanguageName($_Lang);
 /** Dictionary */
 $GLOBALS['_Dictionary'] = new \Properties($_Lang);
 
-<<<<<<< HEAD
   $INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/thefuture/apac/admin/includes/"; //Local
 //$INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/"; //Live
-=======
- $INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/thefuture/apac/admin/includes/"; //Local
-// $INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/"; //Live
->>>>>>> 864fa6681a5674516e4e3c1c3ace5294680246e0
