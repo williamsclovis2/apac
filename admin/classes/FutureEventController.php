@@ -163,11 +163,11 @@ class FutureEventController
 
 			/** Check If Email Address not yet used */
 			if(self::checkEmailAlreadyUsed($eventID, $email)):
-				return (object)[
-					'ERRORS'		=> true,
-					'ERRORS_SCRIPT' => "This email address has already been used!",
-					'ERRORS_STRING' => "This email address has already been used!"
-				];
+				// return (object)[
+				// 	'ERRORS'		=> true,
+				// 	'ERRORS_SCRIPT' => "This email address has already been used!",
+				// 	'ERRORS_STRING' => "This email address has already been used!"
+				// ];
 			endif;
 
 			/** Check If Password Match */
@@ -185,6 +185,14 @@ class FutureEventController
 					'ERRORS_SCRIPT' => "password don't match",
 					'ERRORS_STRING' => "password don't match"
 				];
+			endif;
+
+			/** Control The birthday when submitted */
+			if($birthday == '' OR $birthday == 'dd/mm/yyyy'):
+				$birthday = '';
+			else:
+				list($bday, $bmonth, $byear) = explode('/', $birthday);
+				$birthday = $byear.'-'.$bmonth.'-'.$bday;
 			endif;
 
 			/** Need Accommodation */
@@ -1515,6 +1523,7 @@ class FutureEventController
 						$_array_data_[] = array(
 							'participation_type_name' 			=> $_participation_type_->name,
 							'participation_type_payment_state'  => $_participation_type_->payment_state,
+							'participation_type_code'  			=> $_participation_type_->code,
 							'participation_sub_type_id' 		=> $sub_type_->id,
 							'participation_sub_type_name' 		=> $sub_type_->name, 
 							'participation_sub_type_price' 		=> $sub_type_->price,

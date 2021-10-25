@@ -16,6 +16,9 @@
         $start_date = date('j', strtotime(dateFormat($getContent->first()->start_date)));
         $end_date   = date("j F Y", strtotime(dateFormat($getContent->first()->end_date)));
         $event_date = $start_date." - ".$end_date;
+
+        $_MEDIA_CODE_  = 'C004';
+		$_CBO_CODE_    = 'C0015';
     ?>
 
     <div class="slider_area">
@@ -92,8 +95,15 @@
                            <div class="div-inst">
                                 <p class=><?= $_event_participation_category_->participation_type_form_order == ''?'111':$_Dictionary->content('discount-inperson-'.$_event_participation_category_->participation_type_form_order)?></p>
                            </div>
-                          <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn"> <?= $_Dictionary->words('apply')?></a>
-                        </div>
+                           <a href="registration/event/inperson/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn"> 
+                              <?php
+    if($_event_participation_category_->participation_type_code == $_MEDIA_CODE_ or $_event_participation_category_->participation_type_code == $_CBO_CODE_ )
+      echo $_Dictionary->words('Apply');
+    else
+      echo $_Dictionary->words('Register');                         
+                              ?>
+                            </a>
+                            </div>
                       </div>
                       <?php
                          endforeach;
@@ -152,7 +162,14 @@
                             <div class="div-inst">
                                 <p class=><?= $_Dictionary->content('discount-virtual-'.$_event_participation_category_->participation_type_form_order)?></p>
                             </div>
-                          <a href="registration/event/virtual/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn"><?= $_Dictionary->words('apply')?></a>
+                          <a href="registration/event/virtual/<?=Hash::encryptToken($_event_participation_category_->participation_sub_type_id)?>" class="buy-btn">
+                          <?php
+                              if($_event_participation_category_->participation_type_code == $_MEDIA_CODE_ or $_event_participation_category_->participation_type_code == $_CBO_CODE_ )
+                                echo $_Dictionary->words('Apply');
+                              else
+                                echo $_Dictionary->words('Register');                         
+                            ?>
+                        </a>
                         </div>
                       </div>
                     <?php
