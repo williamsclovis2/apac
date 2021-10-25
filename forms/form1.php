@@ -220,7 +220,8 @@
                                                 <option value="Clergy &amp; Religious Organizations" >Clergy &amp; Religious Organizations </option>
                                                 <option value="Clothing and Textiles">Clothing and Textiles</option>
                                                 <option value="Defence and security">Defence and security</option>
-                                                <option value="Energy and Natural Resources and Environment">Energy and Natural Resources and Environment</option>
+                                                <option value="Energy">Energy</option>
+                                                <option value="Energy and Natural Resources and Environment"> Natural Resources and Environment</option>
                                                 <option value="Entertainment Industry">Entertainment Industry</option>
                                                 <option value="Financial and Commercial Services">Financial and Commercial Services</option>
                                                 <option value="Hospitality and Tourism">Hospitality and Tourism</option>

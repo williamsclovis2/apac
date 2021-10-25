@@ -2483,7 +2483,7 @@ h3 {
 
 @media (max-width: 767px) {
   .service_area {
-    padding-top: 50px;
+    padding-top: 20px;
     padding-bottom: 30px;
   }
   .partner_area{padding-top: 30px; padding-bottom: 10px;}
@@ -3517,7 +3517,7 @@ h1,h2,h3,h4,h5,h6 {line-height: 1.2em;}
   background: #37af47;
   color: #fff;
 }
-.payment-meth .col-md-2{
+.payment-meth .col-2{
   padding: 5px;
 }
 .payment-meth .img-card{
@@ -3526,10 +3526,12 @@ h1,h2,h3,h4,h5,h6 {line-height: 1.2em;}
  
 }
 .payment-meth .DPO_link{
-  font-size: 21.5px;
+  font-size: 18.5px;
   color: #fff;
   font-weight: 700;
   padding-bottom: 10px;
+  width: 100%;
+  white-space: unset !important;
 
   background-color:#39b54a !important;
   border: 1px solid #39b54a;
@@ -3555,6 +3557,10 @@ h1,h2,h3,h4,h5,h6 {line-height: 1.2em;}
   .pricing .box {
     max-width: 80%;
     margin: 0 auto 30px auto;
+  
+  }
+  .payment-meth .DPO_link{
+    margin: 10px 0;
   }
 }
 @media (max-width: 420px) {

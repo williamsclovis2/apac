@@ -686,5 +686,5 @@ function html_cut($text, $max_length)
     return $result;
 }    
 
-  $INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/thefuture/apac/admin/includes/"; //Local
-//$INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/"; //Live
+  //$INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/thefuture/apac/admin/includes/"; //Local
+$INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/"; //Live

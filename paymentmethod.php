@@ -50,18 +50,18 @@ if(!is_integer(($_AUTHTOKEN_ID_   = Hash::decryptAuthToken($_AUTHTOKEN_))))
             <div class="row">
                 <div class="col-md-8">
                     <div class="payment-meth wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                        <a class="btn btn-primary  DPO_link" data-e="<?=Hash::encryptToken($activeEventId)?>" data-a="<?=$_AUTHTOKEN_?>"  data-d="cc"  style="width:100%; color: white;"><?=$_Dictionary->translate('Click to pay with one of services listed below')?> </a>
+                        <a class="btn btn-primary  DPO_link" data-e="<?=Hash::encryptToken($activeEventId)?>" data-a="<?=$_AUTHTOKEN_?>"  data-d="cc"  style=" color: white;"><?=$_Dictionary->translate('Click to pay with one of services listed below')?> </a>
                         <div class="row img-card">
-                            <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/visa.png"></a></div>
-                            <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/MC.png"></a></div>
-                            <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/AE.png"></a></div>
+                            <div class="col-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/visa.png"></a></div>
+                            <div class="col-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/MC.png"></a></div>
+                            <div class="col-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/AE.png"></a></div>
 
-                            <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/PP.png"></a></div>
-                            <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/MP.png"></a></div>
-                            <div class="col-md-2"></div>
-                            <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/AT.png"></a></div>
-                            <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/Tigo.jpg"></a></div>
-                            <div class="col-md-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/MM.png"></a></div>
+                            <div class="col-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/PP.png"></a></div>
+                            <div class="col-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/MP.png"></a></div>
+                            <div class="col-2"></div>
+                            <div class="col-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/AT.png"></a></div>
+                            <div class="col-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/Tigo.jpg"></a></div>
+                            <div class="col-2"><a href="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/MM.png"></a></div>
                         </div>
                     </div>
                 </div>
