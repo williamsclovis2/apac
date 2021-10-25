@@ -48,7 +48,7 @@ if(!is_integer(($_AUTHTOKEN_ID_   = Hash::decryptAuthToken($_AUTHTOKEN_))))
         <div class="container">
             <div id="div-messages"></div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="payment-meth wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
                         <a class="btn btn-primary  DPO_link" data-e="<?=Hash::encryptToken($activeEventId)?>" data-a="<?=$_AUTHTOKEN_?>"  data-d="cc"  style="width:100%; color: white;"><?=$_Dictionary->translate('Click to pay with one of services listed bellow')?> </a>
                         <div class="row img-card">
@@ -65,7 +65,7 @@ if(!is_integer(($_AUTHTOKEN_ID_   = Hash::decryptAuthToken($_AUTHTOKEN_))))
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="payment-meth wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
                         <a class="btn btn-primary  DPO_link " style="color: white;" data-e = "<?=Hash::encryptToken($activeEventId)?>" data-a="<?=$_AUTHTOKEN_?>" data-d="bt" ><i class="fa fa-bank"></i> <?=$_Dictionary->translate('Pay using bank transfer')?></a>
                         
