@@ -80,15 +80,17 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-sm-12">
-                                <div class="row">
-                                    <label for="birthday" class="col-sm-3">Date of birth</label>
-                                    <div class="col-sm-9 field-validate">
-                                        <input class="form-control" name="birthday" id="birthday" type="date" data-rule="required" data-msg="Please enter date of birth"/>
-                                        <div class="validate"></div> 
+                            <div class="form-group col-sm-12"  id="data_1">
+                            <div class="row">
+                                <label for="birthday" class="col-sm-3"><?=$_Dictionary->translate('Date of birth')?></label>
+                                <div class="col-sm-9 field-validate">
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" oninput="validate(this)" value="dd/mm/yyyy" name="birthday" id="birthday" class="form-control" data-rule="" data-msg="<?=$_Dictionary->words('Please enter date of birth')?>"/>
+                                        <div class="validate" id="birthday_error"></div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
 
                         <h4>ORGANIZATION </h4>
@@ -340,6 +342,7 @@
                                 <div class="col-sm-9 field-validate">
                                   <input class="form-control" name="confirm_password" id="confirm_password" type="password" placeholder="Confirm password" data-rule="matches" data-msg="Password doesn't match"/>
                                     <div class="validate" id="confirm_password_error"></div>
+                                    <p class="pw"><?=$_Dictionary->translate('Password message')?></p>
                                 </div>
                             </div>
                         </div>

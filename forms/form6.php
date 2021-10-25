@@ -142,12 +142,14 @@
                             </div>
                         </div>
 
-                        <div class="form-group col-sm-12">
+                        <div class="form-group col-sm-12"  id="data_1">
                             <div class="row">
                                 <label for="birthday" class="col-sm-3"><?=$_Dictionary->translate('Date of birth')?></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="birthday"  oninput="validate(this)"  id="birthday" data-rule="" type="date"  data-msg="<?=$_Dictionary->words('Please enter date of birth')?>"/>
-                                    <div class="validate" id="birthday_error"></div>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" oninput="validate(this)" value="dd/mm/yyyy" name="birthday" id="birthday" class="form-control" data-rule="" data-msg="<?=$_Dictionary->words('Please enter date of birth')?>"/>
+                                        <div class="validate" id="birthday_error"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -252,7 +254,7 @@
                         </div>
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="" class="col-sm-3"></label>
+                                <label for="" class="col-sm-3"><?=$_Dictionary->translate('Company Location')?></label>
                                 <div class="col-sm-9 field-validate">
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -357,30 +359,6 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                 <?php
                 endif;
                 ?>
-                    
-                    <h4><?=$_Dictionary->translate('CREATE PASSWORD')?></h4>
-                    <hr class="separator-line">
-                    <div class="row">
-                        <div class="form-group col-sm-12">
-                            <div class="row">
-                                <label for="firstname" class="col-sm-3"><?=$_Dictionary->translate('Password')?> <span>*</span></label>
-                                <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="password" id="password" oninput="validate(this)"  type="password" placeholder="<?=$_Dictionary->words('Enter password')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Minimum 6 characters')?>"/>
-                                    <div class="validate" id="password_error"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group col-sm-12">
-                            <div class="row">
-                                <label for="lastname" class="col-sm-3"><?=$_Dictionary->translate('Confirm Password')?> <span>*</span></label>
-                                <div class="col-sm-9 field-validate">
-                                  <input class="form-control" name="confirm_password" oninput="validate(this)"  id="confirm_password" type="password" placeholder="<?=$_Dictionary->translate('Confirm password')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Password does not match')?>"/>
-                                    <div class="validate" id="confirm_password_error"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <h4><?=$_Dictionary->translate('ACCOMMODATION')?></h4>
                     <hr class="separator-line">
                     <div class="row">
@@ -400,6 +378,31 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                             </div>
                         </div>
                     </div>
+                    <h4><?=$_Dictionary->translate('CREATE PASSWORD')?></h4>
+                    <hr class="separator-line">
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="firstname" class="col-sm-3"><?=$_Dictionary->translate('Password')?> <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <input class="form-control" name="password" id="password" oninput="validate(this)"  type="password" placeholder="<?=$_Dictionary->words('Enter password')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Minimum 6 characters')?>"/>
+                                    <div class="validate" id="password_error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="lastname" class="col-sm-3"><?=$_Dictionary->translate('Confirm Password')?> <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                  <input class="form-control" name="confirm_password" oninput="validate(this)"  id="confirm_password" type="password" placeholder="<?=$_Dictionary->translate('Confirm password')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Password does not match')?>"/>
+                                    <div class="validate" id="confirm_password_error"></div>
+                                    <p class="pw"><?=$_Dictionary->translate('Password message')?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     
                     <div class="row" style="margin-bottom: 2%;">
                         <div class="form-group col-sm-12">

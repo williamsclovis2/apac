@@ -729,7 +729,8 @@ function validate(input) {
 		if (!validateEmail(input_value) || input_value.length <= 5)
 			error_validate_msg = 'Please fill this field with valid email';
 
-	// if (input_id == 'birthday')
+	if (input_id == 'birthday')
+	alert(input_value);
 	// if (!checkAgeAtDateOfEvent(input_value, 10, 35))
 	// 	error_validate_msg = 'Only people with age between 10 and 35 can register to this event';
 

@@ -444,8 +444,29 @@
   left:-20px !important;
   will-change: unset !important;
 }
-
-
+.pw{
+  font-size: 12px;
+  line-height: 18px;
+  margin:5px 0;
+  color: #8cc63f;
+}
+.date .form-control{
+  width: unset !important;
+}
+.date .input-group-addon {
+  background-color: #fff;
+  border: 1px solid #E5E6E7;
+  border-radius: 1px;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 6px 12px;
+  text-align: center;
+}
+.input-group.date .input-group-addon i {
+  margin-top: 2px;
+}
 
 
 

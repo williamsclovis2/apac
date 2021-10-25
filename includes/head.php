@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="<?php linkto('css/slicknav.css'); ?>">
     <link rel="stylesheet" href="<?php linkto('css/style.css'); ?>">
     <link rel="stylesheet" href="<?php linkto('css/custom.css'); ?>">
+     <!-- Data picker -->
+     <link href="<?php linkto('admin/css/plugins/datapicker/datepicker3.css'); ?>" rel="stylesheet">
     
     
 

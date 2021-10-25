@@ -68,6 +68,7 @@
 <script src="<?php linkto('js/plugins.js'); ?>"></script>
 <script src="<?php linkto('js/gijgo.min.js'); ?>"></script>
 <script src="<?php linkto('js/slick.min.js'); ?>"></script>
+<script src="<?php linkto('admin/js/plugins/datapicker/bootstrap-datepicker.js'); ?>"></script>
 
 
 <script src="<?php linkto('js/main.js'); ?>"></script>
@@ -133,3 +134,19 @@
         });
     });
 </script>
+<script>
+        $(document).ready(function() {
+
+            
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+
+
+        });
+    </script>

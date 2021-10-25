@@ -345,7 +345,7 @@
 					{
 						"click-to-pay-with-one-of-services-listed-bellow": {
 							"fr-lang": "Cliquez pour payer avec l'un des services énumérés ci-dessous",
-							"eng-lang": "Click to pay with one of  services listed  bellow",
+							"eng-lang": "Click to pay with one of  services listed  below",
 							"ar-lang": "انقر للدفع بإحدى الخدمات المدرجة أدناه",
 							"pt-lang": "Clique para pagar com um dos serviços listados abaixo"
 						}
@@ -903,6 +903,15 @@
 							"pt-lang": "site da organização"
 						}
 					},
+
+					{
+						"company-location": {
+							"fr-lang": "Emblassement",
+							"eng-lang": "Location",
+							"ar-lang": "موقع المنظمة",
+							"pt-lang": "site da organização"
+						}
+					},
 					{
 						"industry": {
 							"fr-lang": "Industrie",
@@ -1035,6 +1044,14 @@
 						"confirm-password": {
 							"fr-lang": "Confirmez le mot de passe",
 							"eng-lang": "Confirm Password",
+							"ar-lang": "تأكيد كلمة المرور",
+							"pt-lang": "Confirm Password"
+						}
+					},
+					{
+						"password-message": {
+							"fr-lang": "Vous pourrez vous reconnecter au site Web en utilisant votre adresse e-mail et le mot de passe que vous avez défini ci-dessous.",
+							"eng-lang": "You will be able to log back in to the website using your email address and the password you set below.",
 							"ar-lang": "تأكيد كلمة المرور",
 							"pt-lang": "Confirm Password"
 						}
@@ -1177,8 +1194,8 @@
 					},
 					{
 						"form-by-clicking-you-agree-terms-conditions": {
-							"fr-lang": "En cliquant sur ce bouton, je choisis de ne pas partager mon nom, mon titre et mon affiliation avec les sponsors de l'APAC.",
-							"eng-lang": "By clicking this button I choose to opt out of sharing my name, title and affiliation with APAC sponsors. ",
+							"fr-lang": "J'accepte les termes et conditions",
+							"eng-lang": "I agree to the terms and conditions",
 							"ar-lang": "بالنقر فوق هذا الزر ، أختار إلغاء الاشتراك في مشاركة اسمي ولقبي وانتمائي مع رعاة APAC.",
 							"pt-lang": "Ao clicar neste botão, opto por não compartilhar meu nome, cargo e afiliação com os patrocinadores da APAC."
 						}
