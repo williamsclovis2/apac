@@ -16,8 +16,8 @@ function root($path) {
 
 // absulot path used in links
 function linkto($path) {
-	//   echo "/thefuture/apac/{$path}"; //Local
-   echo "/{$path}"; //Live
+	   echo "/thefuture/apac/{$path}"; //Local
+   //echo "/{$path}"; //Live
 }
 
 //Print Success Message Style
@@ -686,5 +686,5 @@ function html_cut($text, $max_length)
     return $result;
 }    
 
-//   $INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/thefuture/apac/admin/includes/"; //Local
-$INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/"; //Live
+   $INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/thefuture/apac/admin/includes/"; //Local
+//$INC_DIR = $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/"; //Live

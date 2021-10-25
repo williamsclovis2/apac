@@ -15,23 +15,22 @@ class EmailController
 		    $_Email_    = $email;
         $_Subject_  = 'IUCN Africa Protected Areas Congress (APAC) CBO Application';
         $_Message_  = self::emailSectionHeaderLayout()."
-                  <tr>
-                    <td class='innerpadding borderbottom'>
-                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                        <tr>
-                          <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
-                        </tr>
-                        <tr>
-                          <td class='bodycopy' style='font-family: sans-serif;'>
-                          Thank you for registering your interest to attend the <br><b>IUCN Africa Protected Areas Congress (APAC)</b> as a CBO.<br><br>
-                          The APAC Event Secretariat will review your application and revert within the next <br>5 working days.
-                          </td>
-                        </tr>
-                        
-                      </table>
-                    </td>
-                  </tr>
-
+          <tr>
+          <td class='innerpadding borderbottom'>
+            <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+              <tr>
+                <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
+              </tr>
+              <tr>
+                <td class='bodycopy' style='font-family: sans-serif;'>
+                Thank you for registering your interest to attend the <b>IUCN Africa Protected Areas Congress (APAC)</b> as a CBO.<br><br>
+                The APAC Event Secretariat will review your application and revert within the next <br>5 working days.
+                </td>
+              </tr>
+              
+            </table>
+          </td>
+        </tr>
         ".self::emailLayoutSectionFooter();
 
         Email::send($_Email_, $_Subject_, $_Message_);
@@ -48,30 +47,30 @@ class EmailController
 		    $_Email_    = $email;
         $_Subject_  = 'Payment information - IUCN Africa Protected Areas Congress (APAC) CBO Application';
         $_Message_  = self::emailSectionHeaderLayout()."
+              <tr>
+              <td class='innerpadding borderbottom'>
+                <table width='100%' border='0' cellspacing='0' cellpadding='0'>
                   <tr>
-                    <td class='innerpadding borderbottom'>
-                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                        <tr>
-                          <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
-                        </tr>
-                        <tr>
-                          <td class='bodycopy' style='font-family: sans-serif;'>
-                          We are pleased to inform you that your CBO application to attend the <b>IUCN Africa Protected Areas Congress (APAC),</b> that will be held in Kigali from 7 – 12 March 2022, has been accepted. <br><br>
-                          Please proceed to the following link to complete your payment <a href='$payment_link'> $payment_link </a>
-                          </td>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Programme </b> </td></tr>
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                                <ul>
-                                  <li>You can view the congress programme at <a href='https://apacongress.africa/programme/'>apacongress.africa/programme</a></li>
-                                </ul>
-                            </td>
-                          </tr>
-                        </tr>
-                        
-                      </table>
-                    </td>
+                    <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
                   </tr>
+                  <tr>
+                    <tr><td class='bodycopy' style='font-family: sans-serif;'>
+                    We are pleased to inform you that your CBO application to attend the <b>IUCN Africa Protected Areas Congress (APAC),</b> that will be held in Kigali from 7 – 12 March 2022, has been accepted. </td></tr>
+                    <tr><td class='bodycopy' style='font-family: sans-serif; padding:15px 0;'> Please proceed to the following link to complete your payment <a href='$payment_link'> $payment_link </a></td><tr>
+                  
+                    <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Programme </b> </td></tr>
+                    <tr>
+                      <td class='h2' style='font-family: sans-serif;'>
+                          <ul>
+                            <li>You can view the congress programme at <a href='https://apacongress.africa/programme/'>apacongress.africa/programme</a></li>
+                          </ul>
+                      </td>
+                    </tr>
+                  </tr>
+                  
+                </table>
+              </td>
+            </tr>
 
         ".self::emailLayoutSectionFooter();
 
@@ -89,58 +88,58 @@ class EmailController
 		    $_Email_    = $email;
         $_Subject_  = 'Confirmation - IUCN Africa Protected Areas Congress (APAC) Registration';
         $_Message_  = self::emailSectionHeaderLayout()."
-                 <tr>
-                    <td class='innerpadding borderbottom'>
-                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                        <tr>
-                          <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
-                        </tr>
-                        <tr>
-                          <td class='bodycopy' style='font-family: sans-serif;'>
-                          Thank you for registering to attend the IUCN Africa Protected Areas Congress (APAC) that will be held in Kigali from 7 – 12 March 2022.</td>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Your receipt is attached to this email.</td></tr>
-                          
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Badge collection</b> </td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;'>You will receive information on how and when to collect your badge before the event. We kindly require that you bring the identification document you used in your registration process when collecting your badge.  </td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Programme </b> </td></tr>
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                                <ul>
-                                  <li>You can view the congress programme at <a href='https://apacongress.africa/programme/'>apacongress.africa/programme</a></li>
-                                </ul>
-                            </td>
-                          </tr>
-                          
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0; color:#37af47;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Accommodation</b> </td></tr>
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                              <ul>
-                                <li><a href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_bank'>Click here</a> to book your accommodation for your stay in Kigali   </li>
-                              </ul>
-                              
-                            </td>
-                          </tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Visa information:</b> </td></tr>
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                                <ul>
-                                  <li>Visas are issued on arrival for all countries </li>
-                                  <li>Visa fees for citizens of African Union, Commonwealth and La Francophonie member states are waived for a visit of up to 30 days</li>
-                                  <li><a href='https://www.migration.gov.rw/anounce/anounce/online-visa/' target='_bank'>Click here</a> for more information on Rwanda’s open visa policy  </li>
+        <tr>
+          <td class='innerpadding borderbottom'>
+            <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+              <tr>
+                <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
+              </tr>
+              <tr>
+                <td class='bodycopy' style='font-family: sans-serif;'>
+                Thank you for registering to attend the IUCN Africa Protected Areas Congress (APAC) that will be held in Kigali from 7 – 12 March 2022.</td>
+                <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>Your receipt is attached to this email.</td></tr>
+                
+                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Badge collection</b> </td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;'>You will receive information on how and when to collect your badge before the event. We kindly require that you bring the identification document you used in your registration process when collecting your badge.  </td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Programme </b> </td></tr>
+                <tr>
+                  <td class='h2' style='font-family: sans-serif;'>
+                      <ul>
+                        <li>You can view the congress programme at <a href='https://apacongress.africa/programme/'>apacongress.africa/programme</a></li>
+                      </ul>
+                  </td>
+                </tr>
+                
+                <tr><td class='h2' style='font-family: sans-serif;padding:0; color:#37af47;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Accommodation</b> </td></tr>
+                <tr>
+                  <td class='h2' style='font-family: sans-serif;'>
+                    <ul>
+                      <li><a href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_bank'>Click here</a> to book your accommodation for your stay in Kigali   </li>
+                    </ul>
+                    
+                  </td>
+                </tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Visa information:</b> </td></tr>
+                <tr>
+                  <td class='h2' style='font-family: sans-serif;'>
+                      <ul>
+                        <li>Visas are issued on arrival for all countries </li>
+                        <li>Visa fees for citizens of African Union, Commonwealth and La Francophonie member states are waived for a visit of up to 30 days</li>
+                        <li><a href='https://www.migration.gov.rw/anounce/anounce/online-visa/' target='_bank'>Click here</a> for more information on Rwanda’s open visa policy  </li>
 
-                                </ul>
-                            </td>
-                          </tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Destination information</b> </td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. It is blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains.</td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Go to <a href='https://www.visitrwanda.com/' target='_bank'>www.visitrwanda.com</a> for more information on activities and excursions you can experience during your time in Rwanda.</td></tr>
+                      </ul>
+                  </td>
+                </tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Destination information</b> </td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. It is blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains.</td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>Go to <a href='https://www.visitrwanda.com/' target='_bank'>www.visitrwanda.com</a> for more information on activities and excursions you can experience during your time in Rwanda.</td></tr>
 
-                        </tr>
-                        
-                      </table>
-                    </td>
-                  </tr>
+              </tr>
+              
+            </table>
+          </td>
+        </tr>
 
         ".self::emailLayoutSectionFooter();
 
@@ -158,32 +157,33 @@ class EmailController
 		    $_Email_    = $email;
         $_Subject_  = 'Confirmation - IUCN Africa Protected Areas Congress (APAC) Registration';
         $_Message_  = self::emailSectionHeaderLayout()."
-                 <tr>
-                    <td class='innerpadding borderbottom'>
-                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                        <tr>
-                          <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                          <tr><td class='h2' style='font-family: sans-serif;'>We have received your request to pay by bank transfer.<br><a href='$payment_invoice_link'>Click here</a> to download the payment details & invoice. </td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;'>Please ensure that you follow the instructions to ensure your payment is tracked and credited to your registration.</td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;'>You will be notified when we receive your payment.</td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;color:#37af47;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
+        <tr>
+          <td class='innerpadding borderbottom'>
+            <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+              <tr>
+                <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
+              </tr>
+              <tr>
+              <tr>
+                <tr><td class='h2' style='font-family: sans-serif; padding:15px 0;'>We have received your request to pay by bank transfer.</td></tr>
+                <tr><td class='h2'><a href='$payment_invoice_link'>Click here</a> to download the payment details & invoice. </td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;'>Please ensure that you follow the instructions to ensure your payment is tracked and credited to your registration.</td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;'>You will be notified when we receive your payment.</td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:0;color:#37af47;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
 
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                                <ul>
-                                  <li>You will receive travel and accommodation information with the official APAC hotels after confirmation of your registration & receipt of payment.  </li>
-                                  <li>Please do not book your travel or accommodation until you have received our notification confirming receipt of payment.</li>
+                <tr>
+                  <td class='h2' style='font-family: sans-serif;'>
+                      <ul>
+                        <li>You will receive travel and accommodation information with the official APAC hotels after confirmation of your registration & receipt of payment.  </li>
+                        <li>Please do not book your travel or accommodation until you have received our notification confirming receipt of payment.</li>
 
-                                </ul>
-                            </td>
-                          </tr>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
+                      </ul>
+                  </td>
+                </tr>
+              </tr>
+            </table>
+          </td>
+        </tr>
 
         ".self::emailLayoutSectionFooter();
 
@@ -201,64 +201,59 @@ class EmailController
 		    $_Email_    = $email;
         $_Subject_  = 'Payment confirmation - IUCN Africa Protected Areas Congress (APAC) Registration';
         $_Message_  = self::emailSectionHeaderLayout()."
-                 <tr>
-                    <td class='innerpadding borderbottom'>
-                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                        <tr>
-                          <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                          <tr><td class='h2' style='font-family: sans-serif;'>Thank you for registering to attend the <b>IUCN Africa Protected Areas Congress (APAC)</b>  that will be held in Kigali from 7 – 12 March 2022. </tr>
-                          <tr><td class='h2' style='font-family: sans-serif;'>We have received your payment by bank transfer.<br>Your receipt is attached to this email. </td></tr>
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                                <ul>
-                                  <li><a href='$payment_receipt_link' target='_bank'>Click here</a> to download your receipt.  </li>
-                                </ul>
-                              </td>
-                            </tr>
-                          </tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Badge collection</b> </td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;'>You will receive information on how and when to collect your badge before the event. We kindly require that you bring the identification document you used in your registration process when collecting your badge. </td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Programme </b> </td></tr>
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                                <ul>
-                                  <li>You can view the congress programme at <a href='https://apacongress.africa/programme/'>apacongress.africa/programme</a></li>
-                                </ul>
-                            </td>
-                          </tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0; color:#37af47;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Accommodation</b> </td></tr>
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                              <ul>
-                                <li><a href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_bank'>Click here</a> to book your accommodation for your stay in Kigali   </li>
-                              </ul>
-                              
-                            </td>
-                          </tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Visa information:</b> </td></tr>
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                                <ul>
-                                  <li>Visas are issued on arrival for all countries </li>
-                                  <li>Visa fees for citizens of African Union, Commonwealth and La Francophonie member states are waived for a visit of up to 30 days</li>
-                                  <li><a href='https://www.migration.gov.rw/anounce/anounce/online-visa/' target='_bank'>Click here</a> for more information on Rwanda’s open visa policy  </li>
+        <tr>
+          <td class='innerpadding borderbottom'>
+            <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+              <tr>
+                <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
+              </tr>
+              <tr>
+              <tr>
+                <tr><td class='h2' style='font-family: sans-serif;'>Thank you for registering to attend the <b>IUCN Africa Protected Areas Congress (APAC)</b>  that will be held in Kigali from 7 – 12 March 2022. </tr>
+                <tr><td class='h2' style='font-family: sans-serif;'>We have received your payment by bank transfer.</td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;'>Your receipt is attached to this email. </td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;'><a href='$payment_receipt_link' target='_bank'>Click here</a> to download your receipt.</td></tr>
+                </tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Badge collection</b> </td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;'>You will receive information on how and when to collect your badge before the event. We kindly require that you bring the identification document you used in your registration process when collecting your badge. </td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Programme </b> </td></tr>
+                <tr>
+                  <td class='h2' style='font-family: sans-serif;'>
+                      <ul>
+                        <li>You can view the congress programme at <a href='https://apacongress.africa/programme/'>apacongress.africa/programme</a></li>
+                      </ul>
+                  </td>
+                </tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:0; color:#37af47;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Accommodation</b> </td></tr>
+                <tr>
+                  <td class='h2' style='font-family: sans-serif;'>
+                    <ul>
+                      <li><a href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_bank'>Click here</a> to book your accommodation for your stay in Kigali   </li>
+                    </ul>
+                    
+                  </td>
+                </tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Visa information:</b> </td></tr>
+                <tr>
+                  <td class='h2' style='font-family: sans-serif;'>
+                      <ul>
+                        <li>Visas are issued on arrival for all countries </li>
+                        <li>Visa fees for citizens of African Union, Commonwealth and La Francophonie member states are waived for a visit of up to 30 days</li>
+                        <li><a href='https://www.migration.gov.rw/anounce/anounce/online-visa/' target='_bank'>Click here</a> for more information on Rwanda’s open visa policy  </li>
 
-                                </ul>
-                            </td>
-                          </tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Destination information</b> </td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. It is blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains.</td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Go to <a href='https://www.visitrwanda.com/' target='_bank'>www.visitrwanda.com</a> for more information on activities and excursions you can experience during your time in Rwanda.</td></tr>
+                      </ul>
+                  </td>
+                </tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Destination information</b> </td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. It is blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains.</td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>Go to <a href='https://www.visitrwanda.com/' target='_bank'>www.visitrwanda.com</a> for more information on activities and excursions you can experience during your time in Rwanda.</td></tr>
 
 
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
+              </tr>
+            </table>
+          </td>
+        </tr>
 
         ".self::emailLayoutSectionFooter();
 
@@ -276,18 +271,18 @@ class EmailController
     $_Email_    = $email;
     $_Subject_  = 'Payment error - IUCN Africa Protected Areas Congress (APAC) Registration';
     $_Message_  = self::emailSectionHeaderLayout()."
-                  <tr>
-                    <td class='innerpadding borderbottom'>
-                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                        <tr>
-                          <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
-                        </tr>
-                        
-                        <tr><td class='h2' style='font-family: sans-serif;padding:0;'>It appears that your card payment has not gone through. Kindly follow this link to go through the payment process again <a href='$payment_link'> $payment_link </a></td></tr>
-                        <tr><td class='h2' style='font-family: sans-serif;padding:0;'>If you are still experiencing challenges, please email <a href='mailto:ianangwe@awf.org'>IAnangwe@awf.org</a> with your name & telephone number and our team will get back to you to assist.</td></tr>
-                      </table>
-                    </td>
-                  </tr>
+        <tr>
+        <td class='innerpadding borderbottom'>
+          <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+            <tr>
+              <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
+            </tr>
+            
+            <tr><td class='h2' style='font-family: sans-serif;padding:0;'>It appears that your card payment has not gone through. Kindly follow this link to go through the payment process again <a href='$payment_link'> $payment_link </a></td></tr>
+            <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>If you are still experiencing challenges, please email <a href='mailto:ianangwe@awf.org'>IAnangwe@awf.org</a> with your name & telephone number and our team will get back to you to assist.</td></tr>
+          </table>
+        </td>
+      </tr>
 
     ".self::emailLayoutSectionFooter2();
 
@@ -305,22 +300,22 @@ class EmailController
       $_Email_    = $email;
       $_Subject_  = 'Payment query - IUCN Africa Protected Areas Congress (APAC) Registration';
       $_Message_  = self::emailSectionHeaderLayout()."
-                    <tr>
-                      <td class='innerpadding borderbottom'>
-                        <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
-                          </tr>
-                          
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'>It appears that your bank transfer payment has not been received to date. 
-                            Please send us the proof of transfer to help us trace it if you have already made the payment. 
-                            If you have not made the transfer yet, please let us know when you intend to so we may trace the payment & confirmation your attendance to the congress. <br>
-                            Please contact us using the details below if you have any queries on your payment process. 
-                          </td></tr>
-                        
-                        </table>
-                      </td>
-                    </tr>
+        <tr>
+        <td class='innerpadding borderbottom'>
+          <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+            <tr>
+              <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
+            </tr>
+            
+            <tr><td class='h2' style='font-family: sans-serif;padding:0 0 15px 0;'>It appears that your bank transfer payment has not been received to date. 
+              Please send us the proof of transfer to help us trace it if you have already made the payment. 
+              If you have not made the transfer yet, please let us know when you intend to so we may trace the payment & confirmation your attendance to the congress. <br>
+              Please contact us using the details below if you have any queries on your payment process. 
+            </td></tr>
+          
+          </table>
+        </td>
+      </tr>
 
       ".self::emailLayoutSectionFooter2();
 
@@ -338,57 +333,56 @@ class EmailController
       $_Email_    = $email;
       $_Subject_  = 'Confirmation - IUCN Africa Protected Areas Congress (APAC) Registration';
       $_Message_  = self::emailSectionHeaderLayout()."
-                  <tr>
-                    <td class='innerpadding borderbottom'>
-                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                        <tr>
-                          <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                          <tr><td class='h2' style='font-family: sans-serif;'>Thank you for registering to attend the <b>IUCN Africa Protected Areas Congress (APAC)</b>  that will be held in Kigali, Rwanda, from 7 – 12 March 2022.  </tr>
-                         
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Badge collection</b> </td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;'>You will receive information on how and when to collect your badge before the event. We kindly require that you bring the identification document you used in your registration process when collecting your badge. </td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Programme </b> </td></tr>
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                                <ul>
-                                  <li>You can view the congress programme at <a href='https://apacongress.africa/programme/'>apacongress.africa/programme</a></li>
-                                </ul>
-                            </td>
-                          </tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0; color:#37af47;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Accommodation</b> </td></tr>
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                              <ul>
-                                <li><a href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_bank'>Click here</a> to book your accommodation for your stay in Kigali   </li>
-                              </ul>
-                              
-                            </td>
-                          </tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Visa information:</b> </td></tr>
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                                <ul>
-                                  <li>Visas are issued on arrival for all countries </li>
-                                  <li>Visa fees for citizens of African Union, Commonwealth and La Francophonie member states are waived for a visit of up to 30 days</li>
-                                  <li><a href='https://www.migration.gov.rw/anounce/anounce/online-visa/' target='_bank'>Click here</a> for more information on Rwanda’s open visa policy  </li>
+      <tr>
+        <td class='innerpadding borderbottom'>
+          <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+            <tr>
+              <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
+            </tr>
+            <tr>
+            <tr>
+              <tr><td class='h2' style='font-family: sans-serif;'>Thank you for registering to attend the <b>IUCN Africa Protected Areas Congress (APAC)</b>  that will be held in Kigali, Rwanda, from 7 – 12 March 2022.  </tr>
+            
+              <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Badge collection</b> </td></tr>
+              <tr><td class='h2' style='font-family: sans-serif;'>You will receive information on how and when to collect your badge before the event. We kindly require that you bring the identification document you used in your registration process when collecting your badge. </td></tr>
+              <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Programme </b> </td></tr>
+              <tr>
+                <td class='h2' style='font-family: sans-serif;'>
+                    <ul>
+                      <li>You can view the congress programme at <a href='https://apacongress.africa/programme/'>apacongress.africa/programme</a></li>
+                    </ul>
+                </td>
+              </tr>
+              <tr><td class='h2' style='font-family: sans-serif;padding:0; color:#37af47;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
+              <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Accommodation</b> </td></tr>
+              <tr>
+                <td class='h2' style='font-family: sans-serif;'>
+                  <ul>
+                    <li><a href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_bank'>Click here</a> to book your accommodation for your stay in Kigali   </li>
+                  </ul>
+                  
+                </td>
+              </tr>
+              <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Visa information:</b> </td></tr>
+              <tr>
+                <td class='h2' style='font-family: sans-serif;'>
+                    <ul>
+                      <li>Visas are issued on arrival for all countries </li>
+                      <li>Visa fees for citizens of African Union, Commonwealth and La Francophonie member states are waived for a visit of up to 30 days</li>
+                      <li><a href='https://www.migration.gov.rw/anounce/anounce/online-visa/' target='_bank'>Click here</a> for more information on Rwanda’s open visa policy  </li>
 
-                                </ul>
-                            </td>
-                          </tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Destination information</b> </td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. It is blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains.</td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Go to <a href='https://www.visitrwanda.com/' target='_bank'>www.visitrwanda.com</a> for more information on activities and excursions you can experience during your time in Rwanda.</td></tr>
+                    </ul>
+                </td>
+              </tr>
+              <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Destination information</b> </td></tr>
+              <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. It is blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains.</td></tr>
+              <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>Go to <a href='https://www.visitrwanda.com/' target='_bank'>www.visitrwanda.com</a> for more information on activities and excursions you can experience during your time in Rwanda.</td></tr>
 
 
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-
+            </tr>
+          </table>
+        </td>
+      </tr>
       ".self::emailLayoutSectionFooter();
 
       Email::send($_Email_, $_Subject_, $_Message_);
@@ -405,31 +399,31 @@ class EmailController
     $_Email_    = $email;
     $_Subject_  = 'Confirmation - IUCN Africa Protected Areas Congress (APAC) Registrations';
     $_Message_  = self::emailSectionHeaderLayout()."
-                  <tr>
-                    <td class='innerpadding borderbottom'>
-                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                        <tr>
-                          <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
-                        </tr>
-                        
-                        <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Thank you for applying for media accreditation to attend the IUCN Africa Protected Areas Congress (APAC) that will be held in Kigali, Rwanda, from 7 – 12 March 2022. 
-                        </td></tr>
+          <tr>
+          <td class='innerpadding borderbottom'>
+            <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+              <tr>
+                <td class='h2' style='font-family: sans-serif;'>Dear <b>$firstname</b></td>
+              </tr>
+              
+              <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Thank you for applying for media accreditation to attend the IUCN Africa Protected Areas Congress (APAC) that will be held in Kigali, Rwanda, from 7 – 12 March 2022. 
+              </td></tr>
 
-                        <tr><td class='h2' style='font-family: sans-serif;padding:0;'>The APAC Event Secretariat will review your application and revert within the next 5 working days. 
-                        </td></tr>
+              <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>The APAC Event Secretariat will review your application and revert within the next 5 working days. 
+              </td></tr>
 
-                        <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>International media</b> </td></tr>
-                          <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                                <ul>
-                                  <li>Please do not book travel or accommodation until you have received confirmation to attend as accredited media. </li>
-                                </ul>
-                            </td>
-                          </tr>
-                       
-                      </table>
-                    </td>
-                  </tr>
+              <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>International media</b> </td></tr>
+                <tr>
+                  <td class='h2' style='font-family: sans-serif;'>
+                      <ul>
+                        <li>Please do not book travel or accommodation until you have received confirmation to attend as accredited media. </li>
+                      </ul>
+                  </td>
+                </tr>
+            
+            </table>
+          </td>
+        </tr>
 
     ".self::emailLayoutSectionFooter2();
 
@@ -694,32 +688,32 @@ class EmailController
     
     public static function emailLayoutSectionFooter(){
       $_FooterLayout_ = "
-                  <tr>
-                    <td class='footer' bgcolor='#f6f6f6'>
-                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                        <tr>
-                          <td'>
-                            <table border='0' cellspacing='0' cellpadding='0'>
-                               <td class='h3' style='font-family: sans-serif;'>Stay connected </td>
-                            </table>
-                            <span class='alignment'></span>
-                            <table border='0' cellspacing='0' cellpadding='0'>
-                               <tr><td class='h2' style='font-family: sans-serif; padding:0;'><b>Twitter:</b> <a href='https://twitter.com/APA_Congress?s=20' target='_blank'>@APA_Congress</a></td></tr>
-                               <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Connect with our official tag: </b><a href='#'>#APAC2022 </a></td></tr>
-                               <tr><td class='h2' style='font-family: sans-serif;'>We look forward to meeting you in Kigali, Rwanda. </td></tr>
-                               <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Yours Faithfully,</b> </td></tr>
-                               <tr><td class='h2' style='font-family: sans-serif;'> The APAC Secretariat </td></tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </body>
+                    <tr>
+                      <td class='footer' bgcolor='#fff'>
+                        <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+                          <tr>
+                            <td'>
+                              <table border='0' cellspacing='0' cellpadding='0'>
+                                <td class='h2' style='font-family: sans-serif;padding:0; color:#37af47;text-transform:uppercase;'><b>Stay connected</b</td>
+                              </table>
+                              <span class='alignment'></span>
+                              <table border='0' cellspacing='0' cellpadding='0'>
+                                <tr><td class='h2' style='font-family: sans-serif; padding:0;'><b>Twitter:</b> <a href='https://twitter.com/APA_Congress?s=20' target='_blank'>@APA_Congress</a></td></tr>
+                                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Connect with our official tag: </b><a href='#'>#APAC2022 </a></td></tr>
+                                <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>We look forward to meeting you in Kigali, Rwanda. </td></tr>
+                                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Yours Faithfully,</b> </td></tr>
+                                <tr><td class='h2' style='font-family: sans-serif;'> The APAC Secretariat </td></tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </body>
         </html>
       ";
       return $_FooterLayout_;
@@ -731,26 +725,24 @@ class EmailController
     
     public static function emailLayoutSectionFooter2(){
       $_FooterLayout_ = "
-                 <tr>
-                    <td class='footer' bgcolor='#f6f6f6'>
-                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                        <tr>
-                          <td'>
-                            <table border='0' cellspacing='0' cellpadding='0'>
-                               <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Yours Faithfully,</b> </td></tr>
-                               <tr><td class='h2' style='font-family: sans-serif;'> The APAC Secretariat </td></tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </body>
-        </html>
+                <tr>
+                  <td class='footer' bgcolor='#f6f6f6'>
+                    <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+                      <tr>
+                        <td'>
+                          <table border='0' cellspacing='0' cellpadding='0'>
+                            <tr><td class='h2' style='font-family: sans-serif;padding:15px 0 0 0;'><b>Yours Faithfully,</b> </td></tr>
+                            <tr><td class='h2' style='font-family: sans-serif;'> The APAC Secretariat </td></tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
       ";
       return $_FooterLayout_;
     }
