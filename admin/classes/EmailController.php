@@ -707,8 +707,8 @@ class EmailController
                                <tr><td class='h2' style='font-family: sans-serif; padding:0;'><b>Twitter:</b> <a href='https://twitter.com/APA_Congress?s=20' target='_blank'>@APA_Congress</a></td></tr>
                                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Connect with our official tag: </b><a href='#'>#APAC2022 </a></td></tr>
                                <tr><td class='h2' style='font-family: sans-serif;'>We look forward to meeting you in Kigali, Rwanda. </td></tr>
-                               <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Regards,</b> </td></tr>
-                               <tr><td class='h2' style='font-family: sans-serif;'>The APAC 2021 Event Secretariat </td></tr>
+                               <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Yours Faithfully,</b> </td></tr>
+                               <tr><td class='h2' style='font-family: sans-serif;'> The APAC Secretariat </td></tr>
                             </table>
                           </td>
                         </tr>
@@ -737,8 +737,8 @@ class EmailController
                         <tr>
                           <td'>
                             <table border='0' cellspacing='0' cellpadding='0'>
-                               <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Regards,</b> </td></tr>
-                               <tr><td class='h2' style='font-family: sans-serif;'>The APAC 2021 Event Secretariat </td></tr>
+                               <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Yours Faithfully,</b> </td></tr>
+                               <tr><td class='h2' style='font-family: sans-serif;'> The APAC Secretariat </td></tr>
                             </table>
                           </td>
                         </tr>

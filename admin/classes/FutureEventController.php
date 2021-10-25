@@ -18,13 +18,11 @@ class FutureEventController
 			
 		));
 		
-		
 		if($validate->passed()){
 			$FutureEventParticipantTable = new \FutureEvent();
 			
 			$str = new \Str();
 
-			
 			/**eventParticipation */
 			$eventParticipationEncrypted   = $str->data_in($_EDIT['eventParticipation']);
 			$eventParticipationSubTypeID   = Hash::decryptToken($eventParticipationEncrypted);
@@ -42,7 +40,6 @@ class FutureEventController
 
 			/** Event */
 			$eventID = $str->data_in(Hash::decryptToken($_EDIT['eventId']));
-
 
 			/** PRIVATE REGISTRATION */
 			$_REGISTRATION_PRIVATE_ACCESS_TOKEN_ = NULL;
@@ -73,7 +70,6 @@ class FutureEventController
 					];
 				endif;
 
-
 			endif;
 
 			/** Contact Information */
@@ -96,6 +92,7 @@ class FutureEventController
 			$confirm_password 	= $str->data_in($_EDIT['confirm_password']);
 
 			/** Attending Objective Information */
+			$objectives		 		 = !Input::checkInput('objectives', 'post', 1)?'':$str->data_in($_EDIT['objectives']);
 			$firt_objective 		 = !Input::checkInput('firt_objective', 'post', 1)?'':$str->data_in($_EDIT['firt_objective']);
 			$second_objective 		 = !Input::checkInput('second_objective', 'post', 1)?'':$str->data_in($_EDIT['second_objective']);
 			$third_objective 	     = !Input::checkInput('third_objective', 'post', 1)?'':$str->data_in($_EDIT['third_objective']);
@@ -131,13 +128,20 @@ class FutureEventController
 			$special_request 		= !Input::checkInput('special_request', 'post', 1)?'':$str->data_in($_EDIT['special_request']);
 			$delegate_type        	= !Input::checkInput('delegate_type', 'post', 1)?'':$str->data_in($_EDIT['delegate_type']);
 
-			/** Media Information */
+			/** Student Youth Information */
 			$educacation_institute_name 	  	= !Input::checkInput('institute_name', 'post', 1)?'':$str->data_in($_EDIT['institute_name']);
 			$educacation_institute_category 	= !Input::checkInput('institute_category', 'post', 1)?'':$str->data_in($_EDIT['institute_category']);
 			$educacation_institute_industry     = !Input::checkInput('institute_industry', 'post', 1)?'':$str->data_in($_EDIT['institute_industry']);
 			$educacation_institute_website 		= !Input::checkInput('institute_website', 'post', 1)?'':$str->data_in($_EDIT['institute_website']);
 			$educacation_institute_country      = !Input::checkInput('institute_country', 'post', 1)?'':$str->data_in($_EDIT['institute_country']);
 			$educacation_institute_city         = !Input::checkInput('institute_city', 'post', 1)?'':$str->data_in($_EDIT['institute_city']);
+
+			/** CBO Organization Information */
+			$organization_registration_date_year = !Input::checkInput('organisation_date', 'post', 1)?'':$str->data_in($_EDIT['organisation_date']);
+			$organization_number_employees 		 = !Input::checkInput('number_of_employees', 'post', 1)?'':$str->data_in($_EDIT['number_of_employees']);
+			$organization_annual_turnover        = !Input::checkInput('turnover', 'post', 1)?'':$str->data_in($_EDIT['turnover']);
+			$cbo_project_objectives 	 	     = !Input::checkInput('project_objective', 'post', 1)?'':$str->data_in($_EDIT['project_objective']);
+			$cbo_activities     		 	     = !Input::checkInput('cbo_activities', 'post', 1)?'':$str->data_in($_EDIT['cbo_activities']);
 
 			/** Student State - When An Youth Or Student regsiters - */
 			$student_state = 0;
@@ -159,11 +163,11 @@ class FutureEventController
 
 			/** Check If Email Address not yet used */
 			if(self::checkEmailAlreadyUsed($eventID, $email)):
-				// return (object)[
-				// 	'ERRORS'		=> true,
-				// 	'ERRORS_SCRIPT' => "This email address has already been used!",
-				// 	'ERRORS_STRING' => "This email address has already been used!"
-				// ];
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "This email address has already been used!",
+					'ERRORS_STRING' => "This email address has already been used!"
+				];
 			endif;
 
 			/** Check If Password Match */
@@ -185,7 +189,6 @@ class FutureEventController
 
 			/** Need Accommodation */
 			$needAccommodation = !Input::checkInput('needAccommodation', 'post', 1)?0:$str->data_in($_EDIT['needAccommodation']);
-
 
 			/** Check Age - [ 10 - ] */
 			if($diagnoArray[0] == 'NO_ERRORS'){
@@ -249,17 +252,23 @@ class FutureEventController
 					'educacation_institute_country'   => $educacation_institute_country,
 					'educacation_institute_city'      => $educacation_institute_city,
 
-					'attending_objective_1'   => $firt_objective,
+					'attending_objective_1'   => $objectives,
 					'attending_objective_2'   => $second_objective,
 					'attending_objective_3'   => $third_objective,
 					'info_source'   		  => $info_source,
 					
 					'profile'   => $profile,
-
 					'qrID'   	=> $Qr_->ID,
 					'qrCode'    => $Qr_->STRING,
 
-					'need_accommodation_state' => $needAccommodation
+					'need_accommodation_state' => $needAccommodation,
+					
+					'organization_registration_date_year'   => $organization_registration_date_year,
+					'organization_number_employees'  		=> $organization_number_employees,
+					'organization_annual_turnover'  		=> $organization_annual_turnover,
+					'cbo_project_objectives'   				=> $cbo_project_objectives,
+					'cbo_activities'      					=> $cbo_activities
+
 				);
 
             
@@ -280,8 +289,6 @@ class FutureEventController
 						'firstname' => $firstname,
 					);
 					self::autoSentEmailOnAction($_data_, $_PARTICIPATION_PAYMENT_TYPE_, $_PARTICIPATION_TYPE_CODE_, $_CBO_CODE_, $_MEDIA_CODE_);
-					
-
 					
 				}catch(Exeption $e){
 					$diagnoArray[0] = "ERRORS_FOUND";
@@ -507,7 +514,6 @@ class FutureEventController
 				];
 			endif;
 
-
 			if($diagnoArray[0] == 'NO_ERRORS'){
 				
 				$_fields = array(
@@ -544,8 +550,6 @@ class FutureEventController
 							EmailController::sendEmailToParticipantOnRegistrationFree($_data_);
 							break;
 					endswitch;
-					
-					
 					
 				}catch(Exeption $e){
 					$diagnoArray[0] = "ERRORS_FOUND";
@@ -768,7 +772,6 @@ class FutureEventController
 
 			$participation_sub_type_id      = Hash::decryptAuthToken($_participation_sub_type_token);
 			$event_id					    = Hash::decryptAuthToken($_event_token);
-
 
 			/** Get Particiption Type Id  */
 			if(!($participation_type_data_ = self::getPacipationSubCategoryByID($participation_sub_type_id))):
@@ -1577,7 +1580,7 @@ class FutureEventController
 
 	public static function getParticipantByID($ID){
         $FutureEventTable = new FutureEvent();
-        $FutureEventTable->selectQuery("SELECT future_participants.*,  future_event.event_name as event_name,  future_participants.id as participant_ID, future_participation_type.name as participation_type_name,  future_participation_sub_type.name as participation_subtype_name , future_participation_sub_type.payment_state, future_participation_sub_type.category as participation_subtype_category, future_participation_sub_type.price as participation_subtype_price, future_participation_sub_type.currency as participation_subtype_currency FROM `future_participants` INNER JOIN future_event ON future_event.id = future_participants.event_id INNER JOIN future_participation_type ON future_participants.participation_type_id = future_participation_type.id INNER JOIN future_participation_sub_type ON future_participants.participation_sub_type_id = future_participation_sub_type.id WHERE future_participants.id = {$ID} ORDER BY future_participants.id DESC LIMIT 1");
+        $FutureEventTable->selectQuery("SELECT future_participants.*,  future_event.event_name as event_name,  future_participants.id as participant_ID, future_participation_type.name as participation_type_name, future_participation_type.code as participation_type_code,  future_participation_sub_type.name as participation_subtype_name , future_participation_sub_type.payment_state, future_participation_sub_type.category as participation_subtype_category, future_participation_sub_type.price as participation_subtype_price, future_participation_sub_type.currency as participation_subtype_currency FROM `future_participants` INNER JOIN future_event ON future_event.id = future_participants.event_id INNER JOIN future_participation_type ON future_participants.participation_type_id = future_participation_type.id INNER JOIN future_participation_sub_type ON future_participants.participation_sub_type_id = future_participation_sub_type.id WHERE future_participants.id = {$ID} ORDER BY future_participants.id DESC LIMIT 1");
         if($FutureEventTable->count())
           return  $FutureEventTable->first();
         return  false;

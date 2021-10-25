@@ -442,6 +442,14 @@ class PaymentController
           return $PaymentTable->first()->currency;
         return 'USD';
     }
+	
+	public static function getPaymentTransactionEntryDataByParticipantID($eventID, $_participant_id_){
+        $PaymentTable = new Payment();
+        $PaymentTable->selectQuery("SELECT payment_method,  amount, currency, transaction_status, receipt_id, transaction_id, external_transaction_id, transaction_time, approval_time, approval_comment, callback_time FROM `future_payment_transaction_entry` WHERE event_id = {$eventID} AND  participant_id = {$_participant_id_} GROUP BY participant_id DESC  LIMIT 1");
+        if($PaymentTable->count())
+          return $PaymentTable->first();
+        return false;
+    }
 
 }
 
