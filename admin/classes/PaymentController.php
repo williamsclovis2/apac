@@ -142,13 +142,15 @@ class PaymentController
 						];
 					endif;
 					$PAYMENT_REQ 	= (Object) $PAYMENT_REQ;
-                
-					if($PAYMENT_REQ->Success):
-						$external_transaction_id     = $PAYMENT_REQ->TransRef;
-						$external_transaction_token  = $PAYMENT_REQ->TransToken;
-					endif;
 
-					$external_transaction_status = $PAYMENT_REQ->Result;
+					if($PAYMENT_REQ):
+						if($PAYMENT_REQ->Success):
+							$external_transaction_id     = $PAYMENT_REQ->TransRef;
+							$external_transaction_token  = $PAYMENT_REQ->TransToken;
+						endif;
+
+						$external_transaction_status = isset($PAYMENT_REQ->Result)?$PAYMENT_REQ->Result:'';
+					endif;
 
 				/** BANK TRANSFER */
 				elseif($DefaultPayment == 'BT'):
@@ -215,7 +217,8 @@ class PaymentController
 						'firstname' 		   => $_participant_data_->participant_firstname,
 						'payment_invoice_link' => $payment_invoice_link
 					);
-					EmailController::sendEmailToParticipantOnRequestToPayByBankTransferOrDirectDeposit($_data_);
+					if($DefaultPayment == 'BT')
+						EmailController::sendEmailToParticipantOnRequestToPayByBankTransferOrDirectDeposit($_data_);
 
 				}catch(Exeption $e){
 					$diagnoArray[0] = "ERRORS_FOUND";
