@@ -7,26 +7,26 @@
           <style type='text/css'>
           body {margin: 0; padding: 0; min-width: 100%!important; font-family: sans-serif;}
           img {height: auto;}
-          .content {width: 100%; max-width: 600px;border:1px solid #f2f2f2;}
-          .header {padding: 15px 30px 15px 30px;}
+          .content {width: 100%; max-width: 700px;border:1px solid #f2f2f2;}
+          /* .header {padding: 15px 30px 15px 30px;} */
           .innerpadding {padding: 50px 30px 50px 30px;}
           .borderbottom { background-color:#f6f6f6;}
           .subhead {font-size: 15px; color: #ffffff; font-family: sans-serif; letter-spacing: 10px;}
           .h1 {color: #ffffff; font-family: sans-serif;}
-          .h2, .bodycopy {color: #000; font-family: sans-serif;}
+          .h2, .bodycopy {color: #002060; font-family: sans-serif;}
           .h1 {font-size: 30px; line-height: 38px; font-weight: bold;}
-          .h2 {padding: 0 0 15px 0; font-size: 14px; line-height: 28px;}
+          .h2 {padding: 0 0 15px 0; font-size: 14px; line-height: 22px;}
           .h3 {padding: 0 0 5px 0; font-size: 14px; line-height: 28px; text-transform:uppercase}
           .bodycopy {font-size: 14px; line-height: 22px;}
           .button {text-align: center; font-size: 18px; font-family: sans-serif; font-weight: bold; padding: 0 30px 0 30px;}
           .button a {color: #ffffff; text-decoration: none;}
-          .footer {padding: 10px 30px 10px 30px; border-bottom:10px solid #37af47;background: #e9e9e9;}
-          .footer td a {color: #2a98c7; text-decoration:none}
+          .footer {padding: 10px 30px 10px 30px; border-bottom:10px solid #002060;background: #e9e9e9;}
+          .footer td a {color: #002060; text-decoration:none}
           .footercopy {font-family: sans-serif; font-size: 14px; color: #ffffff;}
           .footercopy a {color: #ffffff; text-decoration: none;}
           ul{margin:0;}
-          a {color: #2a98c7 !important;}
-          .alignment{display: inline-block;background: #37af47;width: 100px;height: 2px;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;margin-bottom: 4px;}
+          a {color: #002060 !important;}
+          .alignment{display: inline-block;background: #002060;width: 100px;height: 2px;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;margin-bottom: 4px;}
 
           @media only screen and (max-width: 550px), screen and (max-device-width: 550px) {
           body[yahoo] .hide {display: none!important;}
@@ -278,7 +278,7 @@
                             </td>
                           </tr>
                           
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0; color:#37af47;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:0; color:#002060;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
                           <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Accommodation</b> </td></tr>
                           <tr>
                             <td class='h2' style='font-family: sans-serif;'>
@@ -388,7 +388,7 @@
                           <tr><td class='h2' style='font-family: sans-serif;'>We have received your request to pay by bank transfer.<br><a href="#">Click here</a> to download the payment details & invoice. </td></tr>
                           <tr><td class='h2' style='font-family: sans-serif;'>Please ensure that you follow the instructions to ensure your payment is tracked and credited to your registration.</td></tr>
                           <tr><td class='h2' style='font-family: sans-serif;'>You will be notified when we receive your payment.</td></tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0;color:#37af47;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:0;color:#002060;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
 
                           <tr>
                             <td class='h2' style='font-family: sans-serif;'>
@@ -496,7 +496,7 @@
                                 </ul>
                             </td>
                           </tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0; color:#37af47;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:0; color:#002060;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
                           <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Accommodation</b> </td></tr>
                           <tr>
                             <td class='h2' style='font-family: sans-serif;'>
@@ -755,7 +755,7 @@
                                 </ul>
                             </td>
                           </tr>
-                          <tr><td class='h2' style='font-family: sans-serif;padding:0; color:#37af47;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:0; color:#002060;text-transform:uppercase'><b>Important information for international delegates </b> </td></tr>
                           <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Accommodation</b> </td></tr>
                           <tr>
                             <td class='h2' style='font-family: sans-serif;'>
@@ -842,9 +842,7 @@
 
         <!-- 9 -->
         
-        <body yahoo bgcolor='#fffff'>
-          <!-- Email received after media application    -->
-          <!-- Subject:  Confirmation - IUCN Africa Protected Areas Congress (APAC) Registrations-->
+        <!-- <body yahoo bgcolor='#fffff'>
         
           <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
             <tr>
@@ -904,7 +902,148 @@
               </td>
             </tr>
           </table>
+        </body> -->
+
+
+
+
+
+
+
+
+
+
+        <body yahoo bgcolor='#f4f4f4'>
+          <!-- Email received after successful registration for those that do not pay (Speakers, Invited guests, Secratariat, Staff etc)   -->
+          <!-- Subject:  Confirmation - IUCN Africa Protected Areas Congress (APAC) Registration -->
+
+          <table width='100%' bgcolor='#fff' border='0' cellpadding='0' cellspacing='0'>
+            <tr>
+              <td>
+                <table bgcolor='#ffffff' class='content' align='center' cellpadding='0' cellspacing='0' border='0'>
+                  <tr>
+                    <td bgcolor='#fff' class='header'>
+                      <table align='left' border='0' cellpadding='0' cellspacing='0'>  
+                        <tr>
+                          <td>
+                            <img class='fix' src='http://aprf2021.torusguru.com/img/banner_v2.png' style='width: 100%;' border='0' alt='' />
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class='innerpadding borderbottom'>
+                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+                        <tr>
+                          <td class='h2' style='font-family: sans-serif;'>Dear $firstname</td>
+                        </tr>
+                        <tr>
+                        <tr>
+                          <tr><td class='h2' style='font-family: sans-serif;'>Thank you for registering to attend the inaugural African Private Sector Refugee Forum on Forced Displacement that will be held in Kigali, Rwanda, from 30 November to 2 December 2021.  </tr>
+                         
+                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Your registration is hereby confirmed. </b> </td></tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:20px 0; color:#002060; text-decoration:underline;'><b>Quick Practical Information:</b> </td></tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'>For the most updated program and on-going discussion, please connect and engage with us here:</td></tr>
+                          <tr>
+                            <td class='h2' style='font-family: sans-serif;'>
+                                <ul>
+                                  <li><b>Website:</b> <a href="https://www.arf.thecoalitionafrica.com" target="_bank">https://www.arf.thecoalitionafrica.com</a></li>
+                                  <li><b>Twitter:</b> <a href="https://www.arf.thecoalitionafrica.com" target="_bank">@africaforum2021</a></li>
+                                  <li><b>Linkedin:</b> <a href="https://www.arf.thecoalitionafrica.com" target="_bank">The Amahoro Coalition</a></li>
+                                  <li><b>Instagram:</b> <a href="https://www.arf.thecoalitionafrica.com" target="_bank">@africaforum2021</a></li>
+                                  <li><b>Connect with our official tag: </b> <a href="https://www.arf.thecoalitionafrica.com" target="_bank">#36MillionSolutions</a></a></li>
+
+                                </ul>
+                            </td>
+                          </tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:20px 0; color:#002060; text-decoration:underline;'><b>International Travelers: </b></td> </tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>COVID Protocols:</b></td> </tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:0 0 20px 0;'>Please find the latest information on traveling to Rwanda and precautions in place due to COVID: <a href=": https://travel.rbc.gov.rw/travel/"> https://travel.rbc.gov.rw/travel/</a> </td> </tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Some protocols to note include: </td></tr>
+                          <tr>
+                            <td class='h2' style='font-family: sans-serif; padding:0;'>
+                                <ul>
+                                  <li>COVID-19 PCR test required for all travelers - must be less than 72 hours</li>
+                                  <li>Fully vaccinated travelers are not required to quarantine upon arrival</li>
+                                  <li>	Unvaccinated travelers will take PCR test upon arrival and will need to quarantine for up to 6 hours the test results are in. </li>
+                                </ul>
+                            </td>
+                          </tr>
+                          <tr><td class='h2' style='font-family: sans-serif; padding:20px 0;'><i>Please note that the COVID protocols may change as we get closer to the event, we’ll share updates on the situation in Rwanda.</i> </td></tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Flights to Kigali:</b></td></tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'>RwandAir is pleased to provide you with a 15% discount on all serviced routes.  Please use the following code [fff] when booking on <a href='www.rwandair.com' target='_bank'>www.rwandair.com</a> </td></tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:20px 0 0 0;'><b>Visa information</b></td></tr>
+                          <tr>
+                            <td class='h2' style='font-family: sans-serif;padding:0 0 20px 0;'>
+                                <ul>
+                                  <li>Visas are issued on arrival for all countries </li>
+                                  <li>Visa fees for citizens of African Union, Commonwealth and La Francophonie member states are waived for a visit of up to 30 days </li>
+                                  <li><a hre='about:blank'></a>	for more information on Rwanda’s open visa policy   </li>
+                                </ul>
+                            </td>
+                          </tr>
+
+                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Accommodation: </b></td></tr>
+                          <tr>
+                            <td class='h2' style='font-family: sans-serif; padding:0;'>
+                              We have negotiated preferred conference rates with two hotels.  Please book by November 15, 2021 to access the preferential rates. 
+                              <ul>
+                                <li>Radisson : <a href='https://www.radissonhotels.com/en-us/booking/room-display?hotelCode=KGLZH&checkInDate=2021-11-29&checkOutDate=2021-12-01&adults%5B%5D=1&children%5B%5D=0&searchType=pac&promotionCode=AC2021' target='_blank'>click here</a></li>
+                                <li>Marriott :</li>
+                              </ul>
+                            </td>
+                          </tr>
+                          
+                          <tr><td class='h2' style='font-family: sans-serif;padding:20px 0 0 0;'><b>Transport: </b></td></tr>
+                          <tr>
+                            <td class='h2' style='font-family: sans-serif; padding:0 0 20px 0;'>
+                              <ul>
+                                <li>We will provide you with shuttle service from the airport to each hotel.</li>
+                                <li>We will provide you with shuttle service between each hotel and all forum related activities. </li>
+                                <li>Please note that we will not be providing shuttle services from any other hotels in Kigali</li>
+                              </ul>
+                            </td>
+                          </tr>
+                          
+                          <tr><td class='h2' style='font-family: sans-serif;padding:0;'>We can’t wait to connect with you in Kigali! </td></tr>
+                          <tr><td class='h2' style='font-family: sans-serif;'>If you have any inquiries feel free to contact us at <a href="mailto:forum@thecoalitionafrica.com  ">forum@thecoalitionafrica.com  </a> </td></tr>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class='footer' bgcolor='#f6f6f6'>
+                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+                        <tr>
+                          <td'>
+                            <table border='0' cellspacing='0' cellpadding='0'>
+                               
+                               <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Regards,</b> </td></tr>
+                               <tr><td class='h2' style='font-family: sans-serif;'>The Amahoro Coalition </td></tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
         </body>
+
+
+
+
+
+
+
+
+
+
+
+
 
         </html>
 
