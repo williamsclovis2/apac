@@ -61,7 +61,7 @@
                                                 <li><?=$_Dictionary->translate('to-congress-material')?></li>
                                             </div>
                                             <div class="col-md-6">
-                                                <li><?=$_Dictionary->translate('to-congress-material')?></li>
+                                                <li><?=$_Dictionary->translate('in-person-and-virtual-networking')?></li>
                                                 <li><?=$_Dictionary->translate('cultural-events')?></li>
                                                 <li><?=$_Dictionary->translate('virtual-platform')?></li>
                                                 <li><?=$_Dictionary->translate('virtual-sessions-for-12-months')?></li>
