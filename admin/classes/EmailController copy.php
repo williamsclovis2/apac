@@ -432,7 +432,7 @@ class EmailController
                   </tr>
 
     ".self::emailLayoutSectionFooter2();
-
+    
     Email::send($_Email_, $_Subject_, $_Message_);
 }
 
@@ -737,7 +737,7 @@ class EmailController
                         <tr>
                           <td'>
                             <table border='0' cellspacing='0' cellpadding='0'>
-                               <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Yours Faithfully,</b> </td></tr>
+                               <tr><td class='h2' style='font-family: sans-serif;padding:15px 0 0 0;'><b>Yours Faithfully,</b> </td></tr>
                                <tr><td class='h2' style='font-family: sans-serif;'> The APAC Secretariat </td></tr>
                             </table>
                           </td>

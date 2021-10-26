@@ -42,7 +42,7 @@ class EmailController
         $_data_          = (Object) $_data_;
         $email 		       = $_data_->email;
         $firstname       = $_data_->firstname;
-        $payment_link    = $_data_->payment_link;
+        $payment_link    = $_data_->payment_link; 
 
 		    $_Email_    = $email;
         $_Subject_  = 'Payment information - IUCN Africa Protected Areas Congress (APAC) CBO Application';
@@ -622,7 +622,7 @@ class EmailController
   }
 
 
-  public static function emailSectionHeaderLayout(){ 
+  public static function emailSectionHeaderLayout(){  
       $_HeaderLayout_ = "
       <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
         <html xmlns='http://www.w3.org/1999/xhtml'>
@@ -635,18 +635,18 @@ class EmailController
           img {height: auto;}
           .content {width: 100%; max-width: 600px;border:1px solid #f2f2f2;}
           .header {padding: 15px 30px 15px 30px;}
-          .innerpadding {padding: 50px 30px 50px 30px;}
+          .innerpadding {padding: 30px 30px 10px 30px;}
           .borderbottom { background-color:#f6f6f6;}
           .subhead {font-size: 15px; color: #ffffff; font-family: sans-serif; letter-spacing: 10px;}
           .h1 {color: #ffffff; font-family: sans-serif;}
           .h2, .bodycopy {color: #000; font-family: sans-serif;}
           .h1 {font-size: 30px; line-height: 38px; font-weight: bold;}
-          .h2 {padding: 0 0 15px 0; font-size: 14px; line-height: 28px;}
+          .h2 {padding: 0 0 15px 0; font-size: 14px; line-height: 24px;}
           .h3 {padding: 0 0 5px 0; font-size: 14px; line-height: 28px; text-transform:uppercase}
           .bodycopy {font-size: 14px; line-height: 22px;}
           .button {text-align: center; font-size: 18px; font-family: sans-serif; font-weight: bold; padding: 0 30px 0 30px;}
           .button a {color: #ffffff; text-decoration: none;}
-          .footer {padding: 10px 30px 10px 30px; border-bottom:10px solid #37af47;background: #e9e9e9;}
+          .footer {padding: 10px 30px 10px 30px; border-bottom:10px solid #37af47;background: #fff;}
           .footer td a {color: #2a98c7; text-decoration:none}
           .footercopy {font-family: sans-serif; font-size: 14px; color: #ffffff;}
           .footercopy a {color: #ffffff; text-decoration: none;}
@@ -666,7 +666,7 @@ class EmailController
 
         <body yahoo bgcolor='#fff'>
         
-          <table width='100%' bgcolor='#f4f4f4' border='0' cellpadding='0' cellspacing='0'>
+          <table width='100%' bgcolor='#fff' border='0' cellpadding='0' cellspacing='0'>
             <tr>
               <td>
                 <table bgcolor='#ffffff' class='content' align='center' cellpadding='0' cellspacing='0' border='0'>
@@ -726,23 +726,25 @@ class EmailController
     public static function emailLayoutSectionFooter2(){
       $_FooterLayout_ = "
                 <tr>
-                  <td class='footer' bgcolor='#f6f6f6'>
-                    <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-                      <tr>
-                        <td'>
-                          <table border='0' cellspacing='0' cellpadding='0'>
-                            <tr><td class='h2' style='font-family: sans-serif;padding:15px 0 0 0;'><b>Yours Faithfully,</b> </td></tr>
-                            <tr><td class='h2' style='font-family: sans-serif;'> The APAC Secretariat </td></tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
+                    <td class='footer' bgcolor='#f6f6f6'>
+                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+                        <tr>
+                          <td'>
+                            <table border='0' cellspacing='0' cellpadding='0'>
+                               <tr><td class='h2' style='font-family: sans-serif;padding:15px 0 0 0;'><b>Yours Faithfully,</b> </td></tr>
+                               <tr><td class='h2' style='font-family: sans-serif;'> The APAC Secretariat </td></tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html>
       ";
       return $_FooterLayout_;
     }
