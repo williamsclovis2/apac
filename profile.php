@@ -304,7 +304,7 @@ endif;
                                     <h6 class="mb-0">Telephone number 1</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <h6><a href="tel:phone">+<?= $_participant_data_->telephone ?></a></h6>
+                                    <h6><a href="tel:phone"><?= $_participant_data_->telephone ?></a></h6>
                                 </div>
                             </div>
                             <hr>
@@ -313,7 +313,7 @@ endif;
                                     <h6 class="mb-0">Telephone number 2</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <h6><a href="tel:phone">+<?= $_participant_data_->telephone_2 ?></a></h6>
+                                    <h6><a href="tel:phone"><?= $_participant_data_->telephone_2 ?></a></h6>
                                 </div>
                             </div>
                             <hr>

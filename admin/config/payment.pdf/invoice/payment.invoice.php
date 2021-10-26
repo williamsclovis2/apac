@@ -56,7 +56,7 @@ class myPDF extends FPDF
     $this->Cell(190,2,'Cube communications Ltd',0,1,'L');
     $this->Cell(190,11, $_PARTICIPANT_DATA_->participant_city==''?'N/A':$_PARTICIPANT_DATA_->participant_city ,0,1,'L');
     $this->Cell(190,2, $_PARTICIPANT_DATA_->participant_country==''?'N/A':$_PARTICIPANT_DATA_->participant_country ,0,1,'L');
-    $this->Cell(190,11,'Tel:    +'. ($_PARTICIPANT_DATA_->participant_telephone==''?'N/A':$_PARTICIPANT_DATA_->participant_telephone),0,1,'L');
+    $this->Cell(190,11,'Tel:     '. ($_PARTICIPANT_DATA_->participant_telephone==''?'N/A':$_PARTICIPANT_DATA_->participant_telephone),0,1,'L');
     $this->Cell(190,1,"Email: ". ($_PARTICIPANT_DATA_->participant_email==''?'N/A':$_PARTICIPANT_DATA_->participant_email),0,1,'L');
     
     $this->SetFont('arial','',11);
