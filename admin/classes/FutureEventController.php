@@ -77,8 +77,8 @@ class FutureEventController
 			$lastname 		   = $str->sanAsName($_EDIT['lastname']);
 			$email	           = $str->data_in($_EDIT['email']);
 			
-			$telephone         = $str->data_in($_EDIT['telephone']);
-			$telephone_2	   = $str->data_in($_EDIT['telephone_2']);
+			$telephone         = $str->data_in($_EDIT['full_telephone']);
+			$telephone_2	   = $str->data_in($_EDIT['full_telephone_2']);
 
 			$gender 		   = $str->data_in($_EDIT['gender']);
 			$birthday 		   = $str->data_in($_EDIT['birthday']);

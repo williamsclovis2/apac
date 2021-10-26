@@ -1,7 +1,8 @@
 <?php
 
 /**
- *
+ * @package Payment Invoice
+ * @author Ezechiel Kalengya [ezechielkalengya@gmail.com] Software Engineer
  */
 class myPDF extends FPDF
 {
@@ -10,6 +11,9 @@ class myPDF extends FPDF
   }
 
   function footer() {
+    // $this->Image( VIEW_LOGO_APAC2, 10,260,40);
+    // $this->Image( VIEW_LOGO_AWF, 90,266,40);
+    // $this->Image( VIEW_LOGO_WCPA, 160,265,40);
     $this->SetY(-15);
     $this->SetFont('cambria','B',14);
     $this->Cell(0,15,'Page'.$this->PageNo().'/{nb}',0,0,'C');
@@ -45,13 +49,16 @@ class myPDF extends FPDF
     $this->SetFont('arial','B',5);
     $this->cell(190,0,'',1,1,'L');
     $this->Ln();
+
+    $this->Cell(190,2,'',0,4,'C');
     $this->SetFont('arial','',11);
     $this->Cell(190, 11, $_PARTICIPANT_DATA_->participant_firstname.' '.$_PARTICIPANT_DATA_->participant_lastname ,0,1,'L');
     $this->Cell(190,2,'Cube communications Ltd',0,1,'L');
     $this->Cell(190,11, $_PARTICIPANT_DATA_->participant_city==''?'N/A':$_PARTICIPANT_DATA_->participant_city ,0,1,'L');
-    $this->Cell(190,2, $_PARTICIPANT_DATA_->participant_country==''?'N/A':$_PARTICIPANT_DATA_->participant_country ,0,1,'L');
-    $this->Cell(190,11,'Tel:    +'. ($_PARTICIPANT_DATA_->participant_telephone==''?'N/A':$_PARTICIPANT_DATA_->participant_telephone),0,1,'L');
+    $this->Cell(190,2, $_PARTICIPANT_DATA_->participant_country==''?'N/A':countryCodeToCountry($_PARTICIPANT_DATA_->participant_country) ,0,1,'L');
+    $this->Cell(190,11,'Tel:     '. ($_PARTICIPANT_DATA_->participant_telephone==''?'N/A':$_PARTICIPANT_DATA_->participant_telephone),0,1,'L');
     $this->Cell(190,1,"Email: ". ($_PARTICIPANT_DATA_->participant_email==''?'N/A':$_PARTICIPANT_DATA_->participant_email),0,1,'L');
+    
     $this->SetFont('arial','',11);
     $this->Cell(190,10,'',0,1,'C');
     $this->Cell(190,1,'Registration number : '.$_PARTICIPANT_DATA_->participant_code ,0,1,'L');
@@ -60,14 +67,13 @@ class myPDF extends FPDF
     $this->Cell(135,1,'Invoice number: '.$_PARTICIPANT_DATA_->payment_transaction_id ,0,0,'L');
     $this->Cell(0,1,'Invoice Date: '.date('D d-m-Y h:i:a', $_PARTICIPANT_DATA_->payment_transaction_date) ,0,1, 'R');
     $this->cell(100,8,'',0,1,'L');
-    // $this->SetFillColor(230,230,120);
+
     $this->SetFont('arial','B', 10);
     $this->Cell(120,7,' Description ',1,0,'L');
     $this->Cell(70,7,' Amount ',1,1,'R');
 
     $this->SetFont('arial','', 10);
-    // $this->MultiCell(140,7, " IUCN Africa Protected Areas  Congress (APAC)  Registration fee ".$_PARTICIPANT_DATA_->participation_type_name.' '.$_PARTICIPANT_DATA_->participation_subtype_name."              \n  \n" ,1,'L');
-     $this->Cell(120,24,  "" ,1,'L');
+    $this->Cell(120,24,  "" ,1,'L');
     
     $this->Cell(70,24,' ',1,1,'R');
     $this->SetFont('arial','', 10);
@@ -103,12 +109,11 @@ class myPDF extends FPDF
     $this->MultiCell(175, 5,"By bank transfer: \n- You must quote as a reference your Registration Number, first and last names.\n- Bank transfers are accepted in US$ or RWF only and the payee must cover all bank charges for the payment. \n- Bank fees are the sole responsibility of the registrant and should be paid in addition to the registration fees. \n- All bank transfers must clearly state the name of the participant and the invoice number, as unidentified bank transfers cannot be processed.    
     ",0,'L');
 
-  
-   
     $this->SetFont('arial','B',10);
     $this->Cell(190,20,'',0,1,'L');
     $this->Cell(190,5,'BANK TRANSFER DETAILS:',0,1,'L');
     $this->Cell(190,7,'',0,1,'L');
+
     $this->SetFont('arial','',9);
     $this->Cell(190,1,'Bank Name: ECOBANK RWANDA PLC ',0,1,'L');
     $this->Cell(190,11,'Bank Address: KN# AV4, AVENUE DE LA PAIX, P.O. BOX 3268, KIGALI, RWANDA ',0,1,'L');
@@ -118,18 +123,15 @@ class myPDF extends FPDF
     $this->Cell(190,11,'Account number (USD): 6775017613',0,1,'L');
     $this->Cell(190,1,'Transfer reference: '.$_PARTICIPANT_DATA_->participant_firstname.' '.$_PARTICIPANT_DATA_->participant_lastname.' '.$_PARTICIPANT_DATA_->payment_transaction_id, 0, 1, 'L');
     $this->Cell(190,1,'',0,1,'L');
-    $this->SetFont('arial','', 9);
 
+    $this->SetFont('arial','', 9);
     $this->cell(190, 7, '',0,1,'L');
-    // $this->Cell(1, 6,'',0,0,'L');
     $this->Cell(10, 6,'',0,0,'L');
     $this->Cell(6, 5, "3.",0,0,"L");
-    $this->MultiCell(175, 5,"Mobile Money Transfer: The following mobile money payment options are acceptable: \n- Airtel Money: Powered by Airtel Payments Bank, the Airtel digital money wallet makes payments simple, secure and cashless. \n- mPesa: mPesa is a convenient mobile money wallet allowing your unbanked customers to pay using their mobile device. \n- 	MTN's MoMoPay money wallet makes payments convenient by allowing your customers to pay for goods or services using their mobile device. \n- Orange Money \n- TiGO Pesa: Available in Tanzania only. \n- Vodacom mPesa.
+    $this->MultiCell(175, 5,"Mobile Money Transfer: The following mobile money payment options are acceptable: \n- Airtel Money: Powered by Airtel Payments Bank, the Airtel digital money wallet makes payments simple, secure and       cashless. \n- mPesa: mPesa is a convenient mobile money wallet allowing your unbanked customers to pay using their mobile device. \n- MTN's MoMoPay money wallet makes payments convenient by allowing your customers to pay for goods or services using their mobile device. \n- Orange Money \n- TiGO Pesa: Available in Tanzania only. \n- Vodacom mPesa.
     ",0,'L');
     $this->cell(190, 8, '',0,1,'L');
     
-    
-
     $this->Ln();
     $this->SetFont('arial','B',5);
     $this->cell(190,0,'',1,1,'L');
@@ -142,7 +144,6 @@ class myPDF extends FPDF
 
     $this->cell(190, 7, '',0,1,'L');
 
-    // $this->Cell(1, 6,'',0,0,'L');
     $this->SetFont('arial','',9);
     $this->MultiCell(175, 5,"Payment must to be received within 15 days after completing the registration form; otherwise the registration will be cancelled. \n\nPayments by bank transfer will only be possible until 15th January 2022. After this date, registrations can only be made with credit card payment. No cash payments can be accepted at the venue registration desk.", 0,'L');
    
@@ -154,13 +155,12 @@ class myPDF extends FPDF
 
   }
 
-
 }
-  $pdf=new myPDF();
-  $pdf->AliasNbPages();
-  $pdf->AddPage('P','A4',0);
-  $pdf->viewTable();
-  $pdf->Output();
 
+$pdf = new myPDF();
+$pdf->AliasNbPages();
+$pdf->AddPage('P','A4',0);
+$pdf->viewTable();
+$pdf->Output();
 
  ?>

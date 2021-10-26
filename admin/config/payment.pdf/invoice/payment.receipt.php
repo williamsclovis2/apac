@@ -1,6 +1,8 @@
 <?php
+
 /**
- *
+ * @package Payment Receipt
+ * @author Ezechiel Kalengya [ezechielkalengya@gmail.com] Software Engineer
  */
 class myPDF extends FPDF
 {
@@ -46,29 +48,29 @@ class myPDF extends FPDF
     $this->SetFont('arial','B',5);
     $this->cell(190,0,'',1,1,'L');
     $this->Ln();
+
     $this->SetFont('arial','',11);
     $this->Cell(190,2,'',0,4,'C');
     $this->Cell(190, 11, $_PARTICIPANT_DATA_->participant_firstname.' '.$_PARTICIPANT_DATA_->participant_lastname ,0,1,'L');
     $this->Cell(190,2,'Cube communications Ltd',0,1,'L');
     $this->Cell(190,11, $_PARTICIPANT_DATA_->participant_city==''?'N/A':$_PARTICIPANT_DATA_->participant_city ,0,1,'L');
-    $this->Cell(190,2, $_PARTICIPANT_DATA_->participant_country==''?'N/A':$_PARTICIPANT_DATA_->participant_country ,0,1,'L');
+    $this->Cell(190,2, $_PARTICIPANT_DATA_->participant_country==''?'N/A':countryCodeToCountry($_PARTICIPANT_DATA_->participant_country) ,0,1,'L');
     
     $this->Cell(190,4,'',0,4,'C');
-    $this->Cell(190,11,'Tel:    +'. ($_PARTICIPANT_DATA_->participant_telephone==''?'N/A':$_PARTICIPANT_DATA_->participant_telephone),0,1,'L');
+    $this->Cell(190,11,'Tel:     '. ($_PARTICIPANT_DATA_->participant_telephone==''?'N/A':$_PARTICIPANT_DATA_->participant_telephone),0,1,'L');
     $this->Cell(190,1,"Email: ". ($_PARTICIPANT_DATA_->participant_email==''?'N/A':$_PARTICIPANT_DATA_->participant_email),0,1,'L');
     $this->SetFont('arial','',11);
     $this->Cell(190,3,'',0,1,'C');
     $this->SetFont('arial','',11);
     $this->Cell(190,15,'Receipt number: '.$_PARTICIPANT_DATA_->payment_receipt_id,0,1,'L');
     $this->cell(100,3,'',0,1,'L');
-    // $this->SetFillColor(230,230,120);
+
     $this->SetFont('arial','B', 10);
     $this->Cell(120,7,' Description ',1,0,'L');
     $this->Cell(70,7,' Amount ',1,1,'R');
 
     $this->SetFont('arial','', 10);
-    // $this->MultiCell(140,7, " IUCN Africa Protected Areas  Congress (APAC)  Registration fee ".$_PARTICIPANT_DATA_->participation_type_name.' '.$_PARTICIPANT_DATA_->participation_subtype_name."              \n  \n" ,1,'L');
-     $this->Cell(120,24,  "" ,1,'L');
+    $this->Cell(120,24,  "" ,1,'L');
     
     $this->Cell(70,24,' ',1,1,'R');
     $this->SetFont('arial','', 10);
@@ -77,8 +79,6 @@ class myPDF extends FPDF
     
     $this->Cell(120, -60, " IUCN Africa Protected Areas  Congress (APAC)  Registration fee" ,0,0,'L');
     $this->Cell(70,-62, $_PARTICIPANT_DATA_->participation_subtype_currency.' '.$_PARTICIPANT_DATA_->participation_subtype_price ,0,0,'R');
-    // $this->Cell(120, -60, "" ,0,1,'L');
-
     $this->Cell(190, -11.6,'',0,1,'C');
 
     $this->SetFont('arial','B', 10);
@@ -86,17 +86,14 @@ class myPDF extends FPDF
     $this->Cell(70,7,$_PARTICIPANT_DATA_->participation_subtype_currency.' '.$_PARTICIPANT_DATA_->participation_subtype_price,1,1,'R');
     $this->cell(100,3,'',0,1,'L');
 
-
   }
 
-
-
 }
-  $pdf=new myPDF();
-  $pdf->AliasNbPages();
-  $pdf->AddPage('P','A4',0);
-  $pdf->viewTable();
-  $pdf->Output();
-
+  
+$pdf = new myPDF();
+$pdf->AliasNbPages();
+$pdf->AddPage('P','A4',0);
+$pdf->viewTable();
+$pdf->Output();
 
  ?>
