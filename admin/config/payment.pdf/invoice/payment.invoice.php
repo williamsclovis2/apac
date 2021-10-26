@@ -100,7 +100,7 @@ class myPDF extends FPDF
 
     $this->Cell(10, 6,'',0,0,'L');
     $this->Cell(6, 5, "2.",0,0,"L");
-    $this->MultiCell(175, 5,"By bank transfer: \n- You must quote as a reference your Registration N°, first and last names.\n- Bank transfers are accepted in US$ or RWF only and the payee must cover all bank charges for the payment. \n- Bank fees are the sole responsibility of the registrant and should be paid in addition to the registration fees. \n- All bank transfers must clearly state the name of the participant and the invoice number, as unidentified bank transfers cannot be processed.    
+    $this->MultiCell(175, 5,"By bank transfer: \n- You must quote as a reference your Registration Number, first and last names.\n- Bank transfers are accepted in US$ or RWF only and the payee must cover all bank charges for the payment. \n- Bank fees are the sole responsibility of the registrant and should be paid in addition to the registration fees. \n- All bank transfers must clearly state the name of the participant and the invoice number, as unidentified bank transfers cannot be processed.    
     ",0,'L');
 
   
@@ -118,13 +118,16 @@ class myPDF extends FPDF
     $this->Cell(190,11,'Account number (USD): 6775017613',0,1,'L');
     $this->Cell(190,1,'Transfer reference: '.$_PARTICIPANT_DATA_->participant_firstname.' '.$_PARTICIPANT_DATA_->participant_lastname.' '.$_PARTICIPANT_DATA_->payment_transaction_id, 0, 1, 'L');
     $this->Cell(190,1,'',0,1,'L');
-    $this->SetFont('arial','', 10);
+    $this->SetFont('arial','', 9);
 
     $this->cell(190, 7, '',0,1,'L');
     // $this->Cell(1, 6,'',0,0,'L');
+    $this->Cell(10, 6,'',0,0,'L');
     $this->Cell(6, 5, "3.",0,0,"L");
-    $this->MultiCell(175, 5,"Mobile Money Transfer",0,'L');
+    $this->MultiCell(175, 5,"Mobile Money Transfer: The following mobile money payment options are acceptable: \n- Airtel Money: Powered by Airtel Payments Bank, the Airtel digital money wallet makes payments simple, secure and cashless. \n- mPesa: mPesa is a convenient mobile money wallet allowing your unbanked customers to pay using their mobile device. \n- 	MTN's MoMoPay money wallet makes payments convenient by allowing your customers to pay for goods or services using their mobile device. \n- Orange Money \n- TiGO Pesa: Available in Tanzania only. \n- Vodacom mPesa.
+    ",0,'L');
     $this->cell(190, 8, '',0,1,'L');
+    
     
 
     $this->Ln();
