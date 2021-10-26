@@ -67,6 +67,11 @@ endif;
                             </ul>
                         </div>
                     </div>
+                    <div class="note_section">
+                        <h3>Note</h3>
+                        <p><?=$_Dictionary->translate('jung_message')?></p>
+
+                    </div>
                 </div>
                 <div class="col-lg-2"></div>
                 </div>
