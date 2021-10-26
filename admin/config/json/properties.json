@@ -512,8 +512,8 @@
 
 					{
 						"important": {
-							"fr-lang": "Important",
-							"eng-lang": "Important",
+							"fr-lang": "Les frais d'inscription ne comprennent pas",
+							"eng-lang": "Registration fees does not include:",
 							"ar-lang": "المشاركون في أفريقيا",
 							"pt-lang": "Participantes baseados na África"
 						}
@@ -521,8 +521,43 @@
 
 					{
 						"registration_fees": {
-							"fr-lang": "Les frais d'inscription n'incluent pas les taxes sur la valeur ajoutée (TVA). Si le gouvernement du Rwanda facture la TVA ou d'autres taxes applicables sur les frais d'inscription, celle-ci sera ajoutée au montant final de la facture. Ceci s'applique également aux autres coûts liés aux délégués tels que les frais d'annulation d'inscription.",
-							"eng-lang": "Registration Fees does not include Value Added Taxes (VAT). Should the Government of Rwanda charge VAT or other applicable taxes on the registration fees, this will be added to the final invoice amount. This is also applicable to other delegate related costs such as registration cancellation costs.",
+							"fr-lang": "Taxe sur la valeur ajoutée (TVA) du Rwanda. Si le gouvernement du Rwanda facture la TVA ou d'autres taxes applicables sur les frais d'inscription, celle-ci sera ajoutée au montant final de la facture. Ceci s'applique également aux autres frais liés aux délégués tels que l'annulation, les changements de nom et les frais de virement bancaire.",
+							"eng-lang": "Rwanda Value Added Tax (VAT). Should the Government of Rwanda charge VAT or other applicable taxes on the registration fees, this will be added to the final invoice amount. This is also applicable to other delegate related costs such as cancellation, name changes and bank transfer fees.",
+							"ar-lang": "المشاركون في أفريقيا",
+							"pt-lang": "Participantes baseados na África"
+						}
+					},
+
+					{
+						"instruction_two": {
+							"fr-lang": "Hébergement à l'hôtel, assurance vol et voyage.",
+							"eng-lang": "Hotel Accommodation, Flight and travel insurance.",
+							"ar-lang": "المشاركون في أفريقيا",
+							"pt-lang": "Participantes baseados na África"
+						}
+					},
+					{
+						"instruction_three": {
+							"fr-lang": "Visites pré et post congrès.",
+							"eng-lang": "Pre and Post Congress Tours. ",
+							"ar-lang": "المشاركون في أفريقيا",
+							"pt-lang": "Participantes baseados na África"
+						}
+					},
+
+					{
+						"for_more": {
+							"fr-lang": "Pour plus d'informations sur les frais d'inscription, veuillez vous référer aux informations sur l'inscription des délégués au congrès, aux conditions générales",
+							"eng-lang": "For more information on registration fees, please refer to the Congress Delegate Registration Information, General Terms and Conditions",
+							"ar-lang": "المشاركون في أفريقيا",
+							"pt-lang": "Participantes baseados na África"
+						}
+					},
+
+					{
+						"jung_message": {
+							"fr-lang": "Si vous ne voyez pas l'e-mail dans votre boîte de réception, veuillez vérifier votre dossier de courrier indésirable ou votre dossier de courrier indésirable et ajouter <b>info@apacongress.torusguru.com</b> à votre liste de diffusion. Si vous ne recevez pas d'e-mail de confirmation, essayez de soumettre à nouveau le formulaire ou contactez <a href='mailto:registration@apacongress.africa' target='_blank'>registration@apacongress.africa</a>.",
+							"eng-lang": "If you do not see the email in your inbox, please check your junk mail folder or spam folder and add <b>info@apacongress.torusguru.com</b> to your mailing list. If you do not receive a confirmation email try submitting the form again or reach out to <a href='mailto:registration@apacongress.africa' target='_blank'>registration@apacongress.africa</a>.",
 							"ar-lang": "المشاركون في أفريقيا",
 							"pt-lang": "Participantes baseados na África"
 						}
