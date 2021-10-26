@@ -63,7 +63,7 @@ $GLOBALS['config'] = array(
     ),
     'server' => array(
         // 'name' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac",
-        'name' => "http://{$_SERVER['HTTP_HOST']}",
+        'name' => "http://{$_SERVER['HTTP_HOST']}", 
     ),
     'root' => array(
       //  'json_properties' => $_SERVER['DOCUMENT_ROOT']."/thefuture/apac/admin/config/json/properties.json", // Lccal
