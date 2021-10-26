@@ -163,11 +163,11 @@ class FutureEventController
 
 			/** Check If Email Address not yet used */
 			if(self::checkEmailAlreadyUsed($eventID, $email)):
-				// return (object)[
-				// 	'ERRORS'		=> true,
-				// 	'ERRORS_SCRIPT' => "This email address has already been used!",
-				// 	'ERRORS_STRING' => "This email address has already been used!"
-				// ];
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "This email address has already been used!",
+					'ERRORS_STRING' => "This email address has already been used!"
+				];
 			endif;
 
 			/** Check If Password Match */
