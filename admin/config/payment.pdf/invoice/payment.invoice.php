@@ -45,6 +45,7 @@ class myPDF extends FPDF
     $this->SetFont('arial','B',5);
     $this->cell(190,0,'',1,1,'L');
     $this->Ln();
+    $this->Cell(190,2,'',0,4,'C');
     $this->SetFont('arial','',11);
     $this->Cell(190, 11, $_PARTICIPANT_DATA_->participant_firstname.' '.$_PARTICIPANT_DATA_->participant_lastname ,0,1,'L');
     $this->Cell(190,2,'Cube communications Ltd',0,1,'L');
@@ -109,6 +110,7 @@ class myPDF extends FPDF
     $this->Cell(190,20,'',0,1,'L');
     $this->Cell(190,5,'BANK TRANSFER DETAILS:',0,1,'L');
     $this->Cell(190,7,'',0,1,'L');
+
     $this->SetFont('arial','',9);
     $this->Cell(190,1,'Bank Name: ECOBANK RWANDA PLC ',0,1,'L');
     $this->Cell(190,11,'Bank Address: KN# AV4, AVENUE DE LA PAIX, P.O. BOX 3268, KIGALI, RWANDA ',0,1,'L');
@@ -118,13 +120,12 @@ class myPDF extends FPDF
     $this->Cell(190,11,'Account number (USD): 6775017613',0,1,'L');
     $this->Cell(190,1,'Transfer reference: '.$_PARTICIPANT_DATA_->participant_firstname.' '.$_PARTICIPANT_DATA_->participant_lastname.' '.$_PARTICIPANT_DATA_->payment_transaction_id, 0, 1, 'L');
     $this->Cell(190,1,'',0,1,'L');
-    $this->SetFont('arial','', 9);
 
+    $this->SetFont('arial','', 9);
     $this->cell(190, 7, '',0,1,'L');
-    // $this->Cell(1, 6,'',0,0,'L');
     $this->Cell(10, 6,'',0,0,'L');
     $this->Cell(6, 5, "3.",0,0,"L");
-    $this->MultiCell(175, 5,"Mobile Money Transfer: The following mobile money payment options are acceptable: \n- Airtel Money: Powered by Airtel Payments Bank, the Airtel digital money wallet makes payments simple, secure and cashless. \n- mPesa: mPesa is a convenient mobile money wallet allowing your unbanked customers to pay using their mobile device. \n- 	MTN's MoMoPay money wallet makes payments convenient by allowing your customers to pay for goods or services using their mobile device. \n- Orange Money \n- TiGO Pesa: Available in Tanzania only. \n- Vodacom mPesa.
+    $this->MultiCell(175, 5,"Mobile Money Transfer: The following mobile money payment options are acceptable: \n- Airtel Money: Powered by Airtel Payments Bank, the Airtel digital money wallet makes payments simple, secure and       cashless. \n- mPesa: mPesa is a convenient mobile money wallet allowing your unbanked customers to pay using their mobile device. \n- MTN's MoMoPay money wallet makes payments convenient by allowing your customers to pay for goods or services using their mobile device. \n- Orange Money \n- TiGO Pesa: Available in Tanzania only. \n- Vodacom mPesa.
     ",0,'L');
     $this->cell(190, 8, '',0,1,'L');
     
@@ -142,7 +143,6 @@ class myPDF extends FPDF
 
     $this->cell(190, 7, '',0,1,'L');
 
-    // $this->Cell(1, 6,'',0,0,'L');
     $this->SetFont('arial','',9);
     $this->MultiCell(175, 5,"Payment must to be received within 15 days after completing the registration form; otherwise the registration will be cancelled. \n\nPayments by bank transfer will only be possible until 15th January 2022. After this date, registrations can only be made with credit card payment. No cash payments can be accepted at the venue registration desk.", 0,'L');
    
@@ -156,7 +156,7 @@ class myPDF extends FPDF
 
 
 }
-  $pdf=new myPDF();
+  $pdf = new myPDF();
   $pdf->AliasNbPages();
   $pdf->AddPage('P','A4',0);
   $pdf->viewTable();

@@ -462,7 +462,7 @@ $('.registerFormSubmit').on('click', function () {
 		success: function (responseData) {
 			var responseCaptcha = JSON.parse(responseData);
 
-			if (responseCaptcha.messages != inputCaptcha) {
+			if (responseCaptcha.messages == inputCaptcha) {
 
 				var form = $('#registerForm')[0];
 				var formData = new FormData(form);
@@ -593,8 +593,6 @@ $('.registerACPFormSubmit').on('click', function () {
 
 	var this_form = $('#accountForm');
 	var action = $('.host').attr('link') + "/registration";
-	// var inputCaptcha = document.getElementById("securityCode").value.trim();
-
 
 	$("#loginButton").prop('disabled', true);
 
@@ -730,7 +728,7 @@ function validate(input) {
 			error_validate_msg = 'Please fill this field with valid email';
 
 	if (input_id == 'birthday')
-	alert(input_value);
+		alert(input_value);
 	// if (!checkAgeAtDateOfEvent(input_value, 10, 35))
 	// 	error_validate_msg = 'Only people with age between 10 and 35 can register to this event';
 
