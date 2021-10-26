@@ -1,6 +1,8 @@
 <?php
+
 /**
- *
+ * @package Payment Invoice
+ * @author Ezechiel Kalengya [ezechielkalengya@gmail.com] Software Engineer
  */
 class myPDF extends FPDF
 {
