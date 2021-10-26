@@ -165,22 +165,24 @@ $_DCOLOR_ = '#dedede!important';
     <script src="<?php linkto('js/select2.min.js'); ?>"></script>
     <script src="<?php linkto('js/countries.js'); ?>"></script>
     <script src="<?php linkto('build/js/intlTelInput.js'); ?>"></script>
-    <script>
-        var input = document.querySelector("#telephone");
-        window.intlTelInput(input, {
-            autoPlaceholder: "off",
-            initialCountry: "rw",
-            separateDialCode: true,
-            utilsScript: "../build/js/utils.js",
+
+     <script>
+        var phone_number = window.intlTelInput(document.querySelector("#telephone"), {
+        autoPlaceholder: "off",
+        separateDialCode: true,
+        initialCountry: "rw",
+        hiddenInput: "full", 
+      utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
         });
     </script>
+
     <script>
-        var input = document.querySelector("#telephone_2");
-        window.intlTelInput(input, {
-            autoPlaceholder: "off",
-            initialCountry: "rw",
-            separateDialCode: true,
-            utilsScript: "../build/js/utils.js",
+        var phone_number_2 = window.intlTelInput(document.querySelector("#telephone_2"), {
+        autoPlaceholder: "off",
+        separateDialCode: true,
+        initialCountry: "rw",
+        hiddenInput: "full", 
+        utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
         });
     </script>
   

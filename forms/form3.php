@@ -68,6 +68,7 @@
                             <div class="row">
                                 <label for="telephone" class="col-sm-3"><?=$_Dictionary->translate('Telephone number 1')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
+                                    <input type="hidden" name ="full_telephone" value="" >
                                     <input type="text" name="telephone" id="telephone" oninput="validate(this)"  class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your telephone')?>"/>
                                     <div class="validate" id="telephone_error"></div>
                                 </div>
@@ -77,6 +78,7 @@
                             <div class="row">
                                 <label for="telephone" class="col-sm-3"><?=$_Dictionary->translate('Telephone number 2')?></label>
                                 <div class="col-sm-9 field-validate">
+                                    <input type="hidden" name ="full_telephone_2" value="" >
                                     <input type="text" name="telephone_2" oninput="validate(this)"  data-msg="<?=$_Dictionary->words('Please enter your telephone 2')?>"  id="telephone_2" class="form-control"/>
                                     <div class="validate" id="telephone_2_error"></div>
                                 </div>

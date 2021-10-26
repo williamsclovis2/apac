@@ -441,6 +441,16 @@ $('.registerFormSubmit').on('click', function () {
 		$('#confirm_password_error').text($('#confirm_password').attr('data-msg'));
 	}
 
+	var full_telephone = phone_number.getNumber(intlTelInputUtils.numberFormat.E164);
+	$("input[name='full_telephone'").val(full_telephone);
+
+	if ($('#telephone_2').val().length > 0) {
+		var full_telephone_2 = phone_number_2.getNumber(intlTelInputUtils.numberFormat.E164);
+		$("input[name='full_telephone_2'").val(full_telephone_2);
+	}
+
+	// alert(full_telephone);
+
 	var str = "";
 	if (ferror) {
 		location.href = "#" + "registerForm";
@@ -727,10 +737,12 @@ function validate(input) {
 		if (!validateEmail(input_value) || input_value.length <= 5)
 			error_validate_msg = 'Please fill this field with valid email';
 
-	if (input_id == 'birthday')
-		alert(input_value);
-	// if (!checkAgeAtDateOfEvent(input_value, 10, 35))
-	// 	error_validate_msg = 'Only people with age between 10 and 35 can register to this event';
+	// if (input_id == 'birthday')
+	// 	if (!checkAgeAtDateOfEvent(input_value, 10, 35))
+	// 		error_validate_msg = 'Only people with age between 10 and 35 can register to this event';
+
+	// if (input_id == 'telephone')
+	// 	alert("Telephone Entered :: " + input_value);
 
 	$(error_validate_id).text(error_validate_msg);
 }

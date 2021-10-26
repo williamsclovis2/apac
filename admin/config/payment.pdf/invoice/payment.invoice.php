@@ -11,6 +11,9 @@ class myPDF extends FPDF
   }
 
   function footer() {
+    // $this->Image( VIEW_LOGO_APAC2, 10,260,40);
+    // $this->Image( VIEW_LOGO_AWF, 90,266,40);
+    // $this->Image( VIEW_LOGO_WCPA, 160,265,40);
     $this->SetY(-15);
     $this->SetFont('cambria','B',14);
     $this->Cell(0,15,'Page'.$this->PageNo().'/{nb}',0,0,'C');
