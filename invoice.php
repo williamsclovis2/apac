@@ -80,13 +80,67 @@
                       </table>
                     </td>
                   </tr>
+                 
                   <tr>
+                      <td class='footer' bgcolor='#fff'>
+                        <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+                          <tr>
+                            <td>
+                                <table border='0' cellspacing='0' cellpadding='0'>
+                                  <tr><td class='h2' style='font-family: sans-serif;padding:15px 0 0 0;'><b>Note</b> </td></tr>
+                                  <tr><td class='h2' style='font-family: sans-serif; text-align: justify;'> The information contained in or accompanying this email and any attachment thereto, is intended solely for the use of the stated recipient(s) and may contain information that is confidential and/or privileged. Any dissemination, distribution or copying of this email and any attachment by anyone who is not a stated recipient is strictly prohibited. If you receive this message in error, please notify the sender immediately and delete the message and any attachment from your system without retaining a copy. Thank you for your cooperation and understanding. </td></tr>
+                                </table>
+                              </td>
+                          </tr>
+                          <tr>
+                            <td'>
+                              <table border='0' cellspacing='0' cellpadding='0'>
+                                <td class='h2' style='font-family: sans-serif;padding:0; color:#37af47;text-transform:uppercase;'><b>Stay connected</b</td>
+                              </table>
+                              <span class='alignment'></span>
+                              <table border='0' cellspacing='0' cellpadding='0'>
+                                <tr><td class='h2' style='font-family: sans-serif; padding:0;'><b>Twitter:</b> <a href='https://twitter.com/APA_Congress?s=20' target='_blank'>@APA_Congress</a></td></tr>
+                                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Connect with our official tag: </b><a href='#'>#APAC2022 </a></td></tr>
+                                <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>We look forward to meeting you in Kigali, Rwanda. </td></tr>
+                                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Yours Faithfully,</b> </td></tr>
+                                <tr><td class='h2' style='font-family: sans-serif;'> The APAC Secretariat </td></tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </body>
+        </html>
+
+                  <!-- <tr>
                     <td class='footer' bgcolor='#f6f6f6'>
                       <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+                         <tr>
+                                <td>
+                                    <table border='0' cellspacing='0' cellpadding='0'>
+                                      <tr><td class='h2' style='font-family: sans-serif;padding:15px 0 0 0;'><b>Note</b> </td></tr>
+                                      <tr><td class='h2' style='font-family: sans-serif; text-align: justify;'> The information contained in or accompanying this email and any attachment thereto, is intended solely for the use of the stated recipient(s) and may contain information that is confidential and/or privileged. Any dissemination, distribution or copying of this email and any attachment by anyone who is not a stated recipient is strictly prohibited. If you receive this message in error, please notify the sender immediately and delete the message and any attachment from your system without retaining a copy. Thank you for your cooperation and understanding. </td></tr>
+                                    </table>
+                                  </td>
+                              </tr>
                         <tr>
                           <td'>
                             <table border='0' cellspacing='0' cellpadding='0'>
-                               <tr><td class='h2' style='font-family: sans-serif;padding:15px 0 0 0;'><b>Yours Faithfully,</b> </td></tr>
+                               <td class='h3' style='font-family: sans-serif;'>Stay connected </td>
+                            </table>
+                            <span class='alignment'></span>
+                            <table border='0' cellspacing='0' cellpadding='0'>
+                               <tr><td class='h2' style='font-family: sans-serif; padding:0;'><b>Twitter:</b> <a href='https://twitter.com/APA_Congress?s=20' target='_blank'>@APA_Congress</a></td></tr>
+                               <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Connect with our official tag: </b><a href='#'>#APAC2022 </a></td></tr>
+                               <tr><td class='h2' style='font-family: sans-serif;'>We look forward to meeting you in Kigali, Rwanda. </td></tr>
+
+
+                               <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Yours Faithfully,</b> </td></tr>
                                <tr><td class='h2' style='font-family: sans-serif;'> The APAC Secretariat </td></tr>
                             </table>
                           </td>
@@ -99,4 +153,38 @@
             </tr>
           </table>
         </body>
-        </html>
+        </html> -->
+                 
+                 
+                 
+                  <!-- <tr>
+                    <td class='footer' bgcolor='#f6f6f6'>
+                      <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+
+                        <tr>
+                          <td>
+                              <table border='0' cellspacing='0' cellpadding='0'>
+                                <tr><td class='h2' style='font-family: sans-serif;padding:15px 0 0 0;'><b>Note</b> </td></tr>
+                                <tr><td class='h2' style='font-family: sans-serif; text-align: justify;'> The information contained in or accompanying this email and any attachment thereto, is intended solely for the use of the stated recipient(s) and may contain information that is confidential and/or privileged. Any dissemination, distribution or copying of this email and any attachment by anyone who is not a stated recipient is strictly prohibited. If you receive this message in error, please notify the sender immediately and delete the message and any attachment from your system without retaining a copy. Thank you for your cooperation and understanding. </td></tr>
+                              </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <table border='0' cellspacing='0' cellpadding='0'>
+                               <tr><td class='h2' style='font-family: sans-serif;padding:15px 0 0 0;'><b>Yours Faithfully,</b> </td></tr>
+                               <tr><td class='h2' style='font-family: sans-serif;'> The APAC Secretariat </td></tr>
+                            </table>
+                          </td>
+                        </tr>
+
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html> -->

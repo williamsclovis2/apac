@@ -162,18 +162,18 @@
                     <div class="row">
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="firstname" class="col-sm-3"><?=$_Dictionary->translate('Name of school')?>   <span>*</span></label>
+                                <label for="firstname" class="col-sm-3"><?=$_Dictionary->translate('name-of-school-or-organization')?>   <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control"  oninput="validate(this)"  name="institute_name" id="institute_name" type="text" placeholder="<?=$_Dictionary->translate('Name of School')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter name of school')?>"/>
+                                    <input class="form-control"  oninput="validate(this)"  name="institute_name" id="institute_name" type="text" placeholder="<?=$_Dictionary->translate('name-of-school-or-organization')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter name of school or organization')?>"/>
                                     <div class="validate" id="institute_name_error"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="gender" class="col-sm-3"><?=$_Dictionary->translate('Category')?> <span>*</span></label>
+                                <label for="gender" class="col-sm-3"><?=$_Dictionary->translate('Category')?> <span></span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <select id="institute_category"  onchange="validate(this)"  name="institute_category" class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please select category')?>">
+                                    <select id="institute_category"  onchange="//validate(this)"  name="institute_category" class="form-control" data-rule="" data-msg="<?=$_Dictionary->words('Please select category')?>">
                                         <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
                                         <option value="High school student">High school student </option>
                                         <option value="Undergraduate">Undergraduate</option>
@@ -216,7 +216,35 @@
                     <h4><?=$_Dictionary->translate('WHAT ARE YOUR OBJECTIVES FOR ATTENDING THIS CONGRESS?')?></h4>
                     <hr class="separator-line"> 
                     <div class="row">
+
                         <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->words('Select objectives')?> <span>*</span></label>
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-sm-6 field-validate">
+                                            <select class="form-control" onchange="Other(this,'#objectives1');" id="objectives" name="objectives" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your objective')?>" >
+                                                <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
+                                                <option value="Make a key-note address">Make a key-note address</option> 
+                                                <option value="Engage in high-level debates and refine your ideas">Engage in high-level debates and refine your ideas </option>
+                                                <option value="Showcase your work (e.g. side event, exhibitions, presentations etc.)">Showcase your work (e.g. side event, exhibitions, presentations etc.)</option>
+                                                <option value="Network and build a community of like-minded individuals">Network and build a community of like-minded individuals</option>
+                                                <option value="Learn, share new ideas and best practices">Learn, share new ideas and best practices</option>
+                                                <option value="Other">Other (specify)</option>
+                                            </select>
+                                            <div class="validate" id="objectives_error"></div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" oninput="validate(this)"  name="objectives1" id="objectives1" type="text" placeholder="<?=$_Dictionary->words('please specify')?>"   data-msg="<?=$_Dictionary->words('Please enter your objective')?>" 
+                                            <?php if(escape(Input::get('organisation_type')) != 'Other'){?> disabled="disabled" <?php }?>>
+                                            <div class="validate" id="objectives1_error"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="form-group col-sm-12">
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Type objectives')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
@@ -224,7 +252,7 @@
                                     <div class="validate" id="objectives_error"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- <div class="form-group col-sm-12">
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Second objective')?> <span>*</span></label>

@@ -268,7 +268,35 @@ endif;
               <h4><?=$_Dictionary->translate('WHAT ARE YOUR OBJECTIVES FOR ATTENDING THIS CONGRESS?')?></h4>
                     <hr class="separator-line"> 
                     <div class="row">
+                        
                         <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->words('Select objectives')?> <span>*</span></label>
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-sm-6 field-validate">
+                                            <select class="form-control" onchange="Other(this,'#objectives1');" id="objectives" name="objectives" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your objective')?>" >
+                                                <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
+                                                <option value="Make a key-note address">Make a key-note address</option> 
+                                                <option value="Engage in high-level debates and refine your ideas">Engage in high-level debates and refine your ideas </option>
+                                                <option value="Showcase your work (e.g. side event, exhibitions, presentations etc.)">Showcase your work (e.g. side event, exhibitions, presentations etc.)</option>
+                                                <option value="Network and build a community of like-minded individuals">Network and build a community of like-minded individuals</option>
+                                                <option value="Learn, share new ideas and best practices">Learn, share new ideas and best practices</option>
+                                                <option value="Other">Other (specify)</option>
+                                            </select>
+                                            <div class="validate" id="objectives_error"></div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" oninput="validate(this)"  name="objectives1" id="objectives1" type="text" placeholder="<?=$_Dictionary->words('please specify')?>"   data-msg="<?=$_Dictionary->words('Please enter your objective')?>" 
+                                            <?php if(escape(Input::get('organisation_type')) != 'Other'){?> disabled="disabled" <?php }?>>
+                                            <div class="validate" id="objectives1_error"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="form-group col-sm-12">
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Type objectives')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
@@ -276,7 +304,7 @@ endif;
                                     <div class="validate" id="objectives_error"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- <div class="form-group col-sm-12">
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Second objective')?> <span>*</span></label>
