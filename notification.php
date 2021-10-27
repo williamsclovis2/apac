@@ -31,6 +31,11 @@ if(Input::checkInput('code', 'get', 1)):
             $_NOTIFICATION_TITLE_   = "Payment successfully completed";
             $_NOTIFICATION_CONTENT_ = "Thank you for your registration. Your payment has been successfully completed. An email has been sent to you with the receipt of your payment and event details.";
             break;
+
+        case 'PAYMENT_RECEIPT_NOT_FOUND_ERROR':
+            $_NOTIFICATION_TITLE_   = "Payment receipt not found";
+            $_NOTIFICATION_CONTENT_ = "<p style='text-align:left !important;'>Thank you for your interest in participating in the inaugural Africa Protected Areas Congress. We regret to inform you that your payment receipt was not found.<br><b>This occurs when your payment has not yet been completed.</b></p>";
+            break;
     endswitch;
 endif;
 

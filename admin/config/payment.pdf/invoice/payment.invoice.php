@@ -32,6 +32,17 @@ class myPDF extends FPDF
     if(!($_PARTICIPANT_DATA_ = FutureEventController::getEventParticipantPaymentDataByID($_PAYMENT_ID_)))
         Redirect::to('');
 
+    $_PARTICIPANT_ORGANIZATION_NAME_    = 'N/A';
+    $_PARTICIPANT_ORGANIZATION_COUNTRY_ = 'N/A';
+    $_PARTICIPANT_ORGANIZATION_CITY_    = 'N/A';
+
+    $_PARTICIPANT_ORGANIZATION_DATA_ = FutureEventController::getParticipantOrganizationOrSchool($_PARTICIPANT_DATA_->event_id, $_PARTICIPANT_DATA_->participant_id);
+    if($_PARTICIPANT_ORGANIZATION_DATA_):
+      $_PARTICIPANT_ORGANIZATION_NAME_    = $_PARTICIPANT_ORGANIZATION_DATA_->name;
+      $_PARTICIPANT_ORGANIZATION_COUNTRY_ = $_PARTICIPANT_ORGANIZATION_DATA_->country;
+      $_PARTICIPANT_ORGANIZATION_CITY_    = $_PARTICIPANT_ORGANIZATION_DATA_->city;
+    endif;
+
     # Invoice
     $this->SetFont('arial','B', 11);
     $this->Cell(190,21,'',0,4,'C');
@@ -53,9 +64,9 @@ class myPDF extends FPDF
     $this->Cell(190,2,'',0,4,'C');
     $this->SetFont('arial','',11);
     $this->Cell(190, 11, $_PARTICIPANT_DATA_->participant_firstname.' '.$_PARTICIPANT_DATA_->participant_lastname ,0,1,'L');
-    $this->Cell(190,2,'Cube communications Ltd',0,1,'L');
-    $this->Cell(190,11, $_PARTICIPANT_DATA_->participant_city==''?'N/A':$_PARTICIPANT_DATA_->participant_city ,0,1,'L');
-    $this->Cell(190,2, $_PARTICIPANT_DATA_->participant_country==''?'N/A':countryCodeToCountry($_PARTICIPANT_DATA_->participant_country) ,0,1,'L');
+    $this->Cell(190,2, $_PARTICIPANT_ORGANIZATION_NAME_ ,0,1,'L');
+    $this->Cell(190,11, $_PARTICIPANT_ORGANIZATION_CITY_  ,0,1,'L');
+    $this->Cell(190,2, $_PARTICIPANT_ORGANIZATION_COUNTRY_==''?'N/A':countryCodeToCountry($_PARTICIPANT_ORGANIZATION_COUNTRY_) ,0,1,'L');
     $this->Cell(190,11,'Tel:     '. ($_PARTICIPANT_DATA_->participant_telephone==''?'N/A':$_PARTICIPANT_DATA_->participant_telephone),0,1,'L');
     $this->Cell(190,1,"Email: ". ($_PARTICIPANT_DATA_->participant_email==''?'N/A':$_PARTICIPANT_DATA_->participant_email),0,1,'L');
     

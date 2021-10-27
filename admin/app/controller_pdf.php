@@ -21,7 +21,11 @@ if(Input::checkInput('request', 'get', 1)):
      case 'print_payment_invoice':
        require $mainPath_.'payment.invoice'.PL;
        break;
+       
      case 'print_payment_receipt':
+       if($_PARTICIPANT_DATA_->payment_transaction_status != 'COMPLETED')
+          Redirect::to('payment/receipt/unfound/notification/'.sha1(time().'pay'));
+      
        require $mainPath_.'payment.receipt'.PL;
        break;
 

@@ -275,7 +275,36 @@ if($_participant_data_->payment_state == 'PAYABLE'):
 <?php
 endif;
     ?>
-                </div>
+
+<?php
+# Need Accommodation 
+if($_participant_data_->need_accommodation_state == 1):
+    ?>
+
+                                    <h3 class="card-sect-title">Accommodation </h3>
+                                    <div class="card mt-3">
+                                        <div class="card-body side-card">
+                                            <div class="row">
+                                                <!-- <div class="col-sm-5">
+                                                    <h6 class="mb-0">Payment Method</h6>
+                                                </div> -->
+                                                <div class="col-sm-12 ">
+                                                    <h6>
+                                                        <ul>
+                                                            <li><a style="color: #f47e20;" href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_blank'>Click here</a> to book your accommodation for your stay in Kigali   </li>
+                                                        </ul>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+
+                                  
+<?php
+endif;
+    ?>
+            </div>
 
                 <div class="col-md-8">
                     <h3 class="card-sect-title">CONTACT INFORMATION </h3>

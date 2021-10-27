@@ -30,8 +30,13 @@ class myPDF extends FPDF
     if(!($_PARTICIPANT_DATA_ = FutureEventController::getEventParticipantPaymentDataByID($_PAYMENT_ID_)))
         Redirect::to('');
 
+    if($_PARTICIPANT_DATA_->payment_transaction_status != 'COMPLETED')
+      Redirect::to('payment/receipt/unfound/notification/'.sha1(time().'pay'));
+
+    $_PARTICIPANT_ORGANIZATION_NAME_ = FutureEventController::getParticipantOrganizationName($_PARTICIPANT_DATA_->event_id, $_PARTICIPANT_DATA_->participant_id);
+    $_PARTICIPANT_ORGANIZATION_NAME_ = ( $_PARTICIPANT_ORGANIZATION_NAME_ )? $_PARTICIPANT_ORGANIZATION_NAME_:'N/A';
+
     # Receipt
-    
     $this->SetFont('arial','B', 11);
     $this->Cell(190,21,'',0,4,'C');
     $this->Cell(190,5,'IUCN Africa Protected Areas Congress',0,1,'C');
@@ -52,7 +57,7 @@ class myPDF extends FPDF
     $this->SetFont('arial','',11);
     $this->Cell(190,2,'',0,4,'C');
     $this->Cell(190, 11, $_PARTICIPANT_DATA_->participant_firstname.' '.$_PARTICIPANT_DATA_->participant_lastname ,0,1,'L');
-    $this->Cell(190,2,'Cube communications Ltd',0,1,'L');
+    $this->Cell(190,2, $_PARTICIPANT_ORGANIZATION_NAME_ .' --- '.$_PARTICIPANT_DATA_->payment_transaction_status,0,1,'L');
     $this->Cell(190,11, $_PARTICIPANT_DATA_->participant_city==''?'N/A':$_PARTICIPANT_DATA_->participant_city ,0,1,'L');
     $this->Cell(190,2, $_PARTICIPANT_DATA_->participant_country==''?'N/A':countryCodeToCountry($_PARTICIPANT_DATA_->participant_country) ,0,1,'L');
     

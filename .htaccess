@@ -18,6 +18,8 @@ RewriteRule ^pdf/payment/receipt/([0-9a-zA-Z]+)$ admin/app/controller_pdf.php?re
 # Set The Bank Transfer page
 RewriteRule ^bank/transfert/success/notification/([0-9a-zA-Z]+)$	notification.php?code=BANK_TRANSFER_SUCCESSFULLY_GENERATED [L]
 
+# Set The Payment Callback page
+RewriteRule ^payment/receipt/unfound/notification/([0-9a-zA-Z]+)$	notification.php?code=PAYMENT_RECEIPT_NOT_FOUND_ERROR [L]
 
 # Set The Payment Callback page
 RewriteRule ^pay/callback/response/$	admin/config/callback_payment/callback_payment_api.php [L]

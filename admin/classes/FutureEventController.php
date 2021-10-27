@@ -77,19 +77,19 @@ class FutureEventController
 			$lastname 		   = $str->sanAsName($_EDIT['lastname']);
 			$email	           = $str->data_in($_EDIT['email']);
 			
-			$telephone         = $str->data_in($_EDIT['full_telephone']);
-			$telephone_2	   = $str->data_in($_EDIT['full_telephone_2']);
+			$telephone         = !Input::checkInput('full_telephone', 'post', 1)?'':$str->data_in($_EDIT['full_telephone']);
+			$telephone_2	   = !Input::checkInput('full_telephone_2', 'post', 1)?'':$str->data_in($_EDIT['full_telephone_2']);
 
-			$gender 		   = $str->data_in($_EDIT['gender']);
-			$birthday 		   = $str->data_in($_EDIT['birthday']);
+			$gender 		   = !Input::checkInput('gender', 'post', 1)?'':$str->data_in($_EDIT['gender']);
+			$birthday 		   = !Input::checkInput('birthday', 'post', 1)?'':$str->data_in($_EDIT['birthday']);
 			
-			$job_title         = $str->data_in($_EDIT['job_title']);
-			$job_category 	   = $str->data_in($_EDIT['job_category']);
-			$language	 	   =!Input::checkInput('language', 'post', 1)?'': $str->data_in($_EDIT['language']);
+			$job_title         = !Input::checkInput('job_title', 'post', 1)?'':$str->data_in($_EDIT['job_title']);
+			$job_category 	   = !Input::checkInput('job_category', 'post', 1)?'':$str->data_in($_EDIT['job_category']);
+			$language	 	   = !Input::checkInput('language', 'post', 1)?'': $str->data_in($_EDIT['language']);
 
 			/** Participant Password */
-			$password 			= $str->data_in($_EDIT['password']);
-			$confirm_password 	= $str->data_in($_EDIT['confirm_password']);
+			$password 			= !Input::checkInput('password', 'post', 1)?'':$str->data_in($_EDIT['password']);
+			$confirm_password 	= !Input::checkInput('confirm_password', 'post', 1)?'':$str->data_in($_EDIT['confirm_password']);
 
 			/** Attending Objective Information */
 			$objectives		 		 = !Input::checkInput('objectives', 'post', 1)?'':$str->data_in($_EDIT['objectives']);
@@ -145,7 +145,7 @@ class FutureEventController
 
 			/** Student State - When An Youth Or Student regsiters - */
 			$student_state = 0;
-			if($educacation_institute_name != '' && $educacation_institute_category != '' )
+			if($educacation_institute_name != '')
 				$student_state = 1;
 
 			/** Upload The ID Document Picture */
@@ -163,11 +163,11 @@ class FutureEventController
 
 			/** Check If Email Address not yet used */
 			if(self::checkEmailAlreadyUsed($eventID, $email)):
-				return (object)[
-					'ERRORS'		=> true,
-					'ERRORS_SCRIPT' => "This email address has already been used!",
-					'ERRORS_STRING' => "This email address has already been used!"
-				];
+				// return (object)[
+				// 	'ERRORS'		=> true,
+				// 	'ERRORS_SCRIPT' => "This email address has already been used!",
+				// 	'ERRORS_STRING' => "This email address has already been used!"
+				// ];
 			endif;
 
 			/** Check If Password Match */
@@ -197,6 +197,16 @@ class FutureEventController
 
 			/** Need Accommodation */
 			$needAccommodation = !Input::checkInput('needAccommodation', 'post', 1)?0:$str->data_in($_EDIT['needAccommodation']);
+
+			/** Select - Other Option - Specify */
+			if($job_category 	  == 'Other')
+				$job_category 	   = !Input::checkInput('job_category1', 'post', 1)?'':$str->data_in($_EDIT['job_category1']);
+			if($organisation_type == 'Other')
+				$organisation_type = !Input::checkInput('organisation_type1', 'post', 1)?'':$str->data_in($_EDIT['organisation_type1']);
+			if($industry 		  == 'Other')
+				$industry 	       = !Input::checkInput('industry1', 'post', 1)?'':$str->data_in($_EDIT['industry1']);
+			if($objectives		  == 'Other')
+				$objectives  	   = !Input::checkInput('objectives1', 'post', 1)?'':$str->data_in($_EDIT['objectives1']);
 
 			/** Check Age - [ 10 - ] */
 			if($diagnoArray[0] == 'NO_ERRORS'){
@@ -1619,6 +1629,7 @@ class FutureEventController
 		future_payment_transaction_entry.id As payment_id, 
 		future_payment_transaction_entry.transaction_id As payment_transaction_id, 
 		future_payment_transaction_entry.transaction_time As payment_transaction_date, 
+		future_payment_transaction_entry.transaction_status As payment_transaction_status, 
 		future_payment_transaction_entry.receipt_id As payment_receipt_id, 
 		future_participants.id As participant_id, 
 		future_participants.qrID As participant_code, 
@@ -1771,6 +1782,35 @@ class FutureEventController
         $FutureEventTable->selectQuery("SELECT  end_date  FROM future_event  WHERE id = {$eventID} ORDER BY id DESC LIMIT 1");
         if($FutureEventTable->count())
           return $FutureEventTable->first()->end_date;
+        return  false;
+	}
+
+	public static function getParticipantOrganizationName($eventID, $participantID){
+		$FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT organisation_name, educacation_institute_name, student_state FROM future_participants  WHERE id = {$participantID} AND event_id = {$eventID} ORDER BY id DESC LIMIT 1");
+        if($FutureEventTable->count())
+			if($FutureEventTable->first()->student_state)
+				return $FutureEventTable->first()->educacation_institute_name;
+          	return $FutureEventTable->first()->organisation_name;
+        return  false;
+	}
+
+	public static function getParticipantOrganizationOrSchool($eventID, $participantID){
+		$FutureEventTable = new FutureEvent();
+        $FutureEventTable->selectQuery("SELECT organisation_name, educacation_institute_name, student_state, organisation_country, organisation_city, educacation_institute_country, educacation_institute_city FROM future_participants  WHERE id = {$participantID} AND event_id = {$eventID} ORDER BY id DESC LIMIT 1");
+        if($FutureEventTable->count())
+			if($FutureEventTable->first()->student_state)
+				return (Object)[
+					'name' 	  => $FutureEventTable->first()->educacation_institute_name,
+					'country' => $FutureEventTable->first()->educacation_institute_country,
+					'city' 	  => $FutureEventTable->first()->educacation_institute_city,
+				];
+			else
+				return (Object)[
+					'name' 	  => $FutureEventTable->first()->organisation_name,
+					'country' => $FutureEventTable->first()->organisation_country,
+					'city' 	  => $FutureEventTable->first()->organisation_city,
+				];
         return  false;
 	}
 
