@@ -57,7 +57,7 @@ class myPDF extends FPDF
     $this->SetFont('arial','',11);
     $this->Cell(190,2,'',0,4,'C');
     $this->Cell(190, 11, $_PARTICIPANT_DATA_->participant_firstname.' '.$_PARTICIPANT_DATA_->participant_lastname ,0,1,'L');
-    $this->Cell(190,2, $_PARTICIPANT_ORGANIZATION_NAME_ .' --- '.$_PARTICIPANT_DATA_->payment_transaction_status,0,1,'L');
+    $this->Cell(190,2, $_PARTICIPANT_ORGANIZATION_NAME_,0,1,'L');
     $this->Cell(190,11, $_PARTICIPANT_DATA_->participant_city==''?'N/A':$_PARTICIPANT_DATA_->participant_city ,0,1,'L');
     $this->Cell(190,2, $_PARTICIPANT_DATA_->participant_country==''?'N/A':countryCodeToCountry($_PARTICIPANT_DATA_->participant_country) ,0,1,'L');
     
