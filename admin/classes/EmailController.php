@@ -84,6 +84,7 @@ class EmailController
         $email 		               = $_data_->email;
         $firstname               = $_data_->firstname;
         $payment_receipt_link    = $_data_->payment_receipt_link;
+        $invitation_letter_link  = $_data_->invitation_letter_link;
 
 		    $_Email_    = $email;
         $_Subject_  = 'Confirmation - IUCN Africa Protected Areas Congress (APAC) Registration';
@@ -98,6 +99,24 @@ class EmailController
                 <td class='bodycopy' style='font-family: sans-serif;'>
                 Thank you for registering to attend the IUCN Africa Protected Areas Congress (APAC) that will be held in Kigali from 7 – 12 March 2022.</td>
                 <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>Your receipt is attached to this email.</td></tr>
+              
+                <tr>
+                    <td class='h2' style='font-family: sans-serif;'>
+                      <ul>
+                        <li><a href='$payment_receipt_link' target='_blank'>Click here</a> to download your receipt.  </li>
+                      </ul>
+                    </td>
+                </tr>
+
+                <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Invitation To The Africa Protected Areas Congress</b> </td></tr>
+                <tr>
+                  <td class='h2' style='font-family: sans-serif;'>
+                    <ul>
+                      <li><a href='$invitation_letter_link' target='_blank'>Click here</a> to download your invitation letter   </li>
+                    </ul>
+                    
+                  </td>
+                </tr>
                 
                 <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Badge collection</b> </td></tr>
                 <tr><td class='h2' style='font-family: sans-serif;'>You will receive information on how and when to collect your badge before the event. We kindly require that you bring the identification document you used in your registration process when collecting your badge.  </td></tr>
@@ -115,7 +134,7 @@ class EmailController
                 <tr>
                   <td class='h2' style='font-family: sans-serif;'>
                     <ul>
-                      <li><a href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_bank'>Click here</a> to book your accommodation for your stay in Kigali   </li>
+                      <li><a href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_blank'>Click here</a> to book your accommodation for your stay in Kigali   </li>
                     </ul>
                     
                   </td>
@@ -126,14 +145,14 @@ class EmailController
                       <ul>
                         <li>Visas are issued on arrival for all countries </li>
                         <li>Visa fees for citizens of African Union, Commonwealth and La Francophonie member states are waived for a visit of up to 30 days</li>
-                        <li><a href='https://www.migration.gov.rw/anounce/anounce/online-visa/' target='_bank'>Click here</a> for more information on Rwanda’s open visa policy  </li>
+                        <li><a href='https://www.migration.gov.rw/anounce/anounce/online-visa/' target='_blank'>Click here</a> for more information on Rwanda’s open visa policy  </li>
 
                       </ul>
                   </td>
                 </tr>
                 <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Destination information</b> </td></tr>
                 <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. It is blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains.</td></tr>
-                <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>Go to <a href='https://www.visitrwanda.com/' target='_bank'>www.visitrwanda.com</a> for more information on activities and excursions you can experience during your time in Rwanda.</td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>Go to <a href='https://www.visitrwanda.com/' target='_blank'>www.visitrwanda.com</a> for more information on activities and excursions you can experience during your time in Rwanda.</td></tr>
 
               </tr>
               
@@ -212,7 +231,7 @@ class EmailController
                 <tr><td class='h2' style='font-family: sans-serif;'>Thank you for registering to attend the <b>IUCN Africa Protected Areas Congress (APAC)</b>  that will be held in Kigali from 7 – 12 March 2022. </tr>
                 <tr><td class='h2' style='font-family: sans-serif;'>We have received your payment by bank transfer.</td></tr>
                 <tr><td class='h2' style='font-family: sans-serif;'>Your receipt is attached to this email. </td></tr>
-                <tr><td class='h2' style='font-family: sans-serif;'><a href='$payment_receipt_link' target='_bank'>Click here</a> to download your receipt.</td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;'><a href='$payment_receipt_link' target='_blank'>Click here</a> to download your receipt.</td></tr>
                 </tr>
                 <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Badge collection</b> </td></tr>
                 <tr><td class='h2' style='font-family: sans-serif;'>You will receive information on how and when to collect your badge before the event. We kindly require that you bring the identification document you used in your registration process when collecting your badge. </td></tr>
@@ -229,7 +248,7 @@ class EmailController
                 <tr>
                   <td class='h2' style='font-family: sans-serif;'>
                     <ul>
-                      <li><a href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_bank'>Click here</a> to book your accommodation for your stay in Kigali   </li>
+                      <li><a href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_blank'>Click here</a> to book your accommodation for your stay in Kigali   </li>
                     </ul>
                     
                   </td>
@@ -240,14 +259,14 @@ class EmailController
                       <ul>
                         <li>Visas are issued on arrival for all countries </li>
                         <li>Visa fees for citizens of African Union, Commonwealth and La Francophonie member states are waived for a visit of up to 30 days</li>
-                        <li><a href='https://www.migration.gov.rw/anounce/anounce/online-visa/' target='_bank'>Click here</a> for more information on Rwanda’s open visa policy  </li>
+                        <li><a href='https://www.migration.gov.rw/anounce/anounce/online-visa/' target='_blank'>Click here</a> for more information on Rwanda’s open visa policy  </li>
 
                       </ul>
                   </td>
                 </tr>
                 <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Destination information</b> </td></tr>
                 <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. It is blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains.</td></tr>
-                <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>Go to <a href='https://www.visitrwanda.com/' target='_bank'>www.visitrwanda.com</a> for more information on activities and excursions you can experience during your time in Rwanda.</td></tr>
+                <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>Go to <a href='https://www.visitrwanda.com/' target='_blank'>www.visitrwanda.com</a> for more information on activities and excursions you can experience during your time in Rwanda.</td></tr>
 
 
               </tr>
@@ -358,7 +377,7 @@ class EmailController
               <tr>
                 <td class='h2' style='font-family: sans-serif;'>
                   <ul>
-                    <li><a href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_bank'>Click here</a> to book your accommodation for your stay in Kigali   </li>
+                    <li><a href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_blank'>Click here</a> to book your accommodation for your stay in Kigali   </li>
                   </ul>
                   
                 </td>
@@ -369,14 +388,14 @@ class EmailController
                     <ul>
                       <li>Visas are issued on arrival for all countries </li>
                       <li>Visa fees for citizens of African Union, Commonwealth and La Francophonie member states are waived for a visit of up to 30 days</li>
-                      <li><a href='https://www.migration.gov.rw/anounce/anounce/online-visa/' target='_bank'>Click here</a> for more information on Rwanda’s open visa policy  </li>
+                      <li><a href='https://www.migration.gov.rw/anounce/anounce/online-visa/' target='_blank'>Click here</a> for more information on Rwanda’s open visa policy  </li>
 
                     </ul>
                 </td>
               </tr>
               <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Destination information</b> </td></tr>
               <tr><td class='h2' style='font-family: sans-serif;padding:0;'>Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. It is blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains.</td></tr>
-              <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>Go to <a href='https://www.visitrwanda.com/' target='_bank'>www.visitrwanda.com</a> for more information on activities and excursions you can experience during your time in Rwanda.</td></tr>
+              <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>Go to <a href='https://www.visitrwanda.com/' target='_blank'>www.visitrwanda.com</a> for more information on activities and excursions you can experience during your time in Rwanda.</td></tr>
 
 
             </tr>

@@ -281,24 +281,7 @@ endif;
 if($_participant_data_->need_accommodation_state == 1):
     ?>
 
-                                    <h3 class="card-sect-title">Accommodation </h3>
-                                    <div class="card mt-3">
-                                        <div class="card-body side-card">
-                                            <div class="row">
-                                                <!-- <div class="col-sm-5">
-                                                    <h6 class="mb-0">Payment Method</h6>
-                                                </div> -->
-                                                <div class="col-sm-12 ">
-                                                    <h6>
-                                                        <ul>
-                                                            <li><a style="color: #f47e20;" href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_blank'>Click here</a> to book your accommodation for your stay in Kigali   </li>
-                                                        </ul>
-                                                    </h6>
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
+                                    
 
                                   
 <?php
@@ -708,13 +691,67 @@ if($_participant_data_->participation_subtype_category == 'INPERSON'):
                                     <h6><?= countryCodeToCountry($_participant_data_->residence_country) ?> / <?= $_participant_data_->residence_city ?></h6>
                                 </div>
                             </div>
-                         
-                           
                         </div>
                     </div>
 <?php
 endif;
 ?>
+
+                    <h3 class="card-sect-title">EMERGENCY CONTACT</h3>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Full name </h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <h6><?= $_participant_data_->emergency_contact_firstname .' '.$_participant_data_->emergency_contact_lastname ?></h6>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Email address </h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <h6><?= $_participant_data_->emergency_contact_email ?></h6>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h6 class="mb-0">Telephone</h6>
+                                </div>
+                                <div class="col-sm-8 text-secondary">
+                                    <h6><?= $_participant_data_->emergency_contact_telephone ?></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="card-sect-title">Accommodation and Travel </h3>
+                                    <div class="card mt-3">
+                                        <div class="card-body side-card">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h6 class="text-justify text-secondary">
+                                                    A quota of rooms has been negotiated for the IUCN APAC 2022 participants in hotels in the city centre and reasonably close to the conference venue. Reservations will be made on “first come, first served” basis. <br><br>  The hotel quotas are valid until one months before the conference. After that, APAC cannot guarantee the availability of the hotel rooms but will assist you in finding accommodation.   The negotiated hotel fee includes breakfast and all applicable taxes. All hotel fees are payable directly to the hotels. <br><br> 
+Delegates have the option to book accommodation soon after registration or at a later date at their convenience. For more information on travel and accommodation please visit the APAC’s travel management agent’s website here.
+
+                                                    </h6>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h6>
+                                                        <ul>
+                                                            <li><br> <a style="color: #f47e20; cursor: pointer;" href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_blank'> <u>Click here</u> </a> to book your accommodation for your stay in Kigali   </li>
+                                                        </ul>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                    
                 </div>
             </div>
         </div>

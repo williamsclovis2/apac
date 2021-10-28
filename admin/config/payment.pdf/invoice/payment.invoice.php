@@ -161,7 +161,7 @@ class myPDF extends FPDF
     $this->cell(190, 5, '',0,1,'L');
     $this->Cell(66, 5,"For details on cancellation and refund, refer to ", 0, 0,'L');
     $this->SetTextColor(0,0,255);
-    $this->Cell(2,5 ,'the policy document.','','','',false, "http://apacongress.torusguru.com/terms"); 
+    $this->Cell(2,5 ,'the policy document.','','','',false, "http://127.0.0.1/thefuture/apac/policy"); 
     $this->SetTextColor(0,0,0);
 
   }

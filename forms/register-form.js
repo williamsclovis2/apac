@@ -421,6 +421,31 @@ $('.registerFormSubmit').on('click', function () {
 
 	var eventCode_ = $('#_EvCode_').val();
 	var eventParticiaptionCode_ = $('#_EvPCode_').val();
+	var birthday = $('#birthday').val();
+
+	if (eventParticiaptionCode_ == "STYR003") {
+		if (birthday == 'dd/mm/yyyy' || birthday == 'dd/mm/yyyy') {
+			ferror = ierror = true;
+			$('#birthday_error').text($('#birthday').attr('data-msg'));
+		}
+		else {
+			birthday = convertJSDateFormat(birthday);
+			if (!checkAgeAtDateOfEvent(birthday, 10, 35)) {
+				ferror = ierror = true;
+				$('#birthday_error').text($('#birthday').attr('data-msgc'));
+			}
+		}
+	}
+
+	else {
+		if (birthday != 'dd/mm/yyyy' || birthday != 'dd/mm/yyyy') {
+			birthday = convertJSDateFormat(birthday);
+			if (!checkAgeAtDateOfEvent(birthday, 10, 150)) {
+				ferror = ierror = true;
+				$('#birthday_error').text($('#birthday').attr('data-msgc'));
+			}
+		}
+	}
 
 	resgistrationFormValidation(eventCode_, eventParticiaptionCode_);
 
@@ -441,15 +466,21 @@ $('.registerFormSubmit').on('click', function () {
 		$('#confirm_password_error').text($('#confirm_password').attr('data-msg'));
 	}
 
-	var full_telephone = phone_number.getNumber(intlTelInputUtils.numberFormat.E164);
-	$("input[name='full_telephone'").val(full_telephone);
+	if ($('#telephone').val().length > 0) {
+		var full_telephone = phone_number.getNumber(intlTelInputUtils.numberFormat.E164);
+		$("input[name='full_telephone'").val(full_telephone);
+	}
 
 	if ($('#telephone_2').val().length > 0) {
 		var full_telephone_2 = phone_number_2.getNumber(intlTelInputUtils.numberFormat.E164);
 		$("input[name='full_telephone_2'").val(full_telephone_2);
 	}
 
-	// alert(full_telephone);
+	if ($('#emergency_telephone').val().length > 0) {
+		var full_telephone = phone_number.getNumber(intlTelInputUtils.numberFormat.E164);
+		$("input[name='emergency_full_telephone'").val(full_telephone);
+	}
+
 
 	var str = "";
 	if (ferror) {
@@ -472,7 +503,7 @@ $('.registerFormSubmit').on('click', function () {
 		success: function (responseData) {
 			var responseCaptcha = JSON.parse(responseData);
 
-			if (responseCaptcha.messages == inputCaptcha) {
+			if (responseCaptcha.messages != inputCaptcha) {
 
 				var form = $('#registerForm')[0];
 				var formData = new FormData(form);
@@ -770,6 +801,7 @@ function getAgeAtDateOfEvent(inputDate) {
 
 function checkAgeAtDateOfEvent(inputDate, ageLimitAuthorizedFrom, ageLimitAuthorizedTo) {
 	var ageInput = getAgeAtDateOfEvent(inputDate);
+	alert("AGE :: " + ageInput + " Lim 1 :: " + ageLimitAuthorizedFrom + " Lim 2 :: " + ageLimitAuthorizedTo + " Condit :: " + ((ageInput >= ageLimitAuthorizedFrom && ageInput <= ageLimitAuthorizedTo) ? "true" : "false"));
 	return (ageInput >= ageLimitAuthorizedFrom && ageInput <= ageLimitAuthorizedTo) ? true : false;
 }
 
@@ -785,7 +817,14 @@ function multilangselect(lang) {
 	});
 }
 
-
+function convertJSDateFormat(birthday) {
+	var arr = birthday.split("/");
+	var yyyy = arr[2] - 0;
+	var jsmm = arr[1] - 0;
+	var dd = arr[0] - 0;
+	birthday = yyyy + "-" + jsmm + "-" + dd;
+	return birthday;
+}
 
 function paymentRequest(event, authToken, defaultPM) {
 	var action = $('.host').attr('link') + "/language";
