@@ -145,19 +145,18 @@
 
                         <div class="form-group col-sm-12"  id="data_1">
                             <div class="row">
-                                <label for="birthday" class="col-sm-3"><?=$_Dictionary->translate('Date of birth')?></label>
-                                <div class="col-sm-9 field-validate">
+                                <label for="birthday" class="col-sm-3"><?=$_Dictionary->translate('Date of birth')?> <span>*</span></label>
+                                <div class="col-sm-9 field-validate"> 
                                     <div class="input-group date">
-                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" oninput="validate(this)" value="dd/mm/yyyy" name="birthday" id="birthday" class="form-control" data-rule="" data-msg="<?=$_Dictionary->words('Please enter date of birth')?>"/>
-                                        <div class="validate" id="birthday_error"></div>
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" oninput="validate(this)" value="dd/mm/yyyy" name="birthday" id="birthday" class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter date of birth')?>" data-msgc="<?=$_Dictionary->translate('Only people with age between 10 and 35 can register')?>"/>
                                     </div>
+                                    <div class="validate" id="birthday_error"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     
-                    <h4> <?=$_Dictionary->translate('EDUCATION INSTITUTE')?></h4>
+                    <h4> <?=$_Dictionary->translate('EDUCATION INSTITUTE OR ORGANIZATION')?></h4>
                     <hr class="separator-line"> 
                     <div class="row">
                         <div class="form-group col-sm-12">
@@ -370,6 +369,52 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                             </div>
                         </div>
                     </div>
+
+                    <!-- - -->
+                    <h4><?=$_Dictionary->translate('EMERGENCY CONTACT')?></h4>
+                    <hr class="separator-line"> 
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="emergency_firstname" class="col-sm-3"><?=$_Dictionary->translate('First name')?> <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <input class="form-control" name="emergency_firstname" oninput="validate(this)" id="emergency_firstname" type="text" placeholder="<?=$_Dictionary->translate('First name')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter first name')?>"/>
+                                    <div class="validate" id="emergency_firstname_error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="emergency_lastname" class="col-sm-3"><?=$_Dictionary->translate('last name')?> <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <input class="form-control" name="emergency_lastname" oninput="validate(this)"  id="emergency_lastname" type="text" placeholder="<?=$_Dictionary->translate('Last name')?>" data-rule="required"  data-rule="required" data-msg="<?=$_Dictionary->words('Please enter last name')?>"/>
+                                    <div class="validate" id="emergency_lastname_error"></div> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="emergency_email" class="col-sm-3"><?=$_Dictionary->translate('Email')?> <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                  <input class="form-control" name="emergency_email" oninput="validate(this)"  id="emergency_email" type="text" placeholder="<?=$_Dictionary->translate('Email')?>" data-rule="email"  data-rule="required" data-msg="<?=$_Dictionary->words('Please enter email')?>" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
+                                    <div class="validate" id="emergency_email_error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="emergency_telephone" class="col-sm-3"><?=$_Dictionary->translate('Telephone number')?> <span>*</span></label>
+                                <div class="col-sm-9 field-validate">
+                                    <input type="hidden" name ="emergency_full_telephone" value="" >
+                                    <input type="text" name="emergency_telephone" id="emergency_telephone" oninput="validate(this)"  class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter telephone')?>"/>
+                                    <div class="validate" id="emergency_telephone_error"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- - -->
                    
                     
                     <div class="row" style="margin-bottom: 2%;">

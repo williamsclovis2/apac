@@ -143,6 +143,12 @@ class FutureEventController
 			$cbo_project_objectives 	 	     = !Input::checkInput('project_objective', 'post', 1)?'':$str->data_in($_EDIT['project_objective']);
 			$cbo_activities     		 	     = !Input::checkInput('cbo_activities', 'post', 1)?'':$str->data_in($_EDIT['cbo_activities']);
 
+			/** Organization Information */
+			$emergency_firstname 		 = !Input::checkInput('emergency_firstname', 'post', 1)?'':$str->data_in($_EDIT['emergency_firstname']);
+			$emergency_lastname 		 = !Input::checkInput('emergency_lastname', 'post', 1)?'':$str->data_in($_EDIT['emergency_lastname']);
+			$emergency_email 	         = !Input::checkInput('emergency_email', 'post', 1)?'':$str->data_in($_EDIT['emergency_email']);
+			$emergency_full_telephone 	 = !Input::checkInput('emergency_full_telephone', 'post', 1)?'':$str->data_in($_EDIT['emergency_full_telephone']);
+
 			/** Student State - When An Youth Or Student regsiters - */
 			$student_state = 0;
 			if($educacation_institute_name != '')
@@ -163,11 +169,11 @@ class FutureEventController
 
 			/** Check If Email Address not yet used */
 			if(self::checkEmailAlreadyUsed($eventID, $email)):
-				return (object)[
-					'ERRORS'		=> true,
-					'ERRORS_SCRIPT' => "This email address has already been used!",
-					'ERRORS_STRING' => "This email address has already been used!"
-				];
+				// return (object)[
+				// 	'ERRORS'		=> true,
+				// 	'ERRORS_SCRIPT' => "This email address has already been used!",
+				// 	'ERRORS_STRING' => "This email address has already been used!"
+				// ];
 			endif;
 
 			/** Check If Password Match */
@@ -285,10 +291,13 @@ class FutureEventController
 					'organization_number_employees'  		=> $organization_number_employees,
 					'organization_annual_turnover'  		=> $organization_annual_turnover,
 					'cbo_project_objectives'   				=> $cbo_project_objectives,
-					'cbo_activities'      					=> $cbo_activities
-
+					'cbo_activities'      					=> $cbo_activities,
+					
+					'emergency_contact_firstname'  			=> $emergency_firstname,
+					'emergency_contact_lastname'  			=> $emergency_lastname,
+					'emergency_contact_email'   			=> $emergency_email,
+					'emergency_contact_telephone'      		=> $emergency_full_telephone
 				);
-
             
 				try{
 					$FutureEventParticipantTable->insertParticipant($_fields);
@@ -1635,6 +1644,7 @@ class FutureEventController
 		future_participants.qrID As participant_code, 
 		future_participants.firstname As participant_firstname, 
 		future_participants.lastname As participant_lastname, 
+		future_participants.birthday As participant_birthday, 
 		future_participants.email As participant_email, 
 		future_participants.telephone As participant_telephone, 
 		future_participants.organisation_city As participant_city, 
@@ -1665,10 +1675,14 @@ class FutureEventController
 		future_participants.qrID As participant_code, 
 		future_participants.firstname As participant_firstname, 
 		future_participants.lastname As participant_lastname, 
+		future_participants.birthday As participant_birthday, 
+		future_participants.id_type As participant_id_type, 
+		future_participants.id_number As participant_id_number, 
 		future_participants.email As participant_email, 
 		future_participants.telephone As participant_telephone, 
 		future_participants.organisation_city As participant_city, 
 		future_participants.organisation_country As participant_country, 
+		future_participants.status As registration_status, 
 		future_participation_type.name as participation_type_name, 
 		future_participation_sub_type.name As participation_subtype_name,
 		future_participation_sub_type.payment_state,

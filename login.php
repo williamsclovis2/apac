@@ -1,7 +1,7 @@
 <?php
 require_once 'admin/core/init.php';
 if(Session::exists('username') AND Session::exists('userToken'))
-    Redirect::to('live');
+    Redirect::to('profile');
 ?>
 
 <!doctype html>

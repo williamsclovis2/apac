@@ -183,7 +183,7 @@
                         <h3 class="red-card" style="color: #a42f1d !important;"><?=$_Dictionary->translate('important')?></h3>
                        
                         <ul class="instructions_li">
-<!--                            <li><?=$_Dictionary->translate('registration_fees')?></li>-->
+                            <!-- <li><?=$_Dictionary->translate('registration_fees')?></li> -->
                             <li><?=$_Dictionary->translate('instruction_two')?></li>
                             <li><?=$_Dictionary->translate('instruction_three')?></li>
                         </ul>

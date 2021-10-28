@@ -36,6 +36,11 @@ if(Input::checkInput('code', 'get', 1)):
             $_NOTIFICATION_TITLE_   = "Payment receipt not found";
             $_NOTIFICATION_CONTENT_ = "<p style='text-align:left !important;'>Thank you for your interest in participating in the inaugural Africa Protected Areas Congress. We regret to inform you that your payment receipt was not found.<br><b>This occurs when your payment has not yet been completed.</b></p>";
             break;
+        
+        case 'INVITATION_LETTER_NOT_FOUND_ERROR':
+            $_NOTIFICATION_TITLE_   = "Invitation letter not found";
+            $_NOTIFICATION_CONTENT_ = "<p style='text-align:left !important;'>Thank you for your interest in participating in the inaugural Africa Protected Areas Congress. We regret to inform you that your invitation letter was not found.<br><b>This occurs when your payment has not yet been completed or your registration has not yet been approved.</b></p>";
+            break;
     endswitch;
 endif;
 

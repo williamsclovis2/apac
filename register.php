@@ -185,6 +185,16 @@ $_DCOLOR_ = '#dedede!important';
         utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
         });
     </script>
+
+    <script>
+        var phone_number_emergency = window.intlTelInput(document.querySelector("#emergency_telephone"), {
+        autoPlaceholder: "off",
+        separateDialCode: true,
+        initialCountry: "rw",
+        hiddenInput: "full", 
+      utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
+        });
+    </script>
   
 </body>
 </html>

@@ -307,14 +307,18 @@ class PaymentController
 					FutureEventController::approveParticipantRegistrationStatus($participant_id);
 
 					/** Payment Invoice Link */
-					$payment_receipt_link = Config::get('url/receipt').Hash::encryptAuthToken($payment_entry_id);
+					$payment_receipt_link  = Config::get('url/receipt').Hash::encryptAuthToken($payment_entry_id);
+					
+					/** Payment Invitation Letter Link */
+					$invitation_letter_link = Config::get('url/invitation_letter').Hash::encryptAuthToken($participant_id);
            
 					/** Send Email */
 					$_data_ = array(
-						'email' 			   => $_participant_data_->participant_email,
-						'firstname' 		   => $_participant_data_->participant_firstname,
-						'payment_receipt_link' => $payment_receipt_link,
-						'payment_link' 		   => Config::get('server/name').'/payment/'.Hash::encryptAuthToken($participant_id)
+						'email' 			   	 => $_participant_data_->participant_email,
+						'firstname' 		   	 => $_participant_data_->participant_firstname,
+						'payment_receipt_link' 	 => $payment_receipt_link,
+						'invitation_letter_link' => $invitation_letter_link,
+						'payment_link' 		   	 => Config::get('server/name').'/payment/'.Hash::encryptAuthToken($participant_id)
 					);
 					if($transaction_status == 'COMPLETED'):
 						EmailController::sendEmailToParticipantAfterFullyCompletedRegistrationAndSuccessfulPayment($_data_);
