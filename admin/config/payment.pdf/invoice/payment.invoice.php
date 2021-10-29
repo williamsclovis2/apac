@@ -7,7 +7,7 @@
 class myPDF extends FPDF
 {
   function header() {
-   $this->Image( VIEW_LOGO_APAC, 80,6,40);
+   $this->Image( VIEW_LOGO_APAC2, 85,6,40);
   }
 
   function footer() {
@@ -15,8 +15,8 @@ class myPDF extends FPDF
     // $this->Image( VIEW_LOGO_AWF, 90,266,40);
     // $this->Image( VIEW_LOGO_WCPA, 160,265,40);
     $this->SetY(-15);
-    $this->SetFont('cambria','B',14);
-    $this->Cell(0,15,'Page'.$this->PageNo().'/{nb}',0,0,'C');
+    $this->SetFont('cambria','B',11);
+    $this->Cell(0,15,'Page '.$this->PageNo().'/{nb}',0,0,'C');
   }
 
   function viewTable() {
@@ -45,7 +45,7 @@ class myPDF extends FPDF
 
     # Invoice
     $this->SetFont('arial','B', 11);
-    $this->Cell(190,21,'',0,4,'C');
+    $this->Cell(190,26,'',0,1,'C');
     $this->Cell(190,5,'IUCN Africa Protected Areas Congress',0,1,'C');
     $this->SetFont('arial','',11);
     $this->Cell(190,5,'March 7th to 12th 2021, Kigali, Rwanda',0,1,'C');
@@ -88,7 +88,7 @@ class myPDF extends FPDF
     
     $this->Cell(70,24,' ',1,1,'R');
     $this->SetFont('arial','', 10);
-    $this->Cell(120, -25, " ". $_PARTICIPANT_DATA_->participation_type_name.' '.$_PARTICIPANT_DATA_->participation_subtype_name ,0,0,'L');
+    $this->Cell(120, -25, " ". $_PARTICIPANT_DATA_->participation_type_name.' '.$_PARTICIPANT_DATA_->participation_subtype_name.' '.Functions::getEventCategory($_PARTICIPANT_DATA_->event_category) ,0,0,'L');
     $this->Cell(70,12, "" ,0,1,'L');
     
     $this->Cell(120, -60, " IUCN Africa Protected Areas  Congress (APAC)  Registration fee" ,0,0,'L');
@@ -161,7 +161,7 @@ class myPDF extends FPDF
     $this->cell(190, 5, '',0,1,'L');
     $this->Cell(66, 5,"For details on cancellation and refund, refer to ", 0, 0,'L');
     $this->SetTextColor(0,0,255);
-    $this->Cell(2,5 ,'the policy document.','','','',false, "http://127.0.0.1/thefuture/apac/policy"); 
+    $this->Cell(2,5 ,'the policy document.','','','',false, "http://apacongress.torusguru.com/policy"); 
     $this->SetTextColor(0,0,0);
 
   }

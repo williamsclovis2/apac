@@ -82,7 +82,7 @@ $_PARTICIPANT_QR_IMAGE_    = VIEW_QR.$_qrFilename_;
 <body>
     <div class="card-container">
 		<div class="event-details">
-			<h3> <?=$_EVENT_NAME_?> </h3>
+			<h3> <?=$_EVENT_NAME_?></h3>
 			<p>  <?=$_EVENT_START_END_DATE_?> | <?=$_EVENT_ADDRESS_?> </p>
 		</div>
 		<div class="inner-img">

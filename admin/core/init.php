@@ -32,7 +32,7 @@ function def(){
     define("DN_IMG_QR", Config::get('filepath/image').'qr/');
     define("LINK_INVOICE", DN.'/pdf/payment/invoice/');
     define("VIEW_LOGO_APAC", DN.'/img/apac-web-logo.png');
-    define("VIEW_LOGO_APAC2", DN.'/img/invoice/APAC_LOGO_PRESS_01.png');
+    define("VIEW_LOGO_APAC2", Config::get('filepath/image').'invoice/APAC_LOGO_PRESS_01.png');
     define("VIEW_LOGO_AWF", DN.'/img/invoice/AWF_Logo_Standard_Orange_Digital_HighRes_1370.png');
     define("VIEW_LOGO_WCPA", DN.'/img/invoice/IUCN-WCPA-combined.png');
 }
