@@ -503,7 +503,7 @@ $('.registerFormSubmit').on('click', function () {
 		success: function (responseData) {
 			var responseCaptcha = JSON.parse(responseData);
 
-			if (responseCaptcha.messages != inputCaptcha) {
+			if (responseCaptcha.messages == inputCaptcha) {
 
 				var form = $('#registerForm')[0];
 				var formData = new FormData(form);
@@ -801,7 +801,7 @@ function getAgeAtDateOfEvent(inputDate) {
 
 function checkAgeAtDateOfEvent(inputDate, ageLimitAuthorizedFrom, ageLimitAuthorizedTo) {
 	var ageInput = getAgeAtDateOfEvent(inputDate);
-	alert("AGE :: " + ageInput + " Lim 1 :: " + ageLimitAuthorizedFrom + " Lim 2 :: " + ageLimitAuthorizedTo + " Condit :: " + ((ageInput >= ageLimitAuthorizedFrom && ageInput <= ageLimitAuthorizedTo) ? "true" : "false"));
+//	alert("AGE :: " + ageInput + " Lim 1 :: " + ageLimitAuthorizedFrom + " Lim 2 :: " + ageLimitAuthorizedTo + " Condit :: " + ((ageInput >= ageLimitAuthorizedFrom && ageInput <= ageLimitAuthorizedTo) ? "true" : "false"));
 	return (ageInput >= ageLimitAuthorizedFrom && ageInput <= ageLimitAuthorizedTo) ? true : false;
 }
 
