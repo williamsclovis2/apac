@@ -195,6 +195,19 @@ $_DCOLOR_ = '#dedede!important';
       utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
         });
     </script>
+
+   
+<script>
+  $(document).ready(function() {
+      $('.js-example-basic-multiple').select2();
+  })
+  </script>
+  
+<script>
+  $(document).ready(function() {
+      $('.js-example-basic').select2();
+  })
+  </script>
   
 </body>
 </html>

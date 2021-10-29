@@ -423,6 +423,13 @@ $('.registerFormSubmit').on('click', function () {
 	var eventParticiaptionCode_ = $('#_EvPCode_').val();
 	var birthday = $('#birthday').val();
 
+	if (eventCode_ == 'INP001') {
+		if ($('#image').val().length == 0) {
+			ferror = ierror = true;
+			$('#image_error').text($('#image').attr('data-msg'));
+		}
+	}
+
 	if (eventParticiaptionCode_ == "STYR003") {
 		if (birthday == 'dd/mm/yyyy' || birthday == 'dd/mm/yyyy') {
 			ferror = ierror = true;
@@ -801,7 +808,7 @@ function getAgeAtDateOfEvent(inputDate) {
 
 function checkAgeAtDateOfEvent(inputDate, ageLimitAuthorizedFrom, ageLimitAuthorizedTo) {
 	var ageInput = getAgeAtDateOfEvent(inputDate);
-	alert("AGE :: " + ageInput + " Lim 1 :: " + ageLimitAuthorizedFrom + " Lim 2 :: " + ageLimitAuthorizedTo + " Condit :: " + ((ageInput >= ageLimitAuthorizedFrom && ageInput <= ageLimitAuthorizedTo) ? "true" : "false"));
+	// alert("AGE :: " + ageInput + " Lim 1 :: " + ageLimitAuthorizedFrom + " Lim 2 :: " + ageLimitAuthorizedTo + " Condit :: " + ((ageInput >= ageLimitAuthorizedFrom && ageInput <= ageLimitAuthorizedTo) ? "true" : "false"));
 	return (ageInput >= ageLimitAuthorizedFrom && ageInput <= ageLimitAuthorizedTo) ? true : false;
 }
 

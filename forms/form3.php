@@ -143,7 +143,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group col-sm-12"  id="data_1">
+                        <div class="form-group col-sm-12"  id="data_1"> 
                             <div class="row">
                                 <label for="birthday" class="col-sm-3"><?=$_Dictionary->translate('Date of birth')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate"> 
@@ -222,7 +222,7 @@
                                 <div class="col-sm-9">
                                     <div class="row">
                                         <div class="col-sm-6 field-validate">
-                                            <select class="form-control" onchange="Other(this,'#objectives1');" id="objectives" name="objectives" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your objective')?>" >
+                                            <select class="js-example-basic-multiple form-control" onchange="Other(this,'#objectives1');" id="objectives" name="objectives[]" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your objective')?>"  class=""  multiple="multiple"  >
                                                 <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
                                                 <option value="Make a key-note address">Make a key-note address</option> 
                                                 <option value="Engage in high-level debates and refine your ideas">Engage in high-level debates and refine your ideas </option>
@@ -335,8 +335,8 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                                         <div class="col-sm-9">
                                             <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
                                             <div class="kv-avatar center-block">                            
-                                                <input type="file" name="image" class="form-control" id="image" placeholder="Profile picture"  class="file-loading" style="width:auto;" data-rule="required" data-msg="Please select profile picture"/>
-                                                <div class="validate"></div>
+                                                <input type="file" name="image" class="form-control" id="image" placeholder="Profile picture"  class="file-loading" style="width:auto;" data-rule="required" data-msg="<?=$_Dictionary->translate('Please upload your profile picture')?>"/>
+                                                <div class="validate" id="image_error"></div>
                                             </div>
                                         </div>
                                     </div>

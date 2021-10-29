@@ -10,7 +10,7 @@ RewriteRule ^(css|js|fonts|images|plugins)($|/) - [L]
 
 # Set The pdf page
 RewriteRule ^terms$ TERMS_CONDITIONS.pdf
-RewriteRule ^policy$ APAC_Registration_Fee_Cancellation_Refund_Policy_Final.pdf
+RewriteRule ^policy$ IUCN_APAC_2022_Registration_Fee_Cancellation_Refund_Policy.pdf
 
 # Set The pdf page
 RewriteRule ^pdf/payment/invoice/([0-9a-zA-Z]+)$ admin/app/controller_pdf.php?request=print_payment_invoice&authtoken_=$1 [L]

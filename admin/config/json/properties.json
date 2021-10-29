@@ -1229,8 +1229,8 @@
 					},
 					{
 						"form-by-clicking-you-agree-terms-conditions": {
-							"fr-lang": "J'accepte <a href='http://apacongress.torusguru.com/terms' target='_blank'>les termes et conditions</a>",
-							"eng-lang": "I agree to the <a href='http://apacongress.torusguru.com/terms' target='_blank'>terms and conditions</a>",
+							"fr-lang": "J'accepte <a href='http://apacongress.torusguru.com/terms' target='_blank'>les termes et conditions</a>. En cliquant sur ce bouton, je choisis de ne pas partager mon nom, mon titre et mon affiliation avec les sponsors de l'APAC et les autres délégués.",
+							"eng-lang": "I agree to the <a href='http://apacongress.torusguru.com/terms' target='_blank'>terms and conditions</a>. By clicking this button, I choose to opt out of sharing my name, title and affiliation with APAC sponsors and fellow delegates.",
 							"ar-lang": "بالنقر فوق هذا الزر ، أختار إلغاء الاشتراك في مشاركة اسمي ولقبي وانتمائي مع رعاة APAC.",
 							"pt-lang": "Ao clicar neste botão, opto por não compartilhar meu nome, cargo e afiliação com os patrocinadores da APAC."
 						}
@@ -1372,9 +1372,9 @@
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
+						"please-upload-your-profile-picture": {
+							"fr-lang": "Veuillez télécharger votre photo de profil",
+							"eng-lang": "Please upload your profile picture",
 							"ar-lang": "",
 							"pt-lang": ""
 						}

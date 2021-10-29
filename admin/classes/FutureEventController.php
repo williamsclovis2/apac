@@ -92,7 +92,7 @@ class FutureEventController
 			$confirm_password 	= !Input::checkInput('confirm_password', 'post', 1)?'':$str->data_in($_EDIT['confirm_password']);
 
 			/** Attending Objective Information */
-			$objectives		 		 = !Input::checkInput('objectives', 'post', 1)?'':$str->data_in($_EDIT['objectives']);
+			$objectives		 		 = !Input::checkInput('objectives', 'post', 1)?'':$_EDIT['objectives'];
 			$firt_objective 		 = !Input::checkInput('firt_objective', 'post', 1)?'':$str->data_in($_EDIT['firt_objective']);
 			$second_objective 		 = !Input::checkInput('second_objective', 'post', 1)?'':$str->data_in($_EDIT['second_objective']);
 			$third_objective 	     = !Input::checkInput('third_objective', 'post', 1)?'':$str->data_in($_EDIT['third_objective']);
@@ -203,6 +203,14 @@ class FutureEventController
 
 			/** Need Accommodation */
 			$needAccommodation = !Input::checkInput('needAccommodation', 'post', 1)?0:$str->data_in($_EDIT['needAccommodation']);
+
+			/** Control Objectives */
+			if($objectives != ''):
+				if(is_array($objectives)):
+					$objectives = implode(', ', $objectives);
+					$objectives = trim($objectives);
+				endif;
+			endif;
 
 			/** Select - Other Option - Specify */
 			if($job_category 	  == 'Other')
