@@ -382,6 +382,29 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group col-sm-12">
+                            <div class="row">
+                                <label for="organisation-name" class="col-sm-12">
+                                    Every participant will need to upload a passport-size photo for badge printing purposes. Please make sure that the photo complies with the following specifications: <span>*</span><br><br>
+                                    
+                                </label>
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <label for="organisation-name" class="col-sm-3">   
+                                            <b>Image file format:</b><br> <span>The image must be in the Joint Photographic Expert Group (JPEG) format with .jpg file extension</span> <br>
+                                            <b>Image size:</b><br> <span>The maximum image size will be 500kbM</span>
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
+                                            <div class="kv-avatar center-block">                            
+                                                <input type="file" name="image" class="form-control" id="image" placeholder="Profile picture"  class="file-loading" style="width:auto;" data-rule="required" data-msg="Please select profile picture"/>
+                                                <div class="validate"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                             </div>
                         </div>
                     </div>

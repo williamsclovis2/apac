@@ -91,6 +91,7 @@ $GLOBALS['config'] = array(
 
 //		   'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac/mail_smtp_noreply", // Local
 		 'mail_smtp_noreply' => "http://localhost:80/thefuture/apac/mail_smtp_noreply", // Live
+
     ),
     'filepath' => array(
 //		   'image' => $_SERVER['DOCUMENT_ROOT'].'/thefuture/apac/img/',  // Local
