@@ -808,11 +808,7 @@ function getAgeAtDateOfEvent(inputDate) {
 
 function checkAgeAtDateOfEvent(inputDate, ageLimitAuthorizedFrom, ageLimitAuthorizedTo) {
 	var ageInput = getAgeAtDateOfEvent(inputDate);
-<<<<<<< HEAD
 	// alert("AGE :: " + ageInput + " Lim 1 :: " + ageLimitAuthorizedFrom + " Lim 2 :: " + ageLimitAuthorizedTo + " Condit :: " + ((ageInput >= ageLimitAuthorizedFrom && ageInput <= ageLimitAuthorizedTo) ? "true" : "false"));
-=======
-//	alert("AGE :: " + ageInput + " Lim 1 :: " + ageLimitAuthorizedFrom + " Lim 2 :: " + ageLimitAuthorizedTo + " Condit :: " + ((ageInput >= ageLimitAuthorizedFrom && ageInput <= ageLimitAuthorizedTo) ? "true" : "false"));
->>>>>>> 4384ddd9aa289f879e4e4f635cf8da36017d945b
 	return (ageInput >= ageLimitAuthorizedFrom && ageInput <= ageLimitAuthorizedTo) ? true : false;
 }
 
