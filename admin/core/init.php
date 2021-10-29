@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 // $_SESSION['user'] = 16;
 
 function def(){
@@ -32,7 +32,7 @@ function def(){
     define("DN_IMG_QR", Config::get('filepath/image').'qr/');
     define("LINK_INVOICE", DN.'/pdf/payment/invoice/');
     define("VIEW_LOGO_APAC", DN.'/img/apac-web-logo.png');
-    define("VIEW_LOGO_APAC2", DN.'/img/invoice/APAC_LOGO_PRESS_01.png');
+    define("VIEW_LOGO_APAC2", Config::get('filepath/image').'invoice/APAC_LOGO_PRESS_01.png');
     define("VIEW_LOGO_AWF", DN.'/img/invoice/AWF_Logo_Standard_Orange_Digital_HighRes_1370.png');
     define("VIEW_LOGO_WCPA", DN.'/img/invoice/IUCN-WCPA-combined.png');
 }
@@ -87,10 +87,10 @@ $GLOBALS['config'] = array(
        'receipt' => "http://{$_SERVER['HTTP_HOST']}/pdf/payment/receipt/",
         
 //		   'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac/mail_smtp", // Local
-		 'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp", // Live
+		 'mail_smtp' => "http://localhost:80/thefuture/apac/mail_smtp", // Live
 
 //		   'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac/mail_smtp_noreply", // Local
-		 'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/mail_smtp_noreply", // Live
+		 'mail_smtp_noreply' => "http://localhost:80/thefuture/apac/mail_smtp_noreply", // Live
     ),
     'filepath' => array(
 //		   'image' => $_SERVER['DOCUMENT_ROOT'].'/thefuture/apac/img/',  // Local

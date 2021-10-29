@@ -3,7 +3,9 @@ require_once "core/init.php";
 
 // echo 'ok';
 
-echo Hash::encryptAuthToken(66);
+echo Hash::encryptAuthToken(420);
+
+//echo Config::get('filepath/image').'/img/invoice/APAC_LOGO_PRESS_01.png';
 
 // $_data_ = array(
 //     'email' => 'ezechielkalengya@gmail.com',

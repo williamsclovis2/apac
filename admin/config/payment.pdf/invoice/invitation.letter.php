@@ -7,7 +7,7 @@
 class myPDF extends FPDF
 {
   function header() {
-   $this->Image( VIEW_LOGO_APAC, 162  ,8,43);
+   $this->Image( VIEW_LOGO_APAC2, 162  ,8,43);
   }
 
   function footer() {
@@ -15,8 +15,8 @@ class myPDF extends FPDF
     // $this->Image( VIEW_LOGO_AWF, 90,266,40);
     // $this->Image( VIEW_LOGO_WCPA, 160,265,40);
     $this->SetY(-15);
-    $this->SetFont('cambria','B',14);
-    $this->Cell(0,15,'Page'.$this->PageNo().'/{nb}',0,0,'C');
+    $this->SetFont('cambria','B',11);
+    $this->Cell(0,15,'Page '.$this->PageNo().'/{nb}',0,0,'C');
   }
 
   function viewTable() {
@@ -32,8 +32,8 @@ class myPDF extends FPDF
     if(!($_PARTICIPANT_DATA_   = FutureEventController::getEventParticipantDataByID($_PAYMENT_ID_)))
         Redirect::to('');
 
-    if($_PARTICIPANT_DATA_->registration_status != 'APPROVED')
-        Redirect::to('invitation/letter/unfound/notification/'.sha1(time().'pay'));
+//    if($_PARTICIPANT_DATA_->registration_status != 'APPROVED')
+//        Redirect::to('invitation/letter/unfound/notification/'.sha1(time().'pay'));
 
     $_PARTICIPANT_NAMES_       = $_PARTICIPANT_DATA_->participant_firstname.' '.$_PARTICIPANT_DATA_->participant_lastname;
     $_PARTICIPANT_BIRTHDATE_   = $_PARTICIPANT_DATA_->participant_birthday;
@@ -59,7 +59,7 @@ class myPDF extends FPDF
 
     # Invoice
     $this->SetFont('arial','', 10);
-    $this->Cell(0,26,'',0,4,'L');
+    $this->Cell(0,27,'',0,4,'L');
     $this->Cell(0,5,'Dear Sir or Madam,',0,1,'L');
 
     $this->Cell(0, 11,'',0,4,'L');
@@ -75,7 +75,7 @@ class myPDF extends FPDF
 
     $this->SetFont('arial','',10);
     $this->Cell(0, 6,'',0,4,'L');
-    $this->MultiCell(190, 5,"The IUCN Africa Protected Areas Congress (APAC) is the first ever continent-wide gathering of African leaders, citizens, and interest groups to discuss the role of protected areas in conserving nature, safeguarding Africa’s iconic wildlife, delivering vital life-supporting ecosystem services, promoting sustainable development while conserving Africa’s cultural heritage and traditions.    ",0,'J');
+    $this->MultiCell(190, 5,"The IUCN Africa Protected Areas Congress (APAC) is the first ever continent-wide gathering of African leaders, citizens, and interest groups to discuss the role of protected areas in conserving nature, safeguarding Africa's iconic wildlife, delivering vital life-supporting ecosystem services, promoting sustainable development while conserving Africa's cultural heritage and traditions.    ",0,'J');
 
     $this->SetFont('arial','',10);
     $this->Cell(0, 6,'',0,4,'L');
@@ -92,7 +92,11 @@ class myPDF extends FPDF
     $this->MultiCell(190, 5, $content_confirmation ,0,'L');
 
     $this->cell(190, 6, '',0,1,'L');
-    $this->Cell(66, 5,"For more information on the congress please contact the info@apacongress.africa or visit the APAC Website at ", 0, 0,'J');
+    $this->Cell(89, 5,"For more information on the congress please contact the ", 0, 0,'L');
+    $this->SetTextColor(0,0,255);
+    $this->Cell(40, 5," info@apacongress.africa ", 0, 0,'L');
+    $this->SetTextColor(0,0,0);
+    $this->Cell(10, 5," or visit the APAC Website at ", 0, 0,'L');
     $this->SetTextColor(0,0,255);
     $this->cell(190, 5, '',0,1,'L');
     $this->Cell(2,5 ,'https://apacongress.africa.','','','',false, "https://apacongress.africa/ "); 
