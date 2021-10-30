@@ -107,10 +107,10 @@ endif;
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="<?=$_participant_data_->profile != null? VIEW_PROFILE.$_participant_data_->profile: "https://bootdey.com/img/Content/avatar/avatar7.png"?>" alt="Admin" class="rounded-circle" width="150">
+                                <img src="<?=$_participant_data_->profile != null? VIEW_PROFILE.$_participant_data_->profile: "https://bootdey.com/img/Content/avatar/avatar7.png"?>" alt="Admin" class="rounded-circle" width="100">
                                 <div class="mt-3">
                                     <h4><?= $_participant_data_->firstname .' '. $_participant_data_->lastname ?></h4>
-                                    <p class="text-secondary mb-1 display_status_" style="color: <?=$_status_color_?> !important;"><?=Functions::getStatus($_status_)?> <i class="fa fa-times-circle"></i></p>
+                                    <p class="text-secondary mb-1 display_status_" style="color: <?=$_status_color_?> !important;"><?=Functions::getStatus($_status_)?> <i class="fa fa-check-circle"></i></p>
 <?php
 if($_status_ == 'APPROVED'):
  ?>
@@ -123,66 +123,602 @@ endif;
                             </div>
                         </div>
                     </div>
-                    <h3 class="card-sect-title">Event </h3>
-                    <div class="card mt-3">
-                        <div class="card-body side-card">
+                    
+
+            </div>
+
+                <div class="col-md-8" id="tab-div">
+                    <div class="wlcm-mssg">
+                        <h1>Welcome <?= $_participant_data_->firstname .' '. $_participant_data_->lastname ?></h1>
+                        <p>The Client Area allows you to take advantage of various Congress online services such as registering to the Congress if you have not done so already, submit a proposal for social events, among many others. The menu below gives details of all services available through your account. Ensure your profile is up to date at all times. As some services are time bound, please note upon expiration of those timelines you will not be able to access such services. Please note that the grey buttons mean that the services are currently not available. </p>
+                    </div>
+                    <div class="prog_tabs_area" id="program_section">
+                        <div class="container">
                             <div class="row">
-                                <div class="col-sm-4">
-                                    <h6 class="mb-0">Event Name </h6>
-                                </div>
-                                <div class="col-sm-8 text-secondary">
-                                    <h6><?= $_participant_data_->event_name ?></h6>
+                                <div class="col-lg-12">
+                                    <div class="row" id="myProgram">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-3 col-xs-6 div-program-mc active-pg" onclick="openCity(event, 'one')" id="defaultOpen">
+                                                    <div class="pog-day">
+                                                        <h4>Service area <i class="fa fa-caret-down"></i></h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-xs-6 div-program-mc " onclick="openCity(event, 'two')" id="defaultOpen">
+                                                    <div class="pog-day">
+                                                        <h4>my personal area <i class="fa fa-caret-down"></i></h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-xs-6 div-program-mc " onclick="openCity(event, 'three')" id="defaultOpen">
+                                                    <div class="pog-day">
+                                                        <h4>Event area <i class="fa fa-caret-down"></i></h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-xs-6 div-program-mc " onclick="openCity(event, 'four')" id="defaultOpen">
+                                                    <div class="pog-day">
+                                                        <h4>Payment area <i class="fa fa-caret-down"></i></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <script type="text/javascript">
+                                        var header = document.getElementById("myProgram");
+                                        var btns = header.getElementsByClassName("div-program-mc");
+                                        for (var i = 0; i < btns.length; i++) {
+                                        btns[i].addEventListener("click", function() {
+                                            var current = document.getElementsByClassName("active-pg");
+                                            current[0].className = current[0].className.replace(" active-pg", "");
+                                            this.className += " active-pg";
+                                        });
+                                        }
+                                    </script>
                                 </div>
                             </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0">Event Type</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary">
-                                    <h6><?= Functions::getEventCategory($_participant_data_->participation_subtype_category) ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <h6 class="mb-0">Participation Type</h6>
-                                </div>
-                                <div class="col-sm-6 text-secondary">
-                                    <h6><?= $_participant_data_->participation_type_name ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <h6 class="mb-0">Participation Subtype</h6>
-                                </div>
-                                <div class="col-sm-6 text-secondary">
-                                    <h6><?= $_participant_data_->participation_subtype_name ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <h6 class="mb-0">Payment State</h6>
-                                </div>
-                                <div class="col-sm-7 text-secondary">
-                                    <h6><?= $_participant_data_->payment_state ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <h6 class="mb-0">Participation Price</h6>
-                                </div>
-                                <div class="col-sm-6 text-secondary">
-                                    <h6><?= $_participant_data_->participation_subtype_price ?> <small><?= $_participant_data_->participation_subtype_currency ?></small> </h6>
-                                </div>
-                            </div>
-                            <hr>
                         </div>
                     </div>
-<?php
+                    <div class="tab-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="one" class="daycontent program-one">
+                                        <div class="div-buttons text-center">
+                                            <a href="#" class="btn btn-primary">Change registration & book you hotel</a><br>
+                                            <a href="#" class="btn btn-primary">Book excursions</a><br>
+                                            <a href="#" class="btn btn-primary">Book an exhibit booth</a>
+                                        </div>
+                                    </div>
+                                    <div id="two" class="daycontent program-two">
+                                         <h3 class="card-sect-title">CONTACT INFORMATION </h3>
+                                        <div class="card mb-3" >
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h6 class="mb-0">Full Name</h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">
+                                                        <h6><?= $_participant_data_->firstname .' '. $_participant_data_->lastname ?></h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h6 class="mb-0">Email address</h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">
+                                                        <h6><a href="mailto:email"><?= $_participant_data_->email ?></a></h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h6 class="mb-0">Telephone number 1</h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">
+                                                        <h6><a href="tel:phone"><?= $_participant_data_->telephone ?></a></h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h6 class="mb-0">Telephone number 2</h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">
+                                                        <h6><a href="tel:phone"><?= $_participant_data_->telephone_2 ?></a></h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h6 class="mb-0">Job title</h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">
+                                                        <h6><?= $_participant_data_->job_title ?></h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h6 class="mb-0">Job category</h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">
+                                                        <h6><?= $_participant_data_->job_category ?></h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h6 class="mb-0">Language</h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">
+                                                        <h6><?= $_participant_data_->language ?></h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h6 class="mb-0">Gender</h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">
+                                                        <h6><?= $_participant_data_->gender ?></h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h6 class="mb-0">Date of birth</h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">
+                                                        <h6><?= $_participant_data_->birthday ?></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <?php
+                                        /** Display Organization Section - When Not Media - */
+                                        if( $_participant_data_->participation_type_name != 'Media' && $_participant_data_->student_state == 0  ):
+                                        ?>
+                                                            <h3 class="card-sect-title">ORGANIZATION </h3>
+                                                            <div class="card mb-3" >
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Organization name</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->organisation_name ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Organization type</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->organisation_type ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                        <?php
+                                            if($_participant_data_->participation_type_code == $_CBO_CODE_): 
+                                        ?>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+                                                                            <h6 class="mb-0">Date and year of registration</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-6 text-secondary">
+                                                                            <h6><?= $_participant_data_->organization_registration_date_year ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Number of employees</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->organization_annual_turnover ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+                                                                            <h6 class="mb-0">What is your annual turnover</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-6 text-secondary">
+                                                                            <h6><?= $_participant_data_->organization_annual_turnover ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">CBO Project Objectives</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->cbo_project_objectives ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">CBO activities</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->cbo_activities ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+
+                                        <?php
+                                            endif;
+                                        ?>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Industry</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->industry ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Organization Website</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                        <h6><a href="<?= $_participant_data_->website == ''?'#': str_replace('http:// http://', 'http://', 'http://'.$_participant_data_->website)  ?>"><?= $_participant_data_->website ?></a></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">City / Country</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= countryCodeToCountry($_participant_data_->organisation_country) ?> / <?= $_participant_data_->organisation_city ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                        <?php
+                                        /** Display Organization Section - When Not Media - Students - */
+                                        elseif( $_participant_data_->participation_type_name != 'Media' && $_participant_data_->student_state == 1  ):
+                                        ?>
+                                                            <h3 class="card-sect-title">EDUCATION INSTITUTE</h3>
+                                                            <div class="card mb-3" >
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Institute Name</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->educacation_institute_name ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Institute Type</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->educacation_institute_category ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Industry</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->educacation_institute_industry ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Institute Website</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                        <h6><a href="<?= $_participant_data_->educacation_institute_website == ''?'#': $_participant_data_->educacation_institute_website  ?>"><?= $_participant_data_->educacation_institute_website ?></a></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Institute Country/ City </h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= countryCodeToCountry($_participant_data_->educacation_institute_country) ?> / <?= $_participant_data_->educacation_institute_city ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                        <?php
+                                        /** Display Organization Section - When  Media - */
+                                        elseif( $_participant_data_->participation_type_name == 'Media'):
+                                        ?>
+                                                            <!-- info fo media person -->
+                                                            <h3 class="card-sect-title">ORGANIZATION</h3>
+                                                            <div class="card mb-3" >
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Organization name</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->organisation_name ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Media category</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->organisation_type ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Press card number </h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->media_card_number ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Issuing authority</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                        <h6><?= $_participant_data_->media_card_authority ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">City / Country</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= countryCodeToCountry($_participant_data_->organisation_country) ?> / <?= $_participant_data_->organisation_city ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <h3 class="card-sect-title">TOOLS</h3>
+                                                            <div class="card mb-3" >
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-4">
+                                                                            <h6 class="mb-0">List of equipment to be brought</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-8 text-secondary">
+                                                                            <h6><?= $_participant_data_->media_equipment ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-4">
+                                                                            <h6 class="mb-0">Special Request</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-8 text-secondary">
+                                                                            <h6><?= $_participant_data_->special_request ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- <hr> -->
+                                                                </div>
+                                                            </div>
+                                        <?php
+                                            endif;
+                                        ?>
+                                                            <h3 class="card-sect-title">WHAT ARE YOUR OBJECTIVES FOR ATTENDING THIS CONGRESS?</h3>
+                                                            <div class="card mb-3">
+                                                                <div  class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0"> objectives</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6 style="text-align:left;"><?= $_participant_data_->attending_objective_1 ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <!-- <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Second objective </h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6 style="text-align:left;"><?= $_participant_data_->attending_objective_2 ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Third objective </h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6 style="text-align:left;"><?= $_participant_data_->attending_objective_3 ?> </h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr> -->
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+                                                                            <h6 class="mb-0">Where did you hear about us ? </h6>
+                                                                        </div>
+                                                                        <div class="col-sm-6 text-secondary">
+                                                                            <h6><?= $_participant_data_->info_source ?> </h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                        <?php
+                                        /** Only For In-person participation event */
+                                        if($_participant_data_->participation_subtype_category == 'INPERSON'):
+                                        ?>
+                                                            <h3 class="card-sect-title">IDENTIFICATION</h3>
+                                                            <div class="card mb-3">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Type of ID document </h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->id_type ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Document number </h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->id_number ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-4">
+                                                                            <h6 class="mb-0">Country/ City of residence</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-8 text-secondary">
+                                                                            <h6><?= countryCodeToCountry($_participant_data_->residence_country) ?> / <?= $_participant_data_->residence_city ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                        <?php
+                                        endif;
+                                        ?>
+
+                                                            <h3 class="card-sect-title">EMERGENCY CONTACT</h3>
+                                                            <div class="card mb-3">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Full name </h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->emergency_contact_firstname .' '.$_participant_data_->emergency_contact_lastname ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h6 class="mb-0">Email address </h6>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            <h6><?= $_participant_data_->emergency_contact_email ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-4">
+                                                                            <h6 class="mb-0">Telephone</h6>
+                                                                        </div>
+                                                                        <div class="col-sm-8 text-secondary">
+                                                                            <h6><?= $_participant_data_->emergency_contact_telephone ?></h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <h3 class="card-sect-title">Accommodation and Travel </h3>
+                                                            <div class="card mt-3">
+                                                                <div class="card-body side-card">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <h6 class="text-justify text-secondary">
+                                                                            A quota of rooms has been negotiated for the IUCN APAC 2022 participants in hotels in the city centre and reasonably close to the conference venue. Reservations will be made on “first come, first served” basis. <br><br>  The hotel quotas are valid until one months before the conference. After that, APAC cannot guarantee the availability of the hotel rooms but will assist you in finding accommodation.   The negotiated hotel fee includes breakfast and all applicable taxes. All hotel fees are payable directly to the hotels. <br><br> 
+                                                                            Delegates have the option to book accommodation soon after registration or at a later date at their convenience. For more information on travel and accommodation please visit the APAC’s travel management agent’s website here.
+
+                                                                            </h6>
+                                                                        </div>
+                                                                        <div class="col-sm-12">
+                                                                            <h6>
+                                                                                <ul>
+                                                                                    <li><br> <a style="color: #f47e20; cursor: pointer;" href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_blank'> <u>Click here</u> </a> to book your accommodation for your stay in Kigali   </li>
+                                                                                </ul>
+                                                                            </h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                    
+
+                                    </div>
+
+                                    <div id="three" class="daycontent program-three">
+                                        <h3 class="card-sect-title">Event </h3>
+                                        <div class="card mt-3">
+                                            <div class="card-body side-card">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <h6 class="mb-0">Event Name </h6>
+                                                    </div>
+                                                    <div class="col-sm-8 text-secondary">
+                                                        <h6><?= $_participant_data_->event_name ?></h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-5">
+                                                        <h6 class="mb-0">Event Type</h6>
+                                                    </div>
+                                                    <div class="col-sm-7 text-secondary">
+                                                        <h6><?= Functions::getEventCategory($_participant_data_->participation_subtype_category) ?></h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <h6 class="mb-0">Participation Type</h6>
+                                                    </div>
+                                                    <div class="col-sm-6 text-secondary">
+                                                        <h6><?= $_participant_data_->participation_type_name ?></h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <h6 class="mb-0">Participation Subtype</h6>
+                                                    </div>
+                                                    <div class="col-sm-6 text-secondary">
+                                                        <h6><?= $_participant_data_->participation_subtype_name ?></h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-5">
+                                                        <h6 class="mb-0">Payment State</h6>
+                                                    </div>
+                                                    <div class="col-sm-7 text-secondary">
+                                                        <h6><?= $_participant_data_->payment_state ?></h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <h6 class="mb-0">Participation Price</h6>
+                                                    </div>
+                                                    <div class="col-sm-6 text-secondary">
+                                                        <h6><?= $_participant_data_->participation_subtype_price ?> <small><?= $_participant_data_->participation_subtype_currency ?></small> </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="four" class="daycontent program-three">
+                                    <?php
 if($_participant_data_->payment_state == 'PAYABLE'):
     ?>
 
@@ -273,487 +809,49 @@ if($_participant_data_->payment_state == 'PAYABLE'):
                                         </div>
                                     </div>
 
-                                  
-<?php
-endif;
-    ?>
+                                                                    
+                                    <?php
+                                    endif;
+                                        ?>
 
-<?php
-# Need Accommodation 
-if($_participant_data_->need_accommodation_state == 1):
-    ?>
+                                    <?php
+                                    # Need Accommodation 
+                                    if($_participant_data_->need_accommodation_state == 1):
+                                        ?>
 
-                                    
+                                                                        
 
-                                  
-<?php
-endif;
-    ?>
-            </div>
+                                                                    
+                                    <?php
+                                    endif;
+                                        ?>
+                                    <div>
 
-                <div class="col-md-8">
-                    <h3 class="card-sect-title">CONTACT INFORMATION </h3>
-                    <div class="card mb-3" >
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Full Name</h6>
+
+
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->firstname .' '. $_participant_data_->lastname ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Email address</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><a href="mailto:email"><?= $_participant_data_->email ?></a></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Telephone number 1</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><a href="tel:phone"><?= $_participant_data_->telephone ?></a></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Telephone number 2</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><a href="tel:phone"><?= $_participant_data_->telephone_2 ?></a></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Job title</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->job_title ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Job category</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->job_category ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Language</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->language ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Gender</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->gender ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Date of birth</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->birthday ?></h6>
-                                </div>
+                                <script>
+                                    function openCity(evt, cityName) {
+                                        var i, tabcontent, tablinks;
+                                        tabcontent = document.getElementsByClassName("daycontent");
+                                        for (i = 0; i < tabcontent.length; i++) {
+                                            tabcontent[i].style.display = "none";
+                                        }
+                                        tablinks = document.getElementsByClassName("tablinks");
+                                        for (i = 0; i < tablinks.length; i++) {
+                                            tablinks[i].className = tablinks[i].className.replace(" active-day", "");
+                                        }
+                                        document.getElementById(cityName).style.display = "block";
+                                        evt.currentTarget.className += " active-day";
+                                    }
+
+                                    document.getElementById("defaultOpen").click();
+                                </script>
                             </div>
                         </div>
                     </div>
-<?php
-/** Display Organization Section - When Not Media - */
-if( $_participant_data_->participation_type_name != 'Media' && $_participant_data_->student_state == 0  ):
-?>
-                    <h3 class="card-sect-title">ORGANIZATION </h3>
-                    <div class="card mb-3" >
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Organization name</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->organisation_name ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Organization type</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->organisation_type ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-<?php
-    if($_participant_data_->participation_type_code == $_CBO_CODE_): 
-?>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <h6 class="mb-0">Date and year of registration</h6>
-                                </div>
-                                <div class="col-sm-6 text-secondary">
-                                    <h6><?= $_participant_data_->organization_registration_date_year ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Number of employees</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->organization_annual_turnover ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <h6 class="mb-0">What is your annual turnover</h6>
-                                </div>
-                                <div class="col-sm-6 text-secondary">
-                                    <h6><?= $_participant_data_->organization_annual_turnover ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">CBO Project Objectives</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->cbo_project_objectives ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">CBO activities</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->cbo_activities ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-
-<?php
-    endif;
-?>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Industry</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->industry ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Organization Website</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                <h6><a href="<?= $_participant_data_->website == ''?'#': str_replace('http:// http://', 'http://', 'http://'.$_participant_data_->website)  ?>"><?= $_participant_data_->website ?></a></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">City / Country</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= countryCodeToCountry($_participant_data_->organisation_country) ?> / <?= $_participant_data_->organisation_city ?></h6>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-<?php
-/** Display Organization Section - When Not Media - Students - */
-elseif( $_participant_data_->participation_type_name != 'Media' && $_participant_data_->student_state == 1  ):
-?>
-                    <h3 class="card-sect-title">EDUCATION INSTITUTE</h3>
-                    <div class="card mb-3" >
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Institute Name</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->educacation_institute_name ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Institute Type</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->educacation_institute_category ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Industry</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->educacation_institute_industry ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Institute Website</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                <h6><a href="<?= $_participant_data_->educacation_institute_website == ''?'#': $_participant_data_->educacation_institute_website  ?>"><?= $_participant_data_->educacation_institute_website ?></a></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Institute Country/ City </h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= countryCodeToCountry($_participant_data_->educacation_institute_country) ?> / <?= $_participant_data_->educacation_institute_city ?></h6>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-<?php
-/** Display Organization Section - When  Media - */
-elseif( $_participant_data_->participation_type_name == 'Media'):
-?>
-                    <!-- info fo media person -->
-                    <h3 class="card-sect-title">ORGANIZATION</h3>
-                    <div class="card mb-3" >
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Organization name</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->organisation_name ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Media category</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->organisation_type ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Press card number </h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->media_card_number ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Issuing authority</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                <h6><?= $_participant_data_->media_card_authority ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">City / Country</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= countryCodeToCountry($_participant_data_->organisation_country) ?> / <?= $_participant_data_->organisation_city ?></h6>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <h3 class="card-sect-title">TOOLS</h3>
-                    <div class="card mb-3" >
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <h6 class="mb-0">List of equipment to be brought</h6>
-                                </div>
-                                <div class="col-sm-8 text-secondary">
-                                    <h6><?= $_participant_data_->media_equipment ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <h6 class="mb-0">Special Request</h6>
-                                </div>
-                                <div class="col-sm-8 text-secondary">
-                                    <h6><?= $_participant_data_->special_request ?></h6>
-                                </div>
-                            </div>
-                            <!-- <hr> -->
-                        </div>
-                    </div>
-<?php
-    endif;
-?>
-                    <h3 class="card-sect-title">WHAT ARE YOUR OBJECTIVES FOR ATTENDING THIS CONGRESS?</h3>
-                    <div class="card mb-3">
-                        <div  class="card-body">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0"> objectives</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6 style="text-align:left;"><?= $_participant_data_->attending_objective_1 ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <!-- <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Second objective </h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6 style="text-align:left;"><?= $_participant_data_->attending_objective_2 ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Third objective </h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6 style="text-align:left;"><?= $_participant_data_->attending_objective_3 ?> </h6>
-                                </div>
-                            </div>
-                            <hr> -->
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <h6 class="mb-0">Where did you hear about us ? </h6>
-                                </div>
-                                <div class="col-sm-6 text-secondary">
-                                    <h6><?= $_participant_data_->info_source ?> </h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-<?php
-/** Only For In-person participation event */
-if($_participant_data_->participation_subtype_category == 'INPERSON'):
-?>
-                    <h3 class="card-sect-title">IDENTIFICATION</h3>
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Type of ID document </h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->id_type ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Document number </h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->id_number ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <h6 class="mb-0">Country/ City of residence</h6>
-                                </div>
-                                <div class="col-sm-8 text-secondary">
-                                    <h6><?= countryCodeToCountry($_participant_data_->residence_country) ?> / <?= $_participant_data_->residence_city ?></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-<?php
-endif;
-?>
-
-                    <h3 class="card-sect-title">EMERGENCY CONTACT</h3>
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Full name </h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->emergency_contact_firstname .' '.$_participant_data_->emergency_contact_lastname ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Email address </h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <h6><?= $_participant_data_->emergency_contact_email ?></h6>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <h6 class="mb-0">Telephone</h6>
-                                </div>
-                                <div class="col-sm-8 text-secondary">
-                                    <h6><?= $_participant_data_->emergency_contact_telephone ?></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3 class="card-sect-title">Accommodation and Travel </h3>
-                                    <div class="card mt-3">
-                                        <div class="card-body side-card">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <h6 class="text-justify text-secondary">
-                                                    A quota of rooms has been negotiated for the IUCN APAC 2022 participants in hotels in the city centre and reasonably close to the conference venue. Reservations will be made on “first come, first served” basis. <br><br>  The hotel quotas are valid until one months before the conference. After that, APAC cannot guarantee the availability of the hotel rooms but will assist you in finding accommodation.   The negotiated hotel fee includes breakfast and all applicable taxes. All hotel fees are payable directly to the hotels. <br><br> 
-Delegates have the option to book accommodation soon after registration or at a later date at their convenience. For more information on travel and accommodation please visit the APAC’s travel management agent’s website here.
-
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <h6>
-                                                        <ul>
-                                                            <li><br> <a style="color: #f47e20; cursor: pointer;" href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_blank'> <u>Click here</u> </a> to book your accommodation for your stay in Kigali   </li>
-                                                        </ul>
-                                                    </h6>
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
                     
+
                 </div>
             </div>
         </div>

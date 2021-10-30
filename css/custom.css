@@ -272,7 +272,53 @@
   min-height: 1px;
   padding: 1rem;
 }
-
+#card-profile .card-body button{
+  margin-bottom: 10px;
+}
+#card-profile .card-body .btn{
+  white-space: unset !important;
+  width: 100%;
+  font-size: 12px;
+}
+.wlcm-mssg h1{
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.wlcm-mssg p{
+  font-size: 12px;
+  line-height: 20px;
+}
+.tab-content{
+  background-color: #fff;
+  padding: 15px 0;
+}
+#tab-div .prog_tabs_area{
+  margin-top: 25px;
+}
+#tab-div .div-program-mc{
+  background-color: #e6e6e6;
+}
+#tab-div .div-program-mc.active-pg {
+  background: #fff;
+}
+#tab-div .pog-day h4{
+  font-size: 12px;
+  font-weight: 700;
+  color: #000;
+}
+.div-buttons a{
+  margin:12px 0;
+  width: 100%;
+  font-size: 12px;
+  padding: 10px 0;
+}
+#tab-div .pog-day h4 i{
+  margin-left: 25px;
+}
+#tab-div .div-program-mc{
+  padding: 20px 10px;
+}
 #card-profile .gutters-sm {
   margin-right: -8px;
   margin-left: -8px;
@@ -298,8 +344,9 @@
 #card-profile .card-sect-title{
   padding: 5px 0;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 12px;
   color: #f47e20;
+  font-weight: 700;
 }
 #card-profile  .card h6{
   font-size: 12px !important;

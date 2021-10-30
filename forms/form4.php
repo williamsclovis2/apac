@@ -503,6 +503,16 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                             </div>
                         </div>
                     </div>
+                    <div class="row" style="margin-bottom: 2%;">
+                        <div class="form-group col-sm-12">
+                            <div>
+                                <label class="checkbox-mc"> <?=$_Dictionary->string('form-by-clicking-you-agree-terms-conditions2')?>  
+                                    <input type="checkbox" name="privacy"  id="privacy"> 
+                                    <span class="geekmark" ></span> 
+                                </label> 
+                            </div>
+                        </div>
+                    </div>
                     <hr class="separator-line">
                     <div class="row" style="margin-bottom: 2%;">
                         <div class="col-md-4 col-sm-12 col-xm-12" style="margin-top: 3%; ">
