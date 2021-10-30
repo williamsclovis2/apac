@@ -74,7 +74,11 @@ endif;
 <head>
     <?php include 'includes/head.php';?>
 </head>
-
+<style>
+    .service_area{
+        padding-bottom:0;
+    }
+</style>
 <body>
     <?php include'includes/nav-session.php';?>
     <?php
@@ -184,10 +188,33 @@ endif;
                                 <div class="col-md-12">
                                     <div id="one" class="daycontent program-one">
                                         <div class="div-buttons text-center">
-                                            <a href="#" class="btn btn-primary">Change registration & book you hotel</a><br>
+                                            <div class="row">
+                                                <div class="col-md-6"><a href="#" class="btn btn-primary">Change registration details</a></div>
+                                                <div class="col-md-6"><a class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Book your Accomodation & hotel</a></div>
+                                                <!-- Collapse -->
+                                                <div class="bs-example col-md-12 text-left" id="book-info">
+                                                    <div class="panel-group" id="accordion">
+                                                        <div class="panel panel-default">
+                                                            <div id="collapseOne" class="panel-collapse collapse in">
+                                                                <div class="panel-body">
+                                                                    <h3 class="card-sect-title">Excursions & Visits in Rwanda</h3>
+                                                                    <p>Welcome to Rwanda, the land of a thousand hills! Blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains Rwanda offers you an exceptional range of great value excursions to suit all ages, interests and abilities. Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. All excursions packages offered through accredited partners are carefully designed to suit your itinerary.<br> For more information, explore available opportunities below:<br><a href="https://rtta.rw/" target="_blank" style="color:blue;">Rwanda Tours and Travel Association</a></p>
+                                                                    <h3 class="card-sect-title">Disclaimer:</h3>
+                                                                    <p>While every effort is made to ensure that the information on this website is correct, some of the information, particularly those supplied by third parties, can change without notice. We do not guarantee and accept no liability whatsoever arising from or connected to, the accuracy, reliability, currency or completeness of the excursion booking sites.  </p>
+                                                                    <p>The description and translations of each excursion have been provided directly by the excursion organisers. IUCN APAC is not responsible for the content or translations on third part.</p>
+                                                                    <p>While the service providers make every effort to provide on-time service, IUCN APAC does not guarantee departure and arrival times, which may be delayed by any number of factors, including weather, traffic or road conditions, mechanical problems or any other cause or other conditions beyond the service providers’ control. As such, IUCN APAC makes no warranty as to the weather, or that excursions will be uninterrupted, on time or meet the requirements and expectations of excursion participants.</p>
+                                                                    <p>IUCN APAC disclaims any responsibility and liability for any loss or damages that arise from dealings or disputes between excursion participants and excursion organisers.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- end Collapse -->
+                                            </div>
+
                                             <a href="#" class="btn btn-primary">Book excursions</a><br>
-                                            <a href="#" class="btn btn-primary">Book an exhibit booth</a>
                                         </div>
+                                        
                                     </div>
                                     <div id="two" class="daycontent program-two">
                                          <h3 class="card-sect-title">CONTACT INFORMATION </h3>
@@ -630,28 +657,7 @@ endif;
                                                                 </div>
                                                             </div>
 
-                                                            <h3 class="card-sect-title">Accommodation and Travel </h3>
-                                                            <div class="card mt-3">
-                                                                <div class="card-body side-card">
-                                                                    <div class="row">
-                                                                        <div class="col-sm-12">
-                                                                            <h6 class="text-justify text-secondary">
-                                                                            A quota of rooms has been negotiated for the IUCN APAC 2022 participants in hotels in the city centre and reasonably close to the conference venue. Reservations will be made on “first come, first served” basis. <br><br>  The hotel quotas are valid until one months before the conference. After that, APAC cannot guarantee the availability of the hotel rooms but will assist you in finding accommodation.   The negotiated hotel fee includes breakfast and all applicable taxes. All hotel fees are payable directly to the hotels. <br><br> 
-                                                                            Delegates have the option to book accommodation soon after registration or at a later date at their convenience. For more information on travel and accommodation please visit the APAC’s travel management agent’s website here.
-
-                                                                            </h6>
-                                                                        </div>
-                                                                        <div class="col-sm-12">
-                                                                            <h6>
-                                                                                <ul>
-                                                                                    <li><br> <a style="color: #f47e20; cursor: pointer;" href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_blank'> <u>Click here</u> </a> to book your accommodation for your stay in Kigali   </li>
-                                                                                </ul>
-                                                                            </h6>
-                                                                        </div>
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                            </div>
+                                                           
                     
 
                                     </div>
@@ -855,7 +861,10 @@ if($_participant_data_->payment_state == 'PAYABLE'):
                 </div>
             </div>
         </div>
+       
     </div>
+</div>
+    <?php include 'includes/footer.php';?>
 </body>
 
 </html>
