@@ -94,7 +94,7 @@ class myPDF extends FPDF
     $this->MultiCell(190, 5, $content_confirmation ,0,'L');
 
     $this->cell(190, 6, '',0,1,'L');
-    $this->Cell(89, 5,"For more information on the congress please contact the ", 0, 0,'L');
+    $this->Cell(89, 5,"For more information on the congress please contact the APAC Secretariat ", 0, 0,'L');
     $this->SetTextColor(0,0,255);
     $this->Cell(40, 5," info@apacongress.africa ", 0, 0,'L');
     $this->SetTextColor(0,0,0);
