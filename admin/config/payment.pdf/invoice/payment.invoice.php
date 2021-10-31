@@ -156,7 +156,7 @@ class myPDF extends FPDF
     $this->cell(190, 7, '',0,1,'L');
 
     $this->SetFont('arial','',9);
-    $this->MultiCell(175, 5,"Payment must to be received within 15 days after completing the registration form; otherwise the registration will be cancelled. \n\nPayments by bank transfer will only be possible until 15th January 2022. After this date, registrations can only be made with credit card payment. No cash payments can be accepted at the venue registration desk.", 0,'L');
+    $this->MultiCell(175, 5,"Payment must to be received within 3 days after completing the registration form; otherwise the registration will be cancelled. \n\nPayments by bank transfer will only be possible until 15th January 2022. After this date, registrations can only be made with credit card payment. No cash payments can be accepted at the venue registration desk.", 0,'L');
    
     $this->cell(190, 5, '',0,1,'L');
     $this->Cell(66, 5,"For details on cancellation and refund, refer to ", 0, 0,'L');
