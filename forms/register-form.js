@@ -535,13 +535,11 @@ $('.registerFormSubmit').on('click', function () {
 		success: function (responseData) {
 			var responseCaptcha = JSON.parse(responseData);
 
-			if (responseCaptcha.messages != inputCaptcha) {
+			if (responseCaptcha.messages == inputCaptcha) {
 
 				var form = $('#registerForm')[0];
 				var formData = new FormData(form);
 				// event.preventDefault();
-
-
 
 				$.ajax({
 					type: "POST",
