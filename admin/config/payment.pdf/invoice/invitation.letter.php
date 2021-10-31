@@ -94,14 +94,15 @@ class myPDF extends FPDF
     $this->MultiCell(190, 5, $content_confirmation ,0,'L');
 
     $this->cell(190, 6, '',0,1,'L');
-    $this->Cell(89, 5,"For more information on the congress please contact the APAC Secretariat ", 0, 0,'L');
+    $this->Cell(117, 5,"For more information on the congress please contact the APAC Secretariat ", 0, 0,'L');
     $this->SetTextColor(0,0,255);
     $this->Cell(40, 5," info@apacongress.africa ", 0, 0,'L');
     $this->SetTextColor(0,0,0);
-    $this->Cell(10, 5," or visit the APAC Website at ", 0, 0,'L');
-    $this->SetTextColor(0,0,255);
+    $this->Cell(10, 5," or visit the APAC ", 0, 0,'L');
     $this->cell(190, 5, '',0,1,'L');
-    $this->Cell(2,5 ,'https://apacongress.africa.','','','',false, "https://apacongress.africa/ "); 
+    $this->Cell(18, 5,"Website at ", 0, 0,'L');
+    $this->SetTextColor(0,0,255);
+    $this->Cell(8,5 ,'https://apacongress.africa.','','','',false, "https://apacongress.africa/ "); 
     $this->SetTextColor(0,0,0);
 
     $this->SetFont('arial','',10);
