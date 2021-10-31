@@ -236,7 +236,7 @@ endif;
                                                 </div>
                                                 <!-- end Collapse -->
                                                 
-                                            <a  class="btn btn-primary"  href="https://apacongress.africa/programme/">View Congress Programme </a><br>
+                                            <!-- <a  class="btn btn-primary"  href="https://apacongress.africa/programme/">View Congress Programme </a><br> -->
                                         </div>
                                         
                                     </div>
@@ -745,6 +745,7 @@ endif;
                                                 </div>
                                             </div>
                                         </div>
+                                        <a class="btn btn-xs btn-outline-info disable_btn_deny col-md-12 col-xs-12 col-lg-12 col-sm-12 " href="https://apacongress.africa/programme/" target="_blank" ><i class="fa fa-video icon"></i> View Congress Programme </a> <br> <br>
                                     </div>
 
                                     <div id="four" class="daycontent program-three">
