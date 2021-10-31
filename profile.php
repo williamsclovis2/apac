@@ -111,7 +111,7 @@ endif;
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="<?=$_participant_data_->profile != null? VIEW_PROFILE.$_participant_data_->profile: "https://bootdey.com/img/Content/avatar/avatar7.png"?>" alt="Admin" class="rounded-circle" width="100">
+                                <img src="<?=$_participant_data_->profile != null? VIEW_PROFILE.$_participant_data_->profile: "https://bootdey.com/img/Content/avatar/avatar7.png"?>" alt="Admin" class="rounnded-circle" width="100%">
                                 <div class="mt-3">
                                     <h4><?= $_participant_data_->firstname .' '. $_participant_data_->lastname ?></h4>
                                     <p class="text-secondary mb-1 display_status_" style="color: <?=$_status_color_?> !important;"><?=Functions::getStatus($_status_)?> <i class="fa fa-check-circle"></i></p>
@@ -122,7 +122,8 @@ if($_status_ == 'APPROVED'):
 <?php
 endif;
  ?>
-                                    <a class="btn btn-xs btn-outline-info disable_btn_deny " href="https://apacongress.africa/programme/" target="_blank" ><i class="fa fa-video icon"></i> View Congress Programme </a>
+                                    <a class="btn btn-xs btn-outline-info disable_btn_deny " href="https://apacongress.africa/programme/" target="_blank" ><i class="fa fa-video icon"></i> View Congress Programme </a> <br> <br>
+                                    <a class="btn btn-xs btn-outline-info disable_btn_deny " href="<?php linkto('logout'); ?>" target="_blank" ><i class="fa fa-video icon"></i> Logout </a>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +135,7 @@ endif;
                 <div class="col-md-8" id="tab-div">
                     <div class="wlcm-mssg">
                         <h1>Welcome <?= $_participant_data_->firstname .' '. $_participant_data_->lastname ?></h1>
-                        <p>The Client Area allows you to take advantage of various Congress online services such as registering to the Congress if you have not done so already, submit a proposal for social events, among many others. The menu below gives details of all services available through your account. Ensure your profile is up to date at all times. As some services are time bound, please note upon expiration of those timelines you will not be able to access such services. Please note that the grey buttons mean that the services are currently not available. </p>
+                        <p class="text-justify">The Client Area allows you to take advantage of various Congress online services such as registering to the Congress if you have not done so already, submit a proposal for social events, among many others. The menu below gives details of all services available through your account. Ensure your profile is up to date at all times. As some services are time bound, please note upon expiration of those timelines you will not be able to access such services. Please note that the grey buttons mean that the services are currently not available. </p>
                     </div>
                     <div class="prog_tabs_area" id="program_section">
                         <div class="container">
@@ -189,16 +190,40 @@ endif;
                                     <div id="one" class="daycontent program-one">
                                         <div class="div-buttons text-center">
                                             <div class="row">
-                                                <div class="col-md-6"><a href="#" class="btn btn-primary">Change registration details</a></div>
-                                                <div class="col-md-6"><a class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Book your Accomodation & hotel</a></div>
+                                                <div class="col-md-6"><a href="<?=linkto('update/profile/'.Hash::encryptAuthToken($_session_user_ID_))?>" class="btn btn-primary">Change registration details</a></div>
+                                                <div class="col-md-6"><a class="btn btn-primary collapse1" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Book your hotel</a></div>
                                                 <!-- Collapse -->
                                                 <div class="bs-example col-md-12 text-left" id="book-info">
                                                     <div class="panel-group" id="accordion">
                                                         <div class="panel panel-default">
                                                             <div id="collapseOne" class="panel-collapse collapse in">
                                                                 <div class="panel-body">
+                                                                    <h3 class="card-sect-title">Travel and Accommodation </h3>
+                                                                    <p class="text-justify">A quota of rooms has been negotiated for the IUCN APAC 2022 participants in hotels in the city centre and reasonably close to the conference venue. 
+                                                                        Reservations will be made on “first come, first served” basis. The hotel quotas are valid until one months before the conference. 
+                                                                        After that, APAC cannot guarantee the availability of the hotel rooms but will assist you in finding accommodation. 
+                                                                        The negotiated hotel fee includes breakfast and all applicable taxes. All hotel fees are payable directly to the hotels.</p>
+
+                                                                    <p>
+                                                                        <a style="color: #f47e20;" href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_blank'> <u>Click here</u> </a> to book your accommodation for your stay in Kigali 
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- end Collapse -->
+                                            </div>
+
+                                            <a  class="btn btn-primary collapse2" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Book excursions</a><br>
+                                            <!-- Collapse -->
+                                                <div class="bs-example col-md-12 text-left" id="book-info">
+                                                    <div class="panel-group" id="accordion">
+                                                        <div class="panel panel-default">
+                                                            <div id="collapseTwo" class="panel-collapse collapse in">
+                                                                <div class="panel-body">
                                                                     <h3 class="card-sect-title">Excursions & Visits in Rwanda</h3>
-                                                                    <p>Welcome to Rwanda, the land of a thousand hills! Blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains Rwanda offers you an exceptional range of great value excursions to suit all ages, interests and abilities. Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. All excursions packages offered through accredited partners are carefully designed to suit your itinerary.<br> For more information, explore available opportunities below:<br><a href="https://rtta.rw/" target="_blank" style="color:blue;">Rwanda Tours and Travel Association</a></p>
+                                                                    <p>Welcome to Rwanda, the land of a thousand hills! Blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains Rwanda offers you an exceptional range of great value excursions to suit all ages, interests and abilities. Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. All excursions packages offered through accredited partners are carefully designed to suit your itinerary.<br> <br> For more information, explore available opportunities below:<br><a href="https://rtta.rw/" target="_blank" style="color:blue;"><u> Rwanda Tours and Travel Association</u></a>.</p>
                                                                     <h3 class="card-sect-title">Disclaimer:</h3>
                                                                     <p>While every effort is made to ensure that the information on this website is correct, some of the information, particularly those supplied by third parties, can change without notice. We do not guarantee and accept no liability whatsoever arising from or connected to, the accuracy, reliability, currency or completeness of the excursion booking sites.  </p>
                                                                     <p>The description and translations of each excursion have been provided directly by the excursion organisers. IUCN APAC is not responsible for the content or translations on third part.</p>
@@ -210,9 +235,6 @@ endif;
                                                     </div>
                                                 </div>
                                                 <!-- end Collapse -->
-                                            </div>
-
-                                            <a href="#" class="btn btn-primary">Book excursions</a><br>
                                         </div>
                                         
                                     </div>
@@ -864,7 +886,26 @@ if($_participant_data_->payment_state == 'PAYABLE'):
        
     </div>
 </div>
+<style>
+    .selectedTab{
+        background: #f47e20;
+        border-color: #f47e20;
+        border: none !important;
+    }
+</style>
     <?php include 'includes/footer.php';?>
+    <script>
+        $('.collapse1').on('click', function(){
+            $('.collapse1').addClass('selectedTab');
+            $('.collapse2').removeClass('selectedTab');
+            $('#collapseTwo').removeClass('show');
+        });
+        $('.collapse2').on('click', function(){
+            $('#collapseOne').removeClass('show');
+            $('.collapse1').removeClass('selectedTab');
+            $('.collapse2').addClass('selectedTab');
+        });
+    </script>
 </body>
 
 </html>

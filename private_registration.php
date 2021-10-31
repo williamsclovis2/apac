@@ -89,22 +89,7 @@ $_DCOLOR_ = '#dedede!important';
         include 'includes/nav-session.php';
     
         switch ($_EVENT_PARTICIPATION_TYPE_FORM_ID_ ) {
-            case '1':
-                $_EvPCode_ = 'AFBR001';
-                include 'forms/form1.php';
-                break;
-            case '2':
-                $_EvPCode_ = 'NAFBR002';
-                include 'forms/form2.php';
-                break;
-            case '3':
-                $_EvPCode_ = 'STYR003';
-                include 'forms/form3.php';
-                break;
-            case '4':
-                $_EvPCode_ = 'MDR004';
-                include 'forms/form4.php';
-                break;
+            
             case '5':
                 $_EvPCode_ = 'CPIR005';
                 include 'forms/form5.php';
@@ -113,15 +98,11 @@ $_DCOLOR_ = '#dedede!important';
                 $_EvPCode_ = 'CRCR005';
                 include 'forms/form6.php';
                 break;
-            case '7':
-                $_EvPCode_ = 'CBOR005';
-                include 'forms/form7.php';
-                break;
             case 'notification':
                 Redirect::to('notification');
                 break;
             default:
-               include 'forms/form1.php';
+               include 'forms/form5.php';
                 break;
         }
     ?>

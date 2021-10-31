@@ -424,7 +424,7 @@ $('.registerFormSubmit').on('click', function () {
 	var birthday = $('#birthday').val();
 
 	if (eventCode_ == 'INP001') {
-		if ($('#image').val().length == 0) {
+		if ($('#image').val().length == 0 && $('#image').attr('data-rule') == 'required') {
 			ferror = ierror = true;
 			$('#image_error').text($('#image').attr('data-msg'));
 		}
@@ -454,23 +454,49 @@ $('.registerFormSubmit').on('click', function () {
 		}
 	}
 
+	var request_ = $("input[name='request'").val();
+
+
+
 	resgistrationFormValidation(eventCode_, eventParticiaptionCode_);
 
-	if ($('#password').val().length === 0) {
-		ferror = ierror = true;
-		$('#password_error').text($('#password').attr('data-msg'));
+	if (request_ != 'registrationUpdate') {
+		if ($('#password').val().length === 0) {
+			ferror = ierror = true;
+			$('#password_error').text($('#password').attr('data-msg'));
+		}
+		if ($('#password').val().length < 6) {
+			ferror = ierror = true;
+			$('#password_error').text($('#password').attr('data-msg'));
+		}
+		if ($('#confirm_password').val().length === 0) {
+			ferror = ierror = true;
+			$('#confirm_password_error').text($('#confirm_password').attr('data-msg'));
+		}
+		if ($('#password').val() != $('#confirm_password').val()) {
+			ferror = ierror = true;
+			$('#confirm_password_error').text($('#confirm_password').attr('data-msg'));
+		}
 	}
-	if ($('#password').val().length < 6) {
-		ferror = ierror = true;
-		$('#password_error').text($('#password').attr('data-msg'));
-	}
-	if ($('#confirm_password').val().length === 0) {
-		ferror = ierror = true;
-		$('#confirm_password_error').text($('#confirm_password').attr('data-msg'));
-	}
-	if ($('#password').val() != $('#confirm_password').val()) {
-		ferror = ierror = true;
-		$('#confirm_password_error').text($('#confirm_password').attr('data-msg'));
+	else {
+		if ($('#password').val().length != 0 || $('#confirm_password').val().length != 0) {
+			if ($('#password').val().length === 0) {
+				ferror = ierror = true;
+				$('#password_error').text($('#password').attr('data-msg'));
+			}
+			if ($('#password').val().length < 6) {
+				ferror = ierror = true;
+				$('#password_error').text($('#password').attr('data-msg'));
+			}
+			if ($('#confirm_password').val().length === 0) {
+				ferror = ierror = true;
+				$('#confirm_password_error').text($('#confirm_password').attr('data-msg'));
+			}
+			if ($('#password').val() != $('#confirm_password').val()) {
+				ferror = ierror = true;
+				$('#confirm_password_error').text($('#confirm_password').attr('data-msg'));
+			}
+		}
 	}
 
 	if ($('#telephone').val().length > 0) {
@@ -484,10 +510,9 @@ $('.registerFormSubmit').on('click', function () {
 	}
 
 	if ($('#emergency_telephone').val().length > 0) {
-		var full_telephone = phone_number.getNumber(intlTelInputUtils.numberFormat.E164);
-		$("input[name='emergency_full_telephone'").val(full_telephone);
+		var full_telephone_3 = phone_number_emergency.getNumber(intlTelInputUtils.numberFormat.E164);
+		$("input[name='emergency_full_telephone'").val(full_telephone_3);
 	}
-
 
 	var str = "";
 	if (ferror) {
@@ -510,11 +535,13 @@ $('.registerFormSubmit').on('click', function () {
 		success: function (responseData) {
 			var responseCaptcha = JSON.parse(responseData);
 
-			if (responseCaptcha.messages == inputCaptcha) {
+			if (responseCaptcha.messages != inputCaptcha) {
 
 				var form = $('#registerForm')[0];
 				var formData = new FormData(form);
 				// event.preventDefault();
+
+
 
 				$.ajax({
 					type: "POST",
@@ -524,9 +551,7 @@ $('.registerFormSubmit').on('click', function () {
 					processData: false,
 					contentType: false,
 					success: function (dataResponse) {
-
 						var response = JSON.parse(dataResponse);
-
 						if (response.status == 100) {
 							window.location.href = $('.host').attr('link') + "/payment/" + response.authToken;
 						}
@@ -535,6 +560,9 @@ $('.registerFormSubmit').on('click', function () {
 						}
 						else if (response.status == 200) {
 							window.location.href = $('.host').attr('link') + "/notification";
+						}
+						else if (response.status == 315) {
+							window.location.href = $('.host').attr('link') + "/profile";
 						}
 						else if (response.status == 201) {
 							$('#registerButton').prop('disabled', false);
@@ -688,22 +716,6 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 
 	/** Validation General - INPERSON - VIRTUAL - */
 
-	if ($('#password').val().length === 0) {
-		ferror = ierror = true;
-		$('#password_error').text($('#password').attr('data-msg'));
-	}
-	if ($('#password').val().length < 6) {
-		ferror = ierror = true;
-		$('#password_error').text($('#password').attr('data-msg'));
-	}
-	if ($('#confirm_password').val().length === 0) {
-		ferror = ierror = true;
-		$('#confirm_password_error').text($('#confirm_password').attr('data-msg'));
-	}
-	if ($('#password').val() != $('#confirm_password').val()) {
-		ferror = ierror = true;
-		$('#confirm_password_error').text($('#confirm_password').attr('data-msg'));
-	}
 
 
 	/** Validation For - All - Except Students And Youth Section -  */
@@ -734,14 +746,7 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 
 		/** Validation For Media In-person - Media Tools Section - */
 		if (eventParticiaptionCode == 'MDR004') {
-			if ($('#media_equipment').val().length === 0) {
-				ferror = ierror = true;
-				$('#media_equipment_error').text("Please enter media equipment");
-			}
-			if ($('#special_request').val().length === 0) {
-				ferror = ierror = true;
-				$('#special_request_error').text("Please enter media special request");
-			}
+
 		}
 	}
 

@@ -1044,6 +1044,14 @@
 						}
 					},
 					{
+						"update-password": {
+							"fr-lang": "MODIFIER LE MOT DE PASSE",
+							"eng-lang": "UPDATE PASSWORD",
+							"ar-lang": "إنشاء كلمة المرور",
+							"pt-lang": "CRIAR SENHA"
+						}
+					},
+					{
 						"password": {
 							"fr-lang": "Mot de passe",
 							"eng-lang": "Password",

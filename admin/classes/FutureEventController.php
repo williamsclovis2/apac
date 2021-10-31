@@ -354,6 +354,365 @@ class FutureEventController
 		}
 	}
 
+	public static function updateEventParticipantProfile($_REGISTRATION_STATE_ = 'PUBLIC'){
+		$diagnoArray[0] = 'NO_ERRORS';
+		$validate = new \Validate();
+		$prfx = ' ';
+		foreach($_POST as $index=>$val){
+			$ar = explode($prfx,$index);
+			if(count($ar)){
+				$_EDIT[end($ar)] = $val;
+			}
+		}
+		$_EDIT = $_POST;
+		
+		$validation = $validate->check($_EDIT, array(
+			
+		));
+		
+		if($validate->passed()){
+			$FutureEventParticipantTable = new \FutureEvent();
+			
+			$str = new \Str();
+
+			/** Get Session User Data By Token */
+			$_session_user_token_ = Session::get('userToken');
+			$_session_user_ID_    = Hash::decryptAuthToken($_session_user_token_);
+
+			if(!is_integer($_session_user_ID_)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "Invalid data",
+					'ERRORS_STRING' => "Invalid data"
+				];
+			endif;
+
+			$_PID_ = $_session_user_ID_;
+
+			/**eventParticipation */
+			$eventParticipationEncrypted   = $str->data_in($_EDIT['eventParticipation']);
+			$eventParticipationSubTypeID   = Hash::decryptToken($eventParticipationEncrypted);
+
+			/** Get Participation Type And Sub Type Event Details */
+			$_participation_sub_type_data_ = self::getPacipationSubCategoryByID($eventParticipationSubTypeID);
+			$eventParticipationTypeID	   = $_participation_sub_type_data_->id;
+			$_PARTICIPATION_PAYMENT_TYPE_  = $_participation_sub_type_data_->sub_type_payment_state;
+			$_PARTICIPATION_TYPE_CODE_     = $_participation_sub_type_data_->code;
+
+			$_MEDIA_CODE_  = 'C004';
+			$_CBO_CODE_    = 'C0015';
+
+			$_PARTICIPATION_TYPE_CODEANAME_ = $_PARTICIPATION_TYPE_CODE_ == $_CBO_CODE_?'CBO':'';
+
+			/** Event */
+			$eventID = $str->data_in(Hash::decryptToken($_EDIT['eventId']));
+
+			/** PRIVATE REGISTRATION */
+			$_REGISTRATION_PRIVATE_ACCESS_TOKEN_ = NULL;
+			$_private_link_ID 					 = NULL;
+			if($_REGISTRATION_STATE_ == 'PRIVATE'):
+				$_REGISTRATION_PRIVATE_ACCESS_TOKEN_ = $str->data_in($_EDIT['eventInvitation']);
+				$_private_link_ID 					 = Hash::decryptAuthToken($_REGISTRATION_PRIVATE_ACCESS_TOKEN_);
+
+				/** Check If Private Link Exists And still valid */
+				// if(!self::checkValidityEventPrivateInvitationLink($_private_link_ID)):
+				// 	return (object)[
+				// 		'ERRORS'		=> true,
+				// 		'ERRORS_SCRIPT' => "Your invitation token is no longer valid",
+				// 		'ERRORS_STRING' => "Your invitation token is no longer valid"
+				// 	];
+				// endif;
+
+				$_private_link_data_ = self::getEventPrivateInvitationLinkDataByID($_private_link_ID);
+
+				/** Compare Private Data With Form Data */
+				if($_private_link_data_->event_ID != $eventID || 
+					$_private_link_data_->participation_type_ID != $eventParticipationTypeID ||
+					$_private_link_data_->participation_sub_type_ID != $eventParticipationSubTypeID ):
+					return (object)[
+						'ERRORS'		=> true,
+						'ERRORS_SCRIPT' => "Invalid data",
+						'ERRORS_STRING' => "Invalid data"
+					];
+				endif;
+
+			endif;
+
+			/** Contact Information */
+			$firstname         = $str->sanAsName($_EDIT['firstname']);
+			$lastname 		   = $str->sanAsName($_EDIT['lastname']);
+			$email	           = $str->data_in($_EDIT['email']);
+			
+			$telephone         = !Input::checkInput('full_telephone', 'post', 1)?'':$str->data_in($_EDIT['full_telephone']);
+			$telephone_2	   = !Input::checkInput('full_telephone_2', 'post', 1)?'':$str->data_in($_EDIT['full_telephone_2']);
+
+			$gender 		   = !Input::checkInput('gender', 'post', 1)?'':$str->data_in($_EDIT['gender']);
+			$birthday 		   = !Input::checkInput('birthday', 'post', 1)?'':$str->data_in($_EDIT['birthday']);
+			
+			$job_title         = !Input::checkInput('job_title', 'post', 1)?'':$str->data_in($_EDIT['job_title']);
+			$job_category 	   = !Input::checkInput('job_category', 'post', 1)?'':$str->data_in($_EDIT['job_category']);
+			$language	 	   = !Input::checkInput('language', 'post', 1)?'': $str->data_in($_EDIT['language']);
+
+			/** Participant Password */
+			$password 			= !Input::checkInput('password', 'post', 1)?'':$str->data_in($_EDIT['password']);
+			$confirm_password 	= !Input::checkInput('confirm_password', 'post', 1)?'':$str->data_in($_EDIT['confirm_password']);
+
+			/** Attending Objective Information */
+			$objectives		 		 = !Input::checkInput('objectives', 'post', 1)?'':$_EDIT['objectives'];
+			$firt_objective 		 = !Input::checkInput('firt_objective', 'post', 1)?'':$str->data_in($_EDIT['firt_objective']);
+			$second_objective 		 = !Input::checkInput('second_objective', 'post', 1)?'':$str->data_in($_EDIT['second_objective']);
+			$third_objective 	     = !Input::checkInput('third_objective', 'post', 1)?'':$str->data_in($_EDIT['third_objective']);
+
+			/** Source Information */
+			$info_source 		 	 = !Input::checkInput('info_source', 'post', 1)?'':$str->data_in($_EDIT['info_source']);
+
+			/** Organization Information */
+			$organisation_name 		 = !Input::checkInput('organisation_name', 'post', 1)?'':$str->data_in($_EDIT['organisation_name']);
+			$organisation_type 		 = !Input::checkInput('organisation_type', 'post', 1)?'':$str->data_in($_EDIT['organisation_type']);
+			$industry 	       		 = !Input::checkInput('industry', 'post', 1)?'':$str->data_in($_EDIT['industry']);
+
+			$organisation_address    = !Input::checkInput('organisation_address', 'post', 1)?'':$str->data_in($_EDIT['organisation_address']);
+			$line_one 	       		 = !Input::checkInput('line_one', 'post', 1)?'':$str->data_in($_EDIT['line_one']);
+			$line_two         		 = !Input::checkInput('line_two', 'post', 1)?'':$str->data_in($_EDIT['line_two']);
+			$organisation_country 	 = !Input::checkInput('organisation_country', 'post', 1)?'':$str->data_in($_EDIT['organisation_country']);
+			$organisation_city       = !Input::checkInput('organisation_city', 'post', 1)?'':$str->data_in($_EDIT['organisation_city']);
+
+			$postal_code 	 		 = !Input::checkInput('postal_code', 'post', 1)?'':$str->data_in($_EDIT['postal_code']);
+			$website       	 		 = !Input::checkInput('website', 'post', 1)?'':$str->data_in($_EDIT['website']);
+
+			/** Identification - When In Person Event */
+			$residence_country 		 = !Input::checkInput('residence_country', 'post', 1)?'':$str->data_in($_EDIT['residence_country']);
+			$residence_city    		 = !Input::checkInput('residence_city', 'post', 1)?'':$str->data_in($_EDIT['residence_city']);
+			$citizenship 	  		 = !Input::checkInput('citizenship', 'post', 1)?'':$str->data_in($_EDIT['citizenship']);
+			$id_type          		 = !Input::checkInput('id_type', 'post', 1)?'':$str->data_in($_EDIT['id_type']);
+			$id_number 		  		 = !Input::checkInput('id_number', 'post', 1)?'':$str->data_in($_EDIT['id_number']);
+
+			/** Media Information */
+			$media_card_number 	  	= !Input::checkInput('media_card_number', 'post', 1)?'':$str->data_in($_EDIT['media_card_number']);
+			$media_card_authority 	= !Input::checkInput('media_card_authority', 'post', 1)?'':$str->data_in($_EDIT['media_card_authority']);
+			$media_equipment        = !Input::checkInput('media_equipment', 'post', 1)?'':$str->data_in($_EDIT['media_equipment']);
+			$special_request 		= !Input::checkInput('special_request', 'post', 1)?'':$str->data_in($_EDIT['special_request']);
+			$delegate_type        	= !Input::checkInput('delegate_type', 'post', 1)?'':$str->data_in($_EDIT['delegate_type']);
+
+			/** Student Youth Information */
+			$educacation_institute_name 	  	= !Input::checkInput('institute_name', 'post', 1)?'':$str->data_in($_EDIT['institute_name']);
+			$educacation_institute_category 	= !Input::checkInput('institute_category', 'post', 1)?'':$str->data_in($_EDIT['institute_category']);
+			$educacation_institute_industry     = !Input::checkInput('institute_industry', 'post', 1)?'':$str->data_in($_EDIT['institute_industry']);
+			$educacation_institute_website 		= !Input::checkInput('institute_website', 'post', 1)?'':$str->data_in($_EDIT['institute_website']);
+			$educacation_institute_country      = !Input::checkInput('institute_country', 'post', 1)?'':$str->data_in($_EDIT['institute_country']);
+			$educacation_institute_city         = !Input::checkInput('institute_city', 'post', 1)?'':$str->data_in($_EDIT['institute_city']);
+
+			/** CBO Organization Information */
+			$organization_registration_date_year = !Input::checkInput('organisation_date', 'post', 1)?'':$str->data_in($_EDIT['organisation_date']);
+			$organization_number_employees 		 = !Input::checkInput('number_of_employees', 'post', 1)?'':$str->data_in($_EDIT['number_of_employees']);
+			$organization_annual_turnover        = !Input::checkInput('turnover', 'post', 1)?'':$str->data_in($_EDIT['turnover']);
+			$cbo_project_objectives 	 	     = !Input::checkInput('project_objective', 'post', 1)?'':$str->data_in($_EDIT['project_objective']);
+			$cbo_activities     		 	     = !Input::checkInput('cbo_activities', 'post', 1)?'':$str->data_in($_EDIT['cbo_activities']);
+
+			/** Organization Information */
+			$emergency_firstname 		 = !Input::checkInput('emergency_firstname', 'post', 1)?'':$str->data_in($_EDIT['emergency_firstname']);
+			$emergency_lastname 		 = !Input::checkInput('emergency_lastname', 'post', 1)?'':$str->data_in($_EDIT['emergency_lastname']);
+			$emergency_email 	         = !Input::checkInput('emergency_email', 'post', 1)?'':$str->data_in($_EDIT['emergency_email']);
+			$emergency_full_telephone 	 = !Input::checkInput('emergency_full_telephone', 'post', 1)?'':$str->data_in($_EDIT['emergency_full_telephone']);
+
+			/** Student State - When An Youth Or Student regsiters - */
+			$student_state = 0;
+			if($educacation_institute_name != '')
+				$student_state = 1;
+
+			/** Upload The ID Document Picture */
+			$id_document_picture = '';
+			if(isset($_FILES['id_document_picture']))
+				if($_FILES['id_document_picture']['name']  != "")
+					$id_document_picture = Functions::fileUpload(DN_IMG_ID_DOC, $_FILES['id_document_picture']);
+
+			
+			/** Upload The ID Document Picture */
+			$profile = '';
+			if(isset($_FILES['image']))
+				if($_FILES['image']['name']  != "")
+					$profile = Functions::fileUpload(DN_IMG_PROFILE, $_FILES['image']);
+
+			/** Check If Email Address not yet used */
+			if(self::checkEmailAlreadyUsed($eventID, $email, $_PID_)):
+				return (object)[
+					'ERRORS'		=> true,
+					'ERRORS_SCRIPT' => "This email address has already been used!",
+					'ERRORS_STRING' => "This email address has already been used!"
+				];
+			endif;
+
+			/** Check If Password Match */
+			if(strlen($password) != 0 || strlen($confirm_password) != 0 ):
+				if(strlen($password) < 6 || strlen($confirm_password) < 6):
+					return (object)[
+						'ERRORS'		=> true,
+						'ERRORS_SCRIPT' => "Password must have at least 6 characters",
+						'ERRORS_STRING' => "Password must have at least 6 characters"
+					];
+				endif;
+
+				if($password != $confirm_password):
+					return (object)[
+						'ERRORS'		=> true,
+						'ERRORS_SCRIPT' => "password don't match",
+						'ERRORS_STRING' => "password don't match"
+					];
+				endif;
+			endif;
+
+			/** Control The birthday when submitted */
+			if($birthday == '' OR $birthday == 'dd/mm/yyyy'):
+				$birthday = '';
+			else:
+				list($bday, $bmonth, $byear) = explode('/', $birthday);
+				$birthday = $byear.'-'.$bmonth.'-'.$bday;
+			endif;
+
+			/** Need Accommodation */
+			$needAccommodation = !Input::checkInput('needAccommodation', 'post', 1)?0:$str->data_in($_EDIT['needAccommodation']);
+
+			/** Control Objectives */
+			if($objectives != ''):
+				if(is_array($objectives)):
+					$objectives = implode(', ', $objectives);
+					$objectives = trim($objectives);
+				endif;
+			endif;
+
+			/** Select - Other Option - Specify */
+			if($job_category 	  == 'Other')
+				$job_category 	   = !Input::checkInput('job_category1', 'post', 1)?'':$str->data_in($_EDIT['job_category1']);
+			if($organisation_type == 'Other')
+				$organisation_type = !Input::checkInput('organisation_type1', 'post', 1)?'':$str->data_in($_EDIT['organisation_type1']);
+			if($industry 		  == 'Other')
+				$industry 	       = !Input::checkInput('industry1', 'post', 1)?'':$str->data_in($_EDIT['industry1']);
+			if($objectives		  == 'Other')
+				$objectives  	   = !Input::checkInput('objectives1', 'post', 1)?'':$str->data_in($_EDIT['objectives1']);
+
+			/** Check Age - [ 10 - ] */
+			if($diagnoArray[0] == 'NO_ERRORS'){
+
+				/** Auto Generate QR For Participant */
+				$participantID = self::getLastPacipatantID() + 1;
+				$Qr_ 		   = FutureEventController::generateQrID($eventID, $participantID);
+				
+				$_fields = array(
+					// 'event_id'             		=> $eventID,
+					// 'participation_type_id'     => $eventParticipationTypeID,
+					// 'participation_sub_type_id' => $eventParticipationSubTypeID,
+					// 'private_link_id'			=> $_private_link_ID,
+
+					'firstname'            => $firstname,
+					'lastname'             => $lastname,
+					'email'                => $email,
+					// 'password'             => md5($password),
+					// 'salt'             	   => "",
+
+					'telephone'            => $telephone,
+					'telephone_2'          => $telephone_2,
+
+					'gender'               => $gender,
+					'birthday'             => $birthday,
+					'organisation_name'    => $organisation_name,
+					'organisation_type'    => $organisation_type,
+					'industry'             => $industry,
+					'job_title'            => $job_title,
+					'job_category'         => $job_category,
+					'organisation_address' => $organisation_address,
+					'line_one'             => $line_one,
+					'line_two'             => $line_two,
+					'organisation_country' => $organisation_country,
+					'organisation_city'    => $organisation_city,
+
+					'postal_code'          => $postal_code,
+					'website'              => $website,
+
+					'residence_country'    => $residence_country,
+					'residence_city'       => $residence_city,
+					'citizenship'          => $citizenship,
+					'id_type'              => $id_type,
+					'id_number'            => $id_number,
+					// 'id_document_picture'  => $id_document_picture,
+
+					'media_card_number'    => $media_card_number,
+					'media_card_authority' => $media_card_authority,
+					'media_equipment'      => $media_equipment,
+					'special_request'      => $special_request,
+					'delegate_type'        => "",
+
+					'reg_date'             => date('Y-m-d H:i:s'),
+					'status'               => "PENDING",
+					
+					// 'student_state'					  => $student_state,
+					'educacation_institute_name'      => $educacation_institute_name,
+					'educacation_institute_category'  => $educacation_institute_category,
+					'educacation_institute_industry'  => $educacation_institute_industry,
+					'educacation_institute_website'   => $educacation_institute_website,
+					'educacation_institute_country'   => $educacation_institute_country,
+					'educacation_institute_city'      => $educacation_institute_city,
+
+					'attending_objective_1'   => $objectives,
+					'attending_objective_2'   => $second_objective,
+					'attending_objective_3'   => $third_objective,
+					'info_source'   		  => $info_source,
+					
+					// 'profile'   => $profile,
+					// 'qrID'   	=> $Qr_->ID,
+					// 'qrCode'    => $Qr_->STRING,
+
+					'need_accommodation_state' => $needAccommodation,
+					
+					'organization_registration_date_year'   => $organization_registration_date_year,
+					'organization_number_employees'  		=> $organization_number_employees,
+					'organization_annual_turnover'  		=> $organization_annual_turnover,
+					'cbo_project_objectives'   				=> $cbo_project_objectives,
+					'cbo_activities'      					=> $cbo_activities,
+					
+					'emergency_contact_firstname'  			=> $emergency_firstname,
+					'emergency_contact_lastname'  			=> $emergency_lastname,
+					'emergency_contact_email'   			=> $emergency_email,
+					'emergency_contact_telephone'      		=> $emergency_full_telephone
+				);
+
+				if($profile != '')
+					$_fields['profile'] = $profile;
+				
+				if($id_document_picture != '')
+					$_fields['id_document_picture'] = $id_document_picture;
+
+				if(strlen($password) != 0 && strlen($confirm_password) != 0 )
+					$_fields['password']   = md5($password);
+            
+				try{
+					$FutureEventParticipantTable->updateParticipant($_fields, $_PID_);
+
+				}catch(Exeption $e){
+					$diagnoArray[0] = "ERRORS_FOUND";
+					$diagnoArray[]  = $e->getMessage();
+				}
+			}
+		}else{
+			$diagnoArray[0] = 'ERRORS_FOUND';
+			$error_msg 	    = ul_array($validation->errors());
+		}
+		if($diagnoArray[0] == 'ERRORS_FOUND'){
+			return (object)[
+				'ERRORS'		=> true,
+				'ERRORS_SCRIPT' => $validate->getErrorLocation(),
+				'ERRORS_STRING' => ""
+			];
+		}else{
+			
+			return (object)[
+				'ERRORS'	    => false,
+				'SUCCESS'	    => true,
+				'ERRORS_SCRIPT' => "",
+				'ERRORS_STRING' => ""
+			];
+		}
+	}
+
 	public static function autoSentEmailOnAction($_data_, $_PARTICIPATION_PAYMENT_TYPE_ = 'FREE', $_PARTICIPATION_TYPE_CODE_ = 'C004', $_CBO_CODE_ = 'C004', $_MEDIA_CODE_ = 'C004'){
 		/** FREE Application */
 		if($_PARTICIPATION_PAYMENT_TYPE_ == 'FREE'):
@@ -1836,9 +2195,10 @@ class FutureEventController
         return  false;
 	}
 
-	public static function checkEmailAlreadyUsed($eventID, $email){
+	public static function checkEmailAlreadyUsed($eventID, $email, $participantID = null){
+		$SQL_Condition_   = ($participantID == null)?"":" AND id != $participantID ";
 		$FutureEventTable = new FutureEvent();
-        $FutureEventTable->selectQuery("SELECT  id  FROM future_participants  WHERE future_participants.event_id = {$eventID} AND future_participants.email = '{$email}' ORDER BY future_participants.id DESC LIMIT 1");
+        $FutureEventTable->selectQuery("SELECT  id  FROM future_participants  WHERE future_participants.event_id = {$eventID} AND future_participants.email = '{$email}' $SQL_Condition_ ORDER BY future_participants.id DESC LIMIT 1");
         if($FutureEventTable->count())
           return  true;
         return  false;

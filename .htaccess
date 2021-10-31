@@ -9,7 +9,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(css|js|fonts|images|plugins)($|/) - [L]
 
 # Set The pdf page
-RewriteRule ^terms$ TERMS_CONDITIONS.pdf
+RewriteRule ^terms$ TLC_CLEAN_TERMS_CONDITIONS_FINAL.pdf
+RewriteRule ^privacy$ TLC_CLEAN_TERMS_CONDITIONS_FINAL.pdf
 RewriteRule ^policy$ IUCN_APAC_2022_Registration_Fee_Cancellation_Refund_Policy.pdf
 
 # Set The pdf page
@@ -32,6 +33,7 @@ RewriteRule ^payment/error/notification/([0-9a-zA-Z]+)$	notification.php?code=PA
 RewriteRule ^payment/success/notification/([0-9a-zA-Z]+)$	notification.php?code=PAYMENT_CALLBACK_SUCCESS [L]
 
 # Set The form page
+RewriteRule ^update/profile/([0-9a-zA-Z]+)$	edit_profile.php?form=$1 [L]
 RewriteRule ^register/invitation/([0-9a-zA-Z]+)$	private_registration.php?form=$1 [L]
 RewriteRule ^register/([0-9a-zA-Z]+)$	register.php?form=$1 [L]
 RewriteRule ^registration/event/([a-z]+)/([0-9]+)$	register.php?form=$2&event_type=$1 [L] 

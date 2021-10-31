@@ -30,7 +30,7 @@
                                             <li><a href="https://apacongress.africa/our-partners/"><?=$_Dictionary->translate('our partners')?></a></li>
                                             <li><a href="https://apacongress.africa/sponsorship/"><?=$_Dictionary->words('Sponsorship')?></a></li>
                                             <?php if(isset($_SESSION['username'])) {?>
-                                            <li><a href="<?php linkto('logout'); ?>"><?=$_Dictionary->words('Logout')?></a></li>
+                                            <li><a href="<?php linkto('profile'); ?>"><?=$_Dictionary->words('Profile')?></a></li>
                                             <?php } else { ?>
                                             <li><a href="<?php linkto('login'); ?>"><?=$_Dictionary->words('Login')?></a></li>
                                             <?php } ?>
@@ -47,9 +47,7 @@
                                                 <?php
                                                 else:
                                                     ?>
-                                                                    <img src="<?php linkto("img/En.png")?>">  English
-                                               
-                                                <?php
+                                                                    <img src="<?php linkto("img/En.png")?>">  English                                                <?php
                                                 endif;
                                                     ?>
                                                 </button>

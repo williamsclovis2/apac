@@ -54,7 +54,6 @@
                 $response['message']   = 'REDIRECT_TO_NOTIFICATION_'.$_PARTICIPATION_TYPE_CODE_;
                 $response['authToken'] = $_form_->AUTHTOKEN;
               endif;
-              
             
             elseif($_PARTICIPATION_PAYMENT_TYPE_ == 'FREE'):
               $response['status']    = 101;
@@ -66,6 +65,19 @@
               $response['message']= 'REDIRECT_TO_NOTIFICATION';
             endif;
 
+        else:
+          $response['status'] = 400;
+          $response['message']= $_form_->ERRORS_STRING;
+        endif;
+        echo json_encode($response);
+      break;
+
+      /** Submission Of The Participant Registration - update profile */
+      case 'registrationUpdate':
+        $_form_ = FutureEventController::updateEventParticipantProfile();
+        if($_form_->ERRORS == false):
+           $response['status']    = 315;
+           $response['message']   = 'REDIRECT_TO_PROFILE';
         else:
           $response['status'] = 400;
           $response['message']= $_form_->ERRORS_STRING;
@@ -106,11 +118,9 @@
       case 'invitationRegister':
         $_form_ = FutureEventController::registerEventParticipant('PRIVATE');
         if($_form_->ERRORS == false):
-
             $response['status']    = 101;
             $response['message']   = 'REDIRECT_TO_NOTIFICATION';
             $response['authToken'] = $_form_->AUTHTOKEN;
-
         else:
           $response['status'] = 400;
           $response['message']= $_form_->ERRORS_STRING;
@@ -132,13 +142,11 @@
             if($_form_->PAYMENTMETHOD == 'BT'):
               $response['status']    = 200;
               $response['message']   = 'SUCCESS';
-              $response['authToken'] = $_form_->AUTHTOKEN;
-              
+              $response['authToken'] = $_form_->AUTHTOKEN; 
             else:
               $response['status']    = 300;
               $response['message']   = 'Faild to request for payment. Please try again later';
             endif;
-           
           endif;
         else:
           $response['status'] = 400;
@@ -153,7 +161,7 @@
         Session::put('lang', $_current_lang_);
 
         $response['status']  = 100;
-        $response['message'] = 'SUCCESS - '.Session::get('lang');
+        $response['message'] = 'SUCCESS';
         echo json_encode($response);
       break;
 
