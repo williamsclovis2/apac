@@ -49,13 +49,15 @@ class myPDF extends FPDF
 
     $_PARTICIPANT_COUNTRY_ = ($_PARTICIPANT_COUNTRY_ == '')?'':countryCodeToCountry($_PARTICIPANT_COUNTRY_);
  
-    $content_confirmation = "I hereby confirm that $_PARTICIPANT_NAMES_, residing at $_PARTICIPANT_COUNTRY_, ";
-    if($_PARTICIPANT_BIRTHDATE_ != '')
-      $content_confirmation .= "born on $_PARTICIPANT_BIRTHDATE_, ";
+    $content_confirmation = "I hereby confirm that $_PARTICIPANT_NAMES_ of $_PARTICIPANT_ID_TYPE_ No $_PARTICIPANT_ID_NUMBER_, residing in $_PARTICIPANT_COUNTRY_, ";
+    if($_PARTICIPANT_BIRTHDATE_ != '' || $_PARTICIPANT_BIRTHDATE_ != 'dd/mm/yyyy'):
+      $_PARTICIPANT_BIRTHDATE_ = date_format(date_create($_PARTICIPANT_BIRTHDATE_), 'd M, Y');
+      $content_confirmation .= "born on $_PARTICIPANT_BIRTHDATE_ ";
+    endif;
 
     if($_PARTICIPANT_NATIONALITY_ != '')
       $content_confirmation .= " of nationality $_PARTICIPANT_NATIONALITY_, ";
-    $content_confirmation .= " $_PARTICIPANT_ID_NUMBER_ is duly registered to attend the Africa Protected Areas Congress 2022 and that the registration fees, if any, are paid in full.   All travel expenses, including airfare, hotel, meals and travel insurance, are the sole responsibility of the participant. Participants are also solely responsible for obtaining their visas and/or all necessary documents to enter Rwanda. ";
+    $content_confirmation .= "  is duly registered to attend the Africa Protected Areas Congress 2022 and that the registration fees, if any, are paid in full.   All travel expenses, including airfare, hotel, meals and travel insurance, are the sole responsibility of the participant. Participants are also solely responsible for obtaining their visas and/or all necessary documents to enter Rwanda. ";
 
     # Invoice
     $this->SetFont('arial','', 10);
