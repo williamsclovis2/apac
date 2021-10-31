@@ -122,7 +122,7 @@ if($_status_ == 'APPROVED'):
 <?php
 endif;
  ?>
-                                    <a class="btn btn-xs btn-outline-info disable_btn_deny " href="https://apacongress.africa/programme/" target="_blank" ><i class="fa fa-video icon"></i> View Congress Programme </a> <br> <br>
+                                    <!-- <a class="btn btn-xs btn-outline-info disable_btn_deny " href="https://apacongress.africa/programme/" target="_blank" ><i class="fa fa-video icon"></i> View Congress Programme </a> <br> <br> -->
                                     <a class="btn btn-xs btn-outline-info disable_btn_deny " href="<?php linkto('logout'); ?>" target="_blank" ><i class="fa fa-video icon"></i> Logout </a>
                                 </div>
                             </div>
@@ -235,6 +235,8 @@ endif;
                                                     </div>
                                                 </div>
                                                 <!-- end Collapse -->
+                                                
+                                            <a  class="btn btn-primary"  href="https://apacongress.africa/programme/">View Congress Programme </a><br>
                                         </div>
                                         
                                     </div>
