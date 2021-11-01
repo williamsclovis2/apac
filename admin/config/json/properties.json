@@ -1276,6 +1276,14 @@
 						}
 					},
 					{
+						"content-local-cbo-participants-(rwanda-based)": {
+							"fr-lang": "Participants CBO locaux (basés au Rwanda)",
+							"eng-lang": "Local CBO Participants (Rwanda Based)",
+							"ar-lang": "منظمات المجتمع المحلي المحلية",
+							"pt-lang": "CBOs locais"
+						}
+					},
+					{
 						"media-category": {
 							"fr-lang": "Catégorie média",
 							"eng-lang": "Media category",

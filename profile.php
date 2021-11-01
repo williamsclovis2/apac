@@ -9,10 +9,10 @@ $_session_user_token_ = Session::get('userToken');
 $_session_user_ID_    = Hash::decryptAuthToken($_session_user_token_);
 
 if(!is_integer($_session_user_ID_))
-    Redirect::to('login');
+    Redirect::to('logout');
 
 if(!($_session_user_data_ = FutureEventController::getParticipantByID($_session_user_ID_)))
-    Redirect::to('login');
+    Redirect::to('logout');
 
 $_participant_data_ = $_session_user_data_;
 $_event_id          = $_participant_data_->event_id;
@@ -190,8 +190,28 @@ endif;
                                     <div id="one" class="daycontent program-one">
                                         <div class="div-buttons text-center">
                                             <div class="row">
-                                                <div class="col-md-6"><a href="<?=linkto('update/profile/'.Hash::encryptAuthToken($_session_user_ID_))?>" class="btn btn-primary"> Update Registration Details</a></div>
+                                                <!-- <div class="col-md-6"><a href="<?=linkto('update/profile/'.Hash::encryptAuthToken($_session_user_ID_))?>" class="btn btn-primary"> Update Registration Details</a></div> -->
+                                                <div class="col-md-6"><a class="btn btn-primary collapse0" data-toggle="collapse" data-parent="#accordion0" href="#collapseZero">Update Registration Details</a></div>
                                                 <div class="col-md-6"><a class="btn btn-primary collapse1" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Book your hotel</a></div>
+                                                <!-- Collapse -->
+                                                <div class="bs-example col-md-12 text-left" id="book-info">
+                                                    <div class="panel-group" id="accordion0">
+                                                        <div class="panel panel-default">
+                                                            <div id="collapseZero" class="panel-collapse collapse in">
+                                                                <div class="panel-body">
+                                                                    <h3 class="card-sect-title">Update Registration Details</h3>
+                                                                    <p class="text-justify">
+                                                                        <span class="text-black">Please ensure your profile is up to date at all times to fully benefit from the Congress online services. If any of the non-editable information displayed is no longer up-to-date, please send an email to the Congress Registration Manager on <a style="color: #f47e20;" href='mailto:info@cube.rw'>info@cube.rw</a>  with a copy to <a style="color: #f47e20;" href='mailto:registration@apacongress.africa'>registration@apacongress.africa</a> specifying which changes need to be applied.</p>
+
+                                                                    <p>
+                                                                        <a style="color: #f47e20;" href='<?=linkto('update/profile/'.Hash::encryptAuthToken($_session_user_ID_))?>' target='_blank'> <u>Click here</u> </a> to update your registration details.</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- end Collapse -->
                                                 <!-- Collapse -->
                                                 <div class="bs-example col-md-12 text-left" id="book-info">
                                                     <div class="panel-group" id="accordion">
@@ -206,7 +226,7 @@ endif;
                                                                         After that, APAC cannot guarantee the availability of the hotel rooms but will assist you in finding accommodation. 
                                                                         The negotiated hotel fee includes breakfast and all applicable taxes. All hotel fees are payable directly to the hotels.</p>
 
-                                                                    <p>
+                                                                    <p class="text-justify">
                                                                         <a style="color: #f47e20;" href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_blank'> <u>Click here</u> </a> to book your accommodation for your stay in Kigali.
                                                                         <span class="text-black">Delegates who wish to book their travel and accommodation on their own are free to do so however you are highly encouraged to use the IUCN APAC agent to take advantage of the negotiated rates as an APAC delegate.</span>
                                                                     </p>
@@ -226,12 +246,12 @@ endif;
                                                             <div id="collapseTwo" class="panel-collapse collapse in">
                                                                 <div class="panel-body">
                                                                     <h3 class="card-sect-title">Excursions & Visits in Rwanda</h3>
-                                                                    <p>Welcome to Rwanda, the land of a thousand hills! Blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains Rwanda offers you an exceptional range of great value excursions to suit all ages, interests and abilities. Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. All excursions packages offered through accredited partners are carefully designed to suit your itinerary.<br> <br> For more information, explore available opportunities below:<br><a href="https://rtta.rw/" target="_blank" style="color:blue;"><u> Rwanda Tours and Travel Association</u></a>.</p>
+                                                                    <p class="text-justify">Welcome to Rwanda, the land of a thousand hills! Blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains Rwanda offers you an exceptional range of great value excursions to suit all ages, interests and abilities. Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. All excursions packages offered through accredited partners are carefully designed to suit your itinerary.<br> <br> For more information, explore available opportunities below:<br><a href="https://rtta.rw/" target="_blank" style="color:blue;"><u> Rwanda Tours and Travel Association</u></a>.</p>
                                                                     <h3 class="card-sect-title">Disclaimer:</h3>
-                                                                    <p>While every effort is made to ensure that the information on this website is correct, some of the information, particularly those supplied by third parties, can change without notice. We do not guarantee and accept no liability whatsoever arising from or connected to, the accuracy, reliability, currency or completeness of the excursion booking sites.  </p>
-                                                                    <p>The description and translations of each excursion have been provided directly by the excursion organisers. IUCN APAC is not responsible for the content or translations on third part.</p>
-                                                                    <p>While the service providers make every effort to provide on-time service, IUCN APAC does not guarantee departure and arrival times, which may be delayed by any number of factors, including weather, traffic or road conditions, mechanical problems or any other cause or other conditions beyond the service providers’ control. As such, IUCN APAC makes no warranty as to the weather, or that excursions will be uninterrupted, on time or meet the requirements and expectations of excursion participants.</p>
-                                                                    <p>IUCN APAC disclaims any responsibility and liability for any loss or damages that arise from dealings or disputes between excursion participants and excursion organisers.</p>
+                                                                    <p class="text-justify">While every effort is made to ensure that the information on this website is correct, some of the information, particularly those supplied by third parties, can change without notice. We do not guarantee and accept no liability whatsoever arising from or connected to, the accuracy, reliability, currency or completeness of the excursion booking sites.  </p>
+                                                                    <p class="text-justify">The description and translations of each excursion have been provided directly by the excursion organisers. IUCN APAC is not responsible for the content or translations on third part.</p>
+                                                                    <p class="text-justify">While the service providers make every effort to provide on-time service, IUCN APAC does not guarantee departure and arrival times, which may be delayed by any number of factors, including weather, traffic or road conditions, mechanical problems or any other cause or other conditions beyond the service providers’ control. As such, IUCN APAC makes no warranty as to the weather, or that excursions will be uninterrupted, on time or meet the requirements and expectations of excursion participants.</p>
+                                                                    <p class="text-justify">IUCN APAC disclaims any responsibility and liability for any loss or damages that arise from dealings or disputes between excursion participants and excursion organisers.</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -748,7 +768,27 @@ endif;
                                                 </div>
                                             </div>
                                         </div>
-                                        <a class="btn btn-xs btn-outline-info disable_btn_deny col-md-12 col-xs-12 col-lg-12 col-sm-12 " href="https://apacongress.africa/programme/" target="_blank" ><i class="fa fa-video icon"></i> View Congress Programme </a> <br> <br>
+
+                                        <br>
+                                        <!-- <a class="btn btn-xs btn-outline-info disable_btn_deny col-md-12 col-xs-12 col-lg-12 col-sm-12 " href="https://apacongress.africa/programme/" target="_blank" ><i class="fa fa-video icon"></i> View Congress Programme </a> <br> <br> -->
+                                        <a  class="btn btn-primary col-md-12 col-xs-12 col-lg-12 col-sm-12 collapse2" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">View Congress Programme </a><br>
+                                        <!-- Collapse --> <br>
+                                        <div class="bs-example col-md-12 text-left" id="book-info">
+                                                    <div class="panel-group" id="accordion">
+                                                        <div class="panel panel-default">
+                                                            <div id="collapseThree" class="panel-collapse collapse in">
+                                                                <div class="panel-body">
+                                                                    <h3 class="card-sect-title">View Congress Programme </h3>
+                                                                    <p class="text-justify">More details on the sessions, speakers and how you can interact with fellow delegates to be availed soon.<br> 
+                                                                    <p>
+                                                                        <a style="color: #f47e20;" href="https://apacongress.africa/programme/" target='_blank'> <u>Click here</u> </a> to view Congress Programme.</span>
+                                                                    </p>                                                                
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                        </div>
+                                        <!-- end Collapse -->    
                                     </div>
 
                                     <div id="four" class="daycontent program-three">
@@ -901,13 +941,24 @@ if($_participant_data_->payment_state == 'PAYABLE'):
 </style>
     <?php include 'includes/footer.php';?>
     <script>
+        $('.collapse0').on('click', function(){
+            $('.collapse0').addClass('selectedTab');
+            $('.collapse1').removeClass('selectedTab');
+            $('.collapse2').removeClass('selectedTab');
+            $('#collapseOne').removeClass('show');
+            $('#collapseTwo').removeClass('show');
+        });
         $('.collapse1').on('click', function(){
+            $('.collapse0').removeClass('selectedTab');
             $('.collapse1').addClass('selectedTab');
             $('.collapse2').removeClass('selectedTab');
+            $('#collapseZero').removeClass('show');
             $('#collapseTwo').removeClass('show');
         });
         $('.collapse2').on('click', function(){
+            $('#collapseZero').removeClass('show');
             $('#collapseOne').removeClass('show');
+            $('.collapse0').removeClass('selectedTab');
             $('.collapse1').removeClass('selectedTab');
             $('.collapse2').addClass('selectedTab');
         });

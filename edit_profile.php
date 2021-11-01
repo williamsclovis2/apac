@@ -3,28 +3,28 @@ require_once 'admin/core/init.php';
 
 /** Get Session User Data By Token */
 if(!Session::exists('userToken'))
-  Redirect::to('login'); 
+  Redirect::to('logout'); 
 
 $_session_user_token_ = Session::get('userToken');
 $_session_user_ID_    = Hash::decryptAuthToken($_session_user_token_);
 
 if(!is_integer($_session_user_ID_))
-  Redirect::to('login');
+  Redirect::to('logout');
 
 /** Get the Participation Type ID  and Event Type */
 if(!Input::checkInput('form', 'get', 1))
-  Redirect::to('login');
+  Redirect::to('logout');
 
 $_PARTICIPANT_TOKEN_               = Input::get('form', 'get');
 
 if(!is_integer(($_PARTICIPANT_ID_  = Hash::decryptAuthToken($_PARTICIPANT_TOKEN_))))
-    Redirect::to('');
+    Redirect::to('logout');
 
 if($_session_user_ID_ != $_PARTICIPANT_ID_)
-  Redirect::to('login');
+  Redirect::to('logout');
 
 if(!($_PARTICIPANT_DATA_ = FutureEventController::getParticipantByID($_PARTICIPANT_ID_)))
-Redirect::to('login');
+Redirect::to('logout');
 
 $_event_id          = $_PARTICIPANT_DATA_->event_id;
 $_participant_id_   = $_PARTICIPANT_DATA_->id;
@@ -33,7 +33,7 @@ $_EVENT_TYPE_       = $_PARTICIPANT_DATA_->participation_subtype_category;
 
 /** Get the Participation Type ID  and Event Type */
 if($_EVENT_TYPE_  != 'INPERSON' AND $_EVENT_TYPE_  != 'VIRTUAL'  )
-  Redirect::to('login');
+  Redirect::to('logout');
 
 $_EVENT_TYPE_NAME_ = ucfirst($_EVENT_TYPE_);
 if($_EVENT_TYPE_  == 'INPERSON')

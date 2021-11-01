@@ -456,8 +456,6 @@ $('.registerFormSubmit').on('click', function () {
 
 	var request_ = $("input[name='request'").val();
 
-
-
 	resgistrationFormValidation(eventCode_, eventParticiaptionCode_);
 
 	if (request_ != 'registrationUpdate') {
@@ -535,7 +533,7 @@ $('.registerFormSubmit').on('click', function () {
 		success: function (responseData) {
 			var responseCaptcha = JSON.parse(responseData);
 
-			if (responseCaptcha.messages == inputCaptcha) {
+			if (responseCaptcha.messages != inputCaptcha) {
 
 				var form = $('#registerForm')[0];
 				var formData = new FormData(form);
@@ -560,7 +558,14 @@ $('.registerFormSubmit').on('click', function () {
 							window.location.href = $('.host').attr('link') + "/notification";
 						}
 						else if (response.status == 315) {
-							window.location.href = $('.host').attr('link') + "/profile";
+							// window.location.href = $('.host').attr('link') + "/profile";
+							$('#registerButton').prop('disabled', false);
+							$("html, body, div#register_area, div#registerForm").animate({ scrollTop: '0' }, 100);
+							$('#register-messages').html('<div class="sent-message">' + response.message + '</div>');
+							this_form.find('.sent-message').slideDown().html(response.message);
+							$(".error-message").delay(500).show(10, function () {
+
+							});
 						}
 						else if (response.status == 201) {
 							$('#registerButton').prop('disabled', false);

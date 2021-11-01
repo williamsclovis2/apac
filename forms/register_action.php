@@ -77,7 +77,7 @@
         $_form_ = FutureEventController::updateEventParticipantProfile();
         if($_form_->ERRORS == false):
            $response['status']    = 315;
-           $response['message']   = 'REDIRECT_TO_PROFILE';
+           $response['message']   = 'Your registration details have been updated successfully';
         else:
           $response['status'] = 400;
           $response['message']= $_form_->ERRORS_STRING;

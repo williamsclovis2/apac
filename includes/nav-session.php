@@ -3,6 +3,9 @@
 .dropdown-item{
     cursor: pointer;
 }
+.form-contact .sent-message, .login-form .sent-message {
+    background: #2a8b3a;
+}
 </style>
         <div class="header-area header-area-session">
             <div id="sticky-header" class="main-header-area">

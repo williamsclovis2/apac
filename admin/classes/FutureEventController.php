@@ -544,21 +544,21 @@ class FutureEventController
 
 			/** Check If Password Match */
 			if(strlen($password) != 0 || strlen($confirm_password) != 0 ):
-				if(strlen($password) < 6 || strlen($confirm_password) < 6):
-					return (object)[
-						'ERRORS'		=> true,
-						'ERRORS_SCRIPT' => "Password must have at least 6 characters",
-						'ERRORS_STRING' => "Password must have at least 6 characters"
-					];
-				endif;
+				// if(strlen($password) < 6 || strlen($confirm_password) < 6):
+				// 	return (object)[
+				// 		'ERRORS'		=> true,
+				// 		'ERRORS_SCRIPT' => "Password must have at least 6 characters",
+				// 		'ERRORS_STRING' => "Password must have at least 6 characters"
+				// 	];
+				// endif;
 
-				if($password != $confirm_password):
-					return (object)[
-						'ERRORS'		=> true,
-						'ERRORS_SCRIPT' => "password don't match",
-						'ERRORS_STRING' => "password don't match"
-					];
-				endif;
+				// if($password != $confirm_password):
+				// 	return (object)[
+				// 		'ERRORS'		=> true,
+				// 		'ERRORS_SCRIPT' => "password don't match",
+				// 		'ERRORS_STRING' => "password don't match"
+				// 	];
+				// endif;
 			endif;
 
 			/** Control The birthday when submitted */
@@ -603,9 +603,9 @@ class FutureEventController
 					// 'participation_sub_type_id' => $eventParticipationSubTypeID,
 					// 'private_link_id'			=> $_private_link_ID,
 
-					'firstname'            => $firstname,
-					'lastname'             => $lastname,
-					'email'                => $email,
+					// 'firstname'            => $firstname,
+					// 'lastname'             => $lastname,
+					// 'email'                => $email,
 					// 'password'             => md5($password),
 					// 'salt'             	   => "",
 
@@ -614,43 +614,43 @@ class FutureEventController
 
 					'gender'               => $gender,
 					'birthday'             => $birthday,
-					'organisation_name'    => $organisation_name,
-					'organisation_type'    => $organisation_type,
-					'industry'             => $industry,
+					// 'organisation_name'    => $organisation_name,
+					// 'organisation_type'    => $organisation_type,
+					// 'industry'             => $industry,
 					'job_title'            => $job_title,
 					'job_category'         => $job_category,
-					'organisation_address' => $organisation_address,
-					'line_one'             => $line_one,
-					'line_two'             => $line_two,
-					'organisation_country' => $organisation_country,
-					'organisation_city'    => $organisation_city,
+					// 'organisation_address' => $organisation_address,
+					// 'line_one'             => $line_one,
+					// 'line_two'             => $line_two,
+					// 'organisation_country' => $organisation_country,
+					// 'organisation_city'    => $organisation_city,
 
-					'postal_code'          => $postal_code,
-					'website'              => $website,
+					// 'postal_code'          => $postal_code,
+					// 'website'              => $website,
 
-					'residence_country'    => $residence_country,
-					'residence_city'       => $residence_city,
-					'citizenship'          => $citizenship,
-					'id_type'              => $id_type,
-					'id_number'            => $id_number,
+					// 'residence_country'    => $residence_country,
+					// 'residence_city'       => $residence_city,
+					// 'citizenship'          => $citizenship,
+					// 'id_type'              => $id_type,
+					// 'id_number'            => $id_number,
 					// 'id_document_picture'  => $id_document_picture,
 
-					'media_card_number'    => $media_card_number,
-					'media_card_authority' => $media_card_authority,
-					'media_equipment'      => $media_equipment,
-					'special_request'      => $special_request,
-					'delegate_type'        => "",
+					// 'media_card_number'    => $media_card_number,
+					// 'media_card_authority' => $media_card_authority,
+					// 'media_equipment'      => $media_equipment,
+					// 'special_request'      => $special_request,
+					// 'delegate_type'        => "",
 
-					'reg_date'             => date('Y-m-d H:i:s'),
-					'status'               => "PENDING",
+					// 'reg_date'             => date('Y-m-d H:i:s'),
+					// 'status'               => "PENDING",
 					
 					// 'student_state'					  => $student_state,
-					'educacation_institute_name'      => $educacation_institute_name,
-					'educacation_institute_category'  => $educacation_institute_category,
-					'educacation_institute_industry'  => $educacation_institute_industry,
-					'educacation_institute_website'   => $educacation_institute_website,
-					'educacation_institute_country'   => $educacation_institute_country,
-					'educacation_institute_city'      => $educacation_institute_city,
+					// 'educacation_institute_name'      => $educacation_institute_name,
+					// 'educacation_institute_category'  => $educacation_institute_category,
+					// 'educacation_institute_industry'  => $educacation_institute_industry,
+					// 'educacation_institute_website'   => $educacation_institute_website,
+					// 'educacation_institute_country'   => $educacation_institute_country,
+					// 'educacation_institute_city'      => $educacation_institute_city,
 
 					'attending_objective_1'   => $objectives,
 					'attending_objective_2'   => $second_objective,
@@ -663,11 +663,11 @@ class FutureEventController
 
 					'need_accommodation_state' => $needAccommodation,
 					
-					'organization_registration_date_year'   => $organization_registration_date_year,
-					'organization_number_employees'  		=> $organization_number_employees,
-					'organization_annual_turnover'  		=> $organization_annual_turnover,
-					'cbo_project_objectives'   				=> $cbo_project_objectives,
-					'cbo_activities'      					=> $cbo_activities,
+					// 'organization_registration_date_year'   => $organization_registration_date_year,
+					// 'organization_number_employees'  		=> $organization_number_employees,
+					// 'organization_annual_turnover'  		=> $organization_annual_turnover,
+					// 'cbo_project_objectives'   				=> $cbo_project_objectives,
+					// 'cbo_activities'      					=> $cbo_activities,
 					
 					'emergency_contact_firstname'  			=> $emergency_firstname,
 					'emergency_contact_lastname'  			=> $emergency_lastname,

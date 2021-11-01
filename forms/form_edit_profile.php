@@ -31,7 +31,7 @@
                             <div class="row">
                                 <label for="firstname" class="col-sm-3"><?=$_Dictionary->translate('First name')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" value="<?=$_PARTICIPANT_DATA_->firstname?>"  name="firstname" oninput="validate(this)" id="firstname" type="text" placeholder="<?=$_Dictionary->translate('First name')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your first name')?>"/>
+                                    <input class="form-control" disabled value="<?=$_PARTICIPANT_DATA_->firstname?>"  name="firstname" oninput="validate(this)" id="firstname" type="text" placeholder="<?=$_Dictionary->translate('First name')?>" data-rule="" data-msg="<?=$_Dictionary->words('Please enter your first name')?>"/>
                                     <div class="validate" id="firstname_error"></div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                             <div class="row">
                                 <label for="lastname" class="col-sm-3"><?=$_Dictionary->translate('last name')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" value="<?=$_PARTICIPANT_DATA_->lastname?>"  name="lastname" oninput="validate(this)"  id="lastname" type="text" placeholder="<?=$_Dictionary->translate('Last name')?>" data-rule="required"  data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your last name')?>"/>
+                                    <input class="form-control" disabled value="<?=$_PARTICIPANT_DATA_->lastname?>"  name="lastname" oninput="validate(this)"  id="lastname" type="text" placeholder="<?=$_Dictionary->translate('Last name')?>" data-rule=""  data-msg="<?=$_Dictionary->words('Please enter your last name')?>"/>
                                     <div class="validate" id="lastname_error"></div> 
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                             <div class="row">
                                 <label for="email" class="col-sm-3"><?=$_Dictionary->translate('Email')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                  <input class="form-control" value="<?=$_PARTICIPANT_DATA_->email?>"  name="email" oninput="validate(this)"  id="email" type="text" placeholder="<?=$_Dictionary->translate('Email')?>" data-rule="email"  data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your email')?>" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
+                                  <input class="form-control" disabled value="<?=$_PARTICIPANT_DATA_->email?>"  name="email" oninput="validate(this)"  id="email" type="text" placeholder="<?=$_Dictionary->translate('Email')?>" data-rule="email"  data-rule="" data-msg="<?=$_Dictionary->words('Please enter your email')?>" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
                                     <div class="validate" id="email_error"></div>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                             <div class="row">
                                 <label for="email" class="col-sm-3"><?=$_Dictionary->translate('Confirm email')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                  <input class="form-control" value="<?=$_PARTICIPANT_DATA_->email?>"  name="confirm_email" oninput="validate(this)"  id="confirm_email" type="text" placeholder="<?=$_Dictionary->translate('Confirm email')?>" data-rule="email"  data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your confirm email')?>" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
+                                  <input class="form-control" disabled value="<?=$_PARTICIPANT_DATA_->email?>"  name="confirm_email" oninput="validate(this)"  id="confirm_email" type="text" placeholder="<?=$_Dictionary->translate('Confirm email')?>" data-rule="email"  data-rule="" data-msg="<?=$_Dictionary->words('Please enter your confirm email')?>" onselectstart="return false" onpaste="return false;" onCopy="return false"  onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off/>
                                     <div class="validate" id="confirm_email_error"></div>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                                 <label for="telephone" class="col-sm-3"><?=$_Dictionary->translate('Telephone number 1')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
                                     <input type="hidden" name ="full_telephone" value="" >
-                                    <input type="text" name="telephone" value="<?=$_PARTICIPANT_DATA_->telephone?>"  id="telephone" oninput="validate(this)"  class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your telephone')?>"/>
+                                    <input type="text" disabled name="telephone" value="<?=$_PARTICIPANT_DATA_->telephone?>"  id="telephone" oninput="validate(this)"  class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your telephone')?>"/>
                                     <div class="validate" id="telephone_error"></div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                 <label for="telephone" class="col-sm-3"><?=$_Dictionary->translate('Telephone number 2')?></label>
                                 <div class="col-sm-9 field-validate">  
                                     <input type="hidden" name ="full_telephone_2" value="" >
-                                    <input type="text" name="telephone_2" value="<?=$_PARTICIPANT_DATA_->telephone_2?>"  oninput="validate(this)"  data-msg="<?=$_Dictionary->words('Please enter your telephone 2')?>"  id="telephone_2" class="form-control"/>
+                                    <input type="text" disabled name="telephone_2" value="<?=$_PARTICIPANT_DATA_->telephone_2?>"  oninput="validate(this)"  data-msg="<?=$_Dictionary->words('Please enter your telephone 2')?>"  id="telephone_2" class="form-control"/>
                                     <div class="validate" id="telephone_2_error"></div>
                                 </div>
                             </div>
@@ -183,7 +183,7 @@ if($_PARTICIPANT_DATA_->participation_type_code == $_CODE_AFRICA_BASED_ ||
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Organization name')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" value="<?=$_PARTICIPANT_DATA_->organisation_name?>" oninput="validate(this)"  name="organisation_name" id="organisation_name" type="text" placeholder="<?=$_Dictionary->translate('Organization name')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your organisation name')?>"/>
+                                    <input class="form-control" disabled value="<?=$_PARTICIPANT_DATA_->organisation_name?>" oninput="validate(this)"  name="organisation_name" id="organisation_name" type="text" placeholder="<?=$_Dictionary->translate('Organization name')?>" data-rule="" data-msg="<?=$_Dictionary->words('Please enter your organisation name')?>"/>
                                     <div class="validate" id="organisation_name_error"></div> 
                                 </div>
                             </div>
@@ -195,7 +195,7 @@ if($_PARTICIPANT_DATA_->participation_type_code == $_CODE_AFRICA_BASED_ ||
                                 <div class="col-sm-9">
                                     <div class="row">
                                         <div class="col-sm-6 field-validate">
-                                            <select class="form-control" onchange="Other(this,'#organisation_type1');" id="organisation_type" name="organisation_type" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your organisation type')?>" >
+                                            <select disabled class="form-control" onchange="Other(this,'#organisation_type1');" id="organisation_type" name="organisation_type" data-rule="" data-msg="<?=$_Dictionary->words('Please enter your organisation type')?>" >
                                                 <option  value="<?=$_PARTICIPANT_DATA_->organisation_type?>" hidden > <?=$_PARTICIPANT_DATA_->organisation_type?> </option>
                                                 <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
                                                 <option value="Academia">Academia</option>
@@ -225,7 +225,7 @@ if($_PARTICIPANT_DATA_->participation_type_code == $_CODE_AFRICA_BASED_ ||
                                 <div class="col-sm-9">
                                     <div class="row">
                                         <div class="col-sm-6 field-validate">
-                                            <select class="form-control" name="industry" id="industry" onchange="Other(this,'#industry1');" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your industry')?>" >
+                                            <select disabled class="form-control" name="industry" id="industry" onchange="Other(this,'#industry1');" data-rule="" data-msg="<?=$_Dictionary->words('Please enter your industry')?>" >
                                                 <option  value="<?=$_PARTICIPANT_DATA_->industry?>" hidden > <?=$_PARTICIPANT_DATA_->industry?> </option>
                                                 <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>   
                                                 <option value="Academics/ Education">Academics/ Education</option>
@@ -271,7 +271,7 @@ if($_PARTICIPANT_DATA_->participation_type_code == $_CODE_AFRICA_BASED_ ||
                             <div class="row">
                                 <label for="website" class="col-sm-3"><?=$_Dictionary->translate('Organization Website')?></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" value="<?=$_PARTICIPANT_DATA_->website?>" oninput="validate(this)"  name="website" id="website" type="text" placeholder="<?=$_Dictionary->translate('Organization Website')?>"  data-msg="<?=$_Dictionary->words('Please enter your website')?>" >
+                                    <input class="form-control" disabled value="<?=$_PARTICIPANT_DATA_->website?>" oninput="validate(this)"  name="website" id="website" type="text" placeholder="<?=$_Dictionary->translate('Organization Website')?>"  data-msg="<?=$_Dictionary->words('Please enter your website')?>" >
                                     <div class="validate" id="website_error"></div> 
                                 </div>
                             </div>
@@ -282,14 +282,14 @@ if($_PARTICIPANT_DATA_->participation_type_code == $_CODE_AFRICA_BASED_ ||
                                 <div class="col-sm-9 field-validate">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <select id="organisation_country" onchange="validate(this)"  name="organisation_country" class="form-control" data-rule="required" data-title="<?=$_Dictionary->words('Select country')?>" data-msg="<?=$_Dictionary->words('Please select your country')?>" >
+                                            <select disabled id="organisation_country" onchange="validate(this)"  name="organisation_country" class="form-control" data-rule="" data-title="<?=$_Dictionary->words('Select country')?>" data-msg="<?=$_Dictionary->words('Please select your country')?>" >
                                                 <option  value="<?=$_PARTICIPANT_DATA_->organisation_country == ''?'':$_PARTICIPANT_DATA_->organisation_country?>" hidden > <?=$_PARTICIPANT_DATA_->organisation_country == ''?'':countryCodeToCountry($_PARTICIPANT_DATA_->organisation_country)?> </option>   
                                                 <option></option>
                                             </select>
                                             <div class="validate" id="organisation_country_error"></div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input class="form-control" value="<?=$_PARTICIPANT_DATA_->organisation_city?>" oninput="validate(this)"  name="organisation_city" id="organisation_city" type="text"  placeholder="<?=$_Dictionary->words('City')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your city')?>"/>
+                                            <input class="form-control" value="<?=$_PARTICIPANT_DATA_->organisation_city?>" oninput="validate(this)"  name="organisation_city" id="organisation_city" type="text"  placeholder="<?=$_Dictionary->words('City')?>" data-rule="" data-msg="<?=$_Dictionary->words('Please enter your city')?>"/>
                                             <div class="validate" id="organisation_city_error"></div> 
                                         </div>
                                     </div>
@@ -309,7 +309,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_STUDENT_YOUTH_):
                             <div class="row">
                                 <label for="firstname" class="col-sm-3"><?=$_Dictionary->translate('name-of-school-or-organization')?>   <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control"  value="<?=$_PARTICIPANT_DATA_->educacation_institute_name?>"  oninput="validate(this)"  name="institute_name" id="institute_name" type="text" placeholder="<?=$_Dictionary->translate('name-of-school-or-organization')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter name of school or organization')?>"/>
+                                    <input class="form-control" disabled  value="<?=$_PARTICIPANT_DATA_->educacation_institute_name?>"  oninput="validate(this)"  name="institute_name" id="institute_name" type="text" placeholder="<?=$_Dictionary->translate('name-of-school-or-organization')?>" data-rule="" data-msg="<?=$_Dictionary->words('Please enter name of school or organization')?>"/>
                                     <div class="validate" id="institute_name_error"></div>
                                 </div>
                             </div>
@@ -318,7 +318,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_STUDENT_YOUTH_):
                             <div class="row">
                                 <label for="gender" class="col-sm-3"><?=$_Dictionary->translate('Category')?> <span></span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <select id="institute_category"  onchange="//validate(this)"  name="institute_category" class="form-control" data-rule="" data-msg="<?=$_Dictionary->words('Please select category')?>">
+                                    <select id="institute_category" disabled onchange="//validate(this)"  name="institute_category" class="form-control" data-rule="" data-msg="<?=$_Dictionary->words('Please select category')?>">
                                         <option  value="<?=$_PARTICIPANT_DATA_->educacation_institute_category ?>" hidden > <?=$_PARTICIPANT_DATA_->educacation_institute_category ?> </option>   
                                         <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
                                         <option value="High school student">High school student </option>
@@ -333,7 +333,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_STUDENT_YOUTH_):
                             <div class="row">
                                 <label for="website" class="col-sm-3"><?=$_Dictionary->translate('website')?></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" value="<?=$_PARTICIPANT_DATA_->educacation_institute_website?>"   oninput="validate(this)"  name="institute_website" id="institute_website" type="text" placeholder="<?=$_Dictionary->words('Website')?>">
+                                    <input class="form-control" disabled value="<?=$_PARTICIPANT_DATA_->educacation_institute_website?>"   oninput="validate(this)"  name="institute_website" id="institute_website" type="text" placeholder="<?=$_Dictionary->words('Website')?>">
                                     <div class="validate" id="institute_website_error"></div>
                                 </div>
                             </div>
@@ -344,14 +344,14 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_STUDENT_YOUTH_):
                                 <div class="col-sm-9 field-validate">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <select id="organisation_country"  onchange="validate(this)"  name="institute_country" class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please select country')?>" >
+                                            <select disabled id="organisation_country"  onchange="validate(this)"  name="institute_country" class="form-control" data-rule="" data-msg="<?=$_Dictionary->words('Please select country')?>" >
                                                 <option  value="<?=$_PARTICIPANT_DATA_->educacation_institute_country == ''?'':$_PARTICIPANT_DATA_->educacation_institute_country?>" hidden > <?=$_PARTICIPANT_DATA_->educacation_institute_country == ''?'':countryCodeToCountry($_PARTICIPANT_DATA_->educacation_institute_country)?> </option>  
                                                 <option></option>
                                             </select>
                                             <div class="validate" id="institute_country_error"></div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input class="form-control" value="<?=$_PARTICIPANT_DATA_->educacation_institute_city?>"   oninput="validate(this)"  name="institute_city" id="organization_city" type="text" placeholder="<?=$_Dictionary->translate('City')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter city')?>"/>
+                                            <input class="form-control" value="<?=$_PARTICIPANT_DATA_->educacation_institute_city?>"   oninput="validate(this)"  name="institute_city" id="organization_city" type="text" placeholder="<?=$_Dictionary->translate('City')?>" data-rule="" data-msg="<?=$_Dictionary->words('Please enter city')?>"/>
                                             <div class="validate" id="institute_city_error"></div> 
                                         </div>
                                     </div>
@@ -369,9 +369,9 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_CBO_):
                     <div class="row">
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Organization name')?> <span>*</span></label>
+                                <label for="organisation-name"  class="col-sm-3"><?=$_Dictionary->translate('Organization name')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" value="<?=$_PARTICIPANT_DATA_->organisation_name?>"  oninput="validate(this)"  name="organisation_name" id="organisation_name" type="text" placeholder="<?=$_Dictionary->translate('Organization name')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your organisation name')?>"/>
+                                    <input class="form-control" disabled value="<?=$_PARTICIPANT_DATA_->organisation_name?>"  oninput="validate(this)"  name="organisation_name" id="organisation_name" type="text" placeholder="<?=$_Dictionary->translate('Organization name')?>" data-rule="" data-msg="<?=$_Dictionary->words('Please enter your organisation name')?>"/>
                                     <div class="validate" id="organisation_name_error"></div> 
                                 </div>
                             </div>
@@ -380,7 +380,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_CBO_):
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Date and year of registration')?><span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" oninput="validate(this)" value="<?=$_PARTICIPANT_DATA_->organization_registration_date_year?>"  name="organisation_date" id="organisation_date" type="text" placeholder="<?=$_Dictionary->translate('Date and year of registration')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your organisation name')?>"/>
+                                    <input disabled class="form-control" oninput="validate(this)" value="<?=$_PARTICIPANT_DATA_->organization_registration_date_year?>"  name="organisation_date" id="organisation_date" type="text" placeholder="<?=$_Dictionary->translate('Date and year of registration')?>" data-rule="" data-msg="<?=$_Dictionary->words('Please enter your organisation name')?>"/>
                                     <div class="validate" id="organisation_date_error"></div> 
                                 </div>
                             </div>
@@ -389,7 +389,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_CBO_):
                             <div class="row">
                                 <label for="gender" class="col-sm-3"><?=$_Dictionary->translate('Number of employees')?><span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <select id="gender" name="number_of_employees" onchange="validate(this)"  class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please select')?>">
+                                    <select disabled id="gender" name="number_of_employees" onchange="validate(this)"  class="form-control" data-rule="" data-msg="<?=$_Dictionary->words('Please select')?>">
                                         <option  value="<?=$_PARTICIPANT_DATA_->organization_number_employees ?>" hidden > <?=$_PARTICIPANT_DATA_->organization_number_employees ?> </option>  
                                         <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
                                         <option value="Less than 50">Less than 50</option>
@@ -405,7 +405,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_CBO_):
                             <div class="row">
                                 <label for="gender" class="col-sm-3"><?=$_Dictionary->translate('What is your annual turnover')?><span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <select id="turnover" name="turnover" onchange="validate(this)"  class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please select')?>">
+                                    <select disabled id="turnover" name="turnover" onchange="validate(this)"  class="form-control" data-rule="" data-msg="<?=$_Dictionary->words('Please select')?>">
                                         <option  value="<?=$_PARTICIPANT_DATA_->organization_annual_turnover ?>" hidden > <?=$_PARTICIPANT_DATA_->organization_annual_turnover ?> </option>  
                                         <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
                                         <option value="Less than $10,000">Less than $10,000</option>
@@ -422,7 +422,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_CBO_):
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('CBO Project Objectives ')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <textarea name="project_objective" id="project_objective" class="form-control" oninput="validate(this)"  placeholder="<?=$_Dictionary->translate('Please enter CBO project objective')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please only 500 characters')?>" style="height: 70px;"><?=$_PARTICIPANT_DATA_->cbo_project_objectives ?></textarea>
+                                    <textarea disabled name="project_objective" id="project_objective" class="form-control" oninput="validate(this)"  placeholder="<?=$_Dictionary->translate('Please enter CBO project objective')?>" data-rule="" data-msg="<?=$_Dictionary->words('Please only 500 characters')?>" style="height: 70px;"><?=$_PARTICIPANT_DATA_->cbo_project_objectives ?></textarea>
                                     <div class="validate" id="project_objective_error"></div>
                                 </div>
                             </div>
@@ -431,7 +431,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_CBO_):
                             <div class="row">
                                 <label for="gender" class="col-sm-3"><?=$_Dictionary->translate('CBO activities')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <select id="cbo_activities" name="cbo_activities" onchange="validate(this)"  class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please select')?>">
+                                    <select disabled id="cbo_activities" name="cbo_activities" onchange="validate(this)"  class="form-control" data-rule="" data-msg="<?=$_Dictionary->words('Please select')?>">
                                         <option  value="<?=$_PARTICIPANT_DATA_->cbo_activities ?>" hidden > <?=$_PARTICIPANT_DATA_->cbo_activities ?> </option>  
                                         <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
                                         <option value="Business">Business </option>
@@ -460,7 +460,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_CBO_):
                                 <div class="col-sm-9">
                                     <div class="row">
                                         <div class="col-sm-6 field-validate">
-                                            <select class="form-control" onchange="Other(this,'#organisation_type1');" id="organisation_type" name="organisation_type" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your organisation type')?>" >
+                                            <select disabled class="form-control" onchange="Other(this,'#organisation_type1');" id="organisation_type" name="organisation_type" data-rule="" data-msg="<?=$_Dictionary->words('Please enter your organisation type')?>" >
                                                 <option  value="<?=$_PARTICIPANT_DATA_->organisation_type ?>" hidden > <?=$_PARTICIPANT_DATA_->organisation_type ?> </option>  
                                                 <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
                                                 <option value="Academia">Academia</option>
@@ -490,7 +490,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_CBO_):
                                 <div class="col-sm-9">
                                     <div class="row">
                                         <div class="col-sm-6 field-validate">
-                                            <select class="form-control" name="industry" id="industry" onchange="Other(this,'#industry1');" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your industry')?>" >
+                                            <select disabled class="form-control" name="industry" id="industry" onchange="Other(this,'#industry1');" data-rule="" data-msg="<?=$_Dictionary->words('Please enter your industry')?>" >
                                                 <option  value="<?=$_PARTICIPANT_DATA_->industry ?>" hidden > <?=$_PARTICIPANT_DATA_->industry ?> </option>  
                                                 <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>   
                                                 <option value="Academics/ Education">Academics/ Education</option>
@@ -536,7 +536,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_CBO_):
                             <div class="row">
                                 <label for="website" class="col-sm-3"><?=$_Dictionary->translate('Organization Website')?></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" oninput="validate(this)" value="<?=$_PARTICIPANT_DATA_->website ?>"  name="website" id="website" type="text" placeholder="<?=$_Dictionary->translate('Organization Website')?>"  data-msg="<?=$_Dictionary->words('Please enter your website')?>" >
+                                    <input disabled class="form-control" oninput="validate(this)" value="<?=$_PARTICIPANT_DATA_->website ?>"  name="website" id="website" type="text" placeholder="<?=$_Dictionary->translate('Organization Website')?>"  data-msg="<?=$_Dictionary->words('Please enter your website')?>" >
                                     <div class="validate" id="website_error"></div> 
                                 </div>
                             </div>
@@ -547,14 +547,14 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_CBO_):
                                 <div class="col-sm-9 field-validate">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <select id="african_country" onchange="validate(this)"  name="organisation_country" class="form-control" data-rule="required" data-title="<?=$_Dictionary->words('Select country')?>" data-msg="<?=$_Dictionary->words('Please select your country')?>" >
+                                            <select disabled id="african_country" onchange="validate(this)"  name="organisation_country" class="form-control" data-rule="" data-title="<?=$_Dictionary->words('Select country')?>" data-msg="<?=$_Dictionary->words('Please select your country')?>" >
                                                 <option  value="<?=$_PARTICIPANT_DATA_->organisation_country == ''?'':$_PARTICIPANT_DATA_->organisation_country?>" hidden > <?=$_PARTICIPANT_DATA_->organisation_country == ''?'':countryCodeToCountry($_PARTICIPANT_DATA_->organisation_country)?> </option>   
                                                 <option></option>
                                             </select>
                                             <div class="validate" id="organisation_country_error"></div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input class="form-control"  value="<?=$_PARTICIPANT_DATA_->organisation_city ?>" oninput="validate(this)"  name="organisation_city" id="organisation_city" type="text"  placeholder="<?=$_Dictionary->words('City')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your city')?>"/>
+                                            <input disabled class="form-control"  value="<?=$_PARTICIPANT_DATA_->organisation_city ?>" oninput="validate(this)"  name="organisation_city" id="organisation_city" type="text"  placeholder="<?=$_Dictionary->words('City')?>" data-rule="" data-msg="<?=$_Dictionary->words('Please enter your city')?>"/>
                                             <div class="validate" id="organisation_city_error"></div> 
                                         </div>
                                     </div>
@@ -573,7 +573,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_MEDIA_):
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Organization name')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control"  value="<?=$_PARTICIPANT_DATA_->organisation_name ?>"  oninput="validate(this)"  name="organisation_name" id="organisation_name" type="text" placeholder="<?=$_Dictionary->translate('Organization name')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your organisation name')?>"/>
+                                    <input class="form-control" disabled value="<?=$_PARTICIPANT_DATA_->organisation_name ?>"  oninput="validate(this)"  name="organisation_name" id="organisation_name" type="text" placeholder="<?=$_Dictionary->translate('Organization name')?>" data-rule="" data-msg="<?=$_Dictionary->words('Please enter your organisation name')?>"/>
                                     <div class="validate" id="organisation_name_error"></div> 
                                 </div>
                             </div>
@@ -584,7 +584,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_MEDIA_):
                                 <div class="col-sm-9">
                                     <div class="row">
                                         <div class="col-sm-6 field-validate">
-                                            <select class="form-control" onchange="Other(this,'#organisation_type1');" id="organisation_type" name="organisation_type" data-rule="required" data-msg="<?=$_Dictionary->translate('Please enter media category')?>" >
+                                            <select disabled class="form-control" onchange="Other(this,'#organisation_type1');" id="organisation_type" name="organisation_type" data-rule="" data-msg="<?=$_Dictionary->translate('Please enter media category')?>" >
                                                 <option  value="<?=$_PARTICIPANT_DATA_->organisation_type ?>" hidden > <?=$_PARTICIPANT_DATA_->organisation_type ?> </option>  
                                                 <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
                                                 <option value="Bloggers">Bloggers</option>
@@ -608,7 +608,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_MEDIA_):
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Press card number')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" value="<?=$_PARTICIPANT_DATA_->media_card_number ?>" oninput="validate(this)" id="media_card_number" name="media_card_number" placeholder="<?=$_Dictionary->translate('Press card number')?>" data-rule="required" data-msg="<?=$_Dictionary->translate('Please enter press card number')?>"/>
+                                    <input disabled class="form-control" value="<?=$_PARTICIPANT_DATA_->media_card_number ?>" oninput="validate(this)" id="media_card_number" name="media_card_number" placeholder="<?=$_Dictionary->translate('Press card number')?>" data-rule="" data-msg="<?=$_Dictionary->translate('Please enter press card number')?>"/>
                                     <div class="validate" id="media_card_number_error"></div> 
                                 </div>
                             </div>
@@ -617,7 +617,7 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_MEDIA_):
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->translate('Issuing authority')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" value="<?=$_PARTICIPANT_DATA_->media_card_authority ?>"  oninput="validate(this)"  id="media_card_authority" name="media_card_authority" placeholder="<?=$_Dictionary->translate('Issuing Authority')?>" data-rule="required" data-msg="<?=$_Dictionary->translate('Please enter issuing authority')?>"/>
+                                    <input disabled class="form-control" value="<?=$_PARTICIPANT_DATA_->media_card_authority ?>"  oninput="validate(this)"  id="media_card_authority" name="media_card_authority" placeholder="<?=$_Dictionary->translate('Issuing Authority')?>" data-rule="" data-msg="<?=$_Dictionary->translate('Please enter issuing authority')?>"/>
                                     <div class="validate" id="media_card_authority_error"></div>
                                 </div>
                             </div>
@@ -628,14 +628,14 @@ elseif($_PARTICIPANT_DATA_->participation_type_code == $_CODE_MEDIA_):
                                 <div class="col-sm-9 field-validate">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <select id="organisation_country" onchange="validate(this)"  name="organisation_country" class="form-control" data-rule="required" data-msg="<?=$_Dictionary->translate('Please select country')?>" >
+                                            <select disabled id="organisation_country" onchange="validate(this)"  name="organisation_country" class="form-control" data-rule="" data-msg="<?=$_Dictionary->translate('Please select country')?>" >
                                                 <option  value="<?=$_PARTICIPANT_DATA_->organisation_country == ''?'':$_PARTICIPANT_DATA_->organisation_country?>" hidden > <?=$_PARTICIPANT_DATA_->organisation_country == ''?'':countryCodeToCountry($_PARTICIPANT_DATA_->organisation_country)?> </option>  
                                                 <option></option>
                                             </select>
                                             <div class="validate" id="organisation_country_error"></div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input class="form-control" value="<?=$_PARTICIPANT_DATA_->organisation_city ?>"  oninput="validate(this)"  name="organisation_city" id="organisation_city" type="text" placeholder="<?=$_Dictionary->translate('City')?>" data-rule="required" data-msg="<?=$_Dictionary->translate('Please enter city')?>"/>
+                                            <input disabled class="form-control" value="<?=$_PARTICIPANT_DATA_->organisation_city ?>"  oninput="validate(this)"  name="organisation_city" id="organisation_city" type="text" placeholder="<?=$_Dictionary->translate('City')?>" data-rule="" data-msg="<?=$_Dictionary->translate('Please enter city')?>"/>
                                             <div class="validate" id="organisation_city_error"></div>
                                         </div>
                                     </div>
@@ -654,7 +654,7 @@ if($_HIDDEN_STATE['SECTION']['MEDIA_TOOLS'] != 'hidden'):
                             <div class="row">
                                 <label for="media-equipment" class="col-sm-3"><?=$_Dictionary->translate('List of equipment to be brought')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <textarea class="form-control w-100" oninput="validate(this)"  name="media_equipment" id="media_equipment" cols="30" rows="9" placeholder="<?=$_Dictionary->translate('Eg: Camera, Microphone')?> ..." data-rule="required" data-msg="<?=$_Dictionary->translate('Please enter equipment')?>"><?=$_PARTICIPANT_DATA_->media_equipment ?></textarea>
+                                    <textarea disabled class="form-control w-100" oninput="validate(this)"  name="media_equipment" id="media_equipment" cols="30" rows="9" placeholder="<?=$_Dictionary->translate('Eg: Camera, Microphone')?> ..." data-rule="" data-msg="<?=$_Dictionary->translate('Please enter equipment')?>"><?=$_PARTICIPANT_DATA_->media_equipment ?></textarea>
                                     <div class="validate" id="media_equipment_error"></div>
                                 </div>
                             </div>
@@ -664,7 +664,7 @@ if($_HIDDEN_STATE['SECTION']['MEDIA_TOOLS'] != 'hidden'):
                             <div class="row">
                                 <label for="special-request" class="col-sm-3">Special request (Up to 1000 characters)</label>
                                 <div class="col-sm-9">
-                                    <textarea class="form-control w-100" oninput="validate(this)"  name="special_request" id="special_request" cols="30" rows="9" placeholder="<?=$_Dictionary->translate('eg. Sessions cover,')?>..."><?=$_PARTICIPANT_DATA_->special_request ?></textarea>
+                                    <textarea disabled class="form-control w-100" oninput="validate(this)"  name="special_request" id="special_request" cols="30" rows="9" placeholder="<?=$_Dictionary->translate('eg. Sessions cover,')?>..."><?=$_PARTICIPANT_DATA_->special_request ?></textarea>
                                     <div class="validate" id="special_request_error"></div>
                                 </div>
                             </div>
@@ -690,7 +690,7 @@ endif;
                                 <div class="col-sm-9">
                                     <div class="row">
                                         <div class="col-sm-6 field-validate">
-                                            <select class="js-example-basic-multiple form-control" onchange="Other(this,'#objectives1');" id="objectives" name="objectives[]" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your objective')?>"  class=""  multiple="multiple"  >
+                                            <select  class="js-example-basic-multiple form-control" onchange="Other(this,'#objectives1');" id="objectives" name="objectives[]" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your objective')?>"  class=""  multiple="multiple"  >
                                                 <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
                                                 <option value="Make a key-note address" <?=in_array('Make a key-note address', $_OBJECTIVES_ARRAY_)?'selected':''?>  >Make a key-note address</option> 
                                                 <option value="Engage in high-level debates and refine your ideas" <?=in_array('Engage in high-level debates and refine your ideas', $_OBJECTIVES_ARRAY_)?'selected':''?> >Engage in high-level debates and refine your ideas </option>
@@ -746,7 +746,7 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                                 <div class="col-sm-9">
                                     <div class="row">
                                         <div class="col-sm-6 field-validate">
-                                            <select class="form-control" onchange="validate(this)"  name="id_type" id="id_type" data-rule="required" data-msg="<?=$_Dictionary->words('Please select document type')?>" > 
+                                            <select  disabled class="form-control" onchange="validate(this)"  name="id_type" id="id_type" data-rule="" data-msg="<?=$_Dictionary->words('Please select document type')?>" > 
                                                 <option  value="<?=$_PARTICIPANT_DATA_->id_type ?>" hidden > <?=$_PARTICIPANT_DATA_->id_type ?> </option>  
                                                 <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option> 
                                                 <option value="Passport">Passport</option>
@@ -755,7 +755,7 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                                             <div class="validate" id="id_type_error"></div>
                                         </div>
                                         <div class="col-sm-6 field-validate">
-                                            <input class="form-control" id="id_number" value="<?=$_PARTICIPANT_DATA_->id_number ?>"  oninput="validate(this)"  name="id_number"  placeholder="<?=$_Dictionary->translate('Document number')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter document number')?>"/>
+                                            <input disabled class="form-control" id="id_number" value="<?=$_PARTICIPANT_DATA_->id_number ?>"  oninput="validate(this)"  name="id_number"  placeholder="<?=$_Dictionary->translate('Document number')?>" data-rule="" data-msg="<?=$_Dictionary->words('Please enter document number')?>"/>
                                             <div class="validate" id="id_number_error"></div>
                                         </div>
                                         
@@ -778,7 +778,7 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                                         <div class="col-sm-9">
                                             <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
                                             <div class="kv-avatar center-block">                            
-                                                <input type="file" name="image" class="form-control" id="image" placeholder="Profile picture"  class="file-loading" style="width:auto;" data-rule="<?=$_PARTICIPANT_DATA_->profile == ''?'required':''?>" data-msg="<?=$_Dictionary->translate('Please upload your profile picture')?>"/>
+                                                <input disabled type="file" name="image" class="form-control" id="image" placeholder="Profile picture"  class="file-loading" style="width:auto;" data-rule="<?=$_PARTICIPANT_DATA_->profile == ''?'required':''?>" data-msg="<?=$_Dictionary->translate('Please upload your profile picture')?>"/>
                                                 <div class="validate" id="image_error"></div>
                                             </div>
                                         </div>
@@ -820,7 +820,7 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                             <div class="row">
                                 <label for="firstname" class="col-sm-3"><?=$_Dictionary->translate('Password')?> <span></span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control" name="password" id="password" oninput="validate(this)"  type="password" placeholder="<?=$_Dictionary->words('Enter password')?>" data-rule="" data-msg="<?=$_Dictionary->words('Minimum 6 characters')?>"/>
+                                    <input disabled class="form-control" name="password" id="password" oninput="validate(this)"  type="password" placeholder="<?=$_Dictionary->words('Enter password')?>" data-rule="" data-msg="<?=$_Dictionary->words('Minimum 6 characters')?>"/>
                                     <div class="validate" id="password_error"></div>
                                 </div>
                             </div>
@@ -830,7 +830,7 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                             <div class="row">
                                 <label for="lastname" class="col-sm-3"><?=$_Dictionary->translate('Confirm Password')?> <span></span></label>
                                 <div class="col-sm-9 field-validate">
-                                  <input class="form-control" name="confirm_password" oninput="validate(this)"  id="confirm_password" type="password" placeholder="<?=$_Dictionary->translate('Confirm password')?>" data-rule="" data-msg="<?=$_Dictionary->words('Password does not match')?>"/>
+                                  <input disabled class="form-control" name="confirm_password" oninput="validate(this)"  id="confirm_password" type="password" placeholder="<?=$_Dictionary->translate('Confirm password')?>" data-rule="" data-msg="<?=$_Dictionary->words('Password does not match')?>"/>
                                     <div class="validate" id="confirm_password_error"></div>
                                     <p class="pw"><?=$_Dictionary->translate('Password message')?></p>
                                 </div>
