@@ -572,6 +572,14 @@
 						}
 					},
 					{
+						"content-students-/-youth-participants-(35yrs-and-below)": {
+							"fr-lang": "Étudiants / Jeunes participants (35 ans et moins)",
+							"eng-lang": "Students / Youth participants (35Yrs and below)",
+							"ar-lang": "الطلاب / الشباب المشاركين",
+							"pt-lang": "Alunos / jovens participantes"
+						}
+					},
+					{
 						"content-students-youth-participants": {
 							"fr-lang": "Étudiants / Jeunes participants",
 							"eng-lang": "Students / Youth participants",
