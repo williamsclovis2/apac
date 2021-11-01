@@ -200,7 +200,7 @@ endif;
                                                                 <div class="panel-body">
                                                                     <h3 class="card-sect-title">Travel and Accommodation </h3>
                                                                     <p class="text-justify">
-                                                                        <span class="text-warning">IUCN APAC has partnered with TravelZuri a Rwanda based travel agency to support delegates with their travel and accommodation needs. </span>
+                                                                        <span class="text-black">IUCN APAC has partnered with TravelZuri a Rwanda based travel agency to support delegates with their travel and accommodation needs. </span>
                                                                         A quota of rooms has been negotiated for the IUCN APAC 2022 participants in hotels in the city centre and reasonably close to the conference venue. 
                                                                         Reservations will be made on “first come, first served” basis. The hotel quotas are valid until one months before the conference. 
                                                                         After that, APAC cannot guarantee the availability of the hotel rooms but will assist you in finding accommodation. 
@@ -208,7 +208,7 @@ endif;
 
                                                                     <p>
                                                                         <a style="color: #f47e20;" href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_blank'> <u>Click here</u> </a> to book your accommodation for your stay in Kigali.
-                                                                        <span class="text-warning">. Delegates who wish to book their travel and accommodation on their own are free to do so however you are highly encouraged to use the IUCN APAC agent to take advantage of the negotiated rates as an APAC delegate.</span>
+                                                                        <span class="text-black">Delegates who wish to book their travel and accommodation on their own are free to do so however you are highly encouraged to use the IUCN APAC agent to take advantage of the negotiated rates as an APAC delegate.</span>
                                                                     </p>
                                                                 </div>
                                                             </div>

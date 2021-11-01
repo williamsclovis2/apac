@@ -29,7 +29,7 @@
                         <h3><?=$_Dictionary->words('footer-content-event-title')?></h3>
                         <p><?=$_Dictionary->words('content-event-date')?></p>
                         <div class="border-top"></div>
-                        <p><a href="mailto:info@thesummit.org">info@thesummit.org</a></p>
+                        <p><a href="mailto:info@apacongress.africa">info@apacongress.africa</a></p>
                         <p><a href="<?php linkto('privacy'); ?>"><?=$_Dictionary->words('terms-conditions')?></a> | <a href="<?php linkto('privacy'); ?>"><?=$_Dictionary->words('privancy-policy')?></a></p>
                     </div>
                 </div>
