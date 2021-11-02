@@ -106,13 +106,13 @@ class PaymentController
 				/** Payment Integration - Creeate Token */
 				if($DefaultPayment == 'CC'):
 					/** Code For Test  Env Payment Integration */
-					if($amount >= 300 && $currency == 'USD'):
-						return (object)[
-							'ERRORS'		=> true,
-							'ERRORS_SCRIPT' => "Limit Amount USD 200 On Test Env",
-							'ERRORS_STRING' => "Limit Amount USD 200 On Test Env"
-						];
-					endif;
+//					if($amount >= 300 && $currency == 'USD'):
+//						return (object)[
+//							'ERRORS'		=> true,
+//							'ERRORS_SCRIPT' => "Limit Amount USD 200 On Test Env",
+//							'ERRORS_STRING' => "Limit Amount USD 200 On Test Env"
+//						];
+//					endif;
 
 					/** Initiate Payment Request - Create Payment Token */
 					$PAY_REQ_DATA = array(

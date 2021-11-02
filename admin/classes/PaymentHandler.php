@@ -9,8 +9,11 @@
 class PaymentHandler
 {
 	private $_PAYTOKEN_;
-   	private $_COMPANY_ID_ = '9F416C11-127B-4DE2-AC7F-D5710E4C5E0A';
-	private $_ServiceType = 5525; # Test Service | 3854 Test Product 
+//   	private $_COMPANY_ID_ = '9F416C11-127B-4DE2-AC7F-D5710E4C5E0A'; # Test Env
+   	private $_COMPANY_ID_ = 'A4769E66-4FAD-44C0-83E9-D474440D0A4A'; # Production Env
+    
+//	private $_ServiceType = 5525; # Test Service | 3854 Test Product 
+	private $_ServiceType = 48325; # Test Service | 3854 Production Event Registration 
 
     private $_url;
 	private $_urlPayment;
