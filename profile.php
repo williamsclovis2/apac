@@ -134,8 +134,8 @@ endif;
 
                 <div class="col-md-8" id="tab-div">
                     <div class="wlcm-mssg">
-                        <h1>Welcome <?= $_participant_data_->firstname .' '. $_participant_data_->lastname ?></h1>
-                        <p class="text-justify">The Client Area allows you to take advantage of various Congress online services such as registering to the Congress if you have not done so already, submit a proposal for social events, among many others. The menu below gives details of all services available through your account. Ensure your profile is up to date at all times. As some services are time bound, please note upon expiration of those timelines you will not be able to access such services. Please note that the grey buttons mean that the services are currently not available. </p>
+                        <h1><?=$_Dictionary->words('welcome-username')?> <?= $_participant_data_->firstname .' '. $_participant_data_->lastname ?></h1>
+                        <p class="text-justify"><?=$_Dictionary->translate('client_area')?></p>
                     </div>
                     <div class="prog_tabs_area" id="program_section">
                         <div class="container">
@@ -146,22 +146,22 @@ endif;
                                             <div class="row">
                                                 <div class="col-md-3 col-xs-6 div-program-mc active-pg" onclick="openCity(event, 'one')" id="defaultOpen">
                                                     <div class="pog-day">
-                                                        <h4>Service area <i class="fa fa-caret-down"></i></h4>
+                                                        <h4><?=$_Dictionary->translate('service_area')?> <i class="fa fa-caret-down"></i></h4>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3 col-xs-6 div-program-mc " onclick="openCity(event, 'two')" id="defaultOpen">
                                                     <div class="pog-day">
-                                                        <h4>my personal area <i class="fa fa-caret-down"></i></h4>
+                                                        <h4><?=$_Dictionary->translate('personal_area')?> <i class="fa fa-caret-down"></i></h4>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3 col-xs-6 div-program-mc " onclick="openCity(event, 'three')" id="defaultOpen">
                                                     <div class="pog-day">
-                                                        <h4>Event area <i class="fa fa-caret-down"></i></h4>
+                                                        <h4><?=$_Dictionary->translate('event_area')?> <i class="fa fa-caret-down"></i></h4>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3 col-xs-6 div-program-mc " onclick="openCity(event, 'four')" id="defaultOpen">
                                                     <div class="pog-day">
-                                                        <h4>Payment area <i class="fa fa-caret-down"></i></h4>
+                                                        <h4><?=$_Dictionary->translate('payment_area')?> <i class="fa fa-caret-down"></i></h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -191,20 +191,20 @@ endif;
                                         <div class="div-buttons text-center">
                                             <div class="row">
                                                 <!-- <div class="col-md-6"><a href="<?=linkto('update/profile/'.Hash::encryptAuthToken($_session_user_ID_))?>" class="btn btn-primary"> Update Registration Details</a></div> -->
-                                                <div class="col-md-6"><a class="btn btn-primary collapse0" data-toggle="collapse" data-parent="#accordion0" href="#collapseZero">Update Registration Details</a></div>
-                                                <div class="col-md-6"><a class="btn btn-primary collapse1" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Book your hotel</a></div>
+                                                <div class="col-md-6"><a class="btn btn-primary collapse0" data-toggle="collapse" data-parent="#accordion0" href="#collapseZero"><?=$_Dictionary->translate('update_reg_details')?></a></div>
+                                                <div class="col-md-6"><a class="btn btn-primary collapse1" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><?=$_Dictionary->translate('book_hotel')?></a></div>
                                                 <!-- Collapse -->
                                                 <div class="bs-example col-md-12 text-left" id="book-info">
                                                     <div class="panel-group" id="accordion0">
                                                         <div class="panel panel-default">
                                                             <div id="collapseZero" class="panel-collapse collapse in">
                                                                 <div class="panel-body">
-                                                                    <h3 class="card-sect-title">Update Registration Details</h3>
+                                                                    <h3 class="card-sect-title"><?=$_Dictionary->translate('update_detail_tilte')?></h3>
                                                                     <p class="text-justify">
-                                                                        <span class="text-black">Please ensure your profile is up to date at all times to fully benefit from the Congress online services. If any of the non-editable information displayed is no longer up-to-date, please send an email to the Congress Registration Manager on <a style="color: #f47e20;" href='mailto:info@cube.rw'>info@cube.rw</a>  with a copy to <a style="color: #f47e20;" href='mailto:registration@apacongress.africa'>registration@apacongress.africa</a> specifying which changes need to be applied.</p>
+                                                                        <span class="text-black"><?=$_Dictionary->translate('update_detail_p')?></p>
 
                                                                     <p>
-                                                                        <a style="color: #f47e20;" href='<?=linkto('update/profile/'.Hash::encryptAuthToken($_session_user_ID_))?>' target='_blank'> <u>Click here</u> </a> to update your registration details.</span>
+                                                                        <a style="color: #f47e20;" href='<?=linkto('update/profile/'.Hash::encryptAuthToken($_session_user_ID_))?>' target='_blank'> <u><?=$_Dictionary->translate('click_here')?></u> </a>  <?=$_Dictionary->translate('to_update')?></span>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -218,17 +218,13 @@ endif;
                                                         <div class="panel panel-default">
                                                             <div id="collapseOne" class="panel-collapse collapse in">
                                                                 <div class="panel-body">
-                                                                    <h3 class="card-sect-title">Travel and Accommodation </h3>
+                                                                    <h3 class="card-sect-title"><?=$_Dictionary->translate('travel_and_acc')?></h3>
                                                                     <p class="text-justify">
-                                                                        <span class="text-black">IUCN APAC has partnered with TravelZuri a Rwanda based travel agency to support delegates with their travel and accommodation needs. </span>
-                                                                        A quota of rooms has been negotiated for the IUCN APAC 2022 participants in hotels in the city centre and reasonably close to the conference venue. 
-                                                                        Reservations will be made on “first come, first served” basis. The hotel quotas are valid until one months before the conference. 
-                                                                        After that, APAC cannot guarantee the availability of the hotel rooms but will assist you in finding accommodation. 
-                                                                        The negotiated hotel fee includes breakfast and all applicable taxes. All hotel fees are payable directly to the hotels.</p>
+                                                                        <span class="text-black"><?=$_Dictionary->translate('travel_and_acc_desc')?></p>
 
                                                                     <p class="text-justify">
-                                                                        <a style="color: #f47e20;" href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_blank'> <u>Click here</u> </a> to book your accommodation for your stay in Kigali.
-                                                                        <span class="text-black">Delegates who wish to book their travel and accommodation on their own are free to do so however you are highly encouraged to use the IUCN APAC agent to take advantage of the negotiated rates as an APAC delegate.</span>
+                                                                        <a style="color: #f47e20;" href='https://www.travelzuri.com/B2C/Admin/GTC/EventInfoCart.aspx?Ref_Type=HTL&CID=87&CityCode=KGL&EventName=Africa%20Protected%20Area%20Congress%20&SSr=EVTHL#' target='_blank'> <u><?=$_Dictionary->translate('click_here')?></u> </a> 
+                                                                        <span class="text-black"><?=$_Dictionary->translate('to_book')?></span>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -238,7 +234,7 @@ endif;
                                                 <!-- end Collapse -->
                                             </div>
 
-                                            <a  class="btn btn-primary collapse2" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Book excursions</a><br>
+                                            <a  class="btn btn-primary collapse2" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><?=$_Dictionary->translate('book_excursions')?></a><br>
                                             <!-- Collapse -->
                                                 <div class="bs-example col-md-12 text-left" id="book-info">
                                                     <div class="panel-group" id="accordion">
@@ -264,7 +260,7 @@ endif;
                                         
                                     </div>
                                     <div id="two" class="daycontent program-two">
-                                         <h3 class="card-sect-title">CONTACT INFORMATION </h3>
+                                         <h3 class="card-sect-title"><?=$_Dictionary->translate('CONTACT INFORMATION')?></h3>
                                         <div class="card mb-3" >
                                             <div class="card-body">
                                                 <div class="row">
@@ -278,7 +274,7 @@ endif;
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-3">
-                                                        <h6 class="mb-0">Email address</h6>
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('Email')?></h6>
                                                     </div>
                                                     <div class="col-sm-9 text-secondary">
                                                         <h6><a href="mailto:email"><?= $_participant_data_->email ?></a></h6>
@@ -286,26 +282,26 @@ endif;
                                                 </div>
                                                 <hr>
                                                 <div class="row">
-                                                    <div class="col-sm-3">
-                                                        <h6 class="mb-0">Telephone number 1</h6>
+                                                    <div class="col-sm-4">
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('Telephone number 1')?></h6>
                                                     </div>
-                                                    <div class="col-sm-9 text-secondary">
+                                                    <div class="col-sm-8 text-secondary">
                                                         <h6><a href="tel:phone"><?= $_participant_data_->telephone ?></a></h6>
                                                     </div>
                                                 </div>
                                                 <hr>
                                                 <div class="row">
-                                                    <div class="col-sm-3">
-                                                        <h6 class="mb-0">Telephone number 2</h6>
+                                                    <div class="col-sm-4">
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('Telephone number 2')?></h6>
                                                     </div>
-                                                    <div class="col-sm-9 text-secondary">
+                                                    <div class="col-sm-8 text-secondary">
                                                         <h6><a href="tel:phone"><?= $_participant_data_->telephone_2 ?></a></h6>
                                                     </div>
                                                 </div>
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-3">
-                                                        <h6 class="mb-0">Job title</h6>
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('Job title')?></h6>
                                                     </div>
                                                     <div class="col-sm-9 text-secondary">
                                                         <h6><?= $_participant_data_->job_title ?></h6>
@@ -314,7 +310,7 @@ endif;
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-3">
-                                                        <h6 class="mb-0">Job category</h6>
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('Job category')?></h6>
                                                     </div>
                                                     <div class="col-sm-9 text-secondary">
                                                         <h6><?= $_participant_data_->job_category ?></h6>
@@ -323,7 +319,7 @@ endif;
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-3">
-                                                        <h6 class="mb-0">Language</h6>
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('language')?> </h6>
                                                     </div>
                                                     <div class="col-sm-9 text-secondary">
                                                         <h6><?= $_participant_data_->language ?></h6>
@@ -332,7 +328,7 @@ endif;
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-3">
-                                                        <h6 class="mb-0">Gender</h6>
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('Gender')?></h6>
                                                     </div>
                                                     <div class="col-sm-9 text-secondary">
                                                         <h6><?= $_participant_data_->gender ?></h6>
@@ -341,7 +337,7 @@ endif;
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-3">
-                                                        <h6 class="mb-0">Date of birth</h6>
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('Date of birth')?></h6>
                                                     </div>
                                                     <div class="col-sm-9 text-secondary">
                                                         <h6><?= $_participant_data_->birthday ?></h6>
@@ -354,12 +350,12 @@ endif;
                                         /** Display Organization Section - When Not Media - */
                                         if( $_participant_data_->participation_type_name != 'Media' && $_participant_data_->student_state == 0  ):
                                         ?>
-                                                            <h3 class="card-sect-title">ORGANIZATION </h3>
+                                                            <h3 class="card-sect-title"><?=$_Dictionary->translate('ORGANIZATION')?> </h3>
                                                             <div class="card mb-3" >
                                                                 <div class="card-body">
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Organization name</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Organization name')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->organisation_name ?></h6>
@@ -368,7 +364,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Organization type</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Organization type')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->organisation_type ?></h6>
@@ -380,7 +376,7 @@ endif;
                                         ?>
                                                                     <div class="row">
                                                                         <div class="col-sm-6">
-                                                                            <h6 class="mb-0">Date and year of registration</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Date and year of registration')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-6 text-secondary">
                                                                             <h6><?= $_participant_data_->organization_registration_date_year ?></h6>
@@ -389,7 +385,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Number of employees</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Number of employees')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->organization_annual_turnover ?></h6>
@@ -398,7 +394,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-6">
-                                                                            <h6 class="mb-0">What is your annual turnover</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('What is your annual turnover')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-6 text-secondary">
                                                                             <h6><?= $_participant_data_->organization_annual_turnover ?></h6>
@@ -407,7 +403,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">CBO Project Objectives</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('CBO Project Objectives ')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->cbo_project_objectives ?></h6>
@@ -416,7 +412,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">CBO activities</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('CBO activities')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->cbo_activities ?></h6>
@@ -429,7 +425,7 @@ endif;
                                         ?>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Industry</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Industry')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->industry ?></h6>
@@ -438,7 +434,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Organization Website</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Organization Website')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                         <h6><a href="<?= $_participant_data_->website == ''?'#': str_replace('http:// http://', 'http://', 'http://'.$_participant_data_->website)  ?>"><?= $_participant_data_->website ?></a></h6>
@@ -448,7 +444,7 @@ endif;
                                                                     
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">City / Country</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Company Location')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= countryCodeToCountry($_participant_data_->organisation_country) ?> / <?= $_participant_data_->organisation_city ?></h6>
@@ -461,12 +457,12 @@ endif;
                                         /** Display Organization Section - When Not Media - Students - */
                                         elseif( $_participant_data_->participation_type_name != 'Media' && $_participant_data_->student_state == 1  ):
                                         ?>
-                                                            <h3 class="card-sect-title">EDUCATION INSTITUTE</h3>
+                                                            <h3 class="card-sect-title"><?=$_Dictionary->translate('EDUCATION INSTITUTE OR ORGANIZATION')?></h3>
                                                             <div class="card mb-3" >
                                                                 <div class="card-body">
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Institute Name</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('name-of-school-or-organization')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->educacation_institute_name ?></h6>
@@ -475,7 +471,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Institute Type</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Category')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->educacation_institute_category ?></h6>
@@ -484,7 +480,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Industry</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Industry')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->educacation_institute_industry ?></h6>
@@ -493,7 +489,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Institute Website</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('website')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                         <h6><a href="<?= $_participant_data_->educacation_institute_website == ''?'#': $_participant_data_->educacation_institute_website  ?>"><?= $_participant_data_->educacation_institute_website ?></a></h6>
@@ -940,6 +936,7 @@ if($_participant_data_->payment_state == 'PAYABLE'):
     }
 </style>
     <?php include 'includes/footer.php';?>
+    <script src="<?php linkto('forms/register-form.js'); ?>"></script>
     <script>
         $('.collapse0').on('click', function(){
             $('.collapse0').addClass('selectedTab');
