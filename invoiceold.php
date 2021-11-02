@@ -27,7 +27,7 @@
           ul{margin:0;}
           a {color: #002060 !important;}
           .alignment{display: inline-block;background: #002060;width: 100px;height: 2px;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;margin-bottom: 4px;}
-
+          .social-image img{width:30px;}
           @media only screen and (max-width: 550px), screen and (max-device-width: 550px) {
           body[yahoo] .hide {display: none!important;}
           body[yahoo] .buttonwrapper {background-color: transparent!important;}
@@ -944,25 +944,78 @@
                          
                           <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Your registration is confirmed to take place in the VIRTUAL space of the event.  We will share the necessary links for your attendance no later than November 29th, 2021 </b> </td></tr>
                          
-                          <tr><td class='h2' style='font-family: sans-serif;padding:15px 0 0 5px;'>Please stay connected and engaged with us on the following:</td></tr>
+                          <tr><td class='h2' style='font-family: sans-serif;padding:15px 0 0 0px;'>Please stay connected and engaged with us on the following:</td></tr>
                           <tr>
-                            <td class='h2' style='font-family: sans-serif;'>
-                                <ul>
-                                  <li><b>Website:</b> <a href='https://www.arf.thecoalitionafrica.com' target='_blank'>https://www.arf.thecoalitionafrica.com</a></li>
-                                  <li><b>Twitter:</b> <a href='https://twitter.com/africaforum2021' target='_blank'>@africaforum2021</a></li>
-                                  <li><b>Linkedin:</b> <a href='https://www.linkedin.com/company/amahoro-coalition/' target='_blank'>The Amahoro Coalition</a></li>
-                                  <li><b>Instagram:</b> <a href='https://www.instagram.com/africaforum2021/' target='_blank'>@africaforum2021</a></li>
-                                  <li><b>Connect with our official tag: </b> <a href='https://www.arf.thecoalitionafrica.com' target='_bank'>#36MillionSolutions</a></a></li>
-
-                                </ul>
+                            <td  style='padding: 10px 0 0 0;'>
+                              <table border='0' cellspacing='0' cellpadding='0'>
+                                <tr class='social-image'>
+                                <td width='30' style='text-align: center;padding: 0 0px 0 0px;'>
+                                  <a href='https://www.arf.thecoalitionafrica.com' target='_blank'>
+                                    <img src='http://aprf2021.torusguru.com/img/globe.png' width='37' height='37' alt='Facebook' border='0'/>
+                                  </a>
+                                </td>
+                                <td width='30' style='text-align: center; padding: 0 5px 0 10px;'>
+                                    <a href='https://twitter.com/africaforum2021' target='_blank'>
+                                      <img src='http://aprf2021.torusguru.com/img/twitter.png' width='37' height='37' alt='Twitter' border='0'/>
+                                    </a>
+                                  </td>
+                                  <td width='30' style='text-align: center; padding: 0 5px 0 10px; font-family: sans-serif;'>
+                                    <a href='https://www.linkedin.com/company/amahoro-coalition/' target='_blank'>
+                                      <img src='http://aprf2021.torusguru.com/img/linkedin.png' width='37' height='37' alt='Instagram' border='0'/>
+                                    </a>
+                                  </td>
+                                  <td width='30' style='text-align: center; padding: 0 5px 0 10px; font-family: sans-serif;'>
+                                    <a href='https://www.instagram.com/africaforum2021/' target='_blank'>
+                                      <img src='http://aprf2021.torusguru.com/img/instagram.png' width='37' height='37' alt='Instagram' border='0'/>
+                                    </a>
+                                  </td>
+                                  
+                                </tr>
+                                
+                              </table>
                             </td>
                           </tr>
-
+                          <tr>
+                            <td  class='h2' style='font-family: sans-serif;padding:15px 0 0 0;'><b>Connect with our official tag: </b> <a href='https://www.arf.thecoalitionafrica.com' target='_bank'>#36MillionSolutions</a></a></td>
+                          </tr>
                           <tr><td class='h2' style='font-family: sans-serif;'>If you have any inquiries feel free to contact us at <a href='mailto:forum@thecoalitionafrica.com'>forum@thecoalitionafrica.com  </a> </td></tr>
+
+                          <tr>
+                            <td  style='padding: 10px 0 0 0;'>
+                              <table border='0' cellspacing='0' cellpadding='0'>
+                                <tr class=''>
+                                <td width='150' style='text-align: center;padding: 0 0px 0 0px;'>
+                                  <a href='https://www.arf.thecoalitionafrica.com' target='_blank'>
+                                    <img src='http://aprf2021.torusguru.com/img/partners/part1.png' width='100%'  alt='Facebook' border='0'/>
+                                  </a>
+                                </td>
+                                <td width='150' style='text-align: center; padding: 0 5px 0 10px;'>
+                                    <a href='https://www.unhcr.org/afr/' target='_blank'>
+                                      <img src='http://aprf2021.torusguru.com/img/partners/part2.png' width='100%'  alt='Twitter' border='0'/>
+                                    </a>
+                                  </td>
+                                  <td width='150' style='text-align: center; padding: 0 5px 0 10px; font-family: sans-serif;'>
+                                    <a href='https://www.minema.gov.rw/' target='_blank'>
+                                      <img src='http://aprf2021.torusguru.com/img/partners/part3.png' width='100%'  alt='Instagram' border='0'/>
+                                    </a>
+                                  </td>
+                                  <td width='150' style='text-align: center; padding: 0 5px 0 10px; font-family: sans-serif;'>
+                                    <a href='https://africanentrepreneurcollective.org/' target='_blank'>
+                                      <img src='http://aprf2021.torusguru.com/img/partners/part4.png' width='100%' alt='Instagram' border='0'/>
+                                    </a>
+                                  </td>
+                                  
+                                </tr>
+                                
+                              </table>
+                            </td>
+                          </tr>
                         </tr>
                       </table>
+                      
                     </td>
                   </tr>
+                  
                   <tr>
                     <td class='footer' bgcolor='#f6f6f6'>
                       <table width='100%' border='0' cellspacing='0' cellpadding='0'>
