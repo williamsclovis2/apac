@@ -71,7 +71,7 @@ $GLOBALS['config'] = array(
     ),
 
     'api' => array(
-        //   'payment_callback' => "http://197.243.23.101/thefuture/apac/pay/callback/",
+        //   'payment_callback' => "http://197.243.23.101/thefuture/apac/pay/callack/",
       'payment_callback' => "http://{$_SERVER['HTTP_HOST']}/pay/callback/",
     ),
 
