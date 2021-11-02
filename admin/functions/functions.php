@@ -16,8 +16,8 @@ function root($path) {
 
 // absulot path used in links
 function linkto($path) {
- echo "/thefuture/apac/{$path}"; //Local
- // echo "/{$path}"; //Live
+// echo "/thefuture/apac/{$path}"; //Local
+  echo "/{$path}"; //Live
 }
 
 //Print Success Message Style
