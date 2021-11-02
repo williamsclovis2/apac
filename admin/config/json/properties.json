@@ -1411,6 +1411,159 @@
 							"pt-lang": ""
 						}
 					},
+
+					{
+						"welcome-username": {
+							"fr-lang": "Bienvenu(e)",
+							"eng-lang": "Welcome",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"client_area": {
+							"fr-lang": "L'Espace Client vous permet de profiter de divers services en ligne du Congrès tels que l'inscription au Congrès si vous ne l'avez pas déjà fait, soumettre une proposition d'événements sociaux, entre autres. Le menu ci-dessous donne des détails sur tous les services disponibles via votre compte. Assurez-vous que votre profil est à jour à tout moment. Certains services étant limités dans le temps, veuillez noter qu'à l'expiration de ces délais, vous ne pourrez plus accéder à ces services. Veuillez noter que les boutons gris signifient que les services ne sont actuellement pas disponibles.",
+							"eng-lang": "The Client Area allows you to take advantage of various Congress online services such as registering to the Congress if you have not done so already, submit a proposal for social events, among many others. The menu below gives details of all services available through your account. Ensure your profile is up to date at all times. As some services are time bound, please note upon expiration of those timelines you will not be able to access such services. Please note that the grey buttons mean that the services are currently not available.",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"service_area": {
+							"fr-lang": "Zone de service",
+							"eng-lang": "Service area",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"personal_area": {
+							"fr-lang": "mon espace personnel",
+							"eng-lang": "my personal area",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+
+					{
+						"event_area": {
+							"fr-lang": "Espace événementiel",
+							"eng-lang": "Event area",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"payment_area": {
+							"fr-lang": "Zone de paiement",
+							"eng-lang": "Payment area",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"update_reg_details": {
+							"fr-lang": "Mettre à jour les détails d'inscription",
+							"eng-lang": "Update Registration Details",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"book_hotel": {
+							"fr-lang": "Réserver un hôtel",
+							"eng-lang": "Book hotel",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"book_excursions": {
+							"fr-lang": "Book excursions",
+							"eng-lang": "Book excursions",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"update_detail_tilte": {
+							"fr-lang": "Mettre à jour les détails d'inscription",
+							"eng-lang": "Update Registration Details",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"update_detail_p": {
+							"fr-lang": "Veuillez vous assurer que votre profil est à jour à tout moment pour profiter pleinement des services en ligne du Congrès. Si l'une des informations non modifiables affichées n'est plus à jour, veuillez envoyer un e-mail au responsable des inscriptions au congrès à <a style='color: #f47e20;' href='mailto:info@cube.rw'>info@cube.rw</a> avec une copie à <a style='color: #f47e20;' href='mailto:registration@apacongress.africa'>registration@apacongress.africa</a> en précisant les changements qui doivent être appliqués.",
+							"eng-lang": "Please ensure your profile is up to date at all times to fully benefit from the Congress online services. If any of the non-editable information displayed is no longer up-to-date, please send an email to the Congress Registration Manager on <a style='color: #f47e20;' href='mailto:info@cube.rw'>info@cube.rw</a> with a copy to <a style='color: #f47e20;' href='mailto:registration@apacongress.africa'> registration@apacongress.africa</a> specifying which changes need to be applied.",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"click_here": {
+							"fr-lang": "Cliquez ici",
+							"eng-lang": "Click here",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"to_update": {
+							"fr-lang": "pour mettre à jour vos informations d'inscription.",
+							"eng-lang": "Click here",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+
+					{
+						"travel_and_acc": {
+							"fr-lang": "Voyage et hébergement",
+							"eng-lang": "Travel and Accommodation ",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+
+					{
+						"travel_and_acc_desc": {
+							"fr-lang": "L'UICN APAC s'est associée à TravelZuri, une agence de voyages basée au Rwanda, pour soutenir les délégués dans leurs besoins de voyage et d'hébergement. Un quota de chambres a été négocié pour les participants UICN APAC 2022 dans des hôtels du centre-ville et raisonnablement proches du lieu de la conférence. Les réservations se feront sur la base du « premier arrivé, premier servi ». Les quotas hôteliers sont valables jusqu'à un mois avant la conférence. Après cela, APAC ne peut garantir la disponibilité des chambres d'hôtel mais vous aidera à trouver un logement. Les frais d'hôtel négociés comprennent le petit-déjeuner et toutes les taxes applicables. Tous les frais d'hôtel sont payables directement aux hôtels.",
+							"eng-lang": "IUCN APAC has partnered with TravelZuri a Rwanda based travel agency to support delegates with their travel and accommodation needs. A quota of rooms has been negotiated for the IUCN APAC 2022 participants in hotels in the city centre and reasonably close to the conference venue. Reservations will be made on “first come, first served” basis. The hotel quotas are valid until one months before the conference. After that, APAC cannot guarantee the availability of the hotel rooms but will assist you in finding accommodation. The negotiated hotel fee includes breakfast and all applicable taxes. All hotel fees are payable directly to the hotels.",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					
+					{
+						"to_book": {
+							"fr-lang": "pour réserver votre hébergement pour votre séjour à Kigali. Les délégués qui souhaitent réserver leur voyage et leur hébergement par eux-mêmes sont libres de le faire, mais nous vous encourageons vivement à utiliser l'agent APAC de l'UICN pour profiter des tarifs négociés en tant que délégué APAC.",
+							"eng-lang": "to book your accommodation for your stay in Kigali. Delegates who wish to book their travel and accommodation on their own are free to do so however you are highly encouraged to use the IUCN APAC agent to take advantage of the negotiated rates as an APAC delegate.",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+
+					{
+						"date-and-year-of-registration": {
+							"fr-lang": "Date et année d'inscription",
+							"eng-lang": "Date and year of registration",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+
+
+
+
+
+
+
+
+
+
+
 					{
 						"": {
 							"fr-lang": "",
