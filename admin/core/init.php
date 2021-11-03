@@ -3,7 +3,15 @@
 session_start();
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
-// $_SESSION['user'] = 16;
+
+# CONFIGURE HTTPS
+$http = 'http';
+if(!isset($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] != "on"):
+    $http = 'https';
+    header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"], true, 301);
+    exit;
+endif;
+
 
 function def(){
     define("DN", Config::get('server/name'));
@@ -62,8 +70,8 @@ $GLOBALS['config'] = array(
         'token_name' => 'token'
     ),
     'server' => array(
-    //  'name' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac",
-      'name' => "http://{$_SERVER['HTTP_HOST']}", 
+    //  'name' => "$http://{$_SERVER['HTTP_HOST']}/thefuture/apac",
+      'name' => "$http://{$_SERVER['HTTP_HOST']}", 
     ),
     'root' => array(
     //  'json_properties' => $_SERVER['DOCUMENT_ROOT']."/thefuture/apac/admin/config/json/properties.json", // Lccal
@@ -71,26 +79,26 @@ $GLOBALS['config'] = array(
     ),
 
     'api' => array(
-        //   'payment_callback' => "http://197.243.23.101/thefuture/apac/pay/callack/",
-      'payment_callback' => "http://{$_SERVER['HTTP_HOST']}/pay/callback/",
+        //   'payment_callback' => "$http://197.243.23.101/thefuture/apac/pay/callack/",
+      'payment_callback' => "$http://{$_SERVER['HTTP_HOST']}/pay/callback/",
     ),
 
     'url' => array(
         
-        // 'invitation_letter' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac/pdf/invitation/letter/",
-       'invitation_letter' => "http://{$_SERVER['HTTP_HOST']}/pdf/invitation/letter/",
+        // 'invitation_letter' => "$http://{$_SERVER['HTTP_HOST']}/thefuture/apac/pdf/invitation/letter/",
+       'invitation_letter' => "$http://{$_SERVER['HTTP_HOST']}/pdf/invitation/letter/",
 
-        // 'invoice' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac/pdf/payment/invoice/",
-        'invoice' => "http://{$_SERVER['HTTP_HOST']}/pdf/payment/invoice/",
+        // 'invoice' => "$http://{$_SERVER['HTTP_HOST']}/thefuture/apac/pdf/payment/invoice/",
+        'invoice' => "$http://{$_SERVER['HTTP_HOST']}/pdf/payment/invoice/",
         
-        //  'receipt' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac/pdf/payment/receipt/",
-      'receipt' => "http://{$_SERVER['HTTP_HOST']}/pdf/payment/receipt/",
+        //  'receipt' => "$http://{$_SERVER['HTTP_HOST']}/thefuture/apac/pdf/payment/receipt/",
+      'receipt' => "$http://{$_SERVER['HTTP_HOST']}/pdf/payment/receipt/",
         
-		// 'mail_smtp' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac/mail_smtp", // Local
-		'mail_smtp' => "http://localhost:80/thefuture/apac/mail_smtp", // Live
+		// 'mail_smtp' => "$http://{$_SERVER['HTTP_HOST']}/thefuture/apac/mail_smtp", // Local
+		'mail_smtp' => "$http://localhost:80/thefuture/apac/mail_smtp", // Live
 
-		// 'mail_smtp_noreply' => "http://{$_SERVER['HTTP_HOST']}/thefuture/apac/mail_smtp_noreply", // Local
-		'mail_smtp_noreply' => "http://localhost:80/thefuture/apac/mail_smtp_noreply", // Live
+		// 'mail_smtp_noreply' => "$http://{$_SERVER['HTTP_HOST']}/thefuture/apac/mail_smtp_noreply", // Local
+		'mail_smtp_noreply' => "$http://localhost:80/thefuture/apac/mail_smtp_noreply", // Live
     ),
     'filepath' => array(
 		    // 'image' => $_SERVER['DOCUMENT_ROOT'].'/thefuture/apac/img/',  // Local
