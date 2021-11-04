@@ -8,13 +8,16 @@ require_once "core/init.php";
 
 // $array1['telephone'] = '07876545678';
 
-// echo '<pre>';
-// print_r($array1);
-// echo '</pre>';
 
-// echo 'ok';
+$var_path = '../../adminPortal/data_system/profile.png';
 
- echo Hash::encryptAuthToken(663);
+//echo "<img src='$var_path' />";
+
+echo $_SERVER['DOCUMENT_ROOT'].'<hr>';
+
+?>
+<a href="<?=$_SERVER['DOCUMENT_ROOT'].'/../adminPortal'?>"> img PROFILE</a>
+<?php
 
 
 //echo Config::get('filepath/image').'/img/invoice/APAC_LOGO_PRESS_01.png';

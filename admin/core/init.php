@@ -35,9 +35,9 @@ function def(){
     define("DNADMIN",DN._.Config::get('server/name')._.'admin');
     define("DN_IMG_CARDS", DN._.'img/cards');
     define("VIEW_IMG_ID_DOC", DN.'/img/id_document/');
-    define("VIEW_PROFILE", DN.'/img/profile/');
-    define("DN_IMG_ID_DOC", Config::get('filepath/image').'id_document/');
-    define("DN_IMG_PROFILE", Config::get('filepath/image').'profile/');
+    define("VIEW_PROFILE", Config::get('remote_filepath/view_image_profile') );
+    define("DN_IMG_ID_DOC", Config::get('remote_filepath/root_image').'id_document/');
+    define("DN_IMG_PROFILE", Config::get('remote_filepath/root_image').'profile/');
     define("VIEW_QR", DN.'/img/qr/');
     define("DN_IMG_QR", Config::get('filepath/image').'qr/');
     define("LINK_INVOICE", DN.'/pdf/payment/invoice/');
@@ -105,7 +105,18 @@ $GLOBALS['config'] = array(
     'filepath' => array(
 		    // 'image' => $_SERVER['DOCUMENT_ROOT'].'/thefuture/apac/img/',  // Local
 		'image' => $_SERVER['DOCUMENT_ROOT'].'/img/',  //Live 
-	)
+	),
+    'remote_filepath' => array(
+		    // 'root_image' => $_SERVER['DOCUMENT_ROOT'].'/thefuture/adminPortal/data_system/img/',  // Local
+		'root_image' => $_SERVER['DOCUMENT_ROOT'].'/../adminPortal/data_system/img/',  //Live 
+        
+        // 'view_image' => "$http://".$_SERVER['HTTP_HOST'].'/thefuture/adminPortal/media/pictures/', //Live
+		'view_image' => "$http://system.torusguru.com/media/pictures/",  //Live & Test
+        
+        // 'view_image_profile' => "$http://".$_SERVER['HTTP_HOST'].'/thefuture/adminPortal/media/pictures/profile/', //Live
+		'view_image_profile' => "$http://system.torusguru.com/media/pictures/profile/",  //Live & Test
+	),
+    
     
 );
 
@@ -139,7 +150,7 @@ $progDay        = Input::get('day');
 $activeEventId  = 8;
 
 /** SCRIPT - AUTO EXPIRY - PRIVATE LINKS - */
-FutureEventController::autoExpirationStatusEventPrivateInvitationLink($eventID);
+FutureEventController::autoExpirationStatusEventPrivateInvitationLink($activeEventId);
 
 /** Handle Language */
 $GLOBALS['_Lang']     = Session::exists('lang')?Session::get('lang'):'eng-lang';

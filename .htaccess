@@ -88,6 +88,14 @@ RewriteRule ^visit_exhibition/([^/]+)$ visit_exhibition.php?url=$1 [L]
 
 RewriteRule ^admin/pages/content/partnership/([^/]+)$ admin/pages/content/partnership.php?eventId=$1 [L]
 
+
+#-----------------------------------------------#
+# Set Images Path
+#-----------------------------------------------#
+RewriteRule ^media/pictures/profile/(.*)(/*)$ https://system.torusguru.com/data_system/img/profile/$1
+RewriteRule ^media/pictures/id/(.*)$ https://system.torusguru.com/data_system/img/profile/$1
+
+
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html
 RewriteCond %{REQUEST_FILENAME}\.php -f
