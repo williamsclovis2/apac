@@ -139,7 +139,7 @@ $progDay        = Input::get('day');
 $activeEventId  = 8;
 
 /** SCRIPT - AUTO EXPIRY - PRIVATE LINKS - */
-FutureEventController::autoExpirationStatusEventPrivateInvitationLink($eventID);
+FutureEventController::autoExpirationStatusEventPrivateInvitationLink($activeEventId);
 
 /** Handle Language */
 $GLOBALS['_Lang']     = Session::exists('lang')?Session::get('lang'):'eng-lang';
