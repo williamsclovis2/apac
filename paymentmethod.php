@@ -56,7 +56,7 @@ if(!is_integer(($_AUTHTOKEN_ID_   = Hash::decryptAuthToken($_AUTHTOKEN_))))
             <div class="row">
                 <div class="col-md-8">
                     <div class="payment-meth wow fadeInUp DPO_link" data-e="<?=Hash::encryptToken($activeEventId)?>" data-a="<?=$_AUTHTOKEN_?>"  data-d="cc" data-wow-duration="1s" data-wow-delay=".1s">
-                        <a class="btn btn-primary  DPO_link" data-e="<?=Hash::encryptToken($activeEventId)?>" data-a="<?=$_AUTHTOKEN_?>"  data-d="cc"  style=" color: white;"><?=$_Dictionary->translate('Click to pay with one of services listed below')?> </a>
+                        <a class="btn btn-primary  DPO_link loader-btn" data-e="<?=Hash::encryptToken($activeEventId)?>" data-a="<?=$_AUTHTOKEN_?>"  data-d="cc"  style=" color: white;"><?=$_Dictionary->translate('Click to pay with one of services listed below')?> </a>
                         <div class="row img-card">
                             <div class="col-2"><a hrefr="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/visa.png"></a></div>
                             <div class="col-2"><a hrefr="#"><img class="img img-responsive" src="<?=DN_IMG_CARDS?>/MC.png"></a></div>
@@ -73,7 +73,7 @@ if(!is_integer(($_AUTHTOKEN_ID_   = Hash::decryptAuthToken($_AUTHTOKEN_))))
                 </div>
                 <div class="col-md-4">
                     <div class="payment-meth wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                        <a class="btn btn-primary  DPO_link " style="color: white;" data-e = "<?=Hash::encryptToken($activeEventId)?>" data-a="<?=$_AUTHTOKEN_?>" data-d="bt" ><i class="fa fa-bank"></i> <?=$_Dictionary->translate('Pay using bank transfer')?></a>
+                        <a class="btn btn-primary  DPO_link loader-btn" style="color: white;" data-e = "<?=Hash::encryptToken($activeEventId)?>" data-a="<?=$_AUTHTOKEN_?>" data-d="bt" ><i class="fa fa-bank"></i> <?=$_Dictionary->translate('Pay using bank transfer')?></a>
                         
                     </div>
                 </div>

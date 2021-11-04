@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="<?php linkto('css/custom.css'); ?>">
      <!-- Data picker -->
      <link href="<?php linkto('admin/css/plugins/datapicker/datepicker3.css'); ?>" rel="stylesheet">
-    
+    <link rel="stylesheet" href="<?php linkto('css/loader.css'); ?>">
     
 
     <!-- AddEvent script -->
