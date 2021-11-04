@@ -265,7 +265,7 @@ endif;
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-sm-3">
-                                                        <h6 class="mb-0">Full Name</h6>
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('full-name')?></h6>
                                                     </div>
                                                     <div class="col-sm-9 text-secondary">
                                                         <h6><?= $_participant_data_->firstname .' '. $_participant_data_->lastname ?></h6>
@@ -513,12 +513,12 @@ endif;
                                         elseif( $_participant_data_->participation_type_name == 'Media'):
                                         ?>
                                                             <!-- info fo media person -->
-                                                            <h3 class="card-sect-title">ORGANIZATION</h3>
+                                                            <h3 class="card-sect-title"><?=$_Dictionary->translate('ORGANIZATION')?></h3>
                                                             <div class="card mb-3" >
                                                                 <div class="card-body">
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Organization name</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Organization name')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->organisation_name ?></h6>
@@ -527,7 +527,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Media category</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Media category')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->organisation_type ?></h6>
@@ -536,7 +536,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Press card number </h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Press card number')?> </h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->media_card_number ?></h6>
@@ -545,7 +545,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Issuing authority</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Issuing authority')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                         <h6><?= $_participant_data_->media_card_authority ?></h6>
@@ -554,7 +554,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">City / Country</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Company Location')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= countryCodeToCountry($_participant_data_->organisation_country) ?> / <?= $_participant_data_->organisation_city ?></h6>
@@ -563,12 +563,12 @@ endif;
                                                                     
                                                                 </div>
                                                             </div>
-                                                            <h3 class="card-sect-title">TOOLS</h3>
+                                                            <h3 class="card-sect-title"><?=$_Dictionary->translate('TOOLS')?></h3>
                                                             <div class="card mb-3" >
                                                                 <div class="card-body">
                                                                     <div class="row">
                                                                         <div class="col-sm-4">
-                                                                            <h6 class="mb-0">List of equipment to be brought</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('List of equipment to be brought')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-8 text-secondary">
                                                                             <h6><?= $_participant_data_->media_equipment ?></h6>
@@ -589,7 +589,7 @@ endif;
                                         <?php
                                             endif;
                                         ?>
-                                                            <h3 class="card-sect-title">WHAT ARE YOUR OBJECTIVES FOR ATTENDING THIS CONGRESS?</h3>
+                                                            <h3 class="card-sect-title"><?=$_Dictionary->translate('WHAT ARE YOUR OBJECTIVES FOR ATTENDING THIS CONGRESS?')?></h3>
                                                             <div class="card mb-3">
                                                                 <div  class="card-body">
                                                                     <div class="row">
@@ -621,7 +621,7 @@ endif;
                                                                     <hr> -->
                                                                     <div class="row">
                                                                         <div class="col-sm-6">
-                                                                            <h6 class="mb-0">Where did you hear about us ? </h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('WHERE DID YOU HEAR ABOUT APAC?')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-6 text-secondary">
                                                                             <h6><?= $_participant_data_->info_source ?> </h6>
@@ -633,12 +633,12 @@ endif;
                                         /** Only For In-person participation event */
                                         if($_participant_data_->participation_subtype_category == 'INPERSON'):
                                         ?>
-                                                            <h3 class="card-sect-title">IDENTIFICATION</h3>
+                                                            <h3 class="card-sect-title"><?=$_Dictionary->translate('BADGE COLLECTION IDENTIFICATION')?></h3>
                                                             <div class="card mb-3">
                                                                 <div class="card-body">
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Type of ID document </h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Type of ID document')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->id_type ?></h6>
@@ -647,33 +647,33 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Document number </h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Document number')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->id_number ?></h6>
                                                                         </div>
                                                                     </div>
-                                                                    <hr>
-                                                                    <div class="row">
+                                                                    <!-- <hr> -->
+                                                                    <!-- <div class="row">
                                                                         <div class="col-sm-4">
                                                                             <h6 class="mb-0">Country/ City of residence</h6>
                                                                         </div>
                                                                         <div class="col-sm-8 text-secondary">
                                                                             <h6><?= countryCodeToCountry($_participant_data_->residence_country) ?> / <?= $_participant_data_->residence_city ?></h6>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> -->
                                                                 </div>
                                                             </div>
                                         <?php
                                         endif;
                                         ?>
 
-                                                            <h3 class="card-sect-title">EMERGENCY CONTACT</h3>
+                                                            <h3 class="card-sect-title"><?=$_Dictionary->translate('EMERGENCY CONTACT')?></h3>
                                                             <div class="card mb-3">
                                                                 <div class="card-body">
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Full name </h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('full-name')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->emergency_contact_firstname .' '.$_participant_data_->emergency_contact_lastname ?></h6>
@@ -682,7 +682,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-3">
-                                                                            <h6 class="mb-0">Email address </h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Email')?> </h6>
                                                                         </div>
                                                                         <div class="col-sm-9 text-secondary">
                                                                             <h6><?= $_participant_data_->emergency_contact_email ?></h6>
@@ -691,7 +691,7 @@ endif;
                                                                     <hr>
                                                                     <div class="row">
                                                                         <div class="col-sm-4">
-                                                                            <h6 class="mb-0">Telephone</h6>
+                                                                            <h6 class="mb-0"><?=$_Dictionary->translate('Telephone number')?></h6>
                                                                         </div>
                                                                         <div class="col-sm-8 text-secondary">
                                                                             <h6><?= $_participant_data_->emergency_contact_telephone ?></h6>
@@ -706,12 +706,12 @@ endif;
                                     </div>
 
                                     <div id="three" class="daycontent program-three">
-                                        <h3 class="card-sect-title">Event </h3>
+                                        <h3 class="card-sect-title"><?=$_Dictionary->translate('event')?> </h3>
                                         <div class="card mt-3">
                                             <div class="card-body side-card">
                                                 <div class="row">
                                                     <div class="col-sm-4">
-                                                        <h6 class="mb-0">Event Name </h6>
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('event-name')?> </h6>
                                                     </div>
                                                     <div class="col-sm-8 text-secondary">
                                                         <h6><?= $_participant_data_->event_name ?></h6>
@@ -720,7 +720,7 @@ endif;
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-5">
-                                                        <h6 class="mb-0">Event Type</h6>
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('event-type')?></h6>
                                                     </div>
                                                     <div class="col-sm-7 text-secondary">
                                                         <h6><?= Functions::getEventCategory($_participant_data_->participation_subtype_category) ?></h6>

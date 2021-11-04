@@ -1553,6 +1553,38 @@
 							"pt-lang": ""
 						}
 					},
+					{
+						"full-name": {
+							"fr-lang": "Nom et prénom",
+							"eng-lang": "Full name",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"event": {
+							"fr-lang": "Événement",
+							"eng-lang": "Event",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"event-name": {
+							"fr-lang": "Nom de l'événement",
+							"eng-lang": "Event name",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"event-type": {
+							"fr-lang": "Type d'événement",
+							"eng-lang": "Event type",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
 
 
 
