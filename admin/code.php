@@ -14,7 +14,7 @@ require_once "core/init.php";
 
 // echo 'ok';
 
-// echo Hash::encryptAuthToken(494);
+ echo Hash::encryptAuthToken(663);
 
 
 //echo Config::get('filepath/image').'/img/invoice/APAC_LOGO_PRESS_01.png';

@@ -5,7 +5,8 @@ ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 
 # CONFIGURE HTTPS
-$http = 'http';
+//$http = 'http'; # Local 
+$http = 'https'; # Live
 if(!isset($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] != "on"):
     $http = 'https';
     header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"], true, 301);
