@@ -1814,69 +1814,96 @@
 
 
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
+						"every-participant": {
+							"fr-lang": "Chaque participant devra télécharger une photo de format passeport à des fins d'impression de badge. Veuillez vous assurer que la photo est conforme aux spécifications suivantes :",
+							"eng-lang": "Every participant will need to upload a passport-size photo for badge printing purposes. Please make sure that the photo complies with the following specifications:",
 							"ar-lang": "",
 							"pt-lang": ""
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
+						"image-file-format": {
+							"fr-lang": "Format de fichier image",
+							"eng-lang": "Image file format",
 							"ar-lang": "",
 							"pt-lang": ""
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
+						"image-file-format-desc": {
+							"fr-lang": "L'image doit être au format JPEG (Joint Photographic Expert Group) avec l'extension de fichier .jpg",
+							"eng-lang": "The image must be in the Joint Photographic Expert Group (JPEG) format with .jpg file extension",
 							"ar-lang": "",
 							"pt-lang": ""
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
+						"image-size": {
+							"fr-lang": "Taille de l'image",
+							"eng-lang": "Image size",
 							"ar-lang": "",
 							"pt-lang": ""
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
+						"image-size-desc": {
+							"fr-lang": "La taille maximale de l'image sera de 500 kbM",
+							"eng-lang": "The maximum image size will be 500kbM",
 							"ar-lang": "",
 							"pt-lang": ""
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
+						"head-position": {
+							"fr-lang": "Taille et position de la tête :",
+							"eng-lang": "Head size & position:",
 							"ar-lang": "",
 							"pt-lang": ""
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
+						"head-position-desc": {
+							"fr-lang": "Le visage entier doit être visible sur la photo. La tête doit être droite, centrée et regarder droit vers la caméra.",
+							"eng-lang": "Full face must be visible in the photograph. Head must be straight, centered and looking straight at the camera. ",
 							"ar-lang": "",
 							"pt-lang": ""
 						}
 					},
 					{
-						"": {
-							"fr-lang": "",
-							"eng-lang": "",
+						"color-p": {
+							"fr-lang": "Couleur",
+							"eng-lang": "color",
 							"ar-lang": "",
 							"pt-lang": ""
 						}
 					},
+					{
+						"full-color": {
+							"fr-lang": "pleine couleur",
+							"eng-lang": "full color",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"background": {
+							"fr-lang": "Arrière-plan",
+							"eng-lang": "Background",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"background-desc": {
+							"fr-lang": "Les photographies doivent avoir un fond blanc.",
+							"eng-lang": "The photographs must have a white background.",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+
+
+
 					{
 						"terms-conditions": {
 							"fr-lang": "Termes et Conditions",

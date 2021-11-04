@@ -74,3 +74,6 @@
             </div>
         </div>
     </header>
+    <div id="load" style="" hidden>
+	 	<div class="lds-spinner spinner-position" id=""><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+	 </div>
