@@ -384,20 +384,20 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-sm-12">
+                        <div class="form-group col-sm-12"> 
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-12">
-                                    Every participant will need to upload a passport-size photo for badge printing purposes. Please make sure that the photo complies with the following specifications: <span>*</span><br><br>
+                                    <?=$_Dictionary->translate('every-participant')?> <span>*</span><br><br>
                                     
                                 </label>
                                 <div class="col-sm-12">
                                     <div class="row">
                                         <label for="organisation-name" class="col-sm-3 text-justif">   
-                                            <b>Image file format:</b><br> <span>The image must be in the Joint Photographic Expert Group (JPEG) format with .jpg file extension</span> <br>
-                                            <b>Image size:</b><br> <span>The maximum image size will be 500kbM</span> <br>
-                                            <b>Head size & position:</b><br> <span>Full face must be visible in the photograph. Head must be straight, centered and looking straight at the camera. </span> <br>
-                                            <b>Color:</b> <span> Full color. </span> <br>
-                                            <b>Background:</b> <span> The photographs must have a white background.</span>
+                                            <b><?=$_Dictionary->translate('image file format')?>:</b><br> <span><?=$_Dictionary->translate('image-file-format-desc')?></span> <br>
+                                            <b><?=$_Dictionary->translate('Image size')?>:</b><br> <span><?=$_Dictionary->translate('image-size-desc')?></span> <br>
+                                            <b><?=$_Dictionary->translate('head-position')?></b><br> <span><?=$_Dictionary->translate('head-position-desc')?></span> <br>
+                                            <b><?=$_Dictionary->translate('color-p')?>:</b> <span> <?=$_Dictionary->translate('full-color')?> </span> <br>
+                                            <b><?=$_Dictionary->translate('background')?>:</b><br> <span> <?=$_Dictionary->translate('background-desc')?> </span>
                                         </label>
                                         <div class="col-sm-9">
                                             <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
@@ -552,7 +552,7 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                         <input type="hidden" name="_EvPCode_"  id="_EvPCode_" value="<?=$_EvPCode_?>">
                         <input type="hidden" name="del_type" value="">
                         <input type="hidden" name="eventParticipation" value="<?=$_EVENT_PARTICIPATION_SUB_TYPE_ID_ENCRYPTED_?>">
-                        <button type="button" id="registerButton" class="btn btn-primary px-5 py-2 text-white pull-right registerFormSubmit" data-loading-text="Loading..."><?=$_Dictionary->translate('Submit')?></button>
+                        <button type="button" id="registerButton" class="btn btn-primary px-5 py-2 text-white pull-right registerFormSubmit loader-btn" data-loading-text="Loading..."><?=$_Dictionary->translate('Submit')?></button>
                     </div>
                 </form>
             </div>

@@ -69,7 +69,7 @@ class PaymentController
 				];
 			endif;
 
-			/** Get Participant Details */
+			/** Check If A Participant has already completely paid */
 			if((self::checkIfEventParticipantHasAlreadySuccessfullyPaid($event_id, $participant_id))):
 				return (object)[
 					'ERRORS'		=> true,
@@ -82,6 +82,9 @@ class PaymentController
 			$participation_type_id 		= $_participant_data_->participation_type_id;
 			$participation_sub_type_id  = $_participant_data_->participation_sub_type_id;
 			
+			/** Auto Ignored the previous uncompleted payment requests */
+			self::ignoredPreviousUnCompletedPaymentRequestsByParticipantID($event_id, $participant_id, $participation_type_id, $participation_sub_type_id);
+
 			$payment_method     = '';
 			$payment_operator   = '';
 
@@ -452,10 +455,18 @@ class PaymentController
 	
 	public static function getPaymentTransactionEntryDataByParticipantID($eventID, $_participant_id_){
         $PaymentTable = new Payment();
-        $PaymentTable->selectQuery("SELECT payment_method,  amount, currency, transaction_status, receipt_id, transaction_id, external_transaction_id, transaction_time, approval_time, approval_comment, callback_time FROM `future_payment_transaction_entry` WHERE event_id = {$eventID} AND  participant_id = {$_participant_id_} GROUP BY participant_id DESC  LIMIT 1");
+        $PaymentTable->selectQuery("SELECT payment_method,  amount, currency, transaction_status, receipt_id, transaction_id, external_transaction_id, transaction_time, approval_time, approval_comment, callback_time FROM `future_payment_transaction_entry` WHERE event_id = {$eventID} AND  participant_id = {$_participant_id_} AND transaction_status != 'IGNORED'  ORDER BY id DESC LIMIT 1");
         if($PaymentTable->count())
           return $PaymentTable->first();
         return false;
+    }
+
+	public static function ignoredPreviousUnCompletedPaymentRequestsByParticipantID($eventID, $participantID, $participation_type_id, $participation_sub_type_id){
+        $PaymentTable = new Payment();
+        $PaymentTable->selectQuery("UPDATE future_payment_transaction_entry SET transaction_status = 'IGNORED' WHERE event_id = {$eventID} AND  participant_id = {$participantID} AND transaction_status != 'COMPLETED'  AND  participation_type_id = {$participation_type_id}  AND  participation_sub_type_id = {$participation_sub_type_id}");
+        if($PaymentTable->count())
+          return true;
+        return  false;
     }
 
 }

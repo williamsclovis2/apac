@@ -689,7 +689,7 @@ endif;
                                 <label for="organisation-name" class="col-sm-3"><?=$_Dictionary->words('Select objectives')?> <span>*</span></label>
                                 <div class="col-sm-9">
                                     <div class="row">
-                                        <div class="col-sm-6 field-validate">
+                                        <div class="col-sm-12 field-validate">
                                             <select  class="js-example-basic-multiple form-control" onchange="Other(this,'#objectives1');" id="objectives" name="objectives[]" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter your objective')?>"  class=""  multiple="multiple"  >
                                                 <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
                                                 <option value="Make a key-note address" <?=in_array('Make a key-note address', $_OBJECTIVES_ARRAY_)?'selected':''?>  >Make a key-note address</option> 
@@ -700,8 +700,8 @@ endif;
                                                 <option value="Other">Other (specify)</option>
                                             </select>
                                             <div class="validate" id="objectives_error"></div>
-                                        </div>
-                                        <div class="col-sm-6">
+                                        </div><br><br>
+                                        <div class="col-sm-12">
                                             <input class="form-control" oninput="validate(this)"  name="objectives1" id="objectives1" type="text" placeholder="<?=$_Dictionary->words('please specify')?>"   data-msg="<?=$_Dictionary->words('Please enter your objective')?>" 
                                             <?php if(escape(Input::get('organisation_type')) != 'Other'){?> disabled="disabled" <?php }?>>
                                             <div class="validate" id="objectives1_error"></div>
@@ -766,14 +766,14 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                         <div class="form-group col-sm-12"> 
                             <div class="row">
                                 <label for="organisation-name" class="col-sm-12">
-                                    Every participant will need to upload a passport-size photo for badge printing purposes. Please make sure that the photo complies with the following specifications: <span>*</span><br><br>
+                                <?=$_Dictionary->translate('every-participant')?>  <span>*</span><br><br>
                                     
                                 </label>
                                 <div class="col-sm-12">
                                     <div class="row">
                                         <label for="organisation-name" class="col-sm-3">   
-                                            <b>Image file format:</b><br> <span>The image must be in the Joint Photographic Expert Group (JPEG) format with .jpg file extension</span> <br>
-                                            <b>Image size:</b><br> <span>The maximum image size will be 500kbM</span>
+                                            <b><?=$_Dictionary->translate('image file format')?>:</b><br> <span><?=$_Dictionary->translate('image-file-format-desc')?></span> <br>
+                                            <b><?=$_Dictionary->translate('Image size')?>:</b><br> <span><?=$_Dictionary->translate('image-size-desc')?></span> <br>
                                         </label>
                                         <div class="col-sm-9">
                                             <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
