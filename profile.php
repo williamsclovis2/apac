@@ -729,7 +729,7 @@ endif;
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <h6 class="mb-0">Participation Type</h6>
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('participation-type')?></h6>
                                                     </div>
                                                     <div class="col-sm-6 text-secondary">
                                                         <h6><?= $_participant_data_->participation_type_name ?></h6>
@@ -738,7 +738,7 @@ endif;
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <h6 class="mb-0">Participation Subtype</h6>
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('participation-sub-type')?></h6>
                                                     </div>
                                                     <div class="col-sm-6 text-secondary">
                                                         <h6><?= $_participant_data_->participation_subtype_name ?></h6>
@@ -747,7 +747,7 @@ endif;
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-5">
-                                                        <h6 class="mb-0">Payment State</h6>
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('payment-state')?></h6>
                                                     </div>
                                                     <div class="col-sm-7 text-secondary">
                                                         <h6><?= $_participant_data_->payment_state ?></h6>
@@ -756,7 +756,7 @@ endif;
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <h6 class="mb-0">Participation Price</h6>
+                                                        <h6 class="mb-0"><?=$_Dictionary->translate('participation-price')?></h6>
                                                     </div>
                                                     <div class="col-sm-6 text-secondary">
                                                         <h6><?= $_participant_data_->participation_subtype_price ?> <small><?= $_participant_data_->participation_subtype_currency ?></small> </h6>
@@ -767,17 +767,17 @@ endif;
 
                                         <br>
                                         <!-- <a class="btn btn-xs btn-outline-info disable_btn_deny col-md-12 col-xs-12 col-lg-12 col-sm-12 " href="https://apacongress.africa/programme/" target="_blank" ><i class="fa fa-video icon"></i> View Congress Programme </a> <br> <br> -->
-                                        <a  class="btn btn-primary col-md-12 col-xs-12 col-lg-12 col-sm-12 collapse2" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">View Congress Programme </a><br>
+                                        <a  class="btn btn-primary col-md-12 col-xs-12 col-lg-12 col-sm-12 collapse2" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><?=$_Dictionary->translate('view-program')?> </a><br>
                                         <!-- Collapse --> <br>
                                         <div class="bs-example col-md-12 text-left" id="book-info">
                                                     <div class="panel-group" id="accordion">
                                                         <div class="panel panel-default">
                                                             <div id="collapseThree" class="panel-collapse collapse in">
                                                                 <div class="panel-body">
-                                                                    <h3 class="card-sect-title">View Congress Programme </h3>
-                                                                    <p class="text-justify">More details on the sessions, speakers and how you can interact with fellow delegates to be availed soon.<br> 
+                                                                    <h3 class="card-sect-title"><?=$_Dictionary->translate('view-program')?></h3>
+                                                                    <p class="text-justify"><?=$_Dictionary->translate('more-details')?><br> 
                                                                     <p>
-                                                                        <a style="color: #f47e20;" href="https://apacongress.africa/programme/" target='_blank'> <u>Click here</u> </a> to view Congress Programme.</span>
+                                                                        <a style="color: #f47e20;" href="https://apacongress.africa/programme/" target='_blank'> <u><?=$_Dictionary->translate('click_here')?></u> </a><?=$_Dictionary->translate('congress-programme')?></span>
                                                                     </p>                                                                
                                                                 </div>
                                                             </div>
@@ -792,12 +792,12 @@ endif;
 if($_participant_data_->payment_state == 'PAYABLE'):
     ?>
 
-                                    <h3 class="card-sect-title">Payment </h3>
+                                    <h3 class="card-sect-title"><?=$_Dictionary->translate('payment')?></h3>
                                     <div class="card mt-3">
                                         <div class="card-body side-card">
                                             <div class="row">
                                                 <div class="col-sm-5">
-                                                    <h6 class="mb-0">Payment Method</h6>
+                                                    <h6 class="mb-0"><?=$_Dictionary->translate('payment-metthod')?></h6>
                                                 </div>
                                                 <div class="col-sm-7 text-secondary">
                                                     <h6><?=$_PAYMENT_METHOD_?></h6>
@@ -806,7 +806,7 @@ if($_participant_data_->payment_state == 'PAYABLE'):
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-5">
-                                                    <h6 class="mb-0">Amount paid</h6>
+                                                    <h6 class="mb-0"><?=$_Dictionary->translate('amount-paid')?></h6>
                                                 </div>
                                                 <div class="col-sm-7 text-secondary">
                                                     <h6><?=$_PAYMENT_TRANSACTION_AMOUNT_CURRENCY_?></h6>
@@ -815,7 +815,7 @@ if($_participant_data_->payment_state == 'PAYABLE'):
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <h6 class="mb-0">Transaction Status</h6>
+                                                    <h6 class="mb-0"><?=$_Dictionary->translate('transaction-status')?></h6>
                                                 </div>
                                                 <div class="col-sm-6 text-secondary">
                                                     <h6><?=$_PAYMENT_STATUS_?></h6>
@@ -824,7 +824,7 @@ if($_participant_data_->payment_state == 'PAYABLE'):
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-5">
-                                                    <h6 class="mb-0">Payment Receipt</h6>
+                                                    <h6 class="mb-0"><?=$_Dictionary->translate('payment-receipt')?></h6>
                                                 </div>
                                                 <div class="col-sm-7 text-secondary">
                                                     <h6><?=$_PAYMENT_RECEIPT_?></h6>
@@ -833,7 +833,7 @@ if($_participant_data_->payment_state == 'PAYABLE'):
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <h6 class="mb-0">Transaction ID</h6>
+                                                    <h6 class="mb-0"><?=$_Dictionary->translate('transaction-id')?></h6>
                                                 </div>
                                                 <div class="col-sm-6 text-secondary">
                                                     <h6><?=$_PAYMENT_TRANSACTION_ID_?></h6>
@@ -842,7 +842,7 @@ if($_participant_data_->payment_state == 'PAYABLE'):
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-7">
-                                                    <h6 class="mb-0">External Transaction ID</h6>
+                                                    <h6 class="mb-0"><?=$_Dictionary->translate('ex-transaction')?></h6>
                                                 </div>
                                                 <div class="col-sm-5 text-secondary">
                                                     <h6><?=$_EXTERNAL_TRANSACTION_ID_?></h6>
@@ -851,7 +851,7 @@ if($_participant_data_->payment_state == 'PAYABLE'):
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-7">
-                                                    <h6 class="mb-0">Payment Transaction Time</h6>
+                                                    <h6 class="mb-0"><?=$_Dictionary->translate('payment-t-time')?></h6>
                                                 </div>
                                                 <div class="col-sm-5 text-secondary">
                                                     <h6><?=$_PAYMENT_TRANSACTION_TIME_?></h6>
@@ -860,7 +860,7 @@ if($_participant_data_->payment_state == 'PAYABLE'):
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-7">
-                                                    <h6 class="mb-0">Payment Approval Time</h6>
+                                                    <h6 class="mb-0"><?=$_Dictionary->translate('payment-a-time')?></h6>
                                                 </div>
                                                 <div class="col-sm-5 text-secondary">
                                                     <h6><?=$_PAYMENT_APPROVAL_TIME_?></h6>
@@ -869,7 +869,7 @@ if($_participant_data_->payment_state == 'PAYABLE'):
                                             <hr>
                                             <div class="row">
                                             <div class="col-sm-12">
-                                                    <h6 class="mb-0">Payment Approval Comment</h6>
+                                                    <h6 class="mb-0"><?=$_Dictionary->translate('payment-a-com')?></h6>
                                                 </div>
                                                 <div class="col-sm-12 text-secondary">
                                                     <h6><?=$_PAYMENT_APPROVAL_COMMENT_?></h6>

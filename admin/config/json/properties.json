@@ -1588,8 +1588,229 @@
 							"pt-lang": ""
 						}
 					},
+					{
+						"participation-type": {
+							"fr-lang": "Type de participation",
+							"eng-lang": "Participation Type",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"participation-sub-type": {
+							"fr-lang": "Sous-type de participation",
+							"eng-lang": "Participation Subtype",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"payment-state": {
+							"fr-lang": "État de paiement",
+							"eng-lang": "Payment State",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"participation-price": {
+							"fr-lang": "Prix ​​de participation",
+							"eng-lang": "Participation Price",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"view-program": {
+							"fr-lang": "Voir le programme du congrès",
+							"eng-lang": "View Congress Programme ",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"more-details": {
+							"fr-lang": "Plus de détails sur les sessions, les conférenciers et la façon dont vous pouvez interagir avec les autres délégués seront bientôt disponibles.",
+							"eng-lang": "More details on the sessions, speakers and how you can interact with fellow delegates to be availed soon.",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+
+					{
+						"congress-programme": {
+							"fr-lang": "pour voir le programme du congrès.",
+							"eng-lang": "to view Congress Programme.",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
 
 
+					{
+						"payment": {
+							"fr-lang": "Paiement",
+							"eng-lang": "Payment",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"payment-metthod": {
+							"fr-lang": "Mode de paiement",
+							"eng-lang": "Payment Method",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"amount-paid": {
+							"fr-lang": "Le montant payé",
+							"eng-lang": "Amount paid",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"transaction-status": {
+							"fr-lang": "Statut de la transaction",
+							"eng-lang": "Transaction Status",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"payment-receipt": {
+							"fr-lang": "Reçu",
+							"eng-lang": "Payment receipt",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"transaction-id": {
+							"fr-lang": "Identifiant de transaction",
+							"eng-lang": "Transaction ID",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"ex-transaction": {
+							"fr-lang": "Identifiant de transaction externe",
+							"eng-lang": "External Transaction ID",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"payment-t-time": {
+							"fr-lang": "Heure de la transaction de paiement",
+							"eng-lang": "Payment Transaction Time",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"payment-a-time": {
+							"fr-lang": "Délai d'approbation du paiement",
+							"eng-lang": "Payment Approval Time",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+
+					{
+						"payment-a-com": {
+							"fr-lang": "Commentaire d'approbation de paiement",
+							"eng-lang": "Payment Approval Comment",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"bank-transfer": {
+							"fr-lang": "Processus de virement bancaire lancé avec succès",
+							"eng-lang": "Bank Transfer Process Successfully Initiated",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"bank-transfer-details": {
+							"fr-lang": "Merci pour votre inscription. Un email vous a été envoyé avec les détails du paiement par virement bancaire. Ouvrez votre boîte de réception et procédez au paiement par virement bancaire. Votre inscription sera activée une fois que vous aurez effectué votre paiement.",
+							"eng-lang": "Thank you for your registration. An email has been sent to you with the details of the payment by bank transfer. Open your inbox and proceed to payment by bank transfer. Your registration will be activated once you have completed your payment.",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"payment-interrupted": {
+							"fr-lang": "Paiement interrompu",
+							"eng-lang": "Payment interrupted",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+
+					{
+						"interrupted-details": {
+							"fr-lang": "<p style='text-align:left !important;'>Merci de votre intérêt à participer au premier Congrès africain sur les aires protégées. Nous avons le regret de vous informer que votre paiement a été refusé.<br><b>Cela se produit fréquemment lorsque :</b></p><p style='text-align:left !important;'>- Il y a un modification de votre adresse de facturation<br>- Une erreur de facturation s'est produite avec votre banque<br>- La banque ne reconnaît pas le paiement et prend des mesures pour l'empêcher<br>- Votre compte n'a pas suffisamment de fonds<br>- Si vous utilisez une carte, il a expiré</p><p style='text-align:left !important;'>Veuillez vérifier vos coordonnées et réessayer. Votre inscription sera activée une fois que vous aurez effectué votre paiement. Si vous avez d'autres questions sur l'inscription et le paiement, veuillez contacter notre responsable des inscriptions sur <a href='mailto: registration@apacongress.africa' style='color:blue !important;'> registration@apacongress.africa</a> </p><p style='text-align:left !important;'>Pour plus d'informations sur l'APAC, visitez notre <a href='https://apacongress.africa/' target='bank_' style='color :blue !important;'>site Web</a></p>",
+							"eng-lang": "<p style='text-align:left !important;'>Thank you for your interest in participating in the inaugural Africa Protected Areas Congress. We regret to inform you that your payment has been declined.<br><b>This frequently occurs when:</b></p><p style='text-align:left !important;'>- There is a change in your billing address<br>- A billing error has occurred with your bank<br>- The bank not recognizing the payment and taking action to prevent it<br>- Your account has insufficient funds<br>- If using card, it has expired</p><p style='text-align:left !important;'>Please check your details and try again. Your registration will be activated once you have completed your payment. Should you have any further questions on registration and payment, please contact our Registration Manager on <a href='mailto: registration@apacongress.africa' style='color:blue !important;'> registration@apacongress.africa</a> </p><p style='text-align:left !important;'>For more information on APAC, visit our  <a href='https://apacongress.africa/' target='bank_' style='color:blue !important;'>website</a></p>",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+
+					{
+						"p-successfully-c": {
+							"fr-lang": "Paiement effectué avec succès",
+							"eng-lang": "Payment successfully completed",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"p-successfully-details": {
+							"fr-lang": "Merci pour votre inscription. Votre paiement a été effectué avec succès. Un e-mail vous a été envoyé avec la réception de votre paiement et les détails de l'événement",
+							"eng-lang": "Thank you for your registration. Your payment has been successfully completed. An email has been sent to you with the receipt of your payment and event details.",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"p-receipt-nf": {
+							"fr-lang": "Reçu de paiement introuvable",
+							"eng-lang": "Payment receipt not found",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"p-receipt-nf-details": {
+							"fr-lang": "<p style='text-align:left !important;'>Merci de votre intérêt à participer au premier Congrès africain sur les aires protégées. Nous avons le regret de vous informer que votre reçu de paiement n'a pas été trouvé.<br><b>Cela se produit lorsque votre paiement n'a pas encore été effectué.</b></p>",
+							"eng-lang": "<p style='text-align:left !important;'>Thank you for your interest in participating in the inaugural Africa Protected Areas Congress. We regret to inform you that your payment receipt was not found.<br><b>This occurs when your payment has not yet been completed.</b></p>",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+
+					{
+						"p-receipt-nf": {
+							"fr-lang": "Lettre d'invitation introuvable",
+							"eng-lang": "Invitation letter not found",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
+					{
+						"p-receipt-nf-details": {
+							"fr-lang": "<p style='text-align:left !important;'>Merci de votre intérêt à participer au premier Congrès africain sur les aires protégées. Nous avons le regret de vous informer que votre lettre d'invitation n'a pas été trouvée.<br><b>Cela se produit lorsque votre paiement n'a pas encore été effectué ou que votre inscription n'a pas encore été approuvée.</b></p>",
+							"eng-lang": "<p style='text-align:left !important;'>Thank you for your interest in participating in the inaugural Africa Protected Areas Congress. We regret to inform you that your invitation letter was not found.<br><b>This occurs when your payment has not yet been completed or your registration has not yet been approved.</b></p>",
+							"ar-lang": "",
+							"pt-lang": ""
+						}
+					},
 
 
 					{

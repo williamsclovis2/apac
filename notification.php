@@ -15,31 +15,28 @@ $_NOTIFICATION_CONTENT_ = $_Dictionary->translate('content-notification-success'
 if(Input::checkInput('code', 'get', 1)):
     switch(Input::get('code', 'get')):
         case 'BANK_TRANSFER_SUCCESSFULLY_GENERATED':
-            $_NOTIFICATION_TITLE_   = "Bank Transfer Process Successfully Initiated";
-            $_NOTIFICATION_CONTENT_ = "Thank you for your registration. An email has been sent to you with the details of the payment by bank transfer. Open your inbox and proceed to payment by bank transfer. Your registration will be activated once you have completed your payment.";
+            $_NOTIFICATION_TITLE_   = $_Dictionary->translate('bank-transfer'); 
+            $_NOTIFICATION_CONTENT_ = $_Dictionary->translate('bank-transfer-details');
             break;
 
         case 'PAYMENT_CALLBACK_ERROR':
-            $_NOTIFICATION_TITLE_   = "Payment interrupted";
-            $_NOTIFICATION_CONTENT_ = "<p style='text-align:left !important;'>Thank you for your interest in participating in the inaugural Africa Protected Areas Congress. We regret to inform you that your payment has been declined.<br><b>This frequently occurs when:</b></p>
-            <p style='text-align:left !important;'>-	There is a change in your billing address<br>-	A billing error has occurred with your bank<br>-	The bank not recognizing the payment and taking action to prevent it<br>-	Your account has insufficient funds<br>-	If using card, it has expired</p>
-            <p style='text-align:left !important;'>Please check your details and try again. Your registration will be activated once you have completed your payment. Should you have any further questions on registration and payment, please contact our Registration Manager on <a href='mailto: registration@apacongress.africa' style='color:blue !important;'> registration@apacongress.africa</a> </p>
-            <p style='text-align:left !important;'>For more information on APAC, visit our  <a href='https://apacongress.africa/' target='bank_' style='color:blue !important;'>website</a></p>";
+            $_NOTIFICATION_TITLE_   = $_Dictionary->translate('payment-interrupted');
+            $_NOTIFICATION_CONTENT_ = $_Dictionary->translate('interrupted-details');
             break;
 
         case 'PAYMENT_CALLBACK_SUCCESS':
-            $_NOTIFICATION_TITLE_   = "Payment successfully completed";
-            $_NOTIFICATION_CONTENT_ = "Thank you for your registration. Your payment has been successfully completed. An email has been sent to you with the receipt of your payment and event details.";
+            $_NOTIFICATION_TITLE_   =$_Dictionary->translate('p-successfully-c');
+            $_NOTIFICATION_CONTENT_ = $_Dictionary->translate('p-successfully-details');
             break;
 
         case 'PAYMENT_RECEIPT_NOT_FOUND_ERROR':
-            $_NOTIFICATION_TITLE_   = "Payment receipt not found";
-            $_NOTIFICATION_CONTENT_ = "<p style='text-align:left !important;'>Thank you for your interest in participating in the inaugural Africa Protected Areas Congress. We regret to inform you that your payment receipt was not found.<br><b>This occurs when your payment has not yet been completed.</b></p>";
+            $_NOTIFICATION_TITLE_   = $_Dictionary->translate('p-receipt-nf');
+            $_NOTIFICATION_CONTENT_ =$_Dictionary->translate('p-receipt-nf-details');
             break;
         
         case 'INVITATION_LETTER_NOT_FOUND_ERROR':
-            $_NOTIFICATION_TITLE_   = "Invitation letter not found";
-            $_NOTIFICATION_CONTENT_ = "<p style='text-align:left !important;'>Thank you for your interest in participating in the inaugural Africa Protected Areas Congress. We regret to inform you that your invitation letter was not found.<br><b>This occurs when your payment has not yet been completed or your registration has not yet been approved.</b></p>";
+            $_NOTIFICATION_TITLE_   = $_Dictionary->translate('invitation-l-nf');
+            $_NOTIFICATION_CONTENT_ = $_Dictionary->translate('p-receipt-nf-details');
             break;
     endswitch;
 endif;
