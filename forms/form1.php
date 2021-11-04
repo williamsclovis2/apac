@@ -401,9 +401,11 @@ if($_HIDDEN_STATE['SECTION']['IDENTIFICATION'] != 'hidden'):
                                 </label>
                                 <div class="col-sm-12">
                                     <div class="row">
-                                        <label for="organisation-name" class="col-sm-3">   
+                                        <label for="organisation-name" class="col-sm-3 text-justify">   
                                             <b>Image file format:</b><br> <span>The image must be in the Joint Photographic Expert Group (JPEG) format with .jpg file extension</span> <br>
-                                            <b>Image size:</b><br> <span>The maximum image size will be 500kbM</span>
+                                            <b>Image size:</b><br> <span>The maximum image size will be 500kbM</span> <br>
+                                            <b>Head size and position:</b><br> <span>Full face must be visible in the photograph. Head must be straight, centered and looking straight at the camera. Color: Full color.
+                                                Background: <br> The photographs must have a white background.</span>
                                         </label>
                                         <div class="col-sm-9">
                                             <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>

@@ -1253,6 +1253,14 @@
 					},
 					{
 						"form-by-clicking-you-agree-terms-conditions2": {
+							"fr-lang": "En cliquant sur ce bouton, j'accepte de partager mon nom, mon titre et mon affiliation avec les sponsors de l'APAC et les autres délégués.",
+							"eng-lang": "By clicking this button, I consent to sharing my name, title and affiliation with APAC sponsors and fellow delegates.",
+							"ar-lang": "بالنقر فوق هذا الزر ، أختار إلغاء الاشتراك في مشاركة اسمي ولقبي وانتمائي مع رعاة APAC.",
+							"pt-lang": "Ao clicar neste botão, opto por não compartilhar meu nome, cargo e afiliação com os patrocinadores da APAC."
+						}
+					},
+					{
+						"form-by-clicking-you-agree-terms-conditions22": {
 							"fr-lang": "En cliquant sur ce bouton, je choisis de ne pas partager mon nom, mon titre et mon affiliation avec les sponsors de l'APAC et les autres délégués.",
 							"eng-lang": "By clicking this button, I choose to opt out of sharing my name, title and affiliation with APAC sponsors and fellow delegates.",
 							"ar-lang": "بالنقر فوق هذا الزر ، أختار إلغاء الاشتراك في مشاركة اسمي ولقبي وانتمائي مع رعاة APAC.",
@@ -1411,7 +1419,6 @@
 							"pt-lang": ""
 						}
 					},
-
 					{
 						"welcome-username": {
 							"fr-lang": "Bienvenu(e)",
@@ -1444,7 +1451,6 @@
 							"pt-lang": ""
 						}
 					},
-
 					{
 						"event_area": {
 							"fr-lang": "Espace événementiel",
@@ -1517,7 +1523,6 @@
 							"pt-lang": ""
 						}
 					},
-
 					{
 						"travel_and_acc": {
 							"fr-lang": "Voyage et hébergement",
@@ -1526,7 +1531,6 @@
 							"pt-lang": ""
 						}
 					},
-
 					{
 						"travel_and_acc_desc": {
 							"fr-lang": "L'UICN APAC s'est associée à TravelZuri, une agence de voyages basée au Rwanda, pour soutenir les délégués dans leurs besoins de voyage et d'hébergement. Un quota de chambres a été négocié pour les participants UICN APAC 2022 dans des hôtels du centre-ville et raisonnablement proches du lieu de la conférence. Les réservations se feront sur la base du « premier arrivé, premier servi ». Les quotas hôteliers sont valables jusqu'à un mois avant la conférence. Après cela, APAC ne peut garantir la disponibilité des chambres d'hôtel mais vous aidera à trouver un logement. Les frais d'hôtel négociés comprennent le petit-déjeuner et toutes les taxes applicables. Tous les frais d'hôtel sont payables directement aux hôtels.",
@@ -1535,7 +1539,6 @@
 							"pt-lang": ""
 						}
 					},
-					
 					{
 						"to_book": {
 							"fr-lang": "pour réserver votre hébergement pour votre séjour à Kigali. Les délégués qui souhaitent réserver leur voyage et leur hébergement par eux-mêmes sont libres de le faire, mais nous vous encourageons vivement à utiliser l'agent APAC de l'UICN pour profiter des tarifs négociés en tant que délégué APAC.",
@@ -1544,7 +1547,6 @@
 							"pt-lang": ""
 						}
 					},
-
 					{
 						"date-and-year-of-registration": {
 							"fr-lang": "Date et année d'inscription",
@@ -1553,17 +1555,6 @@
 							"pt-lang": ""
 						}
 					},
-
-
-
-
-
-
-
-
-
-
-
 					{
 						"": {
 							"fr-lang": "",

@@ -5,12 +5,13 @@ ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 
 # CONFIGURE HTTPS
-//$http = 'http'; # Local 
-$http = 'https'; # Live
-if(!isset($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] != "on"):
-    $http = 'https';
-    header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"], true, 301);
-    exit;
+$http = 'http'; # Local 
+if($_SERVER['HTTP_HOST'] != 'localhost' && $_SERVER['HTTP_HOST'] != '127.0.0.1'):
+    $http  = 'https';
+    if(!isset($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] != "on"):
+        header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"], true, 301);
+        exit;
+    endif;
 endif;
 
 
@@ -138,7 +139,7 @@ $progDay        = Input::get('day');
 $activeEventId  = 8;
 
 /** SCRIPT - AUTO EXPIRY - PRIVATE LINKS - */
-// FutureEventController::autoExpirationStatusEventPrivateInvitationLink($eventID);
+FutureEventController::autoExpirationStatusEventPrivateInvitationLink($eventID);
 
 /** Handle Language */
 $GLOBALS['_Lang']     = Session::exists('lang')?Session::get('lang'):'eng-lang';
