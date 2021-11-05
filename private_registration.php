@@ -120,6 +120,19 @@ $_DCOLOR_ = '#dedede!important';
 	    maxFileSize: 2500,
 	    showClose: false,
 	    showCaption: false,
+ <?php include 'forms/register-account.php';?>
+
+
+    <?php //include'views/partners.php';?>
+    
+    <?php include 'includes/footer.php';?>
+    <script src="<?php linkto('fileinput/js/fileinput.min.js'); ?>"></script>
+    <script>
+        $("#image").fileinput({
+        overwriteInitial: true,
+	    maxFileSize: 500,
+	    showClose: false,
+	    showCaption: false,
 	    browseLabel: '',
 	    removeLabel: '',
 	    browseIcon: '<i class="fa fa-folder-open"></i> Upload from computer',
@@ -127,62 +140,72 @@ $_DCOLOR_ = '#dedede!important';
 	    removeTitle: 'Cancel or reset changes',
 	    elErrorContainer: '#kv-avatar-errors-1',
 	    msgErrorClass: 'alert alert-block alert-danger',
-	    defaultPreviewContent: '<img src="<?=Config::get('server/name')?>img/photo_default.png" alt="Event banner" style="width:100%;">',
+	    defaultPreviewContent: '<img src="<?=DN?>/img/photo_default.png" alt="Event banner" style="width:100%;">',
 	    layoutTemplates: {main2: '{preview} {remove} {browse}'},								    
   		allowedFileExtensions: ["jpg", "png", "gif", "JPG", "PNG", "GIF"]
-	});
+	});  
     </script>
+
     <script src="<?php linkto('forms/register-form.js'); ?>"></script>
 
     <script src="<?php linkto('js/select2.min.js'); ?>"></script>
     <script src="<?php linkto('js/countries.js'); ?>"></script>
     <script src="<?php linkto('build/js/intlTelInput.js'); ?>"></script>
-    <script>
-        var input = document.querySelector("#telephone");
-        window.intlTelInput(input, {
-            autoPlaceholder: "off",
-            initialCountry: "rw",
-            separateDialCode: true,
-            utilsScript: "../build/js/utils.js",
+
+     <script>
+        var phone_number = window.intlTelInput(document.querySelector("#telephone"), {
+        autoPlaceholder: "off",
+        separateDialCode: true,
+        initialCountry: "rw",
+        hiddenInput: "full", 
+      utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
         });
     </script>
+
     <script>
-        var input = document.querySelector("#telephone_2");
-        window.intlTelInput(input, {
-            autoPlaceholder: "off",
-            initialCountry: "rw",
-            separateDialCode: true,
-            utilsScript: "../build/js/utils.js",
+        var phone_number_2 = window.intlTelInput(document.querySelector("#telephone_2"), {
+        autoPlaceholder: "off",
+        separateDialCode: true,
+        initialCountry: "rw",
+        hiddenInput: "full", 
+        utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
         });
     </script>
+
     <script>
-        var input = document.querySelector("#delegate-phone");
-        window.intlTelInput(input, {
-            autoPlaceholder: "off",
-            initialCountry: "rw",
-            separateDialCode: true,
-            utilsScript: "../build/js/utils.js",
+        var phone_number_emergency = window.intlTelInput(document.querySelector("#emergency_telephone"), {
+        autoPlaceholder: "off",
+        separateDialCode: true,
+        initialCountry: "rw",
+        hiddenInput: "full", 
+      utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
         });
     </script>
-    <script>
-        var input = document.querySelector("#line_one");
-        window.intlTelInput(input, {
-            autoPlaceholder: "off",
-            initialCountry: "rw",
-            separateDialCode: true,
-            utilsScript: "../build/js/utils.js",
-        });
-    </script>
-    <script>
-        var input = document.querySelector("#line_two");
-        window.intlTelInput(input, {
-            autoPlaceholder: "off",
-            initialCountry: "rw",
-            separateDialCode: true,
-            utilsScript: "../build/js/utils.js",
-        });
-    </script>
-    
-    
+
+   
+<script>
+  $(document).ready(function() {
+      $('.js-example-basic-multiple').select2();
+  })
+  </script>
+  
+<script>
+  $(document).ready(function() {
+      $('.js-example-basic').select2();
+  })
+  </script>
+  
+  <!-- loader  -->
+   <script >
+	 	$(".loader-btn").on("click" , function(){
+	 		$("#load").removeAttr("hidden");
+	 	});
+    	
+
+		/* ######### Loader ########## */
+        window.setTimeout(function(){
+            $("#load").attr("hidden", "");
+        }, 1000);
+	 </script>
 </body>
 </html>
