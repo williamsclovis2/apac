@@ -211,15 +211,15 @@ $_DCOLOR_ = '#dedede!important';
   
   <!-- loader  -->
    <script >
-	 	$(".loader-btn").on("click" , function(){
-	 		$("#load").removeAttr("hidden");
-	 	});
+//	 	$(".loader-btn").on("click" , function(){
+//	 		$("#load").removeAttr("hidden");
+//	 	});
     	
 
 		/* ######### Loader ########## */
-        window.setTimeout(function(){
-            $("#load").attr("hidden", "");
-        }, 1000);
+//        window.setTimeout(function(){
+//            $("#load").attr("hidden", "");
+//        }, 1000);
 	 </script>
 </body>
 </html>

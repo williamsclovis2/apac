@@ -97,10 +97,11 @@ $GLOBALS['config'] = array(
       'receipt' => "$http://{$_SERVER['HTTP_HOST']}/pdf/payment/receipt/",
         
 //		 'mail_smtp' => "$http://{$_SERVER['HTTP_HOST']}/thefuture/apac/mail_smtp", // Local
-		'mail_smtp' => "$http://localhost:80/thefuture/apac/mail_smtp", // Live
+//		'mail_smtp' => "http://localhost:80/thefuture/apac/mail_smtp", // Live
+        'mail_smtp' => "$http://{$_SERVER['HTTP_HOST']}/mail_smtp", // Live
 
 //		 'mail_smtp_noreply' => "$http://{$_SERVER['HTTP_HOST']}/thefuture/apac/mail_smtp_noreply", // Local
-'mail_smtp_noreply' => "$http://localhost:80/thefuture/apac/mail_smtp_noreply", // Live
+        'mail_smtp_noreply' => "http://localhost:80/thefuture/apac/mail_smtp_noreply", // Live
     ),
     'filepath' => array(
 		    // 'image' => $_SERVER['DOCUMENT_ROOT'].'/thefuture/apac/img/',  // Local

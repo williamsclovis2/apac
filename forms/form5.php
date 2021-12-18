@@ -257,7 +257,7 @@
                         </div>
                         <div class="form-group col-sm-12">
                             <div class="row">
-                               <label for="" class="col-sm-3"><?=$_Dictionary->translate('Company Location')?></label>
+                               <label for="" class="col-sm-3"><?=$_Dictionary->translate('Company Location')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
                                     <div class="row">
                                         <div class="col-sm-6">

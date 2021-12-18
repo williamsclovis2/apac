@@ -721,11 +721,11 @@ class EmailController
                           <tr>
                             <td'>
                               <table border='0' cellspacing='0' cellpadding='0'>
-                                <td class='h2' style='font-family: sans-serif;padding:0; color:#37af47;text-transform:uppercase;'><b>Stay connected</b</td>
+                                <td class='h2' style='font-family: sans-serif;padding:0; color:#37af47;text-transform:uppercase;'><b>Stay connected</b></td>
                               </table>
                               <span class='alignment'></span>
                               <table border='0' cellspacing='0' cellpadding='0'>
-                              <tr><td class='h2' style='font-family: sans-serif; padding:0;'><b>Facebook:</b> <a href='https://www.facebook.com/APACongress' target='_blank'>https://www.facebook.com/APACongress</a></td></tr>
+                                <tr><td class='h2' style='font-family: sans-serif; padding:0;'><b>Facebook:</b> <a href='https://www.facebook.com/APACongress' target='_blank'>@APACongress</a></td></tr>
                                 <tr><td class='h2' style='font-family: sans-serif; padding:0;'><b>Twitter:</b> <a href='https://twitter.com/APA_Congress?s=20' target='_blank'>@APA_Congress</a></td></tr>
                                 <tr><td class='h2' style='font-family: sans-serif;padding:0;'><b>Connect with our official tag: </b><a href='#'>#APAC2022 </a></td></tr>
                                 <tr><td class='h2' style='font-family: sans-serif;padding:15px 0;'>We look forward to meeting you in Kigali, Rwanda. </td></tr>

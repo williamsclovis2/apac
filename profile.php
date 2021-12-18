@@ -777,7 +777,7 @@ endif;
                                                                     <h3 class="card-sect-title"><?=$_Dictionary->translate('view-program')?></h3>
                                                                     <p class="text-justify"><?=$_Dictionary->translate('more-details')?><br> 
                                                                     <p>
-                                                                        <a style="color: #f47e20;" href="https://apacongress.africa/programme/" target='_blank'> <u><?=$_Dictionary->translate('click_here')?></u> </a><?=$_Dictionary->translate('congress-programme')?></span>
+                                                                        <a style="color: #f47e20;" href="https://apacongress.africa/programme/" target='_blank'> <u><?=$_Dictionary->translate('click_here')?></u> </a><?=$_Dictionary->translate('congress-programme')?> </span>
                                                                     </p>                                                                
                                                                 </div>
                                                             </div>
@@ -878,7 +878,33 @@ if($_participant_data_->payment_state == 'PAYABLE'):
                                             <!-- <hr> -->
                                         </div>
                                     </div>
+                                        
+<?php
+if($_PAYMENT_STATUS_ != 'COMPLETED'):                                        
+    ?>
+                                    <h3 class="card-sect-title"><?=$_Dictionary->words('change payment method')?></h3>
+                                    <div class="card mt-3">
+                                        <div class="card-body side-card">
+                                           
+                                            <div class="row">
+                                                <div class="col-sm-12 text-secondary">
+                                                    <p class="text-justify">If you want to change the payment method and / or go to the payment page, please click on the orange link below. <br> <br>
 
+                                                        <strong style="color: #f47e20;">Note: </strong> This action will ask the system to take into account the 
+                                                        new payment method selected and to ignore the previous one.<br> <br>  
+
+                                                        <span>
+                                                            <a style="color: #f47e20;" href="https://apacongress.torusguru.com/payment/<?=$_session_user_token_?>" target='_blank'> <u>Click here</u> </a> to change the payment method 
+                                                        </span>
+                                                    </p>  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+<?php
+endif;                                        
+    ?>
                                                                     
                                     <?php
                                     endif;

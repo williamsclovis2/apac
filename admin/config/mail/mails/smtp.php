@@ -30,16 +30,16 @@ $mail->isSMTP();
 // SMTP::DEBUG_SERVER = client and server messages
 // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 //Set the hostname of the mail server
-$mail->Host = 'a2plcpnl0428.prod.iad2.secureserver.net';
+$mail->Host = 'n3plcpnl0129.prod.ams3.secureserver.net';
 //Set the SMTP port number - likely to be 25, 465 or 587
 $mail->Port = 587;
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
-// $mail->SMTPSecure = "tls";
+// $mail->SMTPSecure = "";
 //Username to use for SMTP authentication
-$mail->Username = 'support@valwallet.com';
+$mail->Username = 'admin@torusguru.com';
 //Password to use for SMTP authentication
-$mail->Password = 'Val@Support';
+$mail->Password = 'EakSFV&qiwVP';
 //Set who the message is to be sent from
 $mail->setFrom('info@apacongress.torusguru.com', 'APAC Congress');
 //Set an alternative reply-to address

@@ -453,6 +453,36 @@ $('.registerFormSubmit').on('click', function () {
 			}
 		}
 	}
+    
+    
+    /** Validation For African Based - Organization Section -  */
+	if (eventParticiaptionCode_ == 'AFBR004' || eventParticiaptionCode_ == 'CBOR005') {
+		 if ($('#african_country').val().length === 0) {
+		 	ferror = ierror = true;
+		 	$('#organisation_country_error').text($('#african_country').attr('data-msg'));
+		 }
+	}
+
+	/** Validation For Non African Based - Organization Section -  */
+	else if (eventParticiaptionCode_ == 'NAFBR002') {
+		 if ($('#non_african_country').val().length === 0) {
+		 	ferror = ierror = true;
+		 	$('#organisation_country_error').text($('#non_african_country').attr('data-msg'));
+		 }
+	}
+    
+    /** Validation For Other - organization_country -  */
+	else {
+		 if ($('#organisation_country').val().length === 0) {
+		 	ferror = ierror = true;
+		 	$('#organisation_country_error').text($('#organisation_country').attr('data-msg'));
+		 }
+	}
+    
+    if ($('#organisation_city').val().length === 0) {
+		 	ferror = ierror = true;
+		 	$('#organisation_city_error').text($('#organisation_city').attr('data-msg'));
+		 }
 
 	var request_ = $("input[name='request'").val();
 
@@ -511,10 +541,21 @@ $('.registerFormSubmit').on('click', function () {
 		var full_telephone_3 = phone_number_emergency.getNumber(intlTelInputUtils.numberFormat.E164);
 		$("input[name='emergency_full_telephone'").val(full_telephone_3);
 	}
+    
+    
+    
 
+    /* ######### Loader ########## */
+    $("#load").removeAttr("hidden");
 	var str = "";
 	if (ferror) {
 		location.href = "#" + "registerForm";
+        
+        /* ######### Loader ########## */
+        window.setTimeout(function(){
+           $("#load").attr("hidden", "");
+        }, 1000);
+        
 		return false;
 	}
 	str = $('#registerForm').serialize();
@@ -547,6 +588,12 @@ $('.registerFormSubmit').on('click', function () {
 					processData: false,
 					contentType: false,
 					success: function (dataResponse) {
+                        
+                        /* ######### Loader ########## */
+                        window.setTimeout(function(){
+                           $("#load").attr("hidden", "");
+                        }, 1000);
+                        
 						var response = JSON.parse(dataResponse);
 						if (response.status == 100) {
 							window.location.href = $('.host').attr('link') + "/payment/" + response.authToken;
