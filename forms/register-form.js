@@ -456,7 +456,7 @@ $('.registerFormSubmit').on('click', function () {
     
     
     /** Validation For African Based - Organization Section -  */
-	if (eventParticiaptionCode_ == 'AFBR004' || eventParticiaptionCode_ == 'CBOR005') {
+	if (eventParticiaptionCode_ == 'AFBR001' || eventParticiaptionCode_ == 'CBOR005') {
 		 if ($('#african_country').val().length === 0) {
 		 	ferror = ierror = true;
 		 	$('#organisation_country_error').text($('#african_country').attr('data-msg'));
@@ -774,7 +774,7 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 	}
 
 	/** Validation For African Based - Organization Section -  */
-	if (eventParticiaptionCode == 'AFBR004') {
+	if (eventParticiaptionCode == 'AFBR001') {
 		// if ($('#african_country').val().length === 0) {
 		// 	ferror = ierror = true;
 		// 	$('#organisation_country_error').text("Please select country");
@@ -782,7 +782,7 @@ function resgistrationFormValidation(eventCode, eventParticiaptionCode) {
 	}
 
 	/** Validation For Non African Based - Organization Section -  */
-	if (eventParticiaptionCode == 'AFBR004') {
+	if (eventParticiaptionCode == 'AFBR001') {
 		// if ($('#non_african_country').val().length === 0) {
 		// 	ferror = ierror = true;
 		// 	$('#organisation_country_error').text("Please select country");

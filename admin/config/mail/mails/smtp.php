@@ -39,7 +39,7 @@ $mail->SMTPAuth = true;
 //Username to use for SMTP authentication
 $mail->Username = 'admin@torusguru.com';
 //Password to use for SMTP authentication
-$mail->Password = 'EakSFV&qiwVP';
+$mail->Password = ')=j~e1gMjZRG';
 //Set who the message is to be sent from
 $mail->setFrom('info@apacongress.torusguru.com', 'APAC Congress');
 //Set an alternative reply-to address

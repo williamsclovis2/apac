@@ -100,7 +100,7 @@
                                     <div class="row">
                                         <div class="col-sm-6 field-validate">
                                             <select class="form-control" name="job_category" id="job_category" onchange="Other(this,'#job_category1');" data-rule="required" data-msg="<?=$_Dictionary->words('Please select')?>" >
-                                                <?php $user->jobTitle($form->ERRORS,Input::get('job_category'),$categ);?>
+                                                <?php $user->jobTitle(@$form->ERRORS,Input::get('job_category'),$categ);?>
                                             </select>
                                             <div class="validate" id="job_category_error"></div>
                                         </div>
@@ -170,9 +170,9 @@
                         </div>
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="gender" class="col-sm-3"><?=$_Dictionary->translate('Category')?> <span></span></label>
+                                <label for="gender" class="col-sm-3"><?=$_Dictionary->translate('Category')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <select id="institute_category"  onchange="//validate(this)"  name="institute_category" class="form-control" data-rule="" data-msg="<?=$_Dictionary->words('Please select category')?>">
+                                    <select id="institute_category"  onchange="//validate(this)"  name="institute_category" class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please select category')?>">
                                         <option value="">[--<?=$_Dictionary->translate('Select')?>--]</option>
                                         <option value="High school student">High school student </option>
                                         <option value="Undergraduate">Undergraduate</option>
@@ -184,9 +184,9 @@
                         </div>
                         <div class="form-group col-sm-12">
                             <div class="row">
-                                <label for="website" class="col-sm-3"><?=$_Dictionary->translate('website')?></label>
+                                <label for="website" class="col-sm-3"><?=$_Dictionary->translate('website')?> <span>*</span></label>
                                 <div class="col-sm-9 field-validate">
-                                    <input class="form-control"  oninput="validate(this)"  name="institute_website" id="institute_website" type="text" placeholder="<?=$_Dictionary->words('Website')?>">
+                                    <input class="form-control"  oninput="validate(this)"  name="institute_website" id="institute_website" type="text" placeholder="<?=$_Dictionary->words('Website')?>" data-rule="required" data-msg="<?=$_Dictionary->words('Please enter website')?>">
                                     <div class="validate" id="institute_website_error"></div>
                                 </div>
                             </div>
@@ -197,7 +197,8 @@
                                 <div class="col-sm-9 field-validate">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <select id="organisation_country"  onchange="validate(this)"  name="institute_country" class="form-control" data-rule="required" data-msg="<?=$_Dictionary->words('Please select')?>" >
+                                            <select id="organisation_country"  onchange="validate(this)"  name="institute_country" class="form-control" 
+                                                    data-rule="required" data-msg="<?=$_Dictionary->words('Please select')?>" >
                                                 <option></option>
                                             </select>
                                             <div class="validate" id="organisation_country_error"></div>
